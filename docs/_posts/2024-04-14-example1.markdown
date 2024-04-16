@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "Example1"
+tags: examples
+---
+
+# Welcome
+
+https://jekyllrb.com/docs/posts/
+
+**Hello world**, this is my first Jekyll blog post.
+
+I hope you like it!
+<style>
+.caroussel img{
+    filter:grayscale(1.0);
+}
+</style>
+<div class="caroussel">
+<img src="{{ site.baseurl }}/assets/screenshot.png"/>
+</div>
+... which is shown in the screenshot below:
+![My helpful screenshot]({{ site.baseurl }}/assets/screenshot.png)
+and again with class:
+![image-title-here]({{ site.baseurl }}/assets/screenshot.png){:class="img-responsive"}
+
+# list of links
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+# posts by tags
+{% for tag in site.tags %}
+<h3>{{ tag[0] }}</h3>
+  <ul>
+    {% for post in tag[1] %}
+      <li><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+# list of blogposts with excerpt
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      {{ post.excerpt }}
+    </li>
+  {% endfor %}
+</ul>

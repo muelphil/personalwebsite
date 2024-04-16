@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Example3"
+categories: jekyll
+tags: examples
+excerpt_separator: <!--more-->
+---
+
+# Example 3
+
+whatever blah
+
+<!--more-->
+
+Test123 :))

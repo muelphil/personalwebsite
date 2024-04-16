@@ -1,0 +1,25 @@
+- Oskam
+- Smartclip
+- echse c++ ???
+- Nightvision Oskam
+- Colorpicker (vervollständigen)
+- Kompression Unplugged
+- Bits und Bytes Unplugged Aktivität
+- Satz des Pythagoras Heftchen
+- Roboter DDI Aspekte
+- Machine Learning Project
+- Zuul
+- Cosin / Sin mit Manim und lessons learnt
+- Mathe Signifikanztests
+- Interaktionskonzept
+- Extremwertprobleme Seminararbeit
+- Geogebra Animation? (Signifikanztests)
+
+- DB Straßenbahn APP
+
+# Tags
+- Mathe
+- Teaching
+- Computer Science
+- DIY
+- Software

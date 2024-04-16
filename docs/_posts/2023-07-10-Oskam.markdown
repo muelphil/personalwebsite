@@ -1,0 +1,68 @@
+---
+layout: post
+title:  "Oskam"
+date:   2023-07-10 16:31:42 +0200
+tags: ["diy", "computer science"]
+categories: jekyll update
+excerpt_separator: <!--more-->
+---
+
+
+(Idea)
+- oskar (ZTL-Camera(TM))
+- some photos of ideas
+
+## List of required items
+### Necessary Tools
+- Soldering Iron
+- Hot-Melt Gun
+- Phillips screwdriver
+- Micro SD Card adapter
+
+### Components
+- [Shutter Button](https://www.ebay.de/itm/174942207136) 2.46€
+- [Real Time Clock Module](https://www.ebay.de/itm/255283208544) 2.85€
+- [LIR2032 Li-Ion chargeable Button Cell](https://www.ebay.de/itm/195874467252) 1.85€
+- [128x64 OLED Display](https://www.ebay.de/itm/153900883604) 5.29€
+- [4 Button Keypad](https://www.ebay.de/itm/385523903918) 1.19€
+- [12-Bit LED Ring](https://www.ebay.de/itm/385406831630) 1.54€
+- [Jumper Cables](https://www.ebay.de/itm/175172776168) 3.66€
+- [Powerbank (used as battery)](https://www.amazon.de/gp/product/B09NLZRKZC) 12.99€
+- [Slide Switch](https://www.ebay.de/itm/126375893737) 2,90€
+- [Camera](https://www.amazon.de/gp/product/B07KSZW251) 8.99€
+- [Shrink Tubing](https://www.amazon.de/gp/product/B0BNPMXSS6) 5.99€
+- [Mini Thermal Receipt Printer (2752)](https://mou.sr/3KHBhwN) 42.25€ - DISCONTINUED
+  - [Alternative Alibaba Link](https://www.alibaba.com/product-detail/2inch-58mm-Mini-Embedded-Thermal-Panel_1600080776501.html)
+  - [Ebay](https://www.ebay.de/itm/164966249742)
+- [Tactile Button (474-COM-12992)](https://mou.sr/4ayTEQ5) 0.55€
+- [USB C Breakout Board](www.ebay.de/itm/355429997210) 6.99€ (Oskar paid for mine)
+- [Raspberry Pi Zero](https://www.berrybase.de/raspberry-pi-zero-w) 17.90€ 
+- [SD Card](www.ebay.de/itm/116141323859) 10.99€
+- [Thermal Printing Rolls](amazon.de/gp/product/B0C1YZC239) 9.99€
+- [PCB Spacer Standoff & Screws](https://www.ebay.de/itm/385427187853) 6.94€
+
+Note that some of these components have been bought on sale.
+Prices can vary greatly.
+You will also need to factor in the cost of printing the case, which I could do for free at my university.
+
+The total equals **145,32€** excluding the shipping costs and the cost of printing the case.
+
+## Case Design
+- software, 3d renders, result
+
+## Software
+- python
+- display
+- object oriented
+- all functions
+- installed pip modules and resources
+
+## Implemented Features
+### Preview + Camera Modes
+### Bluetooth Print
+### Prompts
+### Options
+### Night-Vision Link to implementation
+## Cable management
+image! and disclaimer rxtx
+## Result
