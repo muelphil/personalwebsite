@@ -2,9 +2,18 @@
 layout: post
 title:  "Oskam"
 date:   2023-07-10 16:31:42 +0200
-tags: ["diy", "computer science"]
+tags: ["DIY", "Computer Science"]
 categories: jekyll update
 excerpt_separator: <!--more-->
+carousels:
+  - images:
+      - image: /assets/images/Oskam/concept_1.png
+      - image: /assets/images/Oskam/concept_2.png
+      - image: /assets/images/Oskam/concept_3.png
+      - image: /assets/images/Oskam/concept_4.png
+      - image: /assets/images/Oskam/concept_5.png
+      - image: /assets/images/Oskam/concept_6.png
+      - image: /assets/images/Oskam/concept_7.png
 ---
 
 
@@ -20,35 +29,46 @@ excerpt_separator: <!--more-->
 - Micro SD Card adapter
 
 ### Components
-- [Shutter Button](https://www.ebay.de/itm/174942207136) 2.46€
-- [Real Time Clock Module](https://www.ebay.de/itm/255283208544) 2.85€
-- [LIR2032 Li-Ion chargeable Button Cell](https://www.ebay.de/itm/195874467252) 1.85€
-- [128x64 OLED Display](https://www.ebay.de/itm/153900883604) 5.29€
-- [4 Button Keypad](https://www.ebay.de/itm/385523903918) 1.19€
-- [12-Bit LED Ring](https://www.ebay.de/itm/385406831630) 1.54€
-- [Jumper Cables](https://www.ebay.de/itm/175172776168) 3.66€
-- [Powerbank (used as battery)](https://www.amazon.de/gp/product/B09NLZRKZC) 12.99€
-- [Slide Switch](https://www.ebay.de/itm/126375893737) 2,90€
-- [Camera](https://www.amazon.de/gp/product/B07KSZW251) 8.99€
-- [Shrink Tubing](https://www.amazon.de/gp/product/B0BNPMXSS6) 5.99€
-- [Mini Thermal Receipt Printer (2752)](https://mou.sr/3KHBhwN) 42.25€ - DISCONTINUED
-  - [Alternative Alibaba Link](https://www.alibaba.com/product-detail/2inch-58mm-Mini-Embedded-Thermal-Panel_1600080776501.html)
-  - [Ebay](https://www.ebay.de/itm/164966249742)
-- [Tactile Button (474-COM-12992)](https://mou.sr/4ayTEQ5) 0.55€
-- [USB C Breakout Board](www.ebay.de/itm/355429997210) 6.99€ (Oskar paid for mine)
-- [Raspberry Pi Zero](https://www.berrybase.de/raspberry-pi-zero-w) 17.90€ 
-- [SD Card](www.ebay.de/itm/116141323859) 10.99€
-- [Thermal Printing Rolls](amazon.de/gp/product/B0C1YZC239) 9.99€
-- [PCB Spacer Standoff & Screws](https://www.ebay.de/itm/385427187853) 6.94€
+<style>
+table th, table td {
+    padding: 2px 10px;
+}
+</style>
 
-Note that some of these components have been bought on sale.
-Prices can vary greatly.
-You will also need to factor in the cost of printing the case, which I could do for free at my university.
+| Component                                                                     |                          Price |
+|-------------------------------------------------------------------------------|-------------------------------:|
+| [Shutter Button](https://www.ebay.de/itm/174942207136)                        |                          2.46€ |
+| [Real Time Clock Module](https://www.ebay.de/itm/255283208544)                |                          2.85€ |
+| [LIR2032 Li-Ion chargeable Button Cell](https://www.ebay.de/itm/195874467252) |                          1.85€ |
+| [128x64 OLED Display](https://www.ebay.de/itm/153900883604)                   |                          5.29€ |
+| [4 Button Keypad](https://www.ebay.de/itm/385523903918)                       |                          1.19€ |
+| [12-Bit LED Ring](https://www.ebay.de/itm/385406831630)                       |                          1.54€ |
+| [Jumper Cables](https://www.ebay.de/itm/175172776168)                         |                          3.66€ |
+| [Powerbank (used as battery)](https://www.amazon.de/gp/product/B09NLZRKZC)    |                         12.99€ |
+| [Slide Switch](https://www.ebay.de/itm/126375893737)                          |                          2,90€ |
+| [Camera Module](https://www.amazon.de/gp/product/B07KSZW251)                  |                          8.99€ |
+| [Shrink Tubing](https://www.amazon.de/gp/product/B0BNPMXSS6)                  |                          5.99€ |
+| [Mini Thermal Receipt Printer (2752)](https://mou.sr/3KHBhwN)                 |          42.25€ - DISCONTINUED |
+| [Tactile Button (474-COM-12992)](https://mou.sr/4ayTEQ5)                      |                          0.55€ |
+| [USB C Breakout Board](www.ebay.de/itm/355429997210)                          | 6.99€ (Oskar paid for mine 💜) |
+| [Raspberry Pi Zero](https://www.berrybase.de/raspberry-pi-zero-w)             |                         17.90€ |
+| [SD Card](https://www.ebay.de/itm/116141323859)                               |                         10.99€ |
+| [Thermal Printing Rolls](amazon.de/gp/product/B0C1YZC239)                     |                          9.99€ |
+| [PCB Spacer Standoff & Screws](https://www.ebay.de/itm/385427187853)          |                          6.94€ |
+|                                                                               |                    **145.32€** |
 
-The total equals **145,32€** excluding the shipping costs and the cost of printing the case.
+The Thermal Printer has been discontinued, but there are some alternative sites to get them from, for example [Alternative Alibaba Link](https://www.alibaba.com/product-detail/2inch-58mm-Mini-Embedded-Thermal-Panel_1600080776501.html) or [Ebay](https://www.ebay.de/itm/164966249742)
+
+Please note that some of these components were purchased on sale, so prices can vary significantly. Additionally, you'll need to consider the cost of printing the case, which I can do for free at my university.
+
+The total comes to **145.32€** excluding shipping costs and the expense of printing the case.
+
+
 
 ## Case Design
 - software, 3d renders, result
+
+{% include carousel.html height="35" unit="vh" number="1" ui-color="black" description="Lorem ipsum" %}
 
 ## Software
 - python

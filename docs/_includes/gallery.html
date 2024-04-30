@@ -1,0 +1,22 @@
+{% assign number = include.number | minus: 1 %}
+<figure class="image image-gallery-container {%- if include.wide -%}{{' wide'}}{%- endif -%}">
+    <div class="gallery">
+        {% for item in page.carousels[number].images %}
+        <div class="img-container">
+            <img src="{{ item.image | relative_url }}"/>
+        </div>
+        {% endfor %}
+    </div>
+    <figcaption>{{ include.description }}</figcaption>
+</figure>
+<!-- https://codepen.io/sarus/pen/PJGPmy -->
+<!-- https://stackoverflow.com/questions/53309750/jekyll-get-width-height-of-an-image-without-using-an-external-plugin -->
+<style>
+    figure.image .gallery {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+</style>
+

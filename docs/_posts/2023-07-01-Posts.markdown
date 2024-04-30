@@ -7,6 +7,7 @@
 - Bits und Bytes Unplugged Aktivität
 - Satz des Pythagoras Heftchen
 - Roboter DDI Aspekte
+- Electron Clipboard
 - Machine Learning Project
 - Zuul
 - Cosin / Sin mit Manim und lessons learnt
@@ -16,6 +17,8 @@
 - Geogebra Animation? (Signifikanztests)
 
 - DB Straßenbahn APP
+- PayBack Aktivierungs-Extension
+- uni aud übungs pdfs
 
 # Tags
 - Mathe

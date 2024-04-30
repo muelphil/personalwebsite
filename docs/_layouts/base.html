@@ -1,20 +1,150 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
 
-  {%- include head.html -%}
+{%- include head.html -%}
 
-  <body>
+<body>
 
-    {%- include header.html -%}
+{%- include header.html -%}
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
+<main class="page-content" aria-label="Content">
+    <div class="wrapper">
         {{ content }}
-      </div>
-    </main>
+    </div>
+</main>
 
-    {%- include footer.html -%}
+{%- include footer.html -%}
 
-  </body>
+</body>
+
+<script>
+    // this checks whether system dark mode is set
+    let systemInitiatedDark = window.matchMedia("(prefers-color-scheme: dark)");
+    console.log(systemInitiatedDark)
+    // this checks for session storage telling to override
+    // the system preferences
+    let theme = sessionStorage.getItem('theme');
+
+    if (systemInitiatedDark.matches) {
+        document.getElementById("theme-toggle").innerHTML = "Light Mode";
+    } else {
+        document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+    }
+
+    function prefersColorTest(systemInitiatedDark) {
+        console.log('listener got triggered!')
+        if (systemInitiatedDark.matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById("theme-toggle").innerHTML = "Light Mode";
+            // this clears the session storage
+            sessionStorage.setItem('theme', '');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+            sessionStorage.setItem('theme', '');
+        }
+    }
+
+    systemInitiatedDark.addListener(prefersColorTest);
+
+    function modeSwitcher() {
+        console.log('switching mode');
+        // it’s important to check for overrides again
+        let theme = sessionStorage.getItem('theme');
+        console.log('current theme:', theme)
+        // checks if reader selected dark mode
+        if (theme === "dark") {
+            document.documentElement.setAttribute('data-theme', 'light');
+            sessionStorage.setItem('theme', 'light');
+            document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+            // checks if reader selected light mode
+        } else if (theme === "light") {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            sessionStorage.setItem('theme', 'dark');
+            document.getElementById("theme-toggle").innerHTML = "Light Mode";
+            // checks if system set dark mode
+        } else if (systemInitiatedDark.matches) {
+            document.documentElement.setAttribute('data-theme', 'light');
+            sessionStorage.setItem('theme', 'light');
+            document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+            // the only option left is system set light mode
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            sessionStorage.setItem('theme', 'dark');
+            document.getElementById("theme-toggle").innerHTML = "Light Mode";
+        }
+        // prefersColorTest()
+    }
+
+    if (theme === "dark") {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        sessionStorage.setItem('theme', 'dark');
+        document.getElementById("theme-toggle").innerHTML = "Light Mode";
+    } else if (theme === "light") {
+        document.documentElement.setAttribute('data-theme', 'light');
+        sessionStorage.setItem('theme', 'light');
+        document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+    }
+</script>
+
+
+<script>
+    window.onload = function(){
+        console.log('loaded!')
+        const imageGalleries = Array.from(document.querySelectorAll('.image-gallery-container'));
+        imageGalleries.forEach(gallery => {
+            const images = Array.from(gallery.querySelectorAll('img'));
+            images.forEach(img => {
+                console.log(img);
+                const aspectRatio = img.width / img.height;
+                img.parentElement.style.flex = aspectRatio;
+            })
+        })
+    }
+</script>
+
+<script>
+    window.enlarge = function (event) {
+        const src = event.target.getAttribute('data-enlargable');
+        const newDiv = document.createElement("div");
+        const newImg = document.createElement("img");
+        newImg.src = src;
+        newImg.style.objectFit = 'contain';
+        newDiv.append(newImg)
+        const style = {
+            backgroundColor: 'RGBA(0,0,0,.5)',
+            // background: 'RGBA(0,0,0,.5) url('+src+') no-repeat center',
+            // backgroundSize: 'contain',
+            display: 'flex',
+            width: '100%', height: '100%',
+            position: 'fixed',
+            zIndex: '10000',
+            top: '0', left: '0',
+            cursor: 'zoom-out',
+            justifyContent: 'center'
+        };
+
+        Object.keys(style).forEach(key => newDiv.style[key] = style[key]);
+
+        function end() {
+            newDiv.remove();
+            const body = document.querySelector('body');
+            body.style.overflow = 'initial';
+            body.removeEventListener('keydown', onEscape);
+        }
+
+        function onEscape(event) {
+            if (event.key === "Escape") {
+                end()
+            }
+        }
+
+        const body = document.querySelector('body');
+        body.addEventListener('keydown', onEscape)
+        body.style.overflow = 'hidden';
+        newDiv.onclick = end;
+        document.querySelector('body').append(newDiv);
+    }
+</script>
 
 </html>
