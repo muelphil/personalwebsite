@@ -223,3 +223,72 @@ img[data-enlargable] {
   width: 1px;
   word-wrap: normal !important;
 }
+
+
+.post-header:has(.post-header-title-image) {
+  @media (min-width: 1024px) {
+    margin-left: -90px;
+    margin-right: -90px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 32px;
+    align-items: center;
+
+    .post-header-title-image {
+      min-width: 50%;
+      height: 100%;
+
+      figcaption {
+        display: none;
+      }
+
+      img {
+        height: 90%;
+        object-fit: cover;
+        min-height: 400px;
+      }
+    }
+  }
+}
+
+
+.post-content aside {
+  display: none;
+  @media (min-width: 1024px) {
+    display: initial;
+    border-right: 1px solid grey;
+    padding-right: 16px;
+    margin-right: 32px;
+    width: 200px;
+    position: absolute;
+    //left:0;
+    transform: translateX(calc(-100% - 32px));
+  }
+}
+
+.recent-posts {
+  display: grid;
+  gap: 16px;
+
+  li {
+    border:1px solid grey;
+  }
+
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    margin-left: -90px;
+    margin-right: -90px;
+  }
+}
+
+.post-preview {
+  img.post-title-image{
+    max-height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center ;
+  }
+}

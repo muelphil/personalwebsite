@@ -11,6 +11,6 @@
 
 layout: filtered_posts
 permalink: /posts/computer_science
-tagName: 'computer science'
+tagName: 'Computer Science'
 title: 'Filtered By Computer Science'
 ---

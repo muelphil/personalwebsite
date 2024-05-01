@@ -1,10 +1,16 @@
 ---
 layout: post
 title:  "Example1"
-tags: examples test computer science
+tags: ["Computer Science", "Math"]
 ---
 
 # Welcome
+
+{% highlight ruby %}
+def foo
+puts 'foo'
+end
+{% endhighlight %} 
 
 https://jekyllrb.com/docs/posts/
 
