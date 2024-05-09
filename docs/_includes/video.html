@@ -1,0 +1,12 @@
+<!--<figure class="image {%- if include.wide -%}{{' wide'}}{%- endif -%}">-->
+<!--    <img src="{{ include.url | relative_url}}" alt="{{ include.description }}" data-enlargable="{{ include.url | relative_url }}" onclick="window.enlarge(event)">-->
+<!--    {%- if include.description -%}<figcaption>{{ include.description }}</figcaption>{%- endif -%}-->
+<!--</figure>-->
+
+<figure style="width: 80%;margin: auto;" class="image">
+    <video style="width:100%" {% if include.autoplay %} autoplay{% endif %} {% if include.muted %}muted{% endif %} {% if include.loop %}loop{% endif %} {% if include.controls %} controls{% endif %}>
+        <source src="{{ include.url | relative_url}}" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+    {%- if include.description -%}<figcaption>{{ include.description }}</figcaption>{%- endif -%}
+</figure>

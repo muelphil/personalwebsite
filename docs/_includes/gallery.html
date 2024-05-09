@@ -3,7 +3,7 @@
     <div class="gallery">
         {% for item in page.carousels[number].images %}
         <div class="img-container">
-            <img src="{{ item.image | relative_url }}"/>
+            <img src="{{ item.image | relative_url }}" data-enlargable="{{ item.image | relative_url }}" onclick="window.enlarge(event)"/>
         </div>
         {% endfor %}
     </div>

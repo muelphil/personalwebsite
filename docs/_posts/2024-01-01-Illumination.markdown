@@ -83,16 +83,21 @@ def illuminate(image_data, color_restoration=None):
     Parameters
     ----------
     image : array
-        The image that is to be illuminated, given as array with shape (width, height, 3) for an rgb image and (width, height) for an greyscale image. The image data should be in the range of [0, 255].
+        The image that is to be illuminated, given as array with shape (width, height, 3)
+        for an rgb image and (width, height) for an greyscale image. The image data should
+        be in the range of [0, 255].
     color_restoration : None | 'linear'| 'hls', optional
-        Whether the color should be restored after illumination and what method to use, only applicable for rgb input images
+        Whether the color should be restored after illumination and what method to use,
+        only applicable for rgb input images
     Returns
     -------
     array
-        The illuminated image values. The output depends on the type of image (rgb or greyscale) and color_restoration.
+        The illuminated image values. The output depends on the type of image (rgb or
+        greyscale) and color_restoration.
     """
     if color_restoration not in [None, 'linear', 'hls']:
-        raise Exception("The provided color restoration method not supported, supported color restoration methods: [None, 'linear', 'hls']")
+        raise Exception("The provided color restoration method not supported, supported
+        color restoration methods: [None, 'linear', 'hls']")
     
     image_data = image_data.astype(np.uint8)
     is_greyscale = len(image_data.shape) == 2
@@ -150,7 +155,9 @@ def illuminate(image_data, color_restoration=None):
         for i in range(height): # for every pixel:
             for j in range(width):
                 if not isinf(alpha[i][j]):
-                    new_image_data[i][j] = tuple(map(lambda x: int(np.clip(x, 0, 255)), adjust_lighting(new_image_data[i][j], S_IEf[i][j])))
+                    new_image_data[i][j] = tuple(map(
+                         lambda x: int(np.clip(x, 0, 255)), adjust_lighting(new_image_data[i][j], S_IEf[i][j])
+                    ))
     return new_image_data
 ```
 
@@ -164,7 +171,7 @@ In search of methods to showcase the outcomes of implementing this solution impl
 
 I ultimately opted for the DARK FACE dataset. Below, you'll find some results depicting image illumination. The first row displays the original image, the second row exhibits the illuminated grayscale image, the third row uses linear scaling for color restoration and the final row showcases the color restoration achieved using HSL manipulation.
 
-{% include image.html url="/assets/images/Illumination/Illumination-result.png" description="Illuminated images from the DARK FACE dataset" wide="true" %}
+{% include image.html url="/assets/images/Illumination/Illumination-result.png" description="Illuminated images from the DARK FACE dataset, by row: (1) original images, (2) greyscale illumination (3) linear color restoration (4) hsl color restoration" wide="true" %}
 
 As evident from the results, the solution proposed by Mu, Q., Wang, X., Wei, Y. et al. yields remarkable outcomes.
 
@@ -192,7 +199,8 @@ from illumination_using_wgif import illuminate
 image = Image.open("./<YOUR_IMAGE_HERE>")
 
 rgb_image_data = np.reshape(image.getdata(), (image.size[1], image.size[0], 3))
-greyscale_image_data = np.reshape(image.convert('L').getdata(), (image.size[1], image.size[0]))
+greyscale_image_data = np.reshape(image.convert('L').getdata(),
+    (image.size[1], image.size[0]))
 
 # greyscale
 illuminated_greyscale_data = illuminate(rgb_image_data)

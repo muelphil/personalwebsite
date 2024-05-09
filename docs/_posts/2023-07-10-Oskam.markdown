@@ -5,9 +5,9 @@ date:   2023-07-10 16:31:42 +0200
 tags: ["DIY", "Computer Science"]
 categories: jekyll update
 excerpt_separator: <!--more-->
-abstract: 'Algorithms to illuminate low light images are necessary to improve the visibility and quality of images captured in low light conditions, where details may be obscured by darkness or noise. By applying sophisticated algorithms, these techniques help reveal important features and information crucial for various applications such as surveillance, photography, and medical imaging.'
-title-image: '/assets/images/Illumination/Illumination-title-image.png'
-title-image-caption: 'Example of illumination of a low light image'
+abstract: "In this post, I go into the thrilling journey of constructing my very own thermal printing camera from scratch, drawing inspiration from a dear friend's innovative pursuits. With a mix of creativity and tech skills, I put together electronic components and write my own software to bring my vision to life. Along the journey, I also play around with changes, tweaking the camera to make it even better and more my own."
+title-image: '/assets/images/Oskam/title_image.png'
+title-image-caption: 'The Oskam'
 carousels:
   - images:
       - image: /assets/images/Oskam/concept_1.png
@@ -17,14 +17,27 @@ carousels:
       - image: /assets/images/Oskam/concept_5.png
       - image: /assets/images/Oskam/concept_6.png
       - image: /assets/images/Oskam/concept_7.png
+  - images:
+      - image: /assets/images/Oskam/verkabelung_0.jpeg
+      - image: /assets/images/Oskam/verkabelung_1.jpeg
+      - image: /assets/images/Oskam/verkabelung_2.jpeg
 ---
 
 
-(Idea)
-- oskar (ZTL-Camera(TM))
-- some photos of ideas
+If I'd ever strand on a lonely Island and I had the freedom to bring one person along with the intention of maximizing my chances of getting away from it, it probably would be my dear friend Oskar. Like a chaotic scientist he has the talent of putting together all kinds of components he has lying around to build the most miraculous devices, blinking rgb glasses, theme party props, hoverboards (with dangerously many battery cells) and I wouldn't be one bit surprised if he would build a satellite dish out of coconuts and sticks to send a emergency signal from the little island are stranded on.
+
+In March 2023 he presented his newest invention: a camera with a self designed and printed case that featured a thermal printer. 
+
+{% include image.html url="/assets/images/Oskam/ZTL_Kamera.jpg" description="Oskar's ZTL camera" %}
+
+Without a viewfinder it was always an experience when you'd wait in anticipation for the picture slowly being printed out, accompanied by the rattling sound of the thermal printer, giving it the vibe of a polaroid camera. Ripping the picture off like you would rip off a receipt also feels extremely satisfying.
+
+Oskars inventiveness inspired me and I finally found a project that would give me a reason to pick up soldering electronic parts together. From the very start it was obvious that this was a rather large and also expensive project, but I generally am much more motivated when at the end of the process there is more than just the learning experience, but also something you can use in your daily life and show off.
 
 ## List of required items
+
+In the following I provide a list of tools and components that were necessary to build this project. I personally did not buy it a batch, as I realized with many components only later on that I even need them. This was also a big reason why this project took me 3 months to complete.
+
 ### Necessary Tools
 - Soldering Iron
 - Hot-Melt Gun
@@ -53,7 +66,7 @@ table th, table td {
 | [Shrink Tubing](https://www.amazon.de/gp/product/B0BNPMXSS6)                  |                          5.99€ |
 | [Mini Thermal Receipt Printer (2752)](https://mou.sr/3KHBhwN)                 |          42.25€ - DISCONTINUED |
 | [Tactile Button (474-COM-12992)](https://mou.sr/4ayTEQ5)                      |                          0.55€ |
-| [USB C Breakout Board](www.ebay.de/itm/355429997210)                          | 6.99€ (Oskar paid for mine 💜) |
+| [USB C Breakout Board](https://www.ebay.de/itm/355429997210)                  | 6.99€ (Oskar paid for mine 💜) |
 | [Raspberry Pi Zero](https://www.berrybase.de/raspberry-pi-zero-w)             |                         17.90€ |
 | [SD Card](https://www.ebay.de/itm/116141323859)                               |                         10.99€ |
 | [Thermal Printing Rolls](amazon.de/gp/product/B0C1YZC239)                     |                          9.99€ |
@@ -62,30 +75,175 @@ table th, table td {
 
 The Thermal Printer has been discontinued, but there are some alternative sites to get them from, for example [Alternative Alibaba Link](https://www.alibaba.com/product-detail/2inch-58mm-Mini-Embedded-Thermal-Panel_1600080776501.html) or [Ebay](https://www.ebay.de/itm/164966249742)
 
-Please note that some of these components were purchased on sale, so prices can vary significantly. Additionally, you'll need to consider the cost of printing the case, which I can do for free at my university.
+Please note that some of these components were purchased on sale, so prices can vary significantly. Additionally, you'll need to consider the cost of printing the case, which I could do for free at my university.
 
 The total comes to **145.32€** excluding shipping costs and the expense of printing the case.
 
-
-
 ## Case Design
-- software, 3d renders, result
+Designing the case was one of the most challenging tasks. It required fitting all the components in as little as possible volume, while 
+still making it maintainable. It needed to have a handy size, so you could hold it and press the shutter with just one hand. Another challenge was scaling the standoffs, that I would put the components on, even more so given the fact that 3d printers come with a certain tolerenance when printing. As someone who has never constructed complex 3D models this was intimidating.
 
-{% include carousel.html height="35" unit="vh" number="1" ui-color="black" description="Lorem ipsum" %}
+First I was scouting possible case designs on Pinterest and the likes, looking for old polaroid cameras. Then I drew some sketches, That would help me when constructing the case:
+
+{% include carousel.html height="35" unit="vh" number="1" ui-color="black" description="Concepts for the case of the Oskam inspired by old polaroid cameras" %}
+
+I first though about using Blender, as I already had some experience with it. But designing the case using blender had the major downside, that it would bake all changes into the model, making it very hard to change the design later on.
+
+As I was already prepared to go through multiple design iterations, I instead decided to go for a parametric 3D modeling and computer-aided design (CAD) software. It's particularly useful for engineering and mechanical design work, offering precise modeling tools and parametric capabilities that allow users to define and modify designs with great accuracy. I could have used Fusion360, which is provided for the duration of my studies by my university, but decided against it, as starting from zero it seemed more beneficial to learn a software I could use even after my studies are finished. I opted for [FreeCAD](https://www.freecad.org/?lang=de), an open-source parametric 3D modeling software designed for engineering and mechanical design tasks.
+
+The design consisted of 3 different parts:
+
+{% include video.html url="/assets/images/Oskam/Gehaeuse_v2.webm" description="the case, housing standoffs and holes for all the main parts as well as docking points for the other parts of the case" autoplay="true" loop="true" muted="true" %}
+
+{% include video.html url="/assets/images/Oskam/Deckel_v2.webm" description="the lid, featuring holes for the display and the button, aswell as the screws for securing it to the case and colored icons for the button" autoplay="true" loop="true" muted="true" %}
+
+{% include video.html url="/assets/images/Oskam/Objektiv.webm" description="the objective lens (which is not real but rather for design purposes), housing the camera, as well as a 12 RGB LED ring, that is used as flashlight" autoplay="true" loop="true" muted="true" %}
+
+[//]: # (* **the case**, housing standoffs and holes for all the main parts as well as docking points for the other parts of the case)
+
+[//]: # (* **the lid**, featuring holes for the display and the button, aswell as the screws for securing it to the case and colored icons for the button)
+
+[//]: # (* **the objective lens** &#40;which is not real but rather for design purposes&#41;, housing the camera, as well as a 12 RGB LED ring, that is used as flashlight )
+
+In total it took me 3 tries to finally get the case to both fit the parts and to get it down to a handy size. The case (without the objective lens) has the measurements 10.2cm x 9.7cm x 4.9cm (whd). After coloring the buttons with acrylic paint, I used varnish from a spray bottle to seal it against dirt.
 
 ## Software
-- python
-- display
-- object oriented
-- all functions
-- installed pip modules and resources
 
-## Implemented Features
-### Preview + Camera Modes
-### Bluetooth Print
-### Prompts
-### Options
-### Night-Vision Link to implementation
+To code on the camera I used [MobaXterm](https://mobaxterm.mobatek.net/), that features comfortable SSH access, easy file transfer and a gui editor with automatic file save.
+
+A very important part for me was including a small display and a few buttons, as this would allow me to provide a way for users to tweak settings as well as using the camera for other features. The display could also be used to show the user a preview of the image they are taking, effectively working as a viewfinder. Obviously seeing the image before it gets printed takes away some of the fun, which is why I opted for a tiny [128x64 OLED Display](https://www.ebay.de/itm/153900883604). This allowed for basic navigation and features, but is not too distracting or energy consuming.
+
+I used object-oriented programming for the logic of the screens, that get put on a stack when entering, yielding hierarchical navigation pattern:
+
+```python 
+class ScreenInterface:
+  """ Push another screen on top """
+  push = None
+  """ Pop the current screen """
+  pop = None
+
+  def __init__(self, push, pop):
+      self.push = push
+      self.pop = pop
+
+  def print_screen(self) -> void:
+    """Print the screen onto the display (display variable is
+    available globally)"""
+    pass
+
+  def update(self, key: str) -> void:
+    """ Update the screen depending on the pressed key """
+    pass
+    
+  def release(self) -> str:
+    """ Perform cleanup of used resources before the screen is
+    destroyed """
+    pass
+    
+  def pause(self):
+    """ Called when another screen is put ontop, so that
+    resources usage can temporarily be paused """
+    pass
+  
+  def resume(self):
+    """ Called after a screen that was on top is released, so
+    that resources usage can resumed """
+    pass
+```
+In the following picture you can see all the different screens
+
+{% include image.html url="/assets/images/Oskam/screens.png" description="Screens of the Oskam" %}
+
+In all of the states this shutter button will take an image. The images are also saved digitally. The camera takes quite some time to boot, which is why I often powered it on and left it, so that I would be able to make snapshots. Unfortunately this caused the camera to print several all black pictures when I did this during a bike tour at the baltic sea, keeping it in my backpack. To counteract this I implemented a lock state. Going back from the main menu first powers off the display, pressing back again locks the camera. In this state the camera can only be turned on again by pressing the enter and the shutter button simultaneously.
+
+## Camera Preview
+This shows a small preview of the camera with relatively low framerate. Using the [picamera2 API](https://github.com/raspberrypi/picamera2/blob/main/picamera2/picamera2.py) this required me to implement a custom preview, that would run in another thread, handling incoming image data. As there was barley any documentation on how to do this, this was rather complicated. The preview images are not preprocessed, so if there is low contrast in the image, there will be barely anything visible on the screen. However, to find the right boundaries for the image it proved sufficient.
+
+The camera also features different modes, that again aren't hardcoded but can be provided as classes that implement an `process_picture(self, image)` function and have a description property. Currently there are 3 modes besides the default mode:
+
+- **2x2**: Take 4 pictures before the camera prints a 2x2 collage of the images, perfect for taking photos with your friends
+- **pixelated**: prints the picture as seen on the OLED screen - heavily pixalated
+- **two face**: take 2 photos, the camera takes the upper half of one photo and the lower half of the other and fuses them together
+
+{% include image.html url="/assets/images/Oskam/modes.png" description="Images produced by the different camera modes" wide="true" %}
+
+## Camera Settings
+Thought the Camera Preview you can also access the camera settings, most of which are used even when taking images outside of the preview mode. As with the settings these are provided as a JSON object, so that settings are easily extensible.
+
+{% assign illumination_post = site.posts | where_exp:"post","post.title contains 'Illumination'" | first %}
+
+- **Use Flashlight**: On, off, and colored flashlight - I barely ever use this option
+- **Use Nightmode**: Whether to use the [image postprocessing as described in another blog post]({{ illumination_post.url | relative_url }}), basically always in use
+- **Print Images**: Whether to print images after being taken, as sometimes you don't need the printed version. Also useful for testing!
+- **Print Date/ Time**: Whether to print date and time onto the image - funny enough I implemented this before realizing I would need a Real Time Clock module for this 😅
+- **Printing Size**: Printing in sizes L, M and S, where L is default (approx. 4.8cm x 6.5cm without the white border) and S is just a small preview used for testing
+- **Timer**: Timer that can be set to 6 and 10 seconds. After pressing the shutter button the LED ring around the lens is used as a loading indicator
+- **Feed Paper after Printing**: Whether to feed paper after a picture is printed. Can be turned off to print multiple pictures next to each other without padding.
+- **Feed Paper**: For manually feeding paper after printing
+- **Save taken Pictures**: Whether to save digital copy of the taken picture
+
+ 
+{% include video.html url="/assets/images/Oskam/timer.mp4" description="A 6 second timer running, using the LED ring as indicator" autoplay="false" loop="false" muted="true" controls="true" %}
+
+
+
+## Gallery and Image Context Menu
+Used for showing taken pictures with their date and time and printing them again. They can be printed both "normally" or with the [Illumination postprocessing]({{ illumination_post.url | relative_url }}) enabled. Pictures can also be sent via Bluetooth, although this sometimes is buggy. It is also possible to delete pictures.
+
+
+## Bluetooth
+Speaking of bluetooth, what would a good computer science project be without some bluetooth (the 2000s called). However, it is not only possible to receive taken pictures via bluetooth on your smartphone; you can also print pictures from your smartphone using the Oskam. The bluetooth handler is running in a separate thread and gets killed when the Bluetooth screen is closed. It is also possible to send commands to the Oskam (for example by using [Serial Bluetooth Terminal app](https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal&hl=de&gl=US) from the Play Store). I implemented this so that I would be able to set a title using bluetooth and printed images would get the title printed beneath them, like "vacation to the lagune". I never ended up using this though. Maybe there are other applications?
+
+## Prompts
+On a nice bar evening I played [Vertellis](vertellis.de), a card game featuring questions to get to know each other better, together with friends. I realized how fun and intimate talks can be and how often I was thinking about interesting questions to ask people, never when being with people though. I started noting down the questions I came up with in a WhatsApp chat and later transfered them into a JSON file. As I spent so much time with some people, the ~160 questions weren't enough anymore I added questions from different websites into the mix. I called these questions prompts and put them in different categories, based on the group you are playing with.
+
+I implemented the Prompt screen to print out a random prompt out of the selected categories. The rules are mostly up to you. If you don't like the question, just print another.
+
+The response to them has been rather mixed. Some people love them, some friendships broke over them. I can say I got to know people on a whole different level and now know a lot of funny and interesting stories and details about them.
+
+
+{% include image.html url="/assets/images/Oskam/prompts.png" description="Some random Prompts" wide="true" %}
+
+## Settings
+As with the camera settings this screen is produced based on a provided JSON object, allowing for easy extensibility. It features the following settings:
+- **Display Contrast**: Dim or Bright display contrast
+- **Start with Display off**: Whether to start the camera with display off
+- **Toggle Torch**: Toggle the LED ring lights, using it as a torch
+- **Toggle Rainbow**: Toggle the LED ring lights, going through all the color hues, using it as an ambient light. This requires another thread to run.
+- **Archive Photos**: Archives taken pictures, moving them to another folder, so they wont be visible in the gallery anymore. Initially implemented because I thought I would just leave all the pictures on the camera, but I ended up just deleting them on the Oskam after backing them up
+- **Reset Title**: Deleting the title that can be set using the Bluetooth screen
+- **Only my Prompts**: Whether to use Prompts from all sources or only those that I came up with
+- **Wifi**: Turns on the Wifi, that is normally turned off to save time when starting up
+- **Shutdown now**: Shuts down the Raspberry Pi Zero board. This still requires using the slide switch to turn off the power supply, as the printer is powered separately.
+
+## Notes
+
+I used suggestions from [a post on Raspberry Pi Geek](https://www.raspberry-pi-geek.de/ausgaben/rpg/2020/06/die-boot-zeit-von-raspbian-optimieren/) to optimize the boot time. Doing this I turned of Wifi and Bluetooth by default.
+
+Unfortunately, there once was a bug in my implementation and the camera would start up the Python script, making it impossible to turn on the Wifi using the settings. After having to solve this by taking out the SD card (which in my case was pretty complicated, as many things are glued together) I implemented error handling that turns on Wifi if an error occurs.
+
+I also needed to reset my router due to an issue with my provider once, and the camera wouldn't automatically connect to the Wifi in my apartment anymore. For these cases I also saved access to my phone hotspot, which came in quite handy often.
+
+I tried three different kinds of thermal paper rolls. The best ones so far [are from Amazon](https://www.amazon.de/gp/aw/d/B0C1YZC239?psc=1&ref=ppx_pop_mob_b_asin_title). They feature a high quality, have a glossy finish and are more resistant to stain from the sunlight than others that I've used.
+
+You can find a list of the installed PIP modules with their version [here (`pip list`)]({{'/assets/images/Oskam/pip_list.txt' | relative_url }}) 
+
 ## Cable management
-image! and disclaimer rxtx
+
+{% include image.html url="/assets/images/Oskam/verkabelung_compressed.png" description="Cable Management Plan" wide="true" %}
+
+### Notes
+- Please note that the Universal asynchronous receiver-transmitter (UART) protocol requires the RX pin of one device to be connected to the TX cable on the other device and vice versa. As someone who has no clue about the protocols used by the electronic components, it took way too much time to realize this—once again Oskar came to the rescue.
+- I didn't solder the USB C Breakout Board, so that the power bank, that the Oskam uses as a battery, can still be used as a power bank in emergency situations.
+- Due to the limited space I stripped the powerbank of its case. Be careful when doing this as batteries can explode when there is force applied to them. It also turned out that the power bank only turns on when either a device is physically connected or when a button on the power bank is pressed. Because of this, I needed to add another button to the Oskam that needs to be pressed after using the slide switch to deliver power.
+- connecting 2 I2C components proved a little annoying. Feel free to reach out to me if you are having trouble with this.
+
+## Pictures from Inside
+
+{% include carousel.html height="35" unit="vh" number="2" ui-color="black" %}
+
 ## Result
+
+{% include video.html url="/assets/images/Oskam/frauenkirche_print_0.mp4" description="Printing in progress ... sound on! :)" controls="true" %}
+
+{% include image.html url="/assets/images/Oskam/frauenkirche_print_1.jpeg" description="The Oskam with the printed image of the Dresnder Frauenkirche" wide="false" %}

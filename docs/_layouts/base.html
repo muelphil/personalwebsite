@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+<html lang="{{ page.lang | default: site.lang | default: " en" }}" data-theme="dark">
 
 {%- include head.html -%}
 
@@ -26,21 +26,21 @@
     let theme = sessionStorage.getItem('theme');
 
     if (systemInitiatedDark.matches) {
-        document.getElementById("theme-toggle").innerHTML = "Light Mode";
+        document.getElementById("theme-toggle").classList.remove('dark-mode');
     } else {
-        document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+        document.getElementById("theme-toggle").classList.add('dark-mode');
     }
 
     function prefersColorTest(systemInitiatedDark) {
         console.log('listener got triggered!')
         if (systemInitiatedDark.matches) {
             document.documentElement.setAttribute('data-theme', 'dark');
-            document.getElementById("theme-toggle").innerHTML = "Light Mode";
+            document.getElementById("theme-toggle").classList.add('dark-mode');
             // this clears the session storage
             sessionStorage.setItem('theme', '');
         } else {
             document.documentElement.setAttribute('data-theme', 'light');
-            document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+            document.getElementById("theme-toggle").classList.remove('dark-mode');
             sessionStorage.setItem('theme', '');
         }
     }
@@ -56,22 +56,26 @@
         if (theme === "dark") {
             document.documentElement.setAttribute('data-theme', 'light');
             sessionStorage.setItem('theme', 'light');
-            document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+            console.log(document.getElementById("theme-toggle"));
+            document.getElementById("theme-toggle").classList.remove('dark-mode');
             // checks if reader selected light mode
         } else if (theme === "light") {
             document.documentElement.setAttribute('data-theme', 'dark');
             sessionStorage.setItem('theme', 'dark');
-            document.getElementById("theme-toggle").innerHTML = "Light Mode";
+            console.log(document.getElementById("theme-toggle"));
+            document.getElementById("theme-toggle").classList.add('dark-mode');
             // checks if system set dark mode
         } else if (systemInitiatedDark.matches) {
             document.documentElement.setAttribute('data-theme', 'light');
             sessionStorage.setItem('theme', 'light');
-            document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+            console.log(document.getElementById("theme-toggle"));
+            document.getElementById("theme-toggle").classList.remove('dark-mode');
             // the only option left is system set light mode
         } else {
             document.documentElement.setAttribute('data-theme', 'dark');
             sessionStorage.setItem('theme', 'dark');
-            document.getElementById("theme-toggle").innerHTML = "Light Mode";
+            console.log(document.getElementById("theme-toggle"));
+            document.getElementById("theme-toggle").classList.add('dark-mode');
         }
         // prefersColorTest()
     }
@@ -79,11 +83,11 @@
     if (theme === "dark") {
         document.documentElement.setAttribute('data-theme', 'dark');
         sessionStorage.setItem('theme', 'dark');
-        document.getElementById("theme-toggle").innerHTML = "Light Mode";
+        document.getElementById("theme-toggle").classList.add('dark-mode');
     } else if (theme === "light") {
         document.documentElement.setAttribute('data-theme', 'light');
         sessionStorage.setItem('theme', 'light');
-        document.getElementById("theme-toggle").innerHTML = "Dark Mode";
+        document.getElementById("theme-toggle").classList.remove('dark-mode');
     }
 </script>
 

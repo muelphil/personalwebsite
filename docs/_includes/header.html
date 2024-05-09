@@ -4,9 +4,18 @@
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+<!--    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>-->
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">P_M</a>
 
-    <a id="theme-toggle" onclick="modeSwitcher()" style="padding:0 10px; user-select: none; cursor: pointer;">test</a>
+
+
+    <div style="flex: 1 1 auto;"></div>
+    <a id="theme-toggle" onclick="modeSwitcher()" class="dark-mode-toggle">
+      <div class="dark-mode-icon"></div>
+    </a>
+<!--    <a id="theme-toggle" onclick="modeSwitcher()" style="padding:0 10px; user-select: none; cursor: pointer;">test</a>-->
+
+
 
     {%- if titles_size > 0 -%}
       <nav class="site-nav">
@@ -21,6 +30,7 @@
 
 
         <div class="trigger">
+
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}

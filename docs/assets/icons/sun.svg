@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-32,-32)">
+        <g>
+            <g transform="matrix(1.22835,0,0,1.89674,-24.4413,-89.3911)">
+                <g transform="matrix(0.814099,-0,-0,0.527222,45.9488,64)">
+                    <use xlink:href="#_Image1" x="0" y="0" width="32px" height="32px"/>
+                </g>
+            </g>
+            <clipPath id="_clip2">
+                <circle cx="48" cy="48" r="8.386"/>
+            </clipPath>
+            <g clip-path="url(#_clip2)">
+                <rect x="32" y="32" width="32" height="32" style="fill:url(#_Radial3);"/>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <image id="_Image1" width="32px" height="32px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAC3UlEQVRYhe1XTU9TQRQ9d97Mq7hrWbnwA5MWIi3gQxPFjQvYGIwS/D/4a4wx1WpcuHkLVmIiVGypgZIIaqIr2p3lvRnnuqDGhs4DecgKzm4y5557Zm5m5g5wDJjNYMFsBgvH0aDUyT9OXAT4a1fmkhxf/ZZGR6Y1wJ1fAz3DgUTiSRnArk0deqAB83nSh+F5xHZJFle3EyMjyz0jTuQBMGsTl+GLKUgqy6srundO9LN5HpF9wru2qpdKQaKq5i3EtoHYNqB5K5G2VAp4135AZJ/A8Pz++X4DkX3LkW0jtllENtThNacJNbtuWHOJNZfU7LpxJg+vBYhsiNhmObJtRPbdfo7zFOi3xQAxh9CchbEtGC6o+xs7Sat0arweHoSkJqTIQVEbPk2rqbXqfl7/DgBQU2tVaJ6Gti0YzsHwhaMkBwAYvgDDOWjbgmZn8n9aha4UikcO/BNfKRT16+Fc2vgznA4QAOiVsYvo2AFEdu+G07ylHmw4z3Za6FfDEoqGkBGEjAAGREdN1r6R+XR9gX/+eoyORdcAoLnBxpb8R5sHXrH/iricJ5KiDkWjyAh0DYDOe48FGIfc5CeEbt69Eiw7SvDwP5fgpaMEN2qpeogznCLoSmEwLudTP0ZxOV/UlcLgQRzncwwA+s1IAI+a8KiexkRczhfhUR0eNfWbkcTOymlAL44GkBRCUo48apFH349qgDz6QR61ICkHSaFeHHWa6DOgl8euQFEIKbKQ1IakGTXXbLmC42d5ip/lnV2VmmvuQNLMnobIQlGol8cuH2qAfHEbvsjCpzZ8Ma3urTs7mfhFQUJSHZLq8YuCs71X99ar8MV0VytLvri9n9MfmBFlApiBJXWn9sUlDACkaAiM0b0BhgBsOk3cbVT1+7GAMuIWMuL5oQbkcFUDeJqU+K+y6N36A7946mZtG8C2ay79zyiTeICOhPQGzolOz6iTyDtJmNXxBbM6fqzv+W+zLS7BVKIikgAAAABJRU5ErkJggg=="/>
+        <radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-4.52447,-13.6529,13.6529,-4.52447,50.5068,56)"><stop offset="0" style="stop-color:rgb(250,159,34);stop-opacity:1"/><stop offset="0.54" style="stop-color:rgb(250,173,38);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(252,222,51);stop-opacity:1"/></radialGradient>
+    </defs>
+</svg>
