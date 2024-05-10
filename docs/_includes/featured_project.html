@@ -1,0 +1,29 @@
+<header class="featured-project{% if include.image-left %} image-left{% endif %}">
+    {%- if include.post.title-image -%}
+    <div class="post-header-title-image">
+        {% include image.html url=include.post.title-image description=include.post.title-image-caption %}
+    </div>
+    {%- endif -%}
+    <div class="post-header-info">
+        <h2 class="post-title p-name" itemprop="name headline">{{ include.post.title | escape }}</h2>
+
+        {%- if include.post.short-abstract -%}
+        <div class="post-abstract">
+            {{ include.post.short-abstract }}
+        </div>
+        {%- endif -%}
+
+        <div class="post-tags">
+            {% for tag in page.tags %}
+            <a class="post-tag" href="{{site.baseurl}}/posts/{{tag | replace:' ', '_'}}">{{tag}}</a>
+            {% endfor %}
+        </div>
+<!--        <button>Read more...</button>-->
+
+
+        <div style="margin-top: 18px;"><a class="button" href="{{include.post.url | relative_url }}">read more...</a></div>
+    </div>
+
+</header>
+
+

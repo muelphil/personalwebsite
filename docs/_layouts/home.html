@@ -8,11 +8,18 @@ layout: base
 
     <div class="header">
         <div class="introduction">
-            Hi I'm <b>Philip</b>!
+            hi, I'm <b>philip</b>!
             <div class="subline">I'm a dedicated computer scientist passionate about web development and machine
                 learning, committed to imparting knowledge through teaching
             </div>
-            <div class="subline">[Insta Mail Github LinkedIn]</div>
+
+            <ul style="list-style-type: none; display: flex; flex-direction: row; gap: 16px; justify-content: center; margin:0;">
+                {%- for entry in site.minima.social_links -%}
+                    {%- include social-item.html item = entry -%}
+                {%- endfor -%}
+            </ul>
+
+
         </div>
     </div>
 
@@ -28,83 +35,51 @@ layout: base
     <!--]-->
 
 
-    <h1>Featured Projects</h1>
-
-    <h2>Smartclip</h2>
-    Smartclip Info
+    <h1 class="home-section-header">Featured Projects</h1>
 
 
-    <a href="{{ smartclip_post.url | relative_url }}">
-        {{ smartclip_post.title | escape }} read more
-    </a>
+    {% include featured_project.html post=smartclip_post image-left="true" %}
+    {% include featured_project.html post=oskam_post image-left="true" %}
 
-    <h2>Oskam</h2>
-    Oskam Info
-
-
-    <a href="{{ oskam_post.url | relative_url }}">
-        {{ oskam_post.title | escape }} read more
-    </a>
-
-    <h1 style="text-align: center">Recent Posts</h1>
+    <h1 class="home-section-header">Recent Posts</h1>
     <ul class="post-list recent-posts">
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {% for post in site.posts limit:3 %}
         <li class="post-preview">
-            {%- if site.title-image -%}
-            <img class="post-title-image" src="{{post.title-image | relative_url}}"/>
-            {% else %}
-<!--            TODO placeholder image -->
-            <img class="post-title-image" src="{{'/assets/placeholder.jpeg' | relative_url}}" style="-webkit-filter: hue-rotate({{forloop.index | times: 120}}deg)"/>
-<!--            <div style="width: 100%; height:200px; background-color: green;"></div>-->
-            {%- endif -%}
-            <div class="post-meta">
-                <div class="post-tags">
-                    {% for tag in post.tags %}
-                    <a class="post-tag" href="{{site.baseurl}}/posts/{{tag | replace:' ', '_'}}">{{tag}}</a>
-                    {% endfor %}
+                {%- if post.title-image -%}
+                <img class="post-title-image" src="{{post.title-image | relative_url}}"/>
+                {% else %}
+                <img class="post-title-image" src="{{'/assets/placeholder.jpeg' | relative_url}}" style="-webkit-filter: hue-rotate({{forloop.index | times: 120}}deg)"/>
+                {%- endif -%}
+
+            <div style="">
+                <div class="post-meta">
+<!--                    <div class="post-tags">-->
+<!--                        {% for tag in post.tags %}-->
+<!--                        <a class="post-tag" href="{{site.baseurl}}/posts/{{tag | replace:' ', '_'}}">{{tag}}</a>-->
+<!--                        {% endfor %}-->
+<!--                    </div>-->
+                    <span class="post-meta">{{ post.date | date: date_format }}</span>
                 </div>
-                <span class="post-meta">{{ post.date | date: date_format }}</span>
+
+                <h3 class="title">{{ post.title | escape }}</h3>
+
+                <div class="abstract">
+                    This post lacks an abstract - please fix that Philip!!!
+                    <!--                    {%- if post.abstract -%}-->
+                    <!--                    <div>{{ post.abstract }}</div>-->
+                    <!--                    {% else %}-->
+<!--                    {%- endif -%}-->
+                </div>
+
+
+                <div style="margin-top: 18px;"><a class="button" href="{{ post.url | relative_url }}">read more ...</a></div>
             </div>
 
-            <h3>
-                <a class="post-link" href="{{ post.url | relative_url }}">
-                    {{ post.title | escape }}
-                </a>
-            </h3>
-
-
-            {%- if site.title-image -%}
-            <div>{{ post.abstract }}</div>
-            {% else %}
-            This post lacks an abstract - please fix that Philip!!!
-            {%- endif -%}
-
-            <a>Read more ...</a>
         </li>
         {%- endfor -%}
     </ul>
-    <a href="{{ site.baseurl }}/posts/">See all</a>
-
-    <h1>Browse Posts by categories</h1>
-
-
-    <h1>Lebenslauf</h1>
-
-    <h1>Spotify</h1>
-    <h1>Insta</h1>
-
-    <h1>TODOS</h1>
-    <ul>
-        <li>Code Highlighting</li>
-        <li>Read More (hidden)</li>
-        <li>Scientific references</li>
-        <li>TODO AUTHOR Algorithms to illuminate low light images are necessary to improve</li>
-
-        <li>https://nswamy14.gitbook.io/i2djs-v5</li>
-        <li>https://codepen.io/zimjs/pen/jOMZjOy</li>
-        <li>    -webkit-filter: sepia(90%) hue-rotate(240deg);</li>
-    </ul>
+    <a href="{{ site.baseurl }}/posts/" class="button" style="width: 100px;margin:auto; display: block">see all</a>
 </div>
 
 <style>

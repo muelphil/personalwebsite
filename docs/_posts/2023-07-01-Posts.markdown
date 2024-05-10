@@ -14,6 +14,9 @@
 - Mathe Signifikanztests
 - Interaktionskonzept
 - Extremwertprobleme Seminararbeit
+- Oskam snippets
+  - Datum auf Bilder drucken
+  - Bluetooth Linux-Kommandos
 - Geogebra Animation? (Signifikanztests)
 
 - DB Straßenbahn APP

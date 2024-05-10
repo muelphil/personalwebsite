@@ -5,7 +5,8 @@ date:   2023-07-10 16:31:42 +0200
 tags: ["DIY", "Computer Science"]
 categories: jekyll update
 excerpt_separator: <!--more-->
-abstract: "In this post, I go into the thrilling journey of constructing my very own thermal printing camera from scratch, drawing inspiration from a dear friend's innovative pursuits. With a mix of creativity and tech skills, I put together electronic components and write my own software to bring my vision to life. Along the journey, I also play around with changes, tweaking the camera to make it even better and more my own."
+abstract: "In this post, I go into the journey of constructing my very own thermal printing camera from scratch, drawing inspiration from a dear friend's innovative pursuits. I put together electronic components and write my own software to bring my vision to life. Along the journey, I also play around with changes, tweaking the camera to make it even better and more my own."
+short-abstract: "The Oskam is a DIY fully custom thermal printing camera I designed and build that has a lot of additional features built into it."
 title-image: '/assets/images/Oskam/title_image.png'
 title-image-caption: 'The Oskam'
 carousels:
@@ -24,15 +25,16 @@ carousels:
 ---
 
 
-If I'd ever strand on a lonely Island and I had the freedom to bring one person along with the intention of maximizing my chances of getting away from it, it probably would be my dear friend Oskar. Like a chaotic scientist he has the talent of putting together all kinds of components he has lying around to build the most miraculous devices, blinking rgb glasses, theme party props, hoverboards (with dangerously many battery cells) and I wouldn't be one bit surprised if he would build a satellite dish out of coconuts and sticks to send a emergency signal from the little island are stranded on.
+If I'd ever strand on a lonely Island and I had the freedom to bring one person along with the intention of maximizing my chances of getting away from it, it probably would be my dear friend Oskar. Like a chaotic scientist, he has the talent of putting together all kinds of components he has lying around to build the most miraculous devices, blinking rgb glasses, theme party props, hoverboards (with dangerously many battery cells) and I wouldn't be one bit surprised if he would build a satellite dish out of coconuts and sticks to send a emergency signal from the little island we are stranded on.
 
-In March 2023 he presented his newest invention: a camera with a self designed and printed case that featured a thermal printer. 
+In March 2023 he presented his newest invention: a camera with a self-designed and printed case that featured a thermal printer. 
 
 {% include image.html url="/assets/images/Oskam/ZTL_Kamera.jpg" description="Oskar's ZTL camera" %}
 
-Without a viewfinder it was always an experience when you'd wait in anticipation for the picture slowly being printed out, accompanied by the rattling sound of the thermal printer, giving it the vibe of a polaroid camera. Ripping the picture off like you would rip off a receipt also feels extremely satisfying.
+Without a viewfinder, it was always an experience when you'd wait in anticipation for the picture slowly being printed out, accompanied by the rattling sound of the thermal printer, giving it the vibe of a polaroid camera. Ripping the picture off like you would rip off a receipt also feels extremely satisfying.
 
-Oskars inventiveness inspired me and I finally found a project that would give me a reason to pick up soldering electronic parts together. From the very start it was obvious that this was a rather large and also expensive project, but I generally am much more motivated when at the end of the process there is more than just the learning experience, but also something you can use in your daily life and show off.
+Oskars' inventiveness inspired me, and I finally found a project that would give me a reason to pick up soldering electronic parts together. From the very start, it was obvious that this was a rather large and also expensive project, but I generally am much more motivated when at the end of the process there is more than just the learning experience,
+but also something you can use in your daily life and show off.
 
 ## List of required items
 
@@ -87,23 +89,17 @@ First I was scouting possible case designs on Pinterest and the likes, looking f
 
 {% include carousel.html height="35" unit="vh" number="1" ui-color="black" description="Concepts for the case of the Oskam inspired by old polaroid cameras" %}
 
-I first though about using Blender, as I already had some experience with it. But designing the case using blender had the major downside, that it would bake all changes into the model, making it very hard to change the design later on.
+I first though about using Blender, as I already had some experience with it. But designing the case using blender had the major downside, that it would bake all changes into the model, making it tough to change the design later on.
 
 As I was already prepared to go through multiple design iterations, I instead decided to go for a parametric 3D modeling and computer-aided design (CAD) software. It's particularly useful for engineering and mechanical design work, offering precise modeling tools and parametric capabilities that allow users to define and modify designs with great accuracy. I could have used Fusion360, which is provided for the duration of my studies by my university, but decided against it, as starting from zero it seemed more beneficial to learn a software I could use even after my studies are finished. I opted for [FreeCAD](https://www.freecad.org/?lang=de), an open-source parametric 3D modeling software designed for engineering and mechanical design tasks.
 
 The design consisted of 3 different parts:
 
-{% include video.html url="/assets/images/Oskam/Gehaeuse_v2.webm" description="the case, housing standoffs and holes for all the main parts as well as docking points for the other parts of the case" autoplay="true" loop="true" muted="true" %}
+{% include video.html url="/assets/images/Oskam/Gehaeuse_v2.webm" description="The case, housing standoffs and holes for all the main parts as well as docking points for the other parts of the case" autoplay="true" loop="true" muted="true" %}
 
-{% include video.html url="/assets/images/Oskam/Deckel_v2.webm" description="the lid, featuring holes for the display and the button, aswell as the screws for securing it to the case and colored icons for the button" autoplay="true" loop="true" muted="true" %}
+{% include video.html url="/assets/images/Oskam/Deckel_v2.webm" description="The lid, featuring holes for the display and the button, aswell as the screws for securing it to the case and colored icons for the button" autoplay="true" loop="true" muted="true" %}
 
-{% include video.html url="/assets/images/Oskam/Objektiv.webm" description="the objective lens (which is not real but rather for design purposes), housing the camera, as well as a 12 RGB LED ring, that is used as flashlight" autoplay="true" loop="true" muted="true" %}
-
-[//]: # (* **the case**, housing standoffs and holes for all the main parts as well as docking points for the other parts of the case)
-
-[//]: # (* **the lid**, featuring holes for the display and the button, aswell as the screws for securing it to the case and colored icons for the button)
-
-[//]: # (* **the objective lens** &#40;which is not real but rather for design purposes&#41;, housing the camera, as well as a 12 RGB LED ring, that is used as flashlight )
+{% include video.html url="/assets/images/Oskam/Objektiv.webm" description="The objective lens (which is not real but rather for design purposes), housing the camera, as well as a 12 RGB LED ring, that is used as flashlight" autoplay="true" loop="true" muted="true" %}
 
 In total it took me 3 tries to finally get the case to both fit the parts and to get it down to a handy size. The case (without the objective lens) has the measurements 10.2cm x 9.7cm x 4.9cm (whd). After coloring the buttons with acrylic paint, I used varnish from a spray bottle to seal it against dirt.
 
@@ -111,7 +107,7 @@ In total it took me 3 tries to finally get the case to both fit the parts and to
 
 To code on the camera I used [MobaXterm](https://mobaxterm.mobatek.net/), that features comfortable SSH access, easy file transfer and a gui editor with automatic file save.
 
-A very important part for me was including a small display and a few buttons, as this would allow me to provide a way for users to tweak settings as well as using the camera for other features. The display could also be used to show the user a preview of the image they are taking, effectively working as a viewfinder. Obviously seeing the image before it gets printed takes away some of the fun, which is why I opted for a tiny [128x64 OLED Display](https://www.ebay.de/itm/153900883604). This allowed for basic navigation and features, but is not too distracting or energy consuming.
+A very important part for me was including a small display and a few buttons, as this would allow me to provide a way for users to tweak settings as well as using the camera for other features. The display could also be used to show the user a preview of the image they are taking, effectively working as a viewfinder. Seeing the image before it gets printed takes away some of the fun, which is why I opted for a tiny [128x64 OLED Display](https://www.ebay.de/itm/153900883604). This allowed for basic navigation and features, but is not too distracting or energy consuming.
 
 I used object-oriented programming for the logic of the screens, that get put on a stack when entering, yielding hierarchical navigation pattern:
 
@@ -154,12 +150,12 @@ In the following picture you can see all the different screens
 
 {% include image.html url="/assets/images/Oskam/screens.png" description="Screens of the Oskam" %}
 
-In all of the states this shutter button will take an image. The images are also saved digitally. The camera takes quite some time to boot, which is why I often powered it on and left it, so that I would be able to make snapshots. Unfortunately this caused the camera to print several all black pictures when I did this during a bike tour at the baltic sea, keeping it in my backpack. To counteract this I implemented a lock state. Going back from the main menu first powers off the display, pressing back again locks the camera. In this state the camera can only be turned on again by pressing the enter and the shutter button simultaneously.
+In all of the states this shutter button will take an image. The images are also saved digitally. The camera takes quite some time to boot, which is why I often powered it on and left it, so that I would be able to make snapshots. Unfortunately, this caused the camera to print several all black pictures when I did this during a bike tour at the baltic sea, keeping it in my backpack. To counteract this, I implemented a lock state. Going back from the main menu first powers off the display, pressing back again locks the camera. In this state, the camera can only be turned on again by pressing the enter and the shutter button simultaneously.
 
 ## Camera Preview
 This shows a small preview of the camera with relatively low framerate. Using the [picamera2 API](https://github.com/raspberrypi/picamera2/blob/main/picamera2/picamera2.py) this required me to implement a custom preview, that would run in another thread, handling incoming image data. As there was barley any documentation on how to do this, this was rather complicated. The preview images are not preprocessed, so if there is low contrast in the image, there will be barely anything visible on the screen. However, to find the right boundaries for the image it proved sufficient.
 
-The camera also features different modes, that again aren't hardcoded but can be provided as classes that implement an `process_picture(self, image)` function and have a description property. Currently there are 3 modes besides the default mode:
+The camera also features different modes, that again aren't hardcoded but can be provided as classes that implement an `process_picture(self, image)` function and have a description property. Currently, there are three modes besides the default mode:
 
 - **2x2**: Take 4 pictures before the camera prints a 2x2 collage of the images, perfect for taking photos with your friends
 - **pixelated**: prints the picture as seen on the OLED screen - heavily pixalated
@@ -183,7 +179,7 @@ Thought the Camera Preview you can also access the camera settings, most of whic
 - **Save taken Pictures**: Whether to save digital copy of the taken picture
 
  
-{% include video.html url="/assets/images/Oskam/timer.mp4" description="A 6 second timer running, using the LED ring as indicator" autoplay="false" loop="false" muted="true" controls="true" %}
+{% include video.html url="/assets/images/Oskam/timer.mp4" description="A 6 second timer running, using the LED ring as indicator" autoplay="false" loop="false" muted="true" controls="true" narrow="true" %}
 
 
 
