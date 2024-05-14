@@ -1,0 +1,158 @@
+<div class="lava" id="lava">
+    <div class="center-blob"></div>
+    <div class="blob"> one statc blob </div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" filterRes="2000"/>
+            <feColorMatrix in="blur" values="1 0 0  0   0
+                                             0 1 0  0   0
+                                             0 0 1  0   0
+                                             0 0 0 20 -10" result="goo"/>
+        </filter>
+    </defs>
+</svg>
+
+
+<script>
+    const lava = document.querySelector('#lava');
+    let amountBlobs = 0;
+    console.log('lava=', lava);
+    console.log('lava.innerHTML=', lava.innerHTML);
+
+    const randomDegree = Math.round(Math.random() * 360)
+
+    const blobColors =
+        ['6', '7', '8', '9', 'a', 'b', 'c'].map(e => `#${e}${e}${e}${e}${e}${e}`);
+    //['linear-gradient(to bottom right, #6C22A6, #6962AD)', 'linear-gradient(to bottom right, #83C0C1, #96E9C6)'];
+    //['#6C22A6', '#6962AD', '#83C0C1', '#96E9C6']
+
+    function createNewBlob() {
+        if(amountBlobs>12){
+            return;
+        }
+        amountBlobs++;
+        const blob = document.createElement('div')
+        blob.classList.add('blob');
+
+
+        //blob.style.background = blobColors[Math.floor(Math.random() * blobColors.length)]
+        blob.style.animationDuration = 8 +(Math.round(Math.random() * 16)) + 's';
+        blob.style.filter = `hue-rotate(-${randomDegree}deg)`
+        const blobSize = (40 + Math.round(Math.random() * 100)) + 'px';
+        blob.style.width = blobSize;
+        blob.style.height = blobSize;
+        blob.style.left = 15 + Math.round(Math.random() * 55) + '%';
+        //blob.style.bottom = '-'+blobSize;
+        blob.addEventListener("animationend", (event) => {
+            console.log('animation ended!');
+            amountBlobs--;
+            event.target.remove()
+        });
+        lava.appendChild(blob);
+    }
+
+    setInterval(() => {
+        // spawn new blob;-
+        createNewBlob()
+        createNewBlob()
+        createNewBlob()
+    }, 2000)
+    createNewBlob()
+    createNewBlob()
+    createNewBlob()
+</script>
+
+<style>
+
+    .lava {
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        overflow: hidden;
+        filter: url("#goo");
+    }
+
+    .blob {
+        width: 40px;
+        height: 40px;
+        //background-color: red;
+        background-blend-mode: hard-light;
+
+        background: linear-gradient(
+                45deg,
+                rgba(46, 244, 205, 0) 30%,
+                rgba(198, 171, 203, 0) 60%,
+                rgba(246, 148, 203, 1) 100%
+        ),
+        radial-gradient(
+                ellipse at center,
+                rgba(76, 110, 207, 0) 27%,
+                rgba(76, 110, 207, 0.33) 51%,
+                rgba(89, 88, 179, 0.58) 69%,
+                rgba(89, 78, 183, 1) 100%
+        ),
+        linear-gradient(
+                80deg,
+                rgba(246, 148, 203, 0) 0%,
+                rgba(70, 232, 205, .1) 70%,
+                rgba(46, 244, 205, 1) 100%),
+        linear-gradient(
+                45deg,
+                rgba(46, 244, 205, 1) 0%,
+                rgba(76, 110, 207, 0.2) 50%,
+                rgba(76, 110, 207, 0) 60%
+        ),linear-gradient(
+                45deg,
+                #5463C0 0%,
+                #5463C0 100%
+        );
+        box-shadow: 0 15px 55px 20px rgba(0, 0, 0, .1);
+
+
+        position: absolute;
+        border-radius: 50%;
+        //clip-path: path('M 0 200 L 0,75 A 5,5 0,0,1 150,75 L 200 200 z');
+        //clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        //opacity: 0.7;
+        //mix-blend-mode: color-burn;
+        animation: blob-movement ease-in-out 11s;
+    / /, saturate-hue-rotate 5 s infinite;
+    }
+
+    .center-blob {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        background-color: var(--background-color-secondary);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    @keyframes blob-movement {
+        /*0%,*/
+        /*100% {*/
+        /*    transform: translatey(0);*/
+        /*}*/
+        /*50% {*/
+        /*    transform: translatey(-65vh);*/
+        /*}*/
+
+
+        0%{
+            bottom: 0;
+            transform: translatey(100%);
+        }
+        100%{
+            bottom: 100%;
+            transform: translatey(-100%);
+        }
+    }
+
+</style>

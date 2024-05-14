@@ -47,7 +47,7 @@ layout: base
        </div>
         {%- if page.title-image -%}
         <div class="post-header-title-image">
-            {% include image.html url=page.title-image description=page.title-image-caption %}
+            <img src="{{page.title-image | relative_url}}"/>
         </div>
         {%- endif -%}
 
@@ -69,6 +69,8 @@ layout: base
     <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 
     <div style="height:1px; width:80%; margin: 32px auto; background-color: grey;"></div>
+    <div style="text-align: center">Enjoyed reading this post? Share it or read some more :)</div>
+
 
 <!--    https://guypursey.com/blog/202104171135-next-previous-nav-links-jekyll-blog -->
     <div class="post-nav">

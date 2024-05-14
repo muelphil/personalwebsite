@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "Illumination using WGIF"
+title:  "Image Illumination using WGIF"
 date:   2024-01-01 10:31:42 +0200
 tags: ["Computer Science"]
 abstract: 'Algorithms to illuminate low light images are necessary to improve the visibility and quality of images captured in low light conditions, where details may be obscured by darkness or noise. By applying sophisticated algorithms, these techniques help reveal important features and information crucial for various applications such as surveillance, photography, and medical imaging.'
+short-abstract: 'Implementation of an Image Illumination algorithm for images in extreme low light conditions'
 title-image: '/assets/images/Illumination/Illumination-title-image.png'
 title-image-caption: 'Example of illumination of a low light image'
 excerpt_separator: <!--more-->

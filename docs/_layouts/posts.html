@@ -2,7 +2,7 @@
 layout: base
 ---
 
-<div class="home">
+<div class="posts">
     {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
     {%- endif -%}
@@ -56,22 +56,29 @@ layout: base
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {%- for post in posts -%}
         <li>
-            <span class="post-meta">{{ post.date | date: date_format }}</span>
-            <h3>
-                <a class="post-link" href="{{ post.url | relative_url }}">
-                    {{ post.title | escape }}
-                </a>
-
-
-                <div class="post-tags">
-                    {% for tag in post.tags %}
-                    <a class="post-tag" href="{{site.baseurl}}/posts/{{tag | replace:' ', '_'}}">{{tag}}</a>
-                    {% endfor %}
-                </div>
-            </h3>
-            {%- if site.show_excerpts -%}
-            {{ post.excerpt }}
+            {%- if post.title-image -%}
+            <img class="post-title-image" src="{{post.title-image | relative_url}}"/>
+            {% else %}
+            <img class="post-title-image" src="{{'/assets/placeholder.jpeg' | relative_url}}" style="-webkit-filter: hue-rotate({{forloop.index | times: 120}}deg)"/>
             {%- endif -%}
+            <div class="post-info">
+                <span class="post-meta">{{ post.date | date: date_format }}</span>
+                <h3>
+                    <a class="post-link" href="{{ post.url | relative_url }}">
+                        {{ post.title | escape }}
+                    </a>
+
+
+                    <div class="post-tags">
+                        {% for tag in post.tags %}
+                        <a class="post-tag" href="{{site.baseurl}}/posts/{{tag | replace:' ', '_'}}">{{tag}}</a>
+                        {% endfor %}
+                    </div>
+                </h3>
+                {%- if site.show_excerpts -%}
+                {{ post.excerpt }}
+                {%- endif -%}
+            </div>
         </li>
         {%- endfor -%}
     </ul>

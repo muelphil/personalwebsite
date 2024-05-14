@@ -1,49 +1,49 @@
 <header class="site-header">
 
-  <div class="wrapper">
-    {%- assign default_paths = site.pages | map: "path" -%}
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
-    {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-<!--    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>-->
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">philip mueller</a>
+    <div class="wrapper">
+        {%- assign default_paths = site.pages | map: "path" -%}
+        {%- assign page_paths = site.header_pages | default: default_paths -%}
+        {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+        <!--    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>-->
+        <a class="site-title" rel="author" href="{{ "/" | relative_url }}">philip mueller</a>
 
 
-
-    <div style="flex: 1 1 auto;"></div>
-    <a id="theme-toggle" onclick="modeSwitcher()" class="dark-mode-toggle">
-      <div class="dark-mode-icon"></div>
-    </a>
-<!--    <a id="theme-toggle" onclick="modeSwitcher()" style="padding:0 10px; user-select: none; cursor: pointer;">test</a>-->
-
+        <div style="flex: 1 1 auto;"></div>
+        <a id="theme-toggle" onclick="modeSwitcher()" class="dark-mode-toggle">
+            <div class="dark-mode-icon"></div>
+        </a>
+        <!--    <a id="theme-toggle" onclick="modeSwitcher()" style="padding:0 10px; user-select: none; cursor: pointer;">test</a>-->
 
 
-    {%- if titles_size > 0 -%}
-      <nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
+        {%- if titles_size > 0 -%}
+        <div class="menu-bar-container">
+            <nav class="site-nav">
+                <input type="checkbox" id="nav-trigger" class="nav-trigger"/>
+                <label for="nav-trigger">
           <span class="menu-icon">
             <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+  <path d="M 18 1.484 C 18 2.304 17.335 2.968 16.516 2.968 L 1.484 2.968 C 0.665 2.969 0 2.304 0 1.484 C 0 0.665 0.665 0 1.484 0 L 16.516 0 C 17.335 0 18 0.665 18 1.484 Z M 18 7.516 C 18 8.335 17.335 9 16.516 9 L 5.495 9 C 4.676 9 4.011 8.335 4.011 7.516 C 4.011 6.696 4.676 6.032 5.495 6.032 L 16.516 6.032 C 17.335 6.031 18 6.696 18 7.516 Z M 18 13.516 C 18 14.335 17.335 15 16.516 15 L 9.904 15 C 9.085 15 8.42 14.335 8.42 13.516 C 8.42 12.696 9.085 12.033 9.904 12.033 L 16.516 12.033 C 17.335 12.031 18 12.695 18 13.516 Z"/>
             </svg>
           </span>
-        </label>
+                </label>
 
 
-        <div class="trigger">
+                <div class="trigger">
 
-<!--          {%- for path in page_paths -%}-->
-<!--            {%- assign my_page = site.pages | where: "path", path | first -%}-->
-<!--            {%- if my_page.title -%}-->
-<!--            <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>-->
-<!--            {%- endif -%}-->
-<!--          {%- endfor -%}-->
+                    <!--          {%- for path in page_paths -%}-->
+                    <!--            {%- assign my_page = site.pages | where: "path", path | first -%}-->
+                    <!--            {%- if my_page.title -%}-->
+                    <!--            <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>-->
+                    <!--            {%- endif -%}-->
+                    <!--          {%- endfor -%}-->
 
 
-          <a class="page-link" href="{{ '/posts' | relative_url }}">Posts</a>
-          <a class="page-link" href="{{ '/about' | relative_url }}">About</a>
-          <a class="page-link" href="{{ '/todos' | relative_url }}">TODOS</a>
+                        <a class="page-link" href="{{ '/posts' | relative_url }}">Posts</a>
+                        <a class="page-link" href="{{ '/about' | relative_url }}">About</a>
+                        <a class="page-link" href="{{ '/todos' | relative_url }}">TODOS</a>
+                </div>
+            </nav>
         </div>
-      </nav>
-    {%- endif -%}
-  </div>
+        {%- endif -%}
+    </div>
 </header>
