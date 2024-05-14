@@ -25,20 +25,19 @@ carousels:
 ---
 
 
-If I'd ever strand on a lonely Island and I had the freedom to bring one person along with the intention of maximizing my chances of getting away from it, it probably would be my dear friend Oskar. Like a chaotic scientist, he has the talent of putting together all kinds of components he has lying around to build the most miraculous devices, blinking rgb glasses, theme party props, hoverboards (with dangerously many battery cells) and I wouldn't be one bit surprised if he would build a satellite dish out of coconuts and sticks to send a emergency signal from the little island we are stranded on.
+If I were ever stranded on a deserted island and had the freedom to bring one person to maximize my chances of escaping, it would probably be my dear friend Oskar. Like a chaotic scientist, he has a talent for assembling all sorts of components he finds lying around to create the most incredible devices. These include blinking RGB glasses, theme party props, and hoverboards with a dangerously high number of battery cells. I wouldn’t be one bit surprised if he managed to build a satellite dish out of coconuts and sticks to send an emergency signal from our little island.
 
-In March 2023 he presented his newest invention: a camera with a self-designed and printed case that featured a thermal printer. 
+In March 2023, he presented his latest invention: a camera with a self-designed and 3D-printed case that featured a thermal printer.
 
 {% include image.html url="/assets/images/Oskam/ZTL_Kamera.jpg" description="Oskar's ZTL camera" %}
 
-Without a viewfinder, it was always an experience when you'd wait in anticipation for the picture slowly being printed out, accompanied by the rattling sound of the thermal printer, giving it the vibe of a polaroid camera. Ripping the picture off like you would rip off a receipt also feels extremely satisfying.
+Without a viewfinder, it was always an experience waiting in anticipation for the picture to slowly print out, accompanied by the rattling sound of the thermal printer, giving it the vibe of a Polaroid camera. Ripping the picture off like you would a receipt is also extremely satisfying.
 
-Oskars' inventiveness inspired me, and I finally found a project that would give me a reason to pick up soldering electronic parts together. From the very start, it was obvious that this was a rather large and also expensive project, but I generally am much more motivated when at the end of the process there is more than just the learning experience,
-but also something you can use in your daily life and show off.
+Oskar's inventiveness inspired me, and I finally found a project that motivated me to start soldering electronic parts together. From the very start, it was clear that this would be a large and expensive project. However, I am generally much more motivated when the end result is not just a learning experience but also something practical that I can use in my daily life and show off.
 
 ## List of required items
 
-In the following I provide a list of tools and components that were necessary to build this project. I personally did not buy it a batch, as I realized with many components only later on that I even need them. This was also a big reason why this project took me 3 months to complete.
+In the following I provide a list of tools and components that were necessary to build the Oskam. I personally did not buy it a batch, as I realized with many components only later on that I even need them. This was also a big reason why this project took me 3 months to complete.
 
 ### Necessary Tools
 - Soldering Iron
@@ -91,7 +90,7 @@ First I was scouting possible case designs on Pinterest and the likes, looking f
 
 I first though about using Blender, as I already had some experience with it. But designing the case using blender had the major downside, that it would bake all changes into the model, making it tough to change the design later on.
 
-As I was already prepared to go through multiple design iterations, I instead decided to go for a parametric 3D modeling and computer-aided design (CAD) software. It's particularly useful for engineering and mechanical design work, offering precise modeling tools and parametric capabilities that allow users to define and modify designs with great accuracy. I could have used Fusion360, which is provided for the duration of my studies by my university, but decided against it, as starting from zero it seemed more beneficial to learn a software I could use even after my studies are finished. I opted for [FreeCAD](https://www.freecad.org/?lang=de), an open-source parametric 3D modeling software designed for engineering and mechanical design tasks.
+As I was already prepared to go through multiple design iterations, I instead decided to go for a parametric 3D modeling and computer-aided design (CAD) software. It's particularly useful for engineering and mechanical design work, offering precise modeling tools and parametric capabilities that allow users to define and modify designs with great accuracy. I could have used Fusion360, which is provided for the duration of my studies by my university. I decided against it, as starting from zero, it seemed more beneficial to learn a software I could use even after my studies are finished. I opted for [FreeCAD](https://www.freecad.org/?lang=de), an open-source parametric 3D modeling software designed for engineering and mechanical design tasks.
 
 The design consisted of 3 different parts:
 

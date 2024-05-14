@@ -192,7 +192,7 @@ img[data-enlargable] {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: $spacing-unit;
+  gap: 32px;
 
   div {
     flex: 1 1 0;
@@ -227,6 +227,13 @@ img[data-enlargable] {
     margin: 0.33em 0;
   }
 
+  .post-header-info{
+    margin-bottom: $spacing-unit;
+    @media (min-width: 1024px) {
+      margin-bottom: 0;
+    }
+  }
+
   &:has(.post-header-title-image) {
     @media (min-width: 1024px) {
       margin-left: -90px;
@@ -247,7 +254,6 @@ img[data-enlargable] {
         img {
           height: 90%;
           object-fit: contain;
-          min-height: 400px;
         }
       }
     }
@@ -504,7 +510,7 @@ table th {
   text-align: center;
   text-transform: capitalize;
   //letter-spacing: 2pc;
-  letter-spacing: 8px;
+  letter-spacing: 2px;
   margin: 48px 0 24px 0;
 }
 
@@ -701,4 +707,24 @@ pre.highlight, code {
       }
     }
   }
+}
+
+
+.post-outro{
+
+  margin-bottom: $spacing-unit;
+  text-align: center;
+}
+
+.post-separator{
+  height:1px; width:80%; margin: 32px auto; background-color: grey;
+}
+.post-nav{
+  img{
+    border-radius: 4px;
+  }
+}
+
+h1.page-heading{
+  font-size: 3.6rem!important;
 }

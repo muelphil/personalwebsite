@@ -7,24 +7,30 @@ layout: base
     <h1 class="page-heading">{{ page.title }}</h1>
     {%- endif -%}
 
-    Tags =
-    <!--    https://stackoverflow.com/questions/54769586/how-to-display-tags-in-jekyll-and-get-the-tag-to-click-through-to-all-relevant-c -->
-    <!--    {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}-->
-    <!--    {% assign tags_list = site_tags | split:',' | sort_natural %}-->
+    <div style="margin-bottom: 32px;">
+        <h5>Filter by Tags</h5>
+        <!--    https://stackoverflow.com/questions/54769586/how-to-display-tags-in-jekyll-and-get-the-tag-to-click-through-to-all-relevant-c -->
+        <!--    {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}-->
+        <!--    {% assign tags_list = site_tags | split:',' | sort_natural %}-->
 
-    <ul>
-        {% for item in (0..site.tags.size) %}
-        {% unless forloop.last %}
-        {% capture this_word %}{{ tags_list[item] | strip_newlines }}{% endcapture %}
-        <li>
-            <a href="{{site.baseurl}}/posts/{{this_word | replace:' ','_'}}" class="tag">
-                <span class="tag-name">{{ this_word }}</span>
-                <span class="count">({{ site.tags[this_word].size }})</span>
-            </a>
-        </li>
-        {% endunless %}
-        {% endfor %}
-    </ul>
+
+        <div class="post-tags">
+            {% for item in (0..site.tags.size) %}
+            {% unless forloop.last %}
+            {% capture this_word %}{{ tags_list[item] | strip_newlines }}{% endcapture %}
+
+            <a class="post-tag" href="{{site.baseurl}}/posts/{{this_word | replace:' ','_'}}">{{ this_word }} ({{ site.tags[this_word].size }})</a>
+
+            <!--        <li>-->
+            <!--            <a href="{{site.baseurl}}/posts/{{this_word | replace:' ','_'}}" class="tag">-->
+            <!--                <span class="tag-name">{{ this_word }}</span>-->
+            <!--                <span class="count">({{ site.tags[this_word].size }})</span>-->
+            <!--            </a>-->
+            <!--        </li>-->
+            {% endunless %}
+            {% endfor %}
+        </div>
+    </div>
 
     <!--    {% for item in (0..site.tags.size) %}{% unless forloop.last %}-->
     <!--    {% capture this_word %}{{ tags_list[item] | strip_newlines }}{% endcapture %}-->

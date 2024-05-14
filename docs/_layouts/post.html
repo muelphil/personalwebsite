@@ -4,12 +4,12 @@ layout: base
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
     <header class="post-header">
-       <div class="post-header-info">
-           <div class="post-meta">
-               <div class="post-localization">
-                   <a href="{{ site.baseurl }}/">Home</a> / <a href="{{ site.baseurl }}/posts">Posts</a> /
-               </div>
-               <span>
+        <div class="post-header-info">
+            <div class="post-meta">
+                <div class="post-localization">
+                    <a href="{{ site.baseurl }}/">Home</a> / <a href="{{ site.baseurl }}/posts">Posts</a> /
+                </div>
+                <span>
                 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
                 <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
                     {{ page.date | date: date_format }}
@@ -29,22 +29,22 @@ layout: base
                 {% endfor %}
                 {%- endif -%}
             </span>
-           </div>
+            </div>
 
-           <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+            <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
 
-           {%- if page.abstract -%}
-           <div class="post-abstract">
-               {{ page.abstract }}
-           </div>
-           {%- endif -%}
+            {%- if page.abstract -%}
+            <div class="post-abstract">
+                {{ page.abstract }}
+            </div>
+            {%- endif -%}
 
-           <div class="post-tags">
-               {% for tag in page.tags %}
-               <a class="post-tag" href="{{site.baseurl}}/posts/{{tag | replace:' ', '_'}}">{{tag}}</a>
-               {% endfor %}
-           </div>
-       </div>
+            <div class="post-tags">
+                {% for tag in page.tags %}
+                <a class="post-tag" href="{{site.baseurl}}/posts/{{tag | replace:' ', '_'}}">{{tag}}</a>
+                {% endfor %}
+            </div>
+        </div>
         {%- if page.title-image -%}
         <div class="post-header-title-image">
             <img src="{{page.title-image | relative_url}}"/>
@@ -56,9 +56,9 @@ layout: base
 
     <!--    <img src="{{ page.title-image | relative_url }}"/>-->
     <div class="post-content e-content" itemprop="articleBody">
-<!--        <aside>-->
-<!--            TODO AUTHOR Algorithms to illuminate low light images are necessary to improve-->
-<!--        </aside>-->
+        <!--        <aside>-->
+        <!--            TODO AUTHOR Algorithms to illuminate low light images are necessary to improve-->
+        <!--        </aside>-->
         {{ content }}
     </div>
 
@@ -68,20 +68,20 @@ layout: base
 
     <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 
-    <div style="height:1px; width:80%; margin: 32px auto; background-color: grey;"></div>
-    <div style="text-align: center">Enjoyed reading this post? Share it or read some more :)</div>
+    <div class="post-separator"></div>
+    <div class="post-outro">Enjoyed reading this post? Feel free to share it.<br> Also, here is some more :)</div>
 
 
-<!--    https://guypursey.com/blog/202104171135-next-previous-nav-links-jekyll-blog -->
+    <!--    https://guypursey.com/blog/202104171135-next-previous-nav-links-jekyll-blog -->
     <div class="post-nav">
         <div>
             {% if page.previous.url %}
             <a href="{{page.previous.url | relative_url }}">
-<!--                <span class="unsighted">Previous post:</span>-->
-<!--                <span aria-hidden="true">&laquo;</span>-->
+                <!--                <span class="unsighted">Previous post:</span>-->
+                <!--                <span aria-hidden="true">&laquo;</span>-->
                 <img src="{{ page.previous.title-image | relative_url}}">
                 <h4>{{page.previous.title}}</h4>
-                {{page.previous.abstract}}
+                {{page.previous.short-abstract}}
             </a>
             {% endif %}
         </div>
@@ -92,13 +92,19 @@ layout: base
             {% assign next_post_cape = page.next.title | truncatewords: next_post_cape_length, "" %}
             {% assign next_post_spit = next_post_title_array | last %}
             <a href="{{page.next.url | relative_url }}">
-            <span class="unsighted">Next post:</span>
-            {{next_post_cape}}
-            <span style="white-space: nowrap;">
-<!--      {{next_post_spit}}-->
-      <span aria-hidden="true">&raquo;</span>
-      </span>
+                <!--                <span class="unsighted">Previous post:</span>-->
+                <!--                <span aria-hidden="true">&laquo;</span>-->
+                <img src="{{ page.next.title-image | relative_url}}">
+                <h4>{{page.next.title}}</h4>
+                {{page.next.short-abstract}}
             </a>
+<!--            <a href="{{page.next.url | relative_url }}">-->
+<!--                <span class="unsighted">Next post:</span>-->
+<!--                {{next_post_cape}}-->
+<!--                <span style="white-space: nowrap;">-->
+<!--&lt;!&ndash;      {{next_post_spit}}&ndash;&gt; <span aria-hidden="true">&raquo;</span>-->
+<!--                </span>-->
+<!--            </a>-->
             {% endif %}
         </div>
     </div>
