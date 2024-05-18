@@ -12,6 +12,11 @@ permalink: /todos
 - https://nswamy14.gitbook.io/i2djs-v5
 - https://codepen.io/zimjs/pen/jOMZjOy
 - -webkit-filter: sepia(90%) hue-rotate(240deg);
+- mobile nav padding
+- clickable recent posts posts
+- color scheme
+- lava rework
+- color scheme including code blocks
 
 <h1>Browse Posts by categories</h1>
 

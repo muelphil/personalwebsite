@@ -25,13 +25,13 @@ carousels:
 ---
 
 
-If I were ever stranded on a deserted island and had the freedom to bring one person to maximize my chances of escaping, it would probably be my dear friend Oskar. Like a chaotic scientist, he has a talent for assembling all sorts of components he finds lying around to create the most incredible devices. These include blinking RGB glasses, theme party props, and hoverboards with a dangerously high number of battery cells. I wouldn’t be one bit surprised if he managed to build a satellite dish out of coconuts and sticks to send an emergency signal from our little island.
+If I were ever stranded on a deserted island and had the freedom to bring one person to maximize my chances of escaping, it would probably be my dear friend Oskar. Like a chaotic scientist, he has a talent for assembling all sorts of components he finds lying around to create the most incredible devices. These include blinking RGB glasses, theme party props, and hoverboards with a dangerously high number of battery cells. I wouldn’t be one bit surprised if he managed to build a satellite dish out of coconuts and sticks to send an emergency signal from the little island.
 
 In March 2023, he presented his latest invention: a camera with a self-designed and 3D-printed case that featured a thermal printer.
 
-{% include image.html url="/assets/images/Oskam/ZTL_Kamera.jpg" description="Oskar's ZTL camera" %}
+{% include image.html url="/assets/images/Oskam/ZTL_Kamera.jpg" description="Oskar's ZTL camera (ZTL is a nudge to the slips of paper it prints out, which are called &quot;Zettel&quot; in german)" %}
 
-Without a viewfinder, it was always an experience waiting in anticipation for the picture to slowly print out, accompanied by the rattling sound of the thermal printer, giving it the vibe of a Polaroid camera. Ripping the picture off like you would a receipt is also extremely satisfying.
+Without a viewfinder, it was always an experience waiting in anticipation for the picture to slowly print out, accompanied by the rattling sound of the thermal printer, giving it the vibe of a Polaroid camera. At the same time, depending on the thermal paper rolls you buy the cost per picture comes down to something between 2 and 5 cents. Ripping the picture off like you would a receipt is also extremely satisfying.
 
 Oskar's inventiveness inspired me, and I finally found a project that motivated me to start soldering electronic parts together. From the very start, it was clear that this would be a large and expensive project. However, I am generally much more motivated when the end result is not just a learning experience but also something practical that I can use in my daily life and show off.
 
@@ -67,7 +67,7 @@ table th, table td {
 | [Shrink Tubing](https://www.amazon.de/gp/product/B0BNPMXSS6)                  |                          5.99€ |
 | [Mini Thermal Receipt Printer (2752)](https://mou.sr/3KHBhwN)                 |          42.25€ - DISCONTINUED |
 | [Tactile Button (474-COM-12992)](https://mou.sr/4ayTEQ5)                      |                          0.55€ |
-| [USB C Breakout Board](https://www.ebay.de/itm/355429997210)                  | 6.99€ (Oskar paid for mine 💜) |
+| [USB C Breakout Board](https://www.ebay.de/itm/355429997210)                  |                          6.99€ |
 | [Raspberry Pi Zero](https://www.berrybase.de/raspberry-pi-zero-w)             |                         17.90€ |
 | [SD Card](https://www.ebay.de/itm/116141323859)                               |                         10.99€ |
 | [Thermal Printing Rolls](amazon.de/gp/product/B0C1YZC239)                     |                          9.99€ |
@@ -219,7 +219,7 @@ Unfortunately, there once was a bug in my implementation and the camera would st
 
 I also needed to reset my router due to an issue with my provider once, and the camera wouldn't automatically connect to the Wifi in my apartment anymore. For these cases I also saved access to my phone hotspot, which came in quite handy often.
 
-I tried three different kinds of thermal paper rolls. The best ones so far [are from Amazon](https://www.amazon.de/gp/aw/d/B0C1YZC239?psc=1&ref=ppx_pop_mob_b_asin_title). They feature a high quality, have a glossy finish and are more resistant to stain from the sunlight than others that I've used.
+I tried three different kinds of thermal paper rolls. The best ones so far [are from Amazon](https://www.amazon.de/gp/aw/d/B0C1YZC239?psc=1&ref=ppx_pop_mob_b_asin_title). They feature high quality, have a glossy finish and are more resistant to stain from the sunlight than others that I've used.
 
 You can find a list of the installed PIP modules with their version [here (`pip list`)]({{'/assets/images/Oskam/pip_list.txt' | relative_url }}) 
 
