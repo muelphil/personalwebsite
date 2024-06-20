@@ -217,4 +217,4 @@ illuminated_hls_data = illuminate(rgb_image_data, 'hls')
 illuminated_hls = Image.fromarray(illuminated_hls_data)
 ```
 
-If you have issues or feedback, please let me know via [https://github.com/muelphil/illumination_using_wgif](https://github.com/muelphil/illumination_using_wgif) :)
+If you have issues or feedback, please let me know via the [Github-Repo](https://github.com/muelphil/illumination_using_wgif) :)
