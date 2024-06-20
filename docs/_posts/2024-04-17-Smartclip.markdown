@@ -196,43 +196,43 @@ Try it out:
 
 #### Java
 
-<textarea style=""width: 100%; min-height:200px;""" rows="6" cols="50" style="display:block">
+<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
 public class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }
 </textarea>
 
 #### Rust
 
-<textarea style=""width: 100%; min-height:200px;""" rows="6" cols="50" style="display:block">
+<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
 fn main() { println!("Hello, World!"); }
 </textarea>
 
 #### XML
 
-<textarea style=""width: 100%; min-height:200px;""" rows="6" cols="50" style="display:block">
+<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
 <note><to>Tove</to><from>Jani</from><heading>Reminder</heading><body>Don't forget me this weekend!</body></note>
 </textarea>
 
 #### YAML
 
-<textarea style=""width: 100%; min-height:200px;""" rows="6" cols="50" style="display:block">
+<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
 name: John Doe age: 30 address: street: 123 Main St city: Anytown state: CA
 </textarea>
 
 #### JSON
 
-<textarea style=""width: 100%; min-height:200px;""" rows="6" cols="50" style="display:block">
+<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
 {"name": "John Doe","age": 30,"address": {"street": "123 Main St","city": "Anytown","state": "CA"}}
 </textarea>
 
 #### TypeScript
 
-<textarea style=""width: 100%; min-height:200px;""" rows="6" cols="50" style="display:block">
+<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
 function greet(name: string): void { console.log(`Hello, ${name}!`); } greet('World');
 </textarea>
 
 #### CSS
 
-<textarea style=""width: 100%; min-height:200px;""" rows="6" cols="50" style="display:block">
+<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
 body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 0; } h1 { color: #333; }
 </textarea>
 
