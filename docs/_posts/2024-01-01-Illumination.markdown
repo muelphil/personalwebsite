@@ -217,4 +217,46 @@ illuminated_hls_data = illuminate(rgb_image_data, 'hls')
 illuminated_hls = Image.fromarray(illuminated_hls_data)
 ```
 
+To use it via command line, you can paste the following content into a file called `illuminate.py`:
+
+```python
+import sys
+from PIL import Image, ImageFilter, ImageOps
+import os
+import numpy as np
+from illumination_using_wgif import illuminate
+
+def illuminate_and_save(image_path):
+    # Load the image
+    image = Image.open(image_path)
+    image = image.filter(ImageFilter.EDGE_ENHANCE)
+
+    greyscale_image_data = np.reshape(image.convert('L').getdata(),(image.size[1], image.size[0]))
+    illuminated_greyscale_data = illuminate(greyscale_image_data)
+    illuminated_greyscale = Image.fromarray(illuminated_greyscale_data)
+    
+    # Build the new image path with the "_greyscale" suffix
+    file_name, file_ext = os.path.splitext(image_path)
+    new_image_path = f"{file_name}_illuminated{file_ext}"
+    
+    # Save the greyscale image
+    illuminated_greyscale.save(new_image_path)
+    print(f"Illuminated image saved at {new_image_path}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python illuminate.py <image_path>")
+        sys.exit(1)
+    
+    image_path = sys.argv[1]
+    illuminate_and_save(image_path)
+```
+
+then open a terminal in the same path and call it via
+```bash
+python illuminate.py <image_path>
+```
+
+The illuminated image will then be saved in the same location as the original image with the postfix `_illuminated`
+
 If you have issues or feedback, please let me know via the [Github-Repo](https://github.com/muelphil/illumination_using_wgif) :)
