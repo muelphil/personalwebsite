@@ -2,91 +2,114 @@
 layout: base
 ---
 
-<div class="home">
-    {% assign smartclip_post = site.posts | where_exp:"post","post.title contains 'Smartclip'" | first %}
-    {% assign oskam_post = site.posts | where_exp:"post","post.title contains 'Oskam'" | first %}
+<link rel="stylesheet" href="{{ '/assets/css/home-minimal.css' | relative_url }}">
 
-    <div class="header" style="position:relative; overflow: hidden;">
-        {%- include lava.html -%}
-        <div class="introduction">
-            hi, I'm <b>philip</b>!
-            <div class="subline">I'm a dedicated computer scientist passionate about web development and machine
-                learning, committed to imparting knowledge through teaching
-            </div>
+<div class="hm-container">
+    <div class="hm-content">
+        <!-- Header -->
+        <header class="hm-header">
+            <h1 class="hm-name">Philip</h1>
+            <nav class="hm-nav">
+                <a href="{{ '/posts' | relative_url }}">Blog</a>
+                <a href="{{ '/search' | relative_url }}">Search</a>
+                <a href="{{ '/about' | relative_url }}">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
-            <ul style="list-style-type: none; display: flex; flex-direction: row; gap: 16px; justify-content: center; margin:0;">
+        <!-- Introduction -->
+        <section class="hm-intro">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </section>
+
+        <!-- Social Links -->
+        <section class="hm-social">
+            <ul class="hm-social-list">
                 {%- for entry in site.minima.social_links -%}
-                    {%- include social-item.html item = entry -%}
+                <li>
+                    <a href="{{ entry.user_url }}" target="_blank" rel="noopener noreferrer" title="{{ entry.title | default: entry.platform }}">
+                        {{ entry.platform }}
+                    </a>
+                </li>
                 {%- endfor -%}
             </ul>
+        </section>
 
-
-        </div>
-    </div>
-
-    {% assign filteredPosts = '' | split: ',' %}
-    {% for post in site.posts %}
-    {% assign filteredPosts = filteredPosts | append: post %}
-    {% endfor %}
-    <!--[-->
-    <!--    {% for post in filteredPosts %}-->
-    <!--    test-->
-    <!--    <div>{{post.title}}</div>-->
-    <!--    {%- endfor -%}-->
-    <!--]-->
-
-
-    <h1 class="home-section-header">Featured Projects</h1>
-
-
-    {% include featured_project.html post=smartclip_post image-left="true" %}
-    {% include featured_project.html post=oskam_post image-left="true" %}
-
-    <h1 class="home-section-header">Recent Posts</h1>
-    <ul class="post-list recent-posts">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {% for post in site.posts limit:3 %}
-        <li class="post-preview">
-                {%- if post.title-image -%}
-                <img class="post-title-image" src="{{post.title-image | relative_url}}"/>
-                {% else %}
-                <img class="post-title-image" src="{{'/assets/placeholder.jpeg' | relative_url}}" style="-webkit-filter: hue-rotate({{forloop.index | times: 75}}deg)"/>
+        <!-- Featured Projects -->
+        <section class="hm-section">
+            <h2 class="hm-section-title">Featured Projects</h2>
+            {% assign smartclip_post = site.posts | where_exp:"post","post.title contains 'Smartclip'" | first %}
+            {% assign oskam_post = site.posts | where_exp:"post","post.title contains 'Oskam'" | first %}
+            
+            {%- if smartclip_post -%}
+            <article class="hm-featured-post">
+                {%- if smartclip_post.title-image -%}
+                <img class="hm-post-image" src="{{ smartclip_post.title-image | relative_url }}" alt="{{ smartclip_post.title }}" loading="lazy"/>
                 {%- endif -%}
+                <h3 class="hm-post-title"><a href="{{ smartclip_post.url | relative_url }}">{{ smartclip_post.title }}</a></h3>
+                {%- if smartclip_post.short-abstract -%}
+                <p class="hm-post-abstract">{{ smartclip_post.short-abstract }}</p>
+                {%- endif -%}
+            </article>
+            {%- endif -%}
+            
+            {%- if oskam_post -%}
+            <article class="hm-featured-post">
+                {%- if oskam_post.title-image -%}
+                <img class="hm-post-image" src="{{ oskam_post.title-image | relative_url }}" alt="{{ oskam_post.title }}" loading="lazy"/>
+                {%- endif -%}
+                <h3 class="hm-post-title"><a href="{{ oskam_post.url | relative_url }}">{{ oskam_post.title }}</a></h3>
+                {%- if oskam_post.short-abstract -%}
+                <p class="hm-post-abstract">{{ oskam_post.short-abstract }}</p>
+                {%- endif -%}
+            </article>
+            {%- endif -%}
+        </section>
 
-            <div class="info">
-                <div class="post-meta">
-<!--                    <div class="post-tags">-->
-<!--                        {% for tag in post.tags %}-->
-<!--                        <a class="post-tag" href="{{site.baseurl}}/posts/{{tag | replace:' ', '_'}}">{{tag}}</a>-->
-<!--                        {% endfor %}-->
-<!--                    </div>-->
-                    <span class="post-meta">{{ post.date | date: date_format }}</span>
-                </div>
-
-                <h3 class="title">{{post.title | escape }}</h3>
-
-                <div class="abstract">
-                    {%- if post.short-abstract -%}
-                    {{ post.short-abstract }}
-                    {% else %}
-                    This post lacks an abstract - please fix that Philip!!!
+        <!-- Recent Blog Posts -->
+        <section class="hm-section">
+            <h2 class="hm-section-title">Recent Blog Posts</h2>
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            {%- assign featured_titles = "Smartclip,Oskam" | split: "," -%}
+            {%- assign recent_posts = "" | split: "" -%}
+            
+            {%- for post in site.posts -%}
+                {%- assign is_featured = false -%}
+                {%- for featured in featured_titles -%}
+                    {%- if post.title contains featured -%}
+                        {%- assign is_featured = true -%}
+                        {%- break -%}
                     {%- endif -%}
-                </div>
+                {%- endfor -%}
+                
+                {%- unless is_featured -%}
+                    {%- assign recent_posts = recent_posts | push: post -%}
+                {%- endunless -%}
+                
+                {%- if recent_posts.size == 3 -%}
+                    {%- break -%}
+                {%- endif -%}
+            {%- endfor -%}
+            
+            {%- for post in recent_posts limit:3 -%}
+            <article class="hm-blog-post">
+                {%- if post.title-image -%}
+                <img class="hm-post-image" src="{{ post.title-image | relative_url }}" alt="{{ post.title }}" loading="lazy"/>
+                {%- else -%}
+                <img class="hm-post-image" src="{{ '/assets/placeholder.jpeg' | relative_url }}" alt="{{ post.title }}" loading="lazy"/>
+                {%- endif -%}
+                <div class="hm-post-date">{{ post.date | date: date_format }}</div>
+                <h3 class="hm-post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                {%- if post.short-abstract -%}
+                <p class="hm-post-abstract">{{ post.short-abstract }}</p>
+                {%- endif -%}
+            </article>
+            {%- endfor -%}
+        </section>
 
-                <div class="flex-spacer"></div>
-
-
-                <div style="margin-top: 18px;"><a style="display:block;" class="button secondary" href="{{ post.url | relative_url }}">Read More</a></div>
-            </div>
-
-        </li>
-        {%- endfor -%}
-    </ul>
-    <a href="{{ site.baseurl }}/posts/" class="button" style="margin:auto; display: block">See all Posts</a>
+        <!-- Reach Out -->
+        <section class="hm-reach-out" id="contact">
+            <p>Interested in collaborating or have a question? Feel free to reach out!</p>
+        </section>
+    </div>
 </div>
-
-<style>
-    .page-content {
-        padding-top: 0;
-    }
-</style>

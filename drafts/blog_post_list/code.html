@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recent Posts List Variant 2</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    navy: '#0a192f',
+                    'light-navy': '#112240',
+                    'lightest-navy': '#233554',
+                    'navy-shadow': 'rgba(2,12,27,0.7)',
+                    'dark-slate': '#495670',
+                    slate: '#8892b0',
+                    'light-slate': '#a8b2d1',
+                    'lightest-slate': '#ccd6f6',
+                    green: '#64ffda',
+                    "background-light": "#f6f8f8",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"],
+                    "tech": ["Space Grotesk", "sans-serif"],
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+        },
+    }
+</script>
+<style>
+    body {
+        min-height: max(884px, 100dvh);
+    }.no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }.no-scrollbar {
+        -ms-overflow-style: none;scrollbar-width: none;}
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-navy font-display antialiased min-h-screen flex flex-col">
+<nav class="sticky top-0 z-50 flex items-center justify-between px-5 py-4 bg-background-light/90 dark:bg-navy/90 backdrop-blur-md border-b border-gray-200 dark:border-lightest-navy">
+<button class="text-gray-800 dark:text-lightest-slate flex items-center justify-center p-2 -ml-2 rounded-full hover:bg-black/5 dark:hover:bg-green/10 transition-colors group">
+<span class="material-symbols-outlined text-[24px] group-hover:text-green transition-colors">menu</span>
+</button>
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="text-green font-bold text-xl tracking-tighter border-2 border-green size-10 flex items-center justify-center rounded-lg">
+            JD
+        </div>
+</div>
+<button class="text-gray-800 dark:text-lightest-slate flex items-center justify-center p-2 -mr-2 rounded-full hover:bg-black/5 dark:hover:bg-green/10 transition-colors group">
+<span class="material-symbols-outlined text-[24px] group-hover:text-green transition-colors">search</span>
+</button>
+</nav>
+<header class="px-5 pt-8 pb-4">
+<h1 class="text-gray-900 dark:text-lightest-slate text-[32px] font-bold leading-tight tracking-tight">Recent Writing</h1>
+<div class="h-1 w-12 bg-green mt-4 rounded-full"></div>
+</header>
+<main class="flex-1 flex flex-col px-5 pb-8 space-y-8">
+<article class="group relative flex flex-col gap-3 rounded-xl transition-all duration-300">
+<a class="absolute inset-0 z-10 block rounded-xl active:bg-black/5 dark:active:bg-lightest-navy/20" href="#"></a>
+<div class="flex flex-row gap-4 items-center">
+<div class="relative shrink-0 overflow-hidden rounded-lg size-[90px] sm:size-[110px] bg-gray-200 dark:bg-light-navy shadow-lg shadow-navy-shadow">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-90" data-alt="Minimalist abstract digital landscape with geometric shapes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCTNg3SEF3euQrCttjMVDE23DSva7B7fjRWIft9fcRstYobWLlr3WTw6D6OhwMKdLv_9X8FNJFda4dO2L05r61z2cucqUMMB-fUBHwfxWEO10Rx3VeB_B6MgtzYUsq4tHVntYblmNtNm1I3rgeBb5RtHI97kcRJTNKpVPD-Eg965catxzouYWmEHCvtXC5hrMV-YVcJ5wtgJCggN0AWEeUqGSyLbm5qLAVUfUc0G6WK4foaOVGGwovJVso1SL_BF1u9qasFxhMONlVT");'></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1.5 font-tech text-[11px] font-medium tracking-wide text-slate">
+<span>OCT 24, 2023</span>
+<span class="size-0.5 rounded-full bg-slate"></span>
+<span>5 MIN READ</span>
+</div>
+<h2 class="text-base sm:text-lg font-bold text-gray-900 dark:text-lightest-slate leading-snug mb-1.5 pr-2 group-hover:text-green transition-colors line-clamp-2">
+                    The Future of Digital Minimalism
+                </h2>
+<p class="text-sm text-gray-600 dark:text-slate line-clamp-2 leading-relaxed mb-3">
+                    Exploring how we can reclaim our attention in an age of constant notification and noise.
+                </p>
+<div class="flex flex-row gap-2 overflow-x-auto no-scrollbar items-center">
+<span class="px-2 py-[3px] rounded border border-green/30 bg-green/5 text-green text-[10px] font-bold tracking-wider uppercase font-tech whitespace-nowrap">Minimalism</span>
+<span class="px-2 py-[3px] rounded border border-green/30 bg-green/5 text-green text-[10px] font-bold tracking-wider uppercase font-tech whitespace-nowrap">Wellness</span>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-gray-200 dark:bg-lightest-navy mt-4"></div>
+</article>
+<article class="group relative flex flex-col gap-3 rounded-xl transition-all duration-300">
+<a class="absolute inset-0 z-10 block rounded-xl active:bg-black/5 dark:active:bg-lightest-navy/20" href="#"></a>
+<div class="flex flex-row gap-4 items-center">
+<div class="relative shrink-0 overflow-hidden rounded-lg size-[90px] sm:size-[110px] bg-gray-200 dark:bg-light-navy shadow-lg shadow-navy-shadow">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-90" data-alt="Dark abstract gradient with purple and blue hues" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaBwePJxrlPtSKVmITLRljTw1H0mPP2iuKJnwdhEJLwRHM8hxySlc1yt21eVU6d99sNSSB12QIaVTfphSF-SP5W2OvglQzMYuraDbwEEYGDyXjdrZ6ccvBh4NxYmXvPCMlkkhNiFD8coxTQfuYEmwd3ZehBDkmd0bJ1xqJcO26x1mbU7XVox0KxTHhJTfFmTt8MMmgRRAi-Q2wyimtEJOh3yBuY0bUZ348aomu3tnmvP_QNZOGxzpGlws3s94DR1q6BXhKfCnQimql");'></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1.5 font-tech text-[11px] font-medium tracking-wide text-slate">
+<span>SEP 12, 2023</span>
+<span class="size-0.5 rounded-full bg-slate"></span>
+<span>8 MIN READ</span>
+</div>
+<h2 class="text-base sm:text-lg font-bold text-gray-900 dark:text-lightest-slate leading-snug mb-1.5 pr-2 group-hover:text-green transition-colors line-clamp-2">
+                    Designing for Dark Mode
+                </h2>
+<p class="text-sm text-gray-600 dark:text-slate line-clamp-2 leading-relaxed mb-3">
+                    Why high contrast isn't always the answer and how to balance saturation for eye comfort.
+                </p>
+<div class="flex flex-row gap-2 overflow-x-auto no-scrollbar items-center">
+<span class="px-2 py-[3px] rounded border border-green/30 bg-green/5 text-green text-[10px] font-bold tracking-wider uppercase font-tech whitespace-nowrap">Design</span>
+<span class="px-2 py-[3px] rounded border border-green/30 bg-green/5 text-green text-[10px] font-bold tracking-wider uppercase font-tech whitespace-nowrap">UI/UX</span>
+<span class="px-2 py-[3px] rounded border border-green/30 bg-green/5 text-green text-[10px] font-bold tracking-wider uppercase font-tech whitespace-nowrap">Color</span>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-gray-200 dark:bg-lightest-navy mt-4"></div>
+</article>
+<article class="group relative flex flex-col gap-3 rounded-xl transition-all duration-300">
+<a class="absolute inset-0 z-10 block rounded-xl active:bg-black/5 dark:active:bg-lightest-navy/20" href="#"></a>
+<div class="flex flex-row gap-4 items-center">
+<div class="relative shrink-0 overflow-hidden rounded-lg size-[90px] sm:size-[110px] bg-gray-200 dark:bg-light-navy shadow-lg shadow-navy-shadow">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-90" data-alt="Typography specimen sheet abstract close up" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwZmGgDIkMJunbGbKds8pmbSDWco6tgg-2ZxyLTsklu9jTb95gTU1_MfJGVFt2UdQsNaHO2YpEqZXRgKtdsMdw78Lt1cruc4UWHWvlpuT3URxAN8mwsntGjfPtYSbtXUIl7EYcsdND7epKEmUdPrqgNsgal3P_aoBUCzVz6CE-jHdxeh8JeThvXI2RR0VPFSVQn-tAgWdf8gLWyETufWFEo-bB9z7pPF9oAOzPZFaRZMW4cUTKqxAv33_0YDHqUL1vr9vGXy9S-JZY");'></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1.5 font-tech text-[11px] font-medium tracking-wide text-slate">
+<span>AUG 05, 2023</span>
+<span class="size-0.5 rounded-full bg-slate"></span>
+<span>6 MIN READ</span>
+</div>
+<h2 class="text-base sm:text-lg font-bold text-gray-900 dark:text-lightest-slate leading-snug mb-1.5 pr-2 group-hover:text-green transition-colors line-clamp-2">
+                    Typography in Tech
+                </h2>
+<p class="text-sm text-gray-600 dark:text-slate line-clamp-2 leading-relaxed mb-3">
+                    A deep dive into why Space Grotesk and Inter work so well together for modern interfaces.
+                </p>
+<div class="flex flex-row gap-2 overflow-x-auto no-scrollbar items-center">
+<span class="px-2 py-[3px] rounded border border-green/30 bg-green/5 text-green text-[10px] font-bold tracking-wider uppercase font-tech whitespace-nowrap">Typography</span>
+<span class="px-2 py-[3px] rounded border border-green/30 bg-green/5 text-green text-[10px] font-bold tracking-wider uppercase font-tech whitespace-nowrap">Fonts</span>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-gray-200 dark:bg-lightest-navy mt-4"></div>
+</article>
+<article class="group relative flex flex-col gap-3 rounded-xl transition-all duration-300">
+<a class="absolute inset-0 z-10 block rounded-xl active:bg-black/5 dark:active:bg-lightest-navy/20" href="#"></a>
+<div class="flex flex-row gap-4 items-center">
+<div class="relative shrink-0 overflow-hidden rounded-lg size-[90px] sm:size-[110px] bg-gray-200 dark:bg-light-navy shadow-lg shadow-navy-shadow">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 opacity-90" data-alt="Blurry city lights at night representing speed" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMsKNKU1USPG2krFKp3iF9cdiFcV2td8LPET8uN0TEfzYF50kA_g2YCI_iFbaXzBQ7BYPTpsbD00VAyE9ZhTJyl0EW6hTVeWYpTUqj2gX9cV1A-WGGzt8K4xolAtydIpAptv30qnQCbbULR6MTsBAIxs3upc6-SW6zIGGEYvkKJ8O9cnctUmXVRc0pfwA2UInKnbHMeM1SEWoNegAV7OaN0om3a_lTR6xPX78axSVrU1PaYrwFZ46vHh9X9imoxeDfkcTQxlIfNfrv");'></div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1.5 font-tech text-[11px] font-medium tracking-wide text-slate">
+<span>JUL 19, 2023</span>
+<span class="size-0.5 rounded-full bg-slate"></span>
+<span>4 MIN READ</span>
+</div>
+<h2 class="text-base sm:text-lg font-bold text-gray-900 dark:text-lightest-slate leading-snug mb-1.5 pr-2 group-hover:text-green transition-colors line-clamp-2">
+                    Velocity &amp; Value
+                </h2>
+<p class="text-sm text-gray-600 dark:text-slate line-clamp-2 leading-relaxed mb-3">
+                    Balancing shipping speed with code quality in early stage startups.
+                </p>
+<div class="flex flex-row gap-2 overflow-x-auto no-scrollbar items-center">
+<span class="px-2 py-[3px] rounded border border-green/30 bg-green/5 text-green text-[10px] font-bold tracking-wider uppercase font-tech whitespace-nowrap">Startup</span>
+<span class="px-2 py-[3px] rounded border border-green/30 bg-green/5 text-green text-[10px] font-bold tracking-wider uppercase font-tech whitespace-nowrap">Process</span>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-gray-200 dark:bg-lightest-navy mt-4"></div>
+</article>
+<div class="pt-4 pb-8">
+<button class="w-full group relative flex items-center justify-center gap-2 px-6 py-4 rounded-lg border border-green/30 hover:border-green bg-transparent transition-all duration-300">
+<span class="font-tech text-sm font-bold uppercase tracking-widest text-green group-hover:text-green">Load More</span>
+<span class="material-symbols-outlined text-green text-sm transition-transform group-hover:translate-y-0.5">expand_more</span>
+<div class="absolute inset-0 rounded-lg bg-green/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+</div>
+</main>
+<div class="sticky bottom-0 z-50 w-full bg-background-light/80 dark:bg-navy/90 backdrop-blur-xl border-t border-gray-200 dark:border-lightest-navy pb-6 pt-2 px-6 flex justify-between items-center text-gray-400 dark:text-slate">
+<button class="flex flex-col items-center gap-1 text-green p-2">
+<span class="material-symbols-outlined filled">article</span>
+<span class="text-[10px] font-medium font-tech uppercase tracking-wide">Read</span>
+</button>
+<button class="flex flex-col items-center gap-1 hover:text-gray-800 dark:hover:text-green transition-colors p-2">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-[10px] font-medium font-tech uppercase tracking-wide">Saved</span>
+</button>
+<button class="flex flex-col items-center gap-1 hover:text-gray-800 dark:hover:text-green transition-colors p-2">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium font-tech uppercase tracking-wide">Profile</span>
+</button>
+</div>
+
+</body></html>
