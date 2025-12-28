@@ -3,17 +3,6 @@ hero:
   name: Philip.
   description: I'm a dedicated computer scientist passionate about web development and machine learning, committed to imparting knowledge through teaching.
 
-socials:
-  - name: Email
-    url: mailto:your.email@example.com
-    icon: email
-  - name: GitHub
-    url: https://github.com/yourusername
-    icon: github
-  - name: LinkedIn
-    url: https://linkedin.com/in/yourusername
-    icon: linkedin
-
 # Featured projects are identified by post titles containing these strings
 featured_projects:
   section_title: Projects
@@ -27,6 +16,3 @@ recent_writing:
   view_all_text: View All →
   view_all_url: /blog
   max_posts: 4
-
-footer:
-  copyright: "&copy; 2025 Philip Müller. All rights reserved."

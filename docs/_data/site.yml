@@ -1,0 +1,27 @@
+# Personal information used across the site
+profile:
+  name: Philip Müller
+  first_name: Philip
+  avatar: /assets/images/profile_pic.png
+
+socials:
+  - name: Email
+    url: mailto:philipmueller.dev@gmail.com
+    icon: email
+  - name: GitHub
+    url: https://github.com/muelphil
+    icon: github
+  - name: LinkedIn
+    url: https://linkedin.com/in/philip-müller-662477282/
+    icon: linkedin
+
+footer:
+  copyright: "&copy; 2025 Philip Müller. All rights reserved."
+
+navigation:
+  - title: Home
+    url: /
+  - title: Blog
+    url: /blog
+  - title: About Me
+    url: /about

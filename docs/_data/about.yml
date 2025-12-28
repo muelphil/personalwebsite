@@ -1,19 +1,6 @@
 profile:
-  name: Philip Müller
   role: Computer Scientist, Researcher & Educator
   location: Dresden, Germany
-  avatar: /assets/images/profile_pic.png
-
-socials:
-  - name: Email
-    url: mailto:your.email@example.com
-    icon: email
-  - name: GitHub
-    url: https://github.com/yourusername
-    icon: github
-  - name: LinkedIn
-    url: https://linkedin.com/in/yourusername
-    icon: linkedin
 
 bio:
   - I'm a computer scientist passionate about building thoughtful, well-crafted software at the intersection of web development, machine learning, and data visualization. I enjoy turning complex ideas into clear, usable systems—whether that's an interactive interface, a model that explains itself, or a visualization that makes patterns visible at a glance.
@@ -65,5 +52,15 @@ posters:
         - Web Development
         - Optimization
 
-footer:
-  copyright: "&copy; 2025 Philip. All rights reserved."
+tech:
+  title: Tech & Tools
+  tools:
+    - Python
+    - React
+    - TensorFlow
+    - PyTorch
+    - JavaScript
+    - Node.js
+    - Docker
+    - Git
+    - PostgreSQL

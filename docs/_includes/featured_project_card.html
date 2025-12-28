@@ -1,0 +1,25 @@
+<li class="project {% if include.align_right %}align-right{% endif %}">
+    <div class="project-content">
+        <p class="project-label">Featured Project</p>
+        <h3 class="project-title">
+            <a href="{{ include.url | relative_url }}" rel="noopener noreferrer">{{ include.title }}</a>
+        </h3>
+        <div class="project-description">
+            <p>{{ include.description }}</p>
+        </div>
+        {% if include.tags %}
+        <ul class="project-tech">
+            {% for tag in include.tags %}
+            <li class="tag">{{ tag }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% if include.image %}
+    <div class="project-image">
+        <a href="{{ include.url | relative_url }}" rel="noopener noreferrer">
+            <img src="{{ include.image | relative_url }}" alt="{{ include.title }}">
+        </a>
+    </div>
+    {% endif %}
+</li>

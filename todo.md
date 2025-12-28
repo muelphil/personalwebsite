@@ -168,3 +168,12 @@ After you completed, I will test it using bundle exec jekyll serve
 
 Next, lets do the same for the index.html page, that needs to be merged into docs/_layouts/home.html.
 Please also extract information into a data file in _data. For now, create a new data file _home.yml and put any information in the home.html that is not layout or styling. For the featured posts and recent writing, please use the posts written by me and expand them by the missing fields (such as X min read). Consult /docs/_layouts/home_old.html for information about the featured posts and recent writing templating.
+
+
+---
+
+Next, we need to start cleaning up the layouting. Please extract components from about.html and home.html that are recurring, such as featured_post, blog_entry, footer, header, etc in _includes components, and include them into the html file. Please also clean up the data while doing so. Restructure the data files, so that data specific to the pages stays in the corresponding data files, while data data is used across page (e.g. my name) is put in another data file.
+
+---
+
+Please create new pages for /blog and /blog/TAG that will replace the old /posts and /posts/TAG as defined in /docs/_layouts/post.html and posts.html. You may consult these files for the templating logic. Please create them so that they match the styling in home.html and about.html and they are reusing components already used by these -- most importantly the blog_post.html preview in _includes.

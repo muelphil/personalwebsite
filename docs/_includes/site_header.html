@@ -1,0 +1,7 @@
+<header class="site-header">
+    <nav class="site-nav">
+        {% for nav_item in site.data.site.navigation %}
+        <a href="{{ nav_item.url | relative_url }}">{{ nav_item.title }}</a>
+        {% endfor %}
+    </nav>
+</header>
