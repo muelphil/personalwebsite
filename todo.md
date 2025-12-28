@@ -83,5 +83,18 @@ The image should be above the title/ subtitle etc. The image should blend into t
 
 ---
 
-hi, I'm philip!
-I'm a dedicated computer scientist passionate about web development and machine learning, committed to imparting knowledge through teaching
+Next, I would like to add a short text above the rest. it shoudl read:
+
+Hi, I'm 
+Philip.
+I'm a dedicated computer scientist passionate about web development and machine learning, committed to imparting knowledge through teaching.
+
+The "Hi, I'm" should be above the name, in Space grotesk and primary color.
+My name "Philip" should be beneath in a larger font size (see section header).
+The text beneath should be secondary text explaining who I am.
+This section should have reasonable margin to the next section. It would be great if there was a radial or elliptical highlight gradient behind my name, in muted lighter background color.
+---
+This is okay, but the gradient is barely noticable. It should be behind the section, not behind the name, coming in from the left and being big.
+---
+
+We
