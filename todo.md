@@ -97,4 +97,17 @@ This section should have reasonable margin to the next section. It would be grea
 This is okay, but the gradient is barely noticable. It should be behind the section, not behind the name, coming in from the left and being big.
 ---
 
-We
+We should make some quality of life changes:
+* please remove the margins for the sections and instead use display flex on the container and specify a gap. 
+* the featured posts are left or right aligned in alternating order using the :nth-of-type(2n + 1) selector in css. Please change this so that their alignment (left or right) is specified via a class on the .project element -- left aligned is default, to right align it, a new .align-right class should be applied.
+
+---
+
+I have updated the snipped.css.
+I need 2 more updates on the first section:
+1. the gradient in the back should be radial and not limited to the text. Currently, the gradient is being cut off, potentially because of a overflow:hidden or something like that.
+2. the hero section needs to have socials beneath: mail, github, linkedin -- i would like them to be centered and a line left and right to the icons. For now please use:
+   <svg class="svg-icon grey">
+   <use xlink:href="/personalwebsite/assets/minima-social-icons.svg#linkedin"></use>
+   </svg>
+linking to the assets in \personalwebsite\docs\_includes\social-icons
