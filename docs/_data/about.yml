@@ -1,0 +1,69 @@
+profile:
+  name: Philip Müller
+  role: Computer Scientist, Researcher & Educator
+  location: Dresden, Germany
+  avatar: /assets/images/profile_pic.png
+
+socials:
+  - name: Email
+    url: mailto:your.email@example.com
+    icon: email
+  - name: GitHub
+    url: https://github.com/yourusername
+    icon: github
+  - name: LinkedIn
+    url: https://linkedin.com/in/yourusername
+    icon: linkedin
+
+bio:
+  - I'm a computer scientist passionate about building thoughtful, well-crafted software at the intersection of web development, machine learning, and data visualization. I enjoy turning complex ideas into clear, usable systems—whether that's an interactive interface, a model that explains itself, or a visualization that makes patterns visible at a glance.
+  - Currently, I work as a researcher in artificial intelligence, focusing on the development and evaluation of intelligent systems. My work combines practical engineering with academic curiosity, exploring how machine learning models can be made more reliable, interpretable, and useful in real-world contexts.
+  - Previously, I studied computer science alongside teaching and education, which shaped how I approach both research and development. I've worked on a range of projects spanning web applications, experimental ML pipelines, and educational tools, always with a strong emphasis on clarity, accessibility, and knowledge sharing.
+  - Outside of work, I'm usually hiking through forests or mountains, building things by hand, experimenting with code and visualizations, or spending time in nature recharging. I'm queer, curious by default, and happiest when learning something new or making something tangible.
+
+experience:
+  title: Curriculum Vitae
+  positions:
+    - period: 2022 — Present
+      active: true
+      title: Researcher in AI
+      company: Minimal Co.
+      achievements:
+        - Directed product vision for the core suite, improving user retention by 40%.
+        - Established the "Silent UI" design system focused on reduction.
+    - period: 2019 — 2022
+      active: false
+      title: Senior Product Strategist
+      company: Future Agency
+      description: Led strategy for Series B startups entering the consumer wellness space. Focused on ethical tech patterns.
+    - period: 2016 — 2019
+      active: false
+      last: true
+      title: UX Writer
+      company: Tech Daily
+      description: Crafted microcopy and content guidelines for a 50M+ user platform.
+
+posters:
+  title: Posters
+  items:
+    - venue: CHI 2024
+      date: MARCH 2024
+      title: Adaptive Learning Interfaces for Personalized Educational Experiences
+      url: "#"
+      description: Exploring machine learning approaches to create dynamic interfaces that adapt to individual learning patterns and preferences.
+      tags:
+        - HCI
+        - Machine Learning
+        - Education
+    - venue: ICML 2023
+      date: JULY 2023
+      title: Neural Architecture Search for Efficient Web Application Deployment
+      url: "#"
+      description: A novel approach to automatically optimize neural network architectures for resource-constrained web environments.
+      tags:
+        - Neural Networks
+        - Web Development
+        - Optimization
+
+footer:
+  copyright: "&copy; 2025 Philip. All rights reserved."
