@@ -122,3 +122,5 @@ The header should contain right aligned links to "Blog" and "About Me"
 I adjusted snipped.css.
 We need some quality of live changes:
 I dont like the margin: 0 auto; properties, as this makes margins arbitrary. I want the width of the main section on pc displays to be limited to a set width: a normal width for nearly all content and a wide setting for some very important things that need width -- currently only the individual featured projects. I believe the normal width could be 700px and the wide setting could be 1000px. Please use variables.
+
+This is not what I was asking for. Only the individual featured projects are supposed to be of higher width. This excludes the heading. The posts should also be centered, so that the center of the narrow elements is the same center of the wide elements.

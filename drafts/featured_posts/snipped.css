@@ -15,6 +15,10 @@
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; 
     --font-label: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     
+    /* Width Variables */
+    --width-normal: 700px;
+    --width-wide: 1000px;
+    
     /* Size Variables */
     --fz-xs: 15px;
     --fz-lg: 18px; 
@@ -25,7 +29,18 @@
 
 *, *:before, *:after { 
     box-sizing: border-box;
-} 
+}
+
+/* Utility Classes */
+.desktop-hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-hidden {
+        display: block;
+    }
+}
 
 html { 
     width: 100%; 
@@ -159,6 +174,7 @@ main {
     gap: 100px;
     overflow: visible;
     flex: 1;
+    align-items: center;
 }
 
 @media (max-width: 1080px) {
@@ -182,15 +198,23 @@ main {
 } 
 
 section {
-    margin: 0 auto; 
+    width: 100%;
+    max-width: var(--width-normal);
     padding: 0;
-    max-width: 1000px;
+}
+
+.wide-content {
+    width: var(--width-wide);
+    max-width: var(--width-wide);
+    margin-left: calc((var(--width-normal) - var(--width-wide)) / 2);
+    margin-right: calc((var(--width-normal) - var(--width-wide)) / 2);
 }
 
 /* Hero Section */
 .hero-section {
     padding: 20px 0 0 0;
-    max-width: 900px;
+    width: 100%;
+    max-width: var(--width-normal);
     position: relative;
     overflow: visible;
 }
@@ -344,7 +368,10 @@ section {
 .projects-grid { 
     list-style: none; 
     padding: 0; 
-    margin: 0;
+    /*margin: 0;*/
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
 } 
 
 .project { 
@@ -370,6 +397,13 @@ section {
     
     .projects-grid {
         gap: 80px;
+    }
+    
+    .wide-content {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -632,9 +666,9 @@ a:hover {
 
 /* Blog Section */
 .blog-section {
-    margin: 0 auto;
+    width: 100%;
+    max-width: var(--width-normal);
     padding: 0;
-    max-width: 1000px;
 }
 
 .section-header {
