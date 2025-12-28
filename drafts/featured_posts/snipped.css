@@ -113,11 +113,15 @@ body {
 /* Header */
 .site-header {
     padding: 24px 150px;
-    background-color: var(--background);
     position: sticky;
     top: 0;
     z-index: 100;
     backdrop-filter: blur(10px);
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.site-header.scrolled {
     background-color: var(--background-overlay);
 }
 
