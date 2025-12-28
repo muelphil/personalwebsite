@@ -58,4 +58,9 @@ The colors are still massively incorrect due to the adjustemnts you made. For ex
 Should contain: Image, Date, Title, Subtitle, Tags, x Min read
 
 
-I have added a new drafted html page under /drafts/blog_post_list/code.html. Please integrate this into the drafts/featured_posts/index.html 
+I have added a new drafted html page under /drafts/blog_post_list/code.html. Please integrate this into the drafts/featured_posts/index.html and adjust the theme so it is matching.
+What I like in the new /drafts/blog_post_list/code.html that should be carried over to the featured_posts/index.html:
+* I like the tag styling -- introduce a css class for tags and apply it to the featured posts project-tags class (reread the file). However, please adjust the colors of the tags. Instead of using the highlighting/primary color, use a secondary text color
+* I like that the Space Grotesk elements are uppercased. Please transfer this to the "Featured Projects" suptitle in the featured_posts html.
+
+Please include a heading over the posts lists called "Recent Writing" with a right aligned link called "View All" or something like that. I will adjust this to match the rest later.
