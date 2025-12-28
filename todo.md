@@ -124,3 +124,8 @@ We need some quality of live changes:
 I dont like the margin: 0 auto; properties, as this makes margins arbitrary. I want the width of the main section on pc displays to be limited to a set width: a normal width for nearly all content and a wide setting for some very important things that need width -- currently only the individual featured projects. I believe the normal width could be 700px and the wide setting could be 1000px. Please use variables.
 
 This is not what I was asking for. Only the individual featured projects are supposed to be of higher width. This excludes the heading. The posts should also be centered, so that the center of the narrow elements is the same center of the wide elements.
+
+---
+
+Please adjust the variables in the :root of the snipped css section to be more generic. Instead of navy, use a name that is independent of the exact color, for example --background. Same for the primary color (--green) and the text colors (use primary, secondary, tertiary for the colors).
+Please also make sure that the font sizes are stored in the :root. It would be best to have rem sizes and then define sizes they are relative to on the containing element. Keep the font sizes of everything the same while reworking it. Note that the font sizes for featured projects are currently larger (keep it like that), so the containers need larger font sizes, so that the title, subsection, tag font sizes as defined in the variables adjust to that.

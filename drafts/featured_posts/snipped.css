@@ -1,15 +1,15 @@
 :root { 
     /* Color Variables */
-    --navy: #0a192f; 
-    --light-navy: #112240; 
-    --lightest-navy: #233554; 
-    --navy-shadow: rgba(2,12,27,0.7); 
-    --dark-slate: #495670; 
-    --slate: #8892b0; 
-    --light-slate: #a8b2d1; 
-    --lightest-slate: #ccd6f6;
-    --white: #ffffff;
-    --green: #64ffda; 
+    --background: #0a192f; 
+    --background-light: #112240; 
+    --background-lighter: #233554; 
+    --shadow: rgba(2,12,27,0.7); 
+    --text-tertiary: #495670; 
+    --text-secondary: #8892b0; 
+    --text-secondary-light: #a8b2d1; 
+    --text-primary: #ccd6f6;
+    --text-white: #ffffff;
+    --primary: #64ffda; 
     
     /* Font Variables */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; 
@@ -19,10 +19,20 @@
     --width-normal: 700px;
     --width-wide: 1000px;
     
-    /* Size Variables */
-    --fz-xs: 15px;
-    --fz-lg: 18px; 
-    --fz-xl: 20px; 
+    /* Font Size Variables (rem-based) */
+    --fs-base: 1rem;           /* 16px base */
+    --fs-small: 0.625rem;      /* 10px - tags */
+    --fs-label: 0.9375rem;     /* 15px - labels/meta */
+    --fs-body: 1.125rem;       /* 18px - body text */
+    --fs-body-large: 1.25rem;  /* 20px - large body */
+    --fs-h3: 1.5rem;           /* 24px - h3 min */
+    --fs-h3-large: 1.75rem;    /* 28px - h3 max */
+    --fs-h2: 1.625rem;         /* 26px - h2 min */
+    --fs-h2-large: 2rem;       /* 32px - h2 max */
+    --fs-h1: 3rem;             /* 48px - hero name min */
+    --fs-h1-large: 5rem;       /* 80px - hero name max */
+    
+    /* Other Variables */
     --border-radius: 4px; 
     --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1); 
 } 
@@ -46,7 +56,8 @@ html {
     width: 100%; 
     scroll-behavior: smooth;
     scrollbar-width: thin; 
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: var(--text-tertiary) var(--background);
+    font-size: var(--fs-base); /* Base font size for rem calculations */
 } 
 
 body { 
@@ -55,10 +66,10 @@ body {
     min-height: 100%; 
     overflow-x: hidden; 
     -webkit-font-smoothing: antialiased; 
-    background-color: var(--navy); 
-    color: var(--slate); 
+    background-color: var(--background); 
+    color: var(--text-secondary); 
     font-family: var(--font-sans); 
-    font-size: var(--fz-xl); 
+    font-size: var(--fs-body-large); 
     line-height: 1.3;
     display: flex;
     flex-direction: column;
@@ -68,7 +79,7 @@ body {
 /* Header */
 .site-header {
     padding: 24px 150px;
-    background-color: var(--navy);
+    background-color: var(--background);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -85,9 +96,9 @@ body {
 }
 
 .site-nav a {
-    color: var(--slate);
+    color: var(--text-secondary);
     font-family: var(--font-label);
-    font-size: 15px;
+    font-size: var(--fs-label);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -103,12 +114,12 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--green);
+    background-color: var(--primary);
     transition: var(--transition);
 }
 
 .site-nav a:hover {
-    color: var(--green);
+    color: var(--primary);
 }
 
 .site-nav a:hover::after {
@@ -131,7 +142,7 @@ body {
     }
     
     .site-nav a {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
@@ -145,7 +156,7 @@ body {
     }
     
     .site-nav a {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 } 
 
@@ -154,13 +165,13 @@ body {
 } 
 
 ::-webkit-scrollbar-thumb { 
-    background-color: var(--dark-slate); 
-    border: 3px solid var(--navy); 
+    background-color: var(--text-tertiary); 
+    border: 3px solid var(--background); 
     border-radius: 10px;
 } 
 
 ::-webkit-scrollbar-track { 
-    background: var(--navy);
+    background: var(--background);
 }
 
 main { 
@@ -234,9 +245,9 @@ section {
 
 .hero-greeting {
     margin: 0 0 8px 0;
-    color: var(--green);
+    color: var(--primary);
     font-family: var(--font-label);
-    font-size: 16px;
+    font-size: var(--fs-base);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -244,17 +255,17 @@ section {
 
 .hero-name {
     margin: 0 0 24px 0;
-    font-size: 48px; /* clamp(48px, 8vw, 80px); */
+    font-size: clamp(var(--fs-h1), 8vw, var(--fs-h1-large));
     font-weight: 700;
-    color: var(--white);
+    color: var(--text-white);
     line-height: 1.1;
     position: relative;
 }
 
 .hero-description {
     margin: 0 0 40px 0;
-    font-size: clamp(18px, 2.5vw, 22px);
-    color: var(--slate);
+    font-size: clamp(var(--fs-body), 2.5vw, 1.375rem);
+    color: var(--text-secondary);
     line-height: 1.6;
     max-width: 600px;
 }
@@ -271,7 +282,7 @@ section {
     content: "";
     flex: 1;
     height: 1px;
-    background-color: var(--dark-slate);
+    background-color: var(--text-tertiary);
 }
 
 .hero-socials-icons {
@@ -284,12 +295,12 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--slate);
+    color: var(--text-secondary);
     transition: var(--transition);
 }
 
 .hero-socials a:hover {
-    color: var(--green);
+    color: var(--primary);
     transform: translateY(-3px);
 }
 
@@ -317,7 +328,7 @@ section {
     }
     
     .hero-greeting {
-        font-size: 14px;
+        font-size: 0.875rem;
         margin: 0 0 6px 0;
     }
     
@@ -326,7 +337,7 @@ section {
     }
     
     .hero-description {
-        font-size: 16px;
+        font-size: var(--fs-base);
         margin: 0 0 32px 0;
     }
     
@@ -446,7 +457,7 @@ section {
 } 
 
 .project .project-image { 
-    /*box-shadow: 0 10px 30px -15px var(--navy-shadow); */
+    /*box-shadow: 0 10px 30px -15px var(--shadow); */
     transition: var(--transition); 
     grid-area: 1 / 6 / -1 / -1; 
     position: relative; 
@@ -475,7 +486,7 @@ section {
         left: 0;
         right: 0;
         height: 150px;
-        background: linear-gradient(to bottom, transparent 0%, rgba(10, 25, 47, 0.8) 60%, var(--navy) 100%);
+        background: linear-gradient(to bottom, transparent 0%, rgba(10, 25, 47, 0.8) 60%, var(--background) 100%);
         pointer-events: none;
         z-index: 2;
     }
@@ -489,14 +500,14 @@ section {
 
 .project .project-image:hover, 
 .project .project-image:focus-within { 
-    box-shadow: 0 20px 30px -15px var(--navy-shadow);
+    box-shadow: 0 20px 30px -15px var(--shadow);
 } 
 
 .project-label { 
     margin: 10px 0; 
-    color: var(--green); 
+    color: var(--primary); 
     font-family: var(--font-label); 
-    font-size: var(--fz-xs); 
+    font-size: var(--fs-label); 
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -510,7 +521,7 @@ section {
 
 @media (max-width: 480px) {
     .project-label {
-        font-size: 12px;
+        font-size: 0.75rem;
         margin: 0 0 6px 0;
     }
 } 
@@ -518,9 +529,9 @@ section {
 .project-title { 
     margin: 0 0 10px; 
     font-weight: 600; 
-    color: var(--lightest-slate); 
+    color: var(--text-primary); 
     line-height: 1.1;
-    font-size: clamp(24px, 5vw, 28px);
+    font-size: clamp(var(--fs-h3), 5vw, var(--fs-h3-large));
 }
 
 @media (max-width: 768px) {
@@ -531,7 +542,7 @@ section {
 
 @media (max-width: 480px) {
     .project-title {
-        font-size: 22px;
+        font-size: 1.375rem;
         margin: 0 0 10px;
     }
 } 
@@ -543,15 +554,15 @@ section {
 } 
 
 .project-description { 
-    box-shadow: 0 10px 30px -15px var(--navy-shadow); 
+    box-shadow: 0 10px 30px -15px var(--shadow); 
     transition: var(--transition); 
     position: relative; 
     z-index: 2; 
     padding: 25px; 
     border-radius: var(--border-radius); 
-    background-color: var(--light-navy); 
-    color: var(--light-slate); 
-    font-size: var(--fz-lg);
+    background-color: var(--background-light); 
+    color: var(--text-secondary-light); 
+    font-size: var(--fs-body);
 }
 
 @media (max-width: 768px) {
@@ -559,7 +570,7 @@ section {
         background-color: transparent;
         box-shadow: none;
         padding: 0;
-        font-size: 16px;
+        font-size: var(--fs-base);
         margin-bottom: 15px;
     }
     
@@ -571,14 +582,14 @@ section {
 
 @media (max-width: 480px) {
     .project-description {
-        font-size: 15px;
+        font-size: var(--fs-label);
         margin-bottom: 12px;
     }
 } 
 
 .project-description:hover, 
 .project-description:focus-within { 
-    box-shadow: 0 20px 30px -15px var(--navy-shadow);
+    box-shadow: 0 20px 30px -15px var(--shadow);
 } 
 
 .project-description p { 
@@ -613,10 +624,10 @@ section {
 .tag { 
     padding: 3px 8px; 
     border-radius: 3px; 
-    border: 1px solid var(--slate); 
+    border: 1px solid var(--text-secondary); 
     background-color: rgba(136, 146, 176, 0.05); 
-    color: var(--slate); 
-    font-size: 10px; 
+    color: var(--text-secondary); 
+    font-size: var(--fs-small); 
     font-weight: bold; 
     font-family: var(--font-label); 
     text-transform: uppercase; 
@@ -633,7 +644,7 @@ a {
 } 
 
 a:hover { 
-    color: var(--green);
+    color: var(--primary);
 } 
 
 .project-image a { 
@@ -658,7 +669,7 @@ a:hover {
 } 
 
 .project-description a { 
-    color: var(--green);
+    color: var(--primary);
     position: relative;
 } 
 
@@ -685,21 +696,21 @@ a:hover {
 }
 
 .section-header h2 {
-    font-size: clamp(26px, 5vw, 32px);
+    font-size: clamp(var(--fs-h2), 5vw, var(--fs-h2-large));
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: var(--text-primary);
     margin: 0;
 }
 
 .section-header a {
-    color: var(--green);
-    font-size: var(--fz-lg);
+    color: var(--primary);
+    font-size: var(--fs-body);
     font-family: var(--font-label);
 }
 
 @media (max-width: 480px) {
     .section-header a {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
@@ -715,7 +726,7 @@ a:hover {
     gap: 16px;
     margin-bottom: 32px;
     padding-bottom: 32px;
-    border-bottom: 1px solid var(--lightest-navy);
+    border-bottom: 1px solid var(--background-lighter);
 }
 
 @media (max-width: 480px) {
@@ -738,8 +749,8 @@ a:hover {
     height: 90px;
     border-radius: var(--border-radius);
     overflow: hidden;
-    background-color: var(--light-navy);
-    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    background-color: var(--background-light);
+    box-shadow: 0 10px 30px -15px var(--shadow);
 }
 
 @media (max-width: 480px) {
@@ -769,15 +780,15 @@ a:hover {
     gap: 8px;
     margin-bottom: 6px;
     font-family: var(--font-label);
-    font-size: 11px;
+    font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.05em;
-    color: var(--slate);
+    color: var(--text-secondary);
 }
 
 @media (max-width: 480px) {
     .blog-post-meta {
-        font-size: 10px;
+        font-size: var(--fs-small);
         gap: 6px;
     }
 }
@@ -789,16 +800,16 @@ a:hover {
 }
 
 .blog-post-title {
-    font-size: 18px;
+    font-size: var(--fs-body);
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: var(--text-primary);
     margin: 0 0 8px;
     line-height: 1.3;
 }
 
 @media (max-width: 480px) {
     .blog-post-title {
-        font-size: 16px;
+        font-size: var(--fs-base);
         margin: 0 0 6px;
     }
 }
@@ -808,19 +819,19 @@ a:hover {
 }
 
 .blog-post-title a:hover {
-    color: var(--green);
+    color: var(--primary);
 }
 
 .blog-post-description {
-    font-size: 14px;
-    color: var(--slate);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin: 0 0 12px;
 }
 
 @media (max-width: 480px) {
     .blog-post-description {
-        font-size: 13px;
+        font-size: 0.8125rem;
         margin: 0 0 10px;
     }
 }
@@ -844,7 +855,7 @@ a:hover {
     }
     
     .blog-post-title {
-        font-size: 20px;
+        font-size: var(--fs-body-large);
     }
 }
 
@@ -858,8 +869,8 @@ a:hover {
 
 .site-footer p {
     margin: 0;
-    color: var(--slate);
-    font-size: 14px;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
     font-family: var(--font-label);
     letter-spacing: 0.05em;
 }
@@ -876,7 +887,7 @@ a:hover {
     }
     
     .site-footer p {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 }
 
@@ -886,6 +897,6 @@ a:hover {
     }
     
     .site-footer p {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 }
