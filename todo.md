@@ -74,3 +74,14 @@ The layout containing the components must accommodate for the narrow display -- 
 ## Feature Posts Mobile Design
 Zhe featured posts component currently uses an overlap between the image and the text, stacking them next to each other. This doesnt work on mobile. On mobile, the featured posts contents must be rearranged vertically.
 First the image, then the text (title, subtitle, tags etc) that was previously on the right side. There should still be an overlap: If possible, apply linear gradient from transparent to the background color in the lower section of the image, so that the image basically fades out and the text starts where the image fades out.
+
+---
+
+This is okay, but the featured projects component doesnt look as I wanted.
+The image should be above the title/ subtitle etc. The image should blend into the text, so the text needs to have negative margin to the top, to overlay the image and the text.
+
+
+---
+
+hi, I'm philip!
+I'm a dedicated computer scientist passionate about web development and machine learning, committed to imparting knowledge through teaching
