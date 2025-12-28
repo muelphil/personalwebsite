@@ -524,7 +524,7 @@ section {
         left: 0;
         right: 0;
         height: 150px;
-        background: linear-gradient(to bottom, transparent 0%, var(--background-gradient-fade) 60%, var(--background) 100%);
+        background: linear-gradient(to bottom, transparent 0%, var(--background-gradient-fade) 30%, var(--background) 100%);
         pointer-events: none;
         z-index: 2;
     }
@@ -733,15 +733,17 @@ a:hover {
     }
 }
 
-.section-header h2 {
-    font-size: clamp(var(--fs-h2), 5vw, var(--fs-h2-large));
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
+.section-header span.title {
+    font-size: var(--fs-body-large);
+    margin: 10px 0;
+    color: var(--primary);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .section-header a {
-    color: var(--primary);
+    color: var(--text-secondary);
     font-size: var(--fs-body);
     font-family: var(--font-label);
 }

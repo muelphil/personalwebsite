@@ -153,3 +153,13 @@ Issues:
 
 I made some small adjustments to the code.
 Could you adjust the about html and css so that when viewing the page on desktop, the profile header and hero-socials sections are placed left to the main section in a narrow container, in the best case dynamic minimal width so that everything fits without line breaking
+
+
+---
+
+
+I would like to now start merging. As a first step, I want to merge the about.html page with the about.css styling into the jekyll docs folder. To do so:
+* about.html needs to be moved to /docs/_layouts/about.html
+* the layout of docs/about.markdown needs to be changed to about (instead of about_page)
+* the snipped.css and about.css styles need to be moved to the appropriate folder -- likely docs/_sass. Please rename snipped to something like main.scss. The styles must then be appropriately be included in the about.html page.
+After you completed, I will test it using bundle exec jekyll serve
