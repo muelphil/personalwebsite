@@ -163,3 +163,8 @@ I would like to now start merging. As a first step, I want to merge the about.ht
 * the layout of docs/about.markdown needs to be changed to about (instead of about_page)
 * the snipped.css and about.css styles need to be moved to the appropriate folder -- likely docs/_sass. Please rename snipped to something like main.scss. The styles must then be appropriately be included in the about.html page.
 After you completed, I will test it using bundle exec jekyll serve
+
+---
+
+Next, lets do the same for the index.html page, that needs to be merged into docs/_layouts/home.html.
+Please also extract information into a data file in _data. For now, create a new data file _home.yml and put any information in the home.html that is not layout or styling. For the featured posts and recent writing, please use the posts written by me and expand them by the missing fields (such as X min read). Consult /docs/_layouts/home_old.html for information about the featured posts and recent writing templating.

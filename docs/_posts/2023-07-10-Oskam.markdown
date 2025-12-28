@@ -9,6 +9,7 @@ abstract: "In this post, I go into the journey of constructing my very own therm
 short-abstract: "The Oskam is a fully custom DIY thermal printing camera I designed and build with a lot of additional features built into it."
 title-image: '/assets/images/Oskam/title_image.png'
 title-image-caption: 'The Oskam'
+read_time: 8
 carousels:
   - images:
       - image: /assets/images/Oskam/concept_1.png
