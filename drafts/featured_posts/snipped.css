@@ -1,15 +1,49 @@
-:root { 
+:root {
     /* Color Variables */
-    --background: #0a192f; 
-    --background-light: #112240; 
-    --background-lighter: #233554; 
-    --shadow: rgba(2,12,27,0.7); 
-    --text-tertiary: #495670; 
-    --text-secondary: #8892b0; 
-    --text-secondary-light: #a8b2d1; 
-    --text-primary: #ccd6f6;
+    /*--shadow: rgba(2,12,27,0.7); */
+    /*--background-dark: #081426; */
+    /*--background-overlay: rgba(10, 25, 47, 0.85); */
+    /*--background: #0a192f; */
+    /*--background-gradient-fade: rgba(10, 25, 47, 0.8); */
+    /*--background-light: #112240; */
+    /*--background-lighter: #233554; */
+    /*--text-tertiary: #495670; */
+    /*--text-secondary: #8892b0; */
+    /*--text-secondary-light: #a8b2d1; */
+    /*--text-primary: #ccd6f6; */
+    /*--text-white: #ffffff; */
+    /*--primary: #64ffda; */
+    /*--primary-glow-strong: rgba(100, 255, 218, 0.15); */
+    /*--primary-glow-medium: rgba(100, 255, 218, 0.08); */
+    /*--primary-glow-weak: rgba(100, 255, 218, 0.03); */
+    /*--tag-background: rgba(136, 146, 176, 0.05);*/
+
+    /* Color Variables */
+    --shadow: rgba(8, 6, 18, 0.7);
+
+    --background-dark: #120f1c;
+    --background-overlay: rgba(24, 20, 34, 0.88);
+    --background: #181422;
+    --background-gradient-fade: rgba(24, 20, 34, 0.8);
+    --background-light: #211c33;
+    --background-lighter: #2f2950;
+
+    --text-tertiary: #5f587c;
+    --text-secondary: #8e86b3;
+    --text-secondary-light: #b4acd9;
+    --text-primary: #d9d3f2;
     --text-white: #ffffff;
-    --primary: #64ffda; 
+
+    --primary: #9b84f7;
+    --primary-glow-strong: rgba(155, 132, 247, 0.2);
+    --primary-glow-medium: rgba(155, 132, 247, 0.11);
+    --primary-glow-weak: rgba(155, 132, 247, 0.045);
+
+    --tag-background: rgba(142, 134, 179, 0.06);
+
+
+
+
     
     /* Font Variables */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; 
@@ -84,7 +118,7 @@ body {
     top: 0;
     z-index: 100;
     backdrop-filter: blur(10px);
-    background-color: rgba(10, 25, 47, 0.85);
+    background-color: var(--background-overlay);
 }
 
 .site-nav {
@@ -238,7 +272,7 @@ section {
     transform: translateY(-50%);
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle at center, rgba(100, 255, 218, 0.15) 0%, rgba(100, 255, 218, 0.08) 30%, rgba(100, 255, 218, 0.03) 50%, transparent 70%);
+    background: radial-gradient(circle at center, var(--primary-glow-strong) 0%, var(--primary-glow-medium) 30%, var(--primary-glow-weak) 50%, transparent 70%);
     z-index: -1;
     pointer-events: none;
 }
@@ -486,7 +520,7 @@ section {
         left: 0;
         right: 0;
         height: 150px;
-        background: linear-gradient(to bottom, transparent 0%, rgba(10, 25, 47, 0.8) 60%, var(--background) 100%);
+        background: linear-gradient(to bottom, transparent 0%, var(--background-gradient-fade) 60%, var(--background) 100%);
         pointer-events: none;
         z-index: 2;
     }
@@ -625,7 +659,7 @@ section {
     padding: 3px 8px; 
     border-radius: 3px; 
     border: 1px solid var(--text-secondary); 
-    background-color: rgba(136, 146, 176, 0.05); 
+    background-color: var(--tag-background); 
     color: var(--text-secondary); 
     font-size: var(--fs-small); 
     font-weight: bold; 
@@ -861,7 +895,7 @@ a:hover {
 
 /* Footer */
 .site-footer {
-    background-color: rgba(8, 20, 38, 0.9);
+    background-color: var(--background-dark);
     padding: 32px 150px;
     text-align: center;
     margin-top: auto;
