@@ -111,3 +111,14 @@ I need 2 more updates on the first section:
    <use xlink:href="/personalwebsite/assets/minima-social-icons.svg#linkedin"></use>
    </svg>
 linking to the assets in \personalwebsite\docs\_includes\social-icons
+
+---
+
+Next we need to add a basic footer and header.
+The footer should just contain a copyright and have a slightly darker color than the rest of the background.
+The header should contain right aligned links to "Blog" and "About Me"
+
+---
+I adjusted snipped.css.
+We need some quality of live changes:
+I dont like the margin: 0 auto; properties, as this makes margins arbitrary. I want the width of the main section on pc displays to be limited to a set width: a normal width for nearly all content and a wide setting for some very important things that need width -- currently only the individual featured projects. I believe the normal width could be 700px and the wide setting could be 1000px. Please use variables.
