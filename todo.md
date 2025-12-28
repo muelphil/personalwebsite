@@ -64,3 +64,13 @@ What I like in the new /drafts/blog_post_list/code.html that should be carried o
 * I like that the Space Grotesk elements are uppercased. Please transfer this to the "Featured Projects" suptitle in the featured_posts html.
 
 Please include a heading over the posts lists called "Recent Writing" with a right aligned link called "View All" or something like that. I will adjust this to match the rest later.
+
+
+---
+# Mobile Accessibility
+We should now work towards mobile accessibility. Currently the design is not responsive and we need to adjust this. Please introduce breakpoints for mobile. Two main things need to be different on mobile:
+## Layout
+The layout containing the components must accommodate for the narrow display -- margins on the sides should be reasonably small. Currently, the margins are huge.
+## Feature Posts Mobile Design
+Zhe featured posts component currently uses an overlap between the image and the text, stacking them next to each other. This doesnt work on mobile. On mobile, the featured posts contents must be rearranged vertically.
+First the image, then the text (title, subtitle, tags etc) that was previously on the right side. There should still be an overlap: If possible, apply linear gradient from transparent to the background color in the lower section of the image, so that the image basically fades out and the text starts where the image fades out.
