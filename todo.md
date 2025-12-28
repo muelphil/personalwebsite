@@ -129,3 +129,27 @@ This is not what I was asking for. Only the individual featured projects are sup
 
 Please adjust the variables in the :root of the snipped css section to be more generic. Instead of navy, use a name that is independent of the exact color, for example --background. Same for the primary color (--green) and the text colors (use primary, secondary, tertiary for the colors).
 Please also make sure that the font sizes are stored in the :root. It would be best to have rem sizes and then define sizes they are relative to on the containing element. Keep the font sizes of everything the same while reworking it. Note that the font sizes for featured projects are currently larger (keep it like that), so the containers need larger font sizes, so that the title, subsection, tag font sizes as defined in the variables adjust to that.
+
+---
+
+# About
+
+I now added a prototypic about page to the project as about.html. This is a prototype that was generated and does not use the same theme. The first thing that is now required to do is to adjust this prototype to the rest of the website -- so the same theme the index.html uses. To do so, it should use the snipped.css, but anything new specific to the about page should go into a new about.css file.
+The prototype is good but a few adjustments need to be made while transferring it:
+* use the same color scheme, font size variables and basic layout that index.html uses.
+* use the same socials style for the socials icons as defined in index.html
+* replace selected writing with "Posters" and put 2 made up poster titles there with made up conferences -- this should use the same styling as the blog post listings in index.html
+* Tech & Tools should use tag styling with a bigger font size (use the rem font sizes)
+
+---
+Check /drafts/featured_posts/. The about.html page you just created from the about_prototype.html basis has several issues. To help fix the issues I have put the prototype you started with into about_prototype.html. The goal was to use the prototype and adjust it so that it matches the theme and styling of the home page index.html and put new styles into about.css.
+Issues:
+* The Experience section is badly messed up. The css does not seem to work. Please recreate the section just as it was in the prototype, with the only difference being font family, size and colors.
+* The posters should not use images, remove the images.
+* Tech and Tools Tags need to be bigger than the rest.
+* Please use profile_pic.png (just created it) as the profile picture.
+
+---
+
+I made some small adjustments to the code.
+Could you adjust the about html and css so that when viewing the page on desktop, the profile header and hero-socials sections are placed left to the main section in a narrow container, in the best case dynamic minimal width so that everything fits without line breaking
