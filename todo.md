@@ -290,4 +290,12 @@ I made slight adjustments, dont overwrite. Please also include a "include_descri
 
 ---
 
-Lets look into the project card in home.html. They are responsive and change when below 768px. However, they should already break when lower then 1080px. Please extract the css into a new file _project_card.scss and adjust the responsiveness.
+Lets look into the project card in home.html. They are responsive and change when below 768px.
+Between 1080px and 768px another step should be introduced, where the image and the project description move closer to one another so they use less vertical space.
+Please extract the css into a new file _project_card.scss and adjust the responsiveness. The responsiveness should be clearly defined per breakpoint (only one max-content statement per breakpoint, not many scattered ones.)
+
+---
+
+I would next like to implement a feature: Documents.
+I want to use this to store content that are not posts but that I still want to link to from within posts or other points in my page, such as poster or publication abstracts, code snippets, declarations, etc.
+It would be great if this could be implemented so that I have a docs/documents folder 

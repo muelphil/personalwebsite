@@ -34,11 +34,13 @@ section {
     padding: 0;
 }
 
-.wide-content {
-    width: var(--width-wide);
-    max-width: var(--width-wide);
-    margin-left: calc((var(--width-normal) - var(--width-wide)) / 2);
-    margin-right: calc((var(--width-normal) - var(--width-wide)) / 2);
+@media (min-width: 1081px) {
+    .wide-content {
+        width: var(--width-wide);
+        max-width: var(--width-wide);
+        margin-left: calc((var(--width-normal) - var(--width-wide)) / 2);
+        margin-right: calc((var(--width-normal) - var(--width-wide)) / 2);
+    }
 }
 
 /* Responsive breakpoints for main container */
@@ -52,13 +54,6 @@ section {
     main {
         padding: 50px 50px;
         gap: 80px;
-    }
-    
-    .wide-content {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
     }
 }
 
