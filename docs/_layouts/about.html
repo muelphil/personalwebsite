@@ -13,9 +13,9 @@ layout: page_wrapper
                 <h1>{{ site.data.site.profile.name }}</h1>
                 <p class="profile-role">{{ site.data.about.profile.role }}</p>
                 <p class="profile-location">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
+<!--                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">-->
+<!--                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>-->
+<!--                    </svg>-->
                     {{ site.data.about.profile.location }}
                 </p>
             </div>
@@ -67,13 +67,12 @@ layout: page_wrapper
         <h3 class="section-title">{{ site.data.about.posters.title }}</h3>
         <ul class="blog-list">
             {% for poster in site.data.about.posters.items %}
-            {% include blog_post.html 
-                date=poster.venue
-                read_time=poster.date
+            {% include poster.html 
+                conference=poster.venue
+                date=poster.date
                 title=poster.title
                 url=poster.url
                 description=poster.description
-                tags=poster.tags
             %}
             {% endfor %}
         </ul>

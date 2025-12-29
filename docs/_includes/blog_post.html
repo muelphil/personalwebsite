@@ -6,12 +6,10 @@
     {% endif %}
     <div class="blog-post-content">
         <div class="blog-post-meta">
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+
             {% if include.date %}
-                {% if include.date contains '-' %}
-                    <span>{{ include.date | date: "%b %d, %Y" | upcase }}</span>
-                {% else %}
-                    <span>{{ include.date }}</span>
-                {% endif %}
+            <span>{{ include.date | date: date_format | upcase  }}</span>
             {% endif %}
             {% if include.read_time %}
             <span>{{ include.read_time }}{% if include.read_time contains 'MIN' %}{% else %} MIN READ{% endif %}</span>

@@ -177,3 +177,33 @@ Next, we need to start cleaning up the layouting. Please extract components from
 ---
 
 Please create new pages for /blog and /blog/TAG that will replace the old /posts and /posts/TAG as defined in /docs/_layouts/post.html and posts.html. You may consult these files for the templating logic. Please create them so that they match the styling in home.html and about.html and they are reusing components already used by these -- most importantly the blog_post.html preview in _includes.
+
+
+---
+
+This works reasonably well, but there are 2 things I would like you to change:
+* scrap the posts title and put the posts title in place of the "Filter by Tags" title. Additionally, highlight the tags based on the url. If the posts are filtered for "Computer Science" tag, then this tag should be highlighted, not the "All Posts" tag.
+* This approach unfortunately requires the generation of filtered blog pages for every tag -- like /docs/filtered_by_computer_science.markdown, which is tedious. Is there a way to write code so that upon building, Jekyll will scan all posts for tags, collect the tags, and build these pages internally?
+
+---
+
+You are in a Jekyll Personal Website project. We have already progressed in updating the old website theme and created several layouts and includes. We have created a home, about and blog page, which you can find in /docs/_layouts/home.html, about.html and blog.html. We now need to update the post pages, that are used to show the posts of the site.
+To achive this, these things must be done:
+* the /docs/_layouts/post.html layout must be modified to instead use the page wrapper. This must be done carefully so that the content of the post stays identical, it is still rendered correctly, but the wrapping html is no longer base.html, but page_wrapper.html.
+
+The issue here is that during the update, we build in new files additional to the old ones, which introduced a lot of old styling that is conflicting with the new one (for example, same class names, but old styles are deprecated).
+The old wrapping layout (base.html) imports the old styles (located in /docs/_sass/minima and subfiles), the new one (page_wrapper.html) the new styles (/docs/sass/_about.scss, _blog.scss, _main.scss).
+To fix this, the old styles must be evaluated. Everything that corresponds to the old layout must be thrown out -- older header, footer, container styles etc. Only the styles that are relevant to the posts and the _includes components posts might use should be preserved and ported into a new style file /docs/_sass/_post.scss. The minima folder should be deprecated/obsolete afterwards and no longer be imported anywhere (keep it though in case the port is missing something).
+
+Afterwards, the posts page needs to use page_wrapper instead of base.
+
+
+
+
+
+
+
+
+
+
+

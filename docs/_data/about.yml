@@ -11,56 +11,64 @@ bio:
 experience:
   title: Curriculum Vitae
   positions:
-    - period: 2022 — Present
+    - period: 2024–Present
       active: true
-      title: Researcher in AI
-      company: Minimal Co.
-      achievements:
-        - Directed product vision for the core suite, improving user retention by 40%.
-        - Established the "Silent UI" design system focused on reduction.
-    - period: 2019 — 2022
+      title: Researcher (Artificial Intelligence)
+      company: Helmholtz-Zentrum Dresden-Rossendorf
+      description: Researching uncertainty quantification in large language models. Organized and taught an LLM workshop at the HZDR HPC Fall School 2025.
+
+    - period: 2021–2025
       active: false
-      title: Senior Product Strategist
-      company: Future Agency
-      description: Led strategy for Series B startups entering the consumer wellness space. Focused on ethical tech patterns.
-    - period: 2016 — 2019
+      title: M.Sc. in Computer Science
+      company: Technische Universität Dresden
+      description: "Master’s thesis: “Uncertainty Estimation of Large Language Model Replies in Natural Sciences”"
+
+    - period: 2019–2025
+      active: false
+      title: State Examination in Education
+      company: Technische Universität Dresden
+      description: "Specialization: Upper secondary education (Mathematics and Computer Science)"
+
+    - period: 2015–2019
       active: false
       last: true
-      title: UX Writer
-      company: Tech Daily
-      description: Crafted microcopy and content guidelines for a 50M+ user platform.
+      title: B.Sc. in Computer Science
+      company: Westsächsische Hochschule Zwickau
+      description: "Bachelor’s thesis: “Comparison of Angular and Vue.js for introducing component-based frontend frameworks in an academic course”"
 
 posters:
   title: Posters
   items:
-    - venue: CHI 2024
-      date: MARCH 2024
-      title: Adaptive Learning Interfaces for Personalized Educational Experiences
-      url: "#"
-      description: Exploring machine learning approaches to create dynamic interfaces that adapt to individual learning patterns and preferences.
-      tags:
-        - HCI
-        - Machine Learning
-        - Education
-    - venue: ICML 2023
-      date: JULY 2023
-      title: Neural Architecture Search for Efficient Web Application Deployment
-      url: "#"
-      description: A novel approach to automatically optimize neural network architectures for resource-constrained web environments.
-      tags:
-        - Neural Networks
-        - Web Development
-        - Optimization
+    - venue: EurIPS 2025
+      date: December 2025
+      title: "Reproducibility by Design: A Modular Framework for Benchmarking Evolving Probabilistic AI Systems"
+      url: "https://sites.google.com/view/benchmarking-and-evaluating-ai/home/accepted-posters#h.ll9ukx7hiunm"
+      description: This poster presents a modular benchmarking framework designed to ensure reproducibility and transparency when evaluating probabilistic and resource-intensive AI systems, with a focus on uncertainty estimation for large language models. The framework decouples model execution from evaluation logic, enabling consistent, reusable, and longitudinal benchmarking as models and APIs evolve.
+      links:
+        - https://www.hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=42155
+        - https://sites.google.com/view/benchmarking-and-evaluating-ai/home/accepted-posters#h.ll9ukx7hiunm
+    - venue: HAICON 2025
+      date: June 2025
+      title: Uncertainty Estimation of Large Language Model Replies in Natural Sciences
+      url: "https://www.hzdr.de/db/!News.AllNews?pSelMenu=0&pSelId=1704&pNid=530"
+      description: The poster has been award the 2nd prize for the best poster among a total of 200 posters in an audience vote.
+      links:
+        - https://hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=41395
 
 tech:
   title: Tech & Tools
   tools:
     - Python
-    - React
-    - TensorFlow
-    - PyTorch
+    - Jupyter
+    - vLLM
     - JavaScript
+    - TypeScript
     - Node.js
-    - Docker
+    - Electron
+    - Vue.js
+    - Svelte
+    - Raspberry Pi
     - Git
-    - PostgreSQL
+    - Java
+    - C++
+    - 3D Printing

@@ -769,6 +769,11 @@ a:hover {
     border-bottom: 1px solid var(--background-lighter);
 }
 
+.about-posters li.blog-post{
+  margin-bottom: 24px !important;
+  padding-bottom: 0px !important;
+}
+
 @media (max-width: 480px) {
     .blog-post {
         gap: 12px;
