@@ -195,6 +195,8 @@ The issue here is that during the update, we build in new files additional to th
 The old wrapping layout (base.html) imports the old styles (located in /docs/_sass/minima and subfiles), the new one (page_wrapper.html) the new styles (/docs/sass/_about.scss, _blog.scss, _main.scss).
 To fix this, the old styles must be evaluated. Everything that corresponds to the old layout must be thrown out -- older header, footer, container styles etc. Only the styles that are relevant to the posts and the _includes components posts might use should be preserved and ported into a new style file /docs/_sass/_post.scss. The minima folder should be deprecated/obsolete afterwards and no longer be imported anywhere (keep it though in case the port is missing something).
 
+You may check out the Oskam posts in /docs/_posts/ to identify important _includes components.
+
 Afterwards, the posts page needs to use page_wrapper instead of base.
 
 
