@@ -19,8 +19,8 @@ footer:
   copyright: "&copy; 2025 Philip Müller. All rights reserved."
 
 navigation:
-  - title: Home
-    url: /
+#  - title: Home
+#    url: /
   - title: Blog
     url: /blog
   - title: About Me

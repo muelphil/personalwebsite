@@ -8,11 +8,12 @@
             <p>{{ include.description }}</p>
         </div>
         {% if include.tags %}
-        <ul class="project-tech">
-            {% for tag in include.tags %}
-            <li class="tag">{{ tag }}</li>
-            {% endfor %}
-        </ul>
+        {% include tags.html tags=include.tags %}
+<!--        <ul class="project-tech">-->
+<!--            {% for tag in include.tags %}-->
+<!--            <li class="tag">{{ tag }}</li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
         {% endif %}
     </div>
     {% if include.image %}

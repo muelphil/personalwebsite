@@ -101,14 +101,14 @@
 }
 
 /* Post tags */
-.post-tags {
+.tags-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 12px;
 }
 
-.post-tag {
+.tag {
   display: inline-block;
   padding: 6px 16px;
   margin: 0;
@@ -229,7 +229,7 @@
 
 /* Code formatting */
 pre, code {
-  font-family: 'Monaco', 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: var(--font-size-code);
   border-radius: 4px;
 }
@@ -249,13 +249,18 @@ pre {
     border: 0;
     padding-right: 0;
     padding-left: 0;
+    background-color: transparent;
   }
 }
 
 .highlight {
-  border-radius: 3px;
-  background-color: #292C2D;
+  border-radius: 4px;
   margin-bottom: 16px;
+  
+  pre {
+    margin: 0;
+    background-color: transparent;
+  }
 }
 
 :not(pre) > code {

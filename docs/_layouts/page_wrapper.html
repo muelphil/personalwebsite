@@ -28,6 +28,21 @@
 </body>
 
 <script>
+    window.onload = function(){
+        console.log('loaded!')
+        const imageGalleries = Array.from(document.querySelectorAll('.image-gallery-container'));
+        imageGalleries.forEach(gallery => {
+            const images = Array.from(gallery.querySelectorAll('img'));
+            images.forEach(img => {
+                console.log(img);
+                const aspectRatio = img.width / img.height;
+                img.parentElement.style.flex = aspectRatio;
+            })
+        })
+    }
+</script>
+
+<script>
     window.enlarge = function (event) {
         const src = event.target.getAttribute('data-enlargable');
         const newDiv = document.createElement("div");

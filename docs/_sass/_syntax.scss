@@ -1,0 +1,163 @@
+/* Molokai Syntax Highlighting Theme */
+
+.highlight {
+    color: #f8f8f2;
+    background-color: #1b1d1e;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+@media (min-width: 1080px) {
+  .highlight{
+    padding: 8px;
+  }
+}
+
+.highlight table td { 
+    padding: 5px; 
+}
+
+.highlight table pre { 
+    margin: 0; 
+}
+
+.highlight .c, 
+.highlight .cd,
+.highlight .cm,
+.highlight .c1 {
+    color: #5e5d83;
+    font-style: italic;
+}
+
+.highlight .cp {
+    color: #465457;
+    font-weight: bold;
+}
+
+.highlight .cs {
+    color: #465457;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.highlight .err {
+    color: #f8f8f2;
+    background-color: #403d3d;
+}
+
+.highlight .gi {
+    color: #a6e22e;
+}
+
+.highlight .gd {
+    color: #f92672;
+}
+
+.highlight .ge {
+    color: #1b1d1e;
+    font-style: italic;
+}
+
+.highlight .gr,
+.highlight .gt {
+    color: #f92672;
+}
+
+.highlight .gh,
+.highlight .go {
+    color: #403d3d;
+}
+
+.highlight .gp {
+    color: #66d9ef;
+}
+
+.highlight .gs {
+    font-weight: bold;
+}
+
+.highlight .gu {
+    color: #465457;
+}
+
+.highlight .k, 
+.highlight .kv,
+.highlight .kc,
+.highlight .kd,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt {
+    color: #66d9ef;
+    font-weight: bold;
+}
+
+.highlight .kn,
+.highlight .ow,
+.highlight .o {
+    color: #f92672;
+    font-weight: bold;
+}
+
+.highlight .mf,
+.highlight .mh,
+.highlight .il,
+.highlight .mi,
+.highlight .mo,
+.highlight .m, 
+.highlight .mb, 
+.highlight .mx,
+.highlight .se {
+    color: #af87ff;
+}
+
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .s1,
+.highlight .ss,
+.highlight .s {
+    color: #d7d787;
+}
+
+.highlight .na {
+    color: #a6e22e;
+}
+
+.highlight .nc,
+.highlight .nd,
+.highlight .ne,
+.highlight .nf {
+    color: #a6e22e;
+    font-weight: bold;
+}
+
+.highlight .no {
+    color: #66d9ef;
+}
+
+.highlight .bp,
+.highlight .nb,
+.highlight .ni,
+.highlight .nn,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi,
+.highlight .nv,
+.highlight .w {
+    color: #f8f8f2;
+}
+
+.highlight .nl {
+    color: #f8f8f2;
+    font-weight: bold;
+}
+
+.highlight .nt {
+    color: #f92672;
+}

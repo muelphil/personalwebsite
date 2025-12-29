@@ -41,11 +41,7 @@ layout: page_wrapper
             </div>
             {%- endif -%}
 
-            <div class="post-tags">
-                {% for tag in page.tags %}
-                <a class="post-tag" href="{{site.baseurl}}/posts/{{tag | replace:' ', '_'}}">{{tag}}</a>
-                {% endfor %}
-            </div>
+            {% include tags.html tags=page.tags %}
         </div>
         {%- if page.title-image -%}
         <div class="post-header-title-image">

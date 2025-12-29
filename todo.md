@@ -235,3 +235,28 @@ $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mo
 * The posters section in the about page needs to be updated to show additional information. I included new data for the posters in _data/about.yml -- posters should not have 1 link but multiple that are shown underneath with a label each and the posters need to have authors under the table, preferably formatted as "Nakkiran, P., Bradley, A., Goliński, A., Ndiaye, E."
 * The tags should be extracted into an includes component that should be reused. The tags should be clickable to go to /blog/TAG/ to view posts with that tag.
 * The header has a Home Link. Please place it to the very left and hide it conditionally when showing "/" (Home). Highlight the link that is currently active (if any) by highlighting it in the primary color (no underline as when you would hover it)
+
+---
+
+I made some adjustments to about and styling of it. I would like you to further adjust the about page. Much of this page uses font sizes below body (1em), which is very small. It should only be used for things that are of low importance. For example, the poster description can barley be read. Please adjust the font size usage in the about page.
+
+
+---
+
+
+Next we need to fix the post header in _layouts/post.html, as it currently is screwed.
+
+The post header should contain the following things:
+* Header Image
+* Post Info:
+  * Navigation (Home > Posts >)
+  * X min read <SPACE> Date of Publication
+  * Title
+  * Subtitle
+  * Author(round cutout profile pic + name) <SPACE> Tags
+
+I would like to use a similar approach for this header as I did with the project cards (see _includes/featured_project_card) regarding the layout.
+However, for now I would like to first figure out the hierarchy for the Post Info, before aligning the header image and the text.
+To achieve this, please make post_header a new include that puts the Header image first, then beneath the Post Info stacked as described above. Use the variables and possibly css classes already defined, but make sure it uses bigger font size by setting a bigger font size on the container so that the children scale based on this container font size.
+
+Apply it to the posts (in post.html)

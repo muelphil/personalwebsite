@@ -25,6 +25,7 @@
   /* Font Variables */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --font-label: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-mono: 'Menlo', 'Inconsolata', 'Consolas', 'Roboto Mono', 'Ubuntu Mono', 'Liberation Mono', 'Courier New', monospace;
 
   /* Width Variables */
   --width-normal: 700px;
@@ -90,8 +91,9 @@ body {
   display: flex;
   justify-content: flex-end;
   gap: 32px;
-  max-width: 1600px;
+  //max-width: 1600px;
   margin: 0 auto;
+  max-width: var(--width-normal);
 }
 
 .site-nav a {
@@ -104,6 +106,10 @@ body {
   text-decoration: none;
   transition: var(--transition);
   position: relative;
+}
+
+.site-nav a.active {
+  color: var(--primary);
 }
 
 .site-nav a::after {
@@ -217,8 +223,8 @@ body {
 .hero-socials {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-top: 40px;
+  gap: 8px;
+  margin-top: 34px;
 }
 
 .hero-socials::before,
@@ -231,12 +237,13 @@ body {
 
 .hero-socials-icons {
   display: flex;
-  gap: 24px;
+  //gap: 24px;
   align-items: center;
 }
 
 .hero-socials a {
   display: flex;
+  padding: 12px;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
@@ -554,6 +561,7 @@ section {
   }
 
   .tag {
+    display: inline-block;
     padding: 3px 8px;
     border-radius: 3px;
     border: 1px solid var(--text-secondary);
@@ -565,6 +573,14 @@ section {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     white-space: nowrap;
+    text-decoration: none;
+    transition: var(--transition);
+    
+    &:hover {
+      background-color: var(--primary-glow-medium);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
   }
 
   a {
@@ -675,8 +691,8 @@ section {
   }
 
   .about-posters li.blog-post {
-    margin-bottom: 24px !important;
-    padding-bottom: 0px !important;
+    //margin-bottom: 24px !important;
+    //padding-bottom: 0px !important;
   }
 
   @media (max-width: 480px) {
@@ -783,14 +799,14 @@ section {
   }
 }
 
-.blog-post-tags {
+.tags-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
 @media (max-width: 480px) {
-  .blog-post-tags {
+  .tags-list {
     gap: 6px;
   }
 }
@@ -834,4 +850,8 @@ section {
   .site-footer {
     padding: 24px 25px;
   }
+}
+
+.vertical-separator{
+  flex: 1 1 auto;
 }
