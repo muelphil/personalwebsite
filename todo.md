@@ -298,4 +298,5 @@ Please extract the css into a new file _project_card.scss and adjust the respons
 
 I would next like to implement a feature: Documents.
 I want to use this to store content that are not posts but that I still want to link to from within posts or other points in my page, such as poster or publication abstracts, code snippets, declarations, etc.
-It would be great if this could be implemented so that I have a docs/documents folder 
+It would be great if this could be implemented so that I have a docs/_documents folder that contains documents as markdown and that get rendered under /docs/document title. Each document should specify a title and optionally a date. They should contain markdown. It should be rendered as markdown, similar to what post.html does, but without everything post specific and without the fancy title etc. -- only the title and the date/time if present.
+Create 2 dummy documents and link to them from the about page -- just put the links somewhere where i can easily delete them after trying.

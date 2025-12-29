@@ -35,6 +35,12 @@ github_username:  muelphil
 plugins:
   - jekyll-feed
 
+# Collections
+collections:
+  documents:
+    output: true
+    permalink: /documents/:title
+
 # Permalink settings
 permalink: /:year/:month/:day/:title.html
 

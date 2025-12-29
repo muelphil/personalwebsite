@@ -14,5 +14,12 @@ You can find the source code for Jekyll at GitHub:
 [jekyll][jekyll-organization] /
 [jekyll](https://github.com/jekyll/jekyll)
 
+---
+
+**TEST LINKS - DELETE AFTER TRYING:**
+- [Research Poster: Image Enhancement]({{ site.baseurl }}/documents/research-poster-image-enhancement)
+- [Publication Abstract: Neural Network Optimization]({{ site.baseurl }}/documents/publication-abstract-nn-optimization)
+
+---
 
 [jekyll-organization]: https://github.com/jekyll
