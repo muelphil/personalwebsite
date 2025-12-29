@@ -28,44 +28,38 @@ layout: page_wrapper
     <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 
     <div class="post-separator"></div>
-    <div class="post-outro">Enjoyed reading this post? Feel free to share it.<br> Also, here is some more :)</div>
+    <div class="post-outro">Thank you for reading! If you found this helpful, feel free to explore more of my work below.</div>
 
-
-    <!--    https://guypursey.com/blog/202104171135-next-previous-nav-links-jekyll-blog -->
-    <div class="post-nav">
-        <div>
+    <section class="post-navigation">
+        <ul class="blog-list">
             {% if page.previous.url %}
-            <a href="{{page.previous.url | relative_url }}">
-                <!--                <span class="unsighted">Previous post:</span>-->
-                <!--                <span aria-hidden="true">&laquo;</span>-->
-                <img src="{{ page.previous.title-image | relative_url}}">
-                <h4>{{page.previous.title}}</h4>
-                {{page.previous.short-abstract}}
-            </a>
+            {% include blog_post.html 
+                image=page.previous.title-image
+                date=page.previous.date
+                read_time=page.previous.read_time
+                title=page.previous.title
+                url=page.previous.url
+                description=page.previous.short-abstract
+                tags=page.previous.tags
+                image_right=false
+                include_description=false
+            %}
             {% endif %}
-        </div>
-        <div class="post-nav-next">
+            
             {% if page.next.url %}
-            {% assign next_post_title_array = page.next.title | split: " " %}
-            {% assign next_post_cape_length = next_post_title_array | size | minus: 1 %}
-            {% assign next_post_cape = page.next.title | truncatewords: next_post_cape_length, "" %}
-            {% assign next_post_spit = next_post_title_array | last %}
-            <a href="{{page.next.url | relative_url }}">
-                <!--                <span class="unsighted">Previous post:</span>-->
-                <!--                <span aria-hidden="true">&laquo;</span>-->
-                <img src="{{ page.next.title-image | relative_url}}">
-                <h4>{{page.next.title}}</h4>
-                {{page.next.short-abstract}}
-            </a>
-<!--            <a href="{{page.next.url | relative_url }}">-->
-<!--                <span class="unsighted">Next post:</span>-->
-<!--                {{next_post_cape}}-->
-<!--                <span style="white-space: nowrap;">-->
-<!--&lt;!&ndash;      {{next_post_spit}}&ndash;&gt; <span aria-hidden="true">&raquo;</span>-->
-<!--                </span>-->
-<!--            </a>-->
+            {% include blog_post.html 
+                image=page.next.title-image
+                date=page.next.date
+                read_time=page.next.read_time
+                title=page.next.title
+                url=page.next.url
+                description=page.next.short-abstract
+                tags=page.next.tags
+                image_right=true
+                include_description=false
+            %}
             {% endif %}
-        </div>
-    </div>
+        </ul>
+    </section>
 </article>
 </main>

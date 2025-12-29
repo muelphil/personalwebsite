@@ -65,7 +65,7 @@ layout: page_wrapper
     <!-- Posters Section -->
     <section class="about-posters">
         <h3 class="section-title separate">{{ site.data.about.posters.title }}</h3>
-        <ul class="blog-list">
+        <ul class="blog-list separate">
             {% for poster in site.data.about.posters.items %}
             {% include poster.html 
                 conference=poster.venue

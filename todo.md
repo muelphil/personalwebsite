@@ -283,3 +283,8 @@ I would next like to adjust the previous and next blog posts suggested in the bo
 Instead of the current styling I would like it to use the _includes/blog_post.html component. However, please first adjust the component to feature a prop image-right that will put the image of the post right of the text and align the text right.
 Then, use the component for the posts in the post.html file. On large screens, put then next to each other, with the previous post having the image left and the next post the image on the right.
 On smaller screens, put then on top of each other.
+
+---
+I made slight adjustments, dont overwrite. Please also include a "include_description" input for the _includes/blog_post.html component (default: True) and disable it for the posts displayed at the end of post.html. Make sure that they are put next to each other on big screens. Also update the post-outro message to be more professional and engaging.
+
+

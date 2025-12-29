@@ -1,4 +1,4 @@
-<li class="blog-post">
+<li class="blog-post{% if include.image_right %} image-right{% endif %}">
     {% if include.image %}
     <div class="blog-post-image">
         <img src="{{ include.image | relative_url }}" alt="{{ include.title }}">
@@ -18,7 +18,7 @@
         <h3 class="blog-post-title">
             <a href="{{ include.url | relative_url }}">{{ include.title }}</a>
         </h3>
-        {% if include.description %}
+        {% if include.description and include.include_description != false %}
         <p class="blog-post-description">
             {{ include.description }}
         </p>

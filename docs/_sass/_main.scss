@@ -665,6 +665,9 @@ section {
     gap: 16px;
     margin-bottom: 32px;
     padding-bottom: 32px;
+  }
+
+  .blog-list.separate .blog-post{
     border-bottom: 1px solid var(--background-lighter);
   }
 
@@ -711,6 +714,23 @@ section {
   object-fit: cover;
   /*opacity: 0.9;*/
   transition: var(--transition);
+}
+
+/* Image right variant */
+.blog-post.image-right {
+  flex-direction: row-reverse;
+}
+
+.blog-post.image-right .blog-post-content {
+  text-align: right;
+}
+
+.blog-post.image-right .blog-post-meta {
+  justify-content: flex-end;
+}
+
+.blog-post.image-right .tags-list {
+  justify-content: flex-end;
 }
 
 .blog-post-content {

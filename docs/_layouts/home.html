@@ -57,7 +57,7 @@ layout: page_wrapper
             <span class="project-label title">{{ site.data.home.recent_writing.section_title }}</span>
             <a href="{{ site.data.home.recent_writing.view_all_url | relative_url }}">{{ site.data.home.recent_writing.view_all_text }}</a>
         </div>
-        <ul class="blog-list">
+        <ul class="blog-list separate">
             {%- assign recent_posts = "" | split: "" -%}
             
             {%- for post in site.posts -%}
