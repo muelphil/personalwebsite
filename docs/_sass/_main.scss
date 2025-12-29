@@ -5,7 +5,7 @@
   --background-dark: #120f1c;
   --background-overlay: rgba(24, 20, 34, 0.88);
   --background: #181422;
-  --background-gradient-fade: rgba(24, 20, 34, 0.8);
+  --background-gradient-fade: rgba(24, 20, 34, 0.87);
   --background-light: #211c33;
   --background-lighter: #2f2950;
 
@@ -429,7 +429,8 @@ section {
       left: 0;
       right: 0;
       height: 150px;
-      background: linear-gradient(to bottom, transparent 0%, var(--background-gradient-fade) 30%, var(--background) 100%);
+      background: linear-gradient(to bottom, transparent 0%, var(--background-gradient-fade) 55%, var(--background) 95%);
+      //background: linear-gradient(to bottom, transparent 0%, var(--background-gradient-fade) 30%, var(--background) 100%);
       pointer-events: none;
       z-index: 2;
     }
@@ -557,29 +558,6 @@ section {
   @media (max-width: 768px) {
     .project.align-right .project-tech {
       justify-content: flex-start;
-    }
-  }
-
-  .tag {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 3px;
-    border: 1px solid var(--text-secondary);
-    background-color: var(--tag-background);
-    color: var(--text-secondary);
-    font-size: var(--font-size-tag);
-    font-weight: bold;
-    font-family: var(--font-label);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    white-space: nowrap;
-    text-decoration: none;
-    transition: var(--transition);
-    
-    &:hover {
-      background-color: var(--primary-glow-medium);
-      color: var(--primary);
-      border-color: var(--primary);
     }
   }
 
@@ -803,6 +781,30 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+/* Tag styles - globally accessible */
+.tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--text-secondary);
+  background-color: var(--tag-background);
+  color: var(--text-secondary);
+  font-size: var(--font-size-tag);
+  font-weight: bold;
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition);
+  
+  &:hover {
+    background-color: var(--primary-glow-medium);
+    color: var(--primary);
+    border-color: var(--primary);
+  }
 }
 
 @media (max-width: 480px) {

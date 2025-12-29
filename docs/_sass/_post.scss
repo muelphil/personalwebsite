@@ -22,54 +22,33 @@
 /* Post header */
 .post-header {
   margin-bottom: 48px;
+  font-size: 1.05rem; /* Scale up all child font sizes by 5% */
+}
+
+.post-header-image {
+  width: 100%;
+  margin-bottom: 32px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
   
-  .post-header-info {
-    margin-bottom: 32px;
-    
-    @media (min-width: 1024px) {
-      margin-bottom: 0;
-    }
-  }
-  
-  &:has(.post-header-title-image) {
-    @media (min-width: 1024px) {
-      margin-left: -90px;
-      margin-right: -90px;
-      display: flex;
-      flex-direction: row-reverse;
-      gap: 32px;
-      align-items: center;
-      
-      .post-header-title-image {
-        min-width: 50%;
-        height: 100%;
-        
-        figcaption {
-          display: none;
-        }
-        
-        img {
-          height: 90%;
-          object-fit: contain;
-          border-radius: 4px;
-        }
-      }
-    }
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 }
 
-/* Post meta information */
-.post-meta {
-  font-size: var(--font-size-body-small);
-  color: var(--text-secondary);
+.post-header-info {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.post-localization {
-  font-size: var(--font-size-body);
+/* Breadcrumb navigation */
+.post-breadcrumb {
+  font-size: var(--font-size-label);
+  color: var(--text-secondary);
+  font-family: var(--font-label);
   
   a {
     color: var(--text-secondary);
@@ -80,6 +59,25 @@
       color: var(--primary);
     }
   }
+  
+  .breadcrumb-separator {
+    margin: 0 8px;
+    opacity: 0.5;
+  }
+}
+
+/* Meta line (read time + date) */
+.post-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: var(--font-size-body);
+  color: var(--text-secondary);
+  font-family: var(--font-label);
+  
+  .spacer {
+    flex-grow: 1;
+  }
 }
 
 /* Post title */
@@ -87,45 +85,113 @@
   font-size: var(--font-size-post-title);
   letter-spacing: -1px;
   line-height: 1.15;
-  margin: 0.33em 0;
+  margin: 8px 0 0 0;
   color: var(--text-white);
   font-weight: 600;
 }
 
-/* Post abstract */
-.post-abstract {
-  margin-bottom: 0.67em;
+/* Post subtitle/abstract */
+.post-subtitle {
   font-size: var(--font-size-post-lead);
   line-height: 1.6;
   color: var(--text-secondary-light);
-}
-
-/* Post tags */
-.tags-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.tag {
-  display: inline-block;
-  padding: 6px 16px;
   margin: 0;
-  font-size: var(--font-size-tag);
+}
+
+/* Author and tags row */
+.post-author-tags {
+  display: flex;
+  //align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  justify-content: space-between;
+  align-items: self-end;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.post-author-link {
+  display: block;
+  line-height: 0;
+  
+  &:hover .post-author-avatar {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 3px var(--primary-glow-medium);
+  }
+}
+
+.post-author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.post-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.post-author-name {
+  font-size: var(--font-size-body);
+  color: var(--text-primary);
   font-weight: 500;
-  text-transform: capitalize;
-  border-radius: 4px;
-  background-color: var(--tag-background);
-  color: var(--text-secondary) !important;
-  border: 1px solid var(--text-secondary);
   text-decoration: none;
   transition: var(--transition);
   
   &:hover {
-    background-color: var(--primary-glow-medium);
-    color: var(--primary) !important;
-    border-color: var(--primary);
+    color: var(--primary);
+  }
+}
+
+.post-author-role {
+  font-size: var(--font-size-body-small);
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+.post-tags-container {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .post-header {
+    font-size: 1.02rem; /* Slightly smaller scale on tablets */
+  }
+  
+  .post-header-image {
+    margin-bottom: 24px;
+  }
+  
+  .post-author-tags {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-header {
+    font-size: 1rem; /* Normal scale on mobile */
+  }
+  
+  .post-header-info {
+    gap: 10px;
+  }
+  
+  .post-header-image {
+    margin-bottom: 20px;
+  }
+  
+  .post-author-avatar {
+    width: 32px;
+    height: 32px;
   }
 }
 

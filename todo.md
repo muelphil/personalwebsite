@@ -260,3 +260,26 @@ However, for now I would like to first figure out the hierarchy for the Post Inf
 To achieve this, please make post_header a new include that puts the Header image first, then beneath the Post Info stacked as described above. Use the variables and possibly css classes already defined, but make sure it uses bigger font size by setting a bigger font size on the container so that the children scale based on this container font size.
 
 Apply it to the posts (in post.html)
+
+---
+
+* The profile pic should not have an outline
+* The profile pic should be clickable and link to the /about page
+* the profile name should have the same subtitle as in the /about page (see about.yml)
+* The tag needs to use the tags include to correctly render the tags
+* the mins read need to be postfixed with " minute read" -- it currently only shows the minutes
+* there needs to be a spacer between mins read and publication date, pushing publication date to the right (right aligned)
+* comment out the Navigation for now
+* The size is currently too big and should be a bit smaller, making it larger than the rest of the post, but still reasonable
+
+---
+
+This is problematic, as the tags.html in _include is broken now -- it is no longer correctly shown in the featured posts in home.html.
+It also doesnt apply any css in the new post header include.
+Please fix this
+---
+This is a good basis.
+I would next like to adjust the previous and next blog posts suggested in the bottom of each post.
+Instead of the current styling I would like it to use the _includes/blog_post.html component. However, please first adjust the component to feature a prop image-right that will put the image of the post right of the text and align the text right.
+Then, use the component for the posts in the post.html file. On large screens, put then next to each other, with the previous post having the image left and the next post the image on the right.
+On smaller screens, put then on top of each other.

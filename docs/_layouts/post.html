@@ -5,54 +5,15 @@ layout: page_wrapper
 <main class="post-main">
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <header class="post-header">
-        <div class="post-header-info">
-            <div class="post-meta">
-                <div class="post-localization">
-                    <a href="{{ site.baseurl }}/">Home</a> / <a href="{{ site.baseurl }}/posts">Posts</a> /
-                </div>
-                <span>
-                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-                <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                    {{ page.date | date: date_format }}
-                </time>
-                {%- if page.modified_date -%}
-                ~
-                {%- assign mdate = page.modified_date | date_to_xmlschema -%}
-                <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
-                    {{ mdate | date: date_format }}
-                </time>
-                {%- endif -%}
-                {%- if page.author -%}
-                • {% for author in page.author %}
-                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
-                {%- if forloop.last == false %}, {% endif -%}
-                {% endfor %}
-                {%- endif -%}
-            </span>
-            </div>
+    {% include post_header.html 
+        image=page.title-image
+        title=page.title
+        abstract=page.abstract
+        date=page.date
+        read_time=page.read_time
+        tags=page.tags
+    %}
 
-            <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-
-            {%- if page.abstract -%}
-            <div class="post-abstract">
-                {{ page.abstract }}
-            </div>
-            {%- endif -%}
-
-            {% include tags.html tags=page.tags %}
-        </div>
-        {%- if page.title-image -%}
-        <div class="post-header-title-image">
-            <img src="{{page.title-image | relative_url}}"/>
-        </div>
-        {%- endif -%}
-
-    </header>
-
-
-    <!--    <img src="{{ page.title-image | relative_url }}"/>-->
     <div class="post-content e-content" itemprop="articleBody">
         <!--        <aside>-->
         <!--            TODO AUTHOR Algorithms to illuminate low light images are necessary to improve-->

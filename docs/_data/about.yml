@@ -61,6 +61,10 @@ posters:
       authors:
         - firstname: Philip
           lastname: Müller
+        - firstname: Nicholas
+          lastname: Popovič
+        - firstname: Michael
+          lastname: Färber
         - firstname: Peter
           lastname: Steinbach
       description: The poster has been award the 2nd prize for the best poster among a total of 200 posters in an audience vote.

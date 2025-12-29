@@ -1,0 +1,68 @@
+{% comment %}
+Post Header Include
+Displays post header with image and metadata in a stacked layout
+{% endcomment %}
+
+<header class="post-header">
+    {%- if include.image -%}
+    <div class="post-header-image">
+        <img src="{{ include.image | relative_url }}" alt="{{ include.title }}"/>
+    </div>
+    {%- endif -%}
+    
+    <div class="post-header-info">
+        {%- comment -%} Navigation breadcrumb - commented out for now
+        <div class="post-breadcrumb">
+            <a href="{{ '/' | relative_url }}">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="{{ '/blog' | relative_url }}">Posts</a>
+            <span class="breadcrumb-separator">›</span>
+        </div>
+        {%- endcomment -%}
+        
+        {%- comment -%} Read time and publication date {%- endcomment -%}
+        <div class="post-meta-line">
+            {%- if include.read_time -%}
+            <span class="post-read-time">{{ include.read_time }} minute read</span>
+            {%- endif -%}
+            <span class="spacer"></span>
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            <time class="dt-published" datetime="{{ include.date | date_to_xmlschema }}" itemprop="datePublished">
+                {{ include.date | date: date_format }}
+            </time>
+        </div>
+        
+        {%- comment -%} Title {%- endcomment -%}
+        <h1 class="post-title p-name" itemprop="name headline">{{ include.title | escape }}</h1>
+        
+        {%- comment -%} Subtitle/Abstract {%- endcomment -%}
+        {%- if include.abstract -%}
+        <div class="post-subtitle">
+            {{ include.abstract }}
+        </div>
+        {%- endif -%}
+        
+        {%- comment -%} Author and Tags {%- endcomment -%}
+        <div class="post-author-tags">
+            <div class="post-author">
+                {%- if site.data.site.profile.avatar -%}
+                <a href="{{ '/about' | relative_url }}" class="post-author-link">
+                    <img src="{{ site.data.site.profile.avatar | relative_url }}" alt="{{ site.data.site.profile.name }}" class="post-author-avatar">
+                </a>
+                {%- endif -%}
+                <div class="post-author-info">
+                    <a href="{{ '/about' | relative_url }}" class="post-author-name">{{ site.data.site.profile.name }}</a>
+                    {%- if site.data.about.profile.role -%}
+                    <span class="post-author-role">{{ site.data.about.profile.role }}</span>
+                    {%- endif -%}
+                </div>
+            </div>
+            
+            {%- if include.tags -%}
+            <div class="post-tags-container">
+                {% include tags.html tags=include.tags %}
+            </div>
+            {%- endif -%}
+        </div>
+    </div>
+</header>
