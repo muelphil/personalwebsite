@@ -1,24 +1,5 @@
 :root {
     /* Color Variables */
-    /*--shadow: rgba(2,12,27,0.7); */
-    /*--background-dark: #081426; */
-    /*--background-overlay: rgba(10, 25, 47, 0.85); */
-    /*--background: #0a192f; */
-    /*--background-gradient-fade: rgba(10, 25, 47, 0.8); */
-    /*--background-light: #112240; */
-    /*--background-lighter: #233554; */
-    /*--text-tertiary: #495670; */
-    /*--text-secondary: #8892b0; */
-    /*--text-secondary-light: #a8b2d1; */
-    /*--text-primary: #ccd6f6; */
-    /*--text-white: #ffffff; */
-    /*--primary: #64ffda; */
-    /*--primary-glow-strong: rgba(100, 255, 218, 0.15); */
-    /*--primary-glow-medium: rgba(100, 255, 218, 0.08); */
-    /*--primary-glow-weak: rgba(100, 255, 218, 0.03); */
-    /*--tag-background: rgba(136, 146, 176, 0.05);*/
-
-    /* Color Variables */
     --shadow: rgba(8, 6, 18, 0.7);
 
     --background-dark: #120f1c;
@@ -40,10 +21,6 @@
     --primary-glow-weak: rgba(155, 132, 247, 0.045);
 
     --tag-background: rgba(142, 134, 179, 0.06);
-
-
-
-
     
     /* Font Variables */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; 
@@ -52,19 +29,6 @@
     /* Width Variables */
     --width-normal: 700px;
     --width-wide: 1000px;
-    
-    /* Font Size Variables (rem-based) */
-    --fs-base: 1rem;           /* 16px base */
-    --fs-small: 0.625rem;      /* 10px - tags */
-    --fs-label: 0.9375rem;     /* 15px - labels/meta */
-    --fs-body: 1.125rem;       /* 18px - body text */
-    --fs-body-large: 1.25rem;  /* 20px - large body */
-    --fs-h3: 1.5rem;           /* 24px - h3 min */
-    --fs-h3-large: 1.75rem;    /* 28px - h3 max */
-    --fs-h2: 1.625rem;         /* 26px - h2 min */
-    --fs-h2-large: 2rem;       /* 32px - h2 max */
-    --fs-h1: 3rem;             /* 48px - hero name min */
-    --fs-h1-large: 5rem;       /* 80px - hero name max */
     
     /* Other Variables */
     --border-radius: 4px; 
@@ -91,7 +55,6 @@ html {
     scroll-behavior: smooth;
     scrollbar-width: thin; 
     scrollbar-color: var(--text-tertiary) var(--background);
-    font-size: var(--fs-base); /* Base font size for rem calculations */
 } 
 
 body { 
@@ -102,8 +65,6 @@ body {
     -webkit-font-smoothing: antialiased; 
     background-color: var(--background); 
     color: var(--text-secondary); 
-    font-family: var(--font-sans); 
-    font-size: var(--fs-body-large); 
     line-height: 1.3;
     display: flex;
     flex-direction: column;
@@ -136,7 +97,7 @@ body {
 .site-nav a {
     color: var(--text-secondary);
     font-family: var(--font-label);
-    font-size: var(--fs-label);
+    font-size: var(--font-size-nav);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -178,10 +139,6 @@ body {
     .site-nav {
         gap: 24px;
     }
-    
-    .site-nav a {
-        font-size: 0.875rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -191,10 +148,6 @@ body {
     
     .site-nav {
         gap: 20px;
-    }
-    
-    .site-nav a {
-        font-size: 0.8125rem;
     }
 } 
 
@@ -238,7 +191,7 @@ body {
     margin: 0 0 8px 0;
     color: var(--primary);
     font-family: var(--font-label);
-    font-size: var(--fs-base);
+    font-size: var(--font-size-hero-greeting);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -246,7 +199,7 @@ body {
 
 .hero-name {
     margin: 0 0 24px 0;
-    font-size: clamp(var(--fs-h1), 8vw, var(--fs-h1));
+    font-size: var(--font-size-hero-name);
     font-weight: 700;
     color: var(--text-white);
     line-height: 1.1;
@@ -255,7 +208,7 @@ body {
 
 .hero-description {
     margin: 0 0 40px 0;
-    font-size: clamp(var(--fs-body), 2.5vw, var(--fs-body));
+    font-size: var(--font-size-hero-description);
     color: var(--text-secondary);
     line-height: 1.6;
     max-width: 600px;
@@ -319,7 +272,6 @@ body {
     }
     
     .hero-greeting {
-        font-size: 0.875rem;
         margin: 0 0 6px 0;
     }
     
@@ -328,7 +280,6 @@ body {
     }
     
     .hero-description {
-        font-size: var(--fs-base);
         margin: 0 0 32px 0;
     }
     
@@ -411,6 +362,7 @@ section {
 .project .project-content { 
     position: relative; 
     grid-area: 1 / 1 / -1 / 7;
+    font-size: calc(var(--scale-featured) * 1rem);
 }
 
 .project.align-right .project-content { 
@@ -491,7 +443,7 @@ section {
     margin: 10px 0; 
     color: var(--primary); 
     font-family: var(--font-label); 
-    font-size: var(--fs-label); 
+    font-size: var(--font-size-project-label); 
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -505,7 +457,6 @@ section {
 
 @media (max-width: 480px) {
     .project-label {
-        font-size: 0.75rem;
         margin: 0 0 6px 0;
     }
 } 
@@ -515,7 +466,7 @@ section {
     font-weight: 600; 
     color: var(--text-primary); 
     line-height: 1.1;
-    font-size: clamp(var(--fs-h3), 5vw, var(--fs-h3-large));
+    font-size: var(--font-size-project-title);
 }
 
 @media (max-width: 768px) {
@@ -526,7 +477,6 @@ section {
 
 @media (max-width: 480px) {
     .project-title {
-        font-size: 1.375rem;
         margin: 0 0 10px;
     }
 } 
@@ -546,7 +496,7 @@ section {
     border-radius: var(--border-radius); 
     background-color: var(--background-light); 
     color: var(--text-secondary-light); 
-    font-size: var(--fs-body);
+    font-size: var(--font-size-project-description);
 }
 
 @media (max-width: 768px) {
@@ -554,7 +504,6 @@ section {
         background-color: transparent;
         box-shadow: none;
         padding: 0;
-        font-size: var(--fs-base);
         margin-bottom: 15px;
     }
     
@@ -566,7 +515,6 @@ section {
 
 @media (max-width: 480px) {
     .project-description {
-        font-size: var(--fs-label);
         margin-bottom: 12px;
     }
 } 
@@ -611,7 +559,7 @@ section {
     border: 1px solid var(--text-secondary); 
     background-color: var(--tag-background); 
     color: var(--text-secondary); 
-    font-size: var(--fs-small); 
+    font-size: var(--font-size-tag); 
     font-weight: bold; 
     font-family: var(--font-label); 
     text-transform: uppercase; 
@@ -680,7 +628,7 @@ a:hover {
 }
 
 .section-header span.title {
-    font-size: var(--fs-body-large);
+    font-size: var(--font-size-about-section-title);
     margin: 10px 0;
     color: var(--primary);
     font-weight: 400;
@@ -690,13 +638,13 @@ a:hover {
 
 .section-header a {
     color: var(--text-secondary);
-    font-size: var(--fs-body);
+    font-size: var(--font-size-body);
     font-family: var(--font-label);
 }
 
 @media (max-width: 480px) {
     .section-header a {
-        font-size: 0.875rem;
+        font-size: var(--font-size-body-small);
     }
 }
 
@@ -771,7 +719,7 @@ a:hover {
     gap: 8px;
     margin-bottom: 6px;
     font-family: var(--font-label);
-    font-size: 0.6875rem;
+    font-size: var(--font-size-blog-meta);
     font-weight: 500;
     letter-spacing: 0.05em;
     color: var(--text-secondary);
@@ -779,7 +727,6 @@ a:hover {
 
 @media (max-width: 480px) {
     .blog-post-meta {
-        font-size: var(--fs-small);
         gap: 6px;
     }
 }
@@ -791,7 +738,7 @@ a:hover {
 }
 
 .blog-post-title {
-    font-size: var(--fs-body);
+    font-size: var(--font-size-blog-title);
     font-weight: 600;
     color: var(--text-primary);
     margin: 0 0 8px;
@@ -800,7 +747,6 @@ a:hover {
 
 @media (max-width: 480px) {
     .blog-post-title {
-        font-size: var(--fs-base);
         margin: 0 0 6px;
     }
 }
@@ -814,7 +760,7 @@ a:hover {
 }
 
 .blog-post-description {
-    font-size: 0.875rem;
+    font-size: var(--font-size-blog-description);
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0 0 12px;
@@ -822,7 +768,6 @@ a:hover {
 
 @media (max-width: 480px) {
     .blog-post-description {
-        font-size: 0.8125rem;
         margin: 0 0 10px;
     }
 }
@@ -844,10 +789,6 @@ a:hover {
         width: 110px;
         height: 110px;
     }
-    
-    .blog-post-title {
-        font-size: var(--fs-body-large);
-    }
 }
 
 /* Footer */
@@ -861,7 +802,7 @@ a:hover {
 .site-footer p {
     margin: 0;
     color: var(--text-secondary);
-    font-size: 0.875rem;
+    font-size: var(--font-size-footer);
     font-family: var(--font-label);
     letter-spacing: 0.05em;
 }
@@ -876,18 +817,10 @@ a:hover {
     .site-footer {
         padding: 28px 50px;
     }
-    
-    .site-footer p {
-        font-size: 0.8125rem;
-    }
 }
 
 @media (max-width: 480px) {
     .site-footer {
         padding: 24px 25px;
-    }
-    
-    .site-footer p {
-        font-size: 0.75rem;
     }
 }

@@ -1,0 +1,158 @@
+/* Font System - Comprehensive font size definitions using em units */
+
+:root {
+    /* Base font size - 16px default */
+    --base-font-size: 16px;
+    
+    /* Scale factors for responsive scaling */
+    --scale-hero: 1.0;
+    --scale-featured: 1.25;
+    --scale-post: 1.0;
+    
+    /* ===================== */
+    /* Core Font Sizes (em) */
+    /* ===================== */
+    
+    /* Body text sizes */
+    --font-size-body: 1.125em;        /* 18px - Main body text */
+    --font-size-body-large: 1.25em;   /* 20px - Large body text */
+    --font-size-body-small: 0.875em;  /* 14px - Small body text */
+    
+    /* Label and meta text */
+    --font-size-label: 0.9375em;      /* 15px - Labels, meta info */
+    --font-size-meta: 0.6875em;       /* 11px - Timestamps, small meta */
+    --font-size-tag: 0.625em;         /* 10px - Tags */
+    
+    /* Headings - Main content */
+    --font-size-h1: 2.625em;          /* 42px - Post title */
+    --font-size-h2: 1.75em;           /* 28px - Section headings */
+    --font-size-h3: 1.5em;            /* 24px - Subsection headings */
+    --font-size-h4: 1.25em;           /* 20px - Minor headings */
+    --font-size-h5: 1.125em;          /* 18px */
+    --font-size-h6: 1.0625em;         /* 17px */
+    
+    /* Hero/Landing page */
+    --font-size-hero-name: 3em;       /* 48px - Hero name */
+    --font-size-hero-greeting: 1em;   /* 16px - Hero greeting */
+    --font-size-hero-description: 1.125em; /* 18px - Hero description */
+    
+    /* Page titles */
+    --font-size-page-title: 2em;      /* 32px - About, Blog page titles */
+    
+    /* ===================== */
+    /* Component Sizes      */
+    /* ===================== */
+    
+    /* Blog posts */
+    --font-size-blog-title: 1.125em;      /* 18px - Blog post title in list */
+    --font-size-blog-description: 0.875em; /* 14px - Blog post description */
+    --font-size-blog-meta: 0.6875em;      /* 11px - Blog post meta */
+    
+    /* Projects */
+    --font-size-project-label: 0.9375em;  /* 15px - Featured project label */
+    --font-size-project-title: 1.5em;     /* 24px - Project title (scaled by container) */
+    --font-size-project-description: 1.125em; /* 18px - Project description */
+    
+    /* Post content */
+    --font-size-post-title: 2.625em;      /* 42px - Individual post title */
+    --font-size-post-abstract: 1.25em;    /* 20px - Post abstract/lead */
+    --font-size-post-meta: 0.875em;       /* 14px - Post meta info */
+    --font-size-post-localization: 1em;   /* 16px - Breadcrumb navigation */
+    --font-size-post-tag: 0.8125em;       /* 13px - Post tags */
+    --font-size-post-body: 1.125em;       /* 18px - Post body text */
+    --font-size-post-h2: 1.75em;          /* 28px - Post h2 */
+    --font-size-post-h3: 1.5em;           /* 24px - Post h3 */
+    --font-size-post-blockquote: 1.125em; /* 18px - Blockquotes */
+    --font-size-post-figcaption: 0.875em; /* 14px - Figure captions */
+    --font-size-post-outro: 1em;          /* 16px - Post outro text */
+    
+    /* About page */
+    --font-size-about-bio: 0.9375em;      /* 15px - Bio text */
+    --font-size-about-role: 0.875em;      /* 14px - Profile role */
+    --font-size-about-location: 0.875em;  /* 14px - Location */
+    --font-size-about-section-title: 1.25em; /* 20px - Section titles */
+    --font-size-about-timeline-date: 0.75em; /* 12px - Timeline dates */
+    --font-size-about-timeline-title: 1.125em; /* 18px - Timeline titles */
+    --font-size-about-timeline-company: 0.875em; /* 14px - Company names */
+    --font-size-about-timeline-description: 0.875em; /* 14px - Descriptions */
+    --font-size-about-tag: 0.9em;         /* 14.4px - Tech tags */
+    
+    /* Code */
+    --font-size-code: 0.9375em;           /* 15px - Inline code */
+    --font-size-code-block: 0.875em;      /* 14px - Code blocks */
+    
+    /* Navigation */
+    --font-size-nav: 0.9375em;            /* 15px - Navigation links */
+    --font-size-footer: 0.875em;          /* 14px - Footer text */
+    
+    /* ===================== */
+    /* Responsive Sizes     */
+    /* ===================== */
+    
+    /* Mobile adjustments (applied via media queries) */
+    --font-size-hero-name-mobile: 2.5em;      /* 40px */
+    --font-size-page-title-mobile: 1.625em;   /* 26px */
+    --font-size-post-title-mobile: 2em;       /* 32px */
+    --font-size-blog-title-mobile: 1em;       /* 16px */
+}
+
+/* ===================== */
+/* Base Typography      */
+/* ===================== */
+
+html {
+    font-size: var(--base-font-size);
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-large);
+    line-height: 1.3;
+}
+
+/* ===================== */
+/* Heading Defaults     */
+/* ===================== */
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+h4 {
+    font-size: var(--font-size-h4);
+}
+
+h5 {
+    font-size: var(--font-size-h5);
+}
+
+h6 {
+    font-size: var(--font-size-h6);
+}
+
+/* ===================== */
+/* Responsive Scaling   */
+/* ===================== */
+
+@media (max-width: 768px) {
+    :root {
+        --base-font-size: 15px;
+        --font-size-hero-name: var(--font-size-hero-name-mobile);
+        --font-size-page-title: var(--font-size-page-title-mobile);
+        --font-size-post-title: var(--font-size-post-title-mobile);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --base-font-size: 14px;
+    }
+}

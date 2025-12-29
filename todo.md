@@ -205,9 +205,25 @@ Afterwards, the posts page needs to use page_wrapper instead of base.
 This is okay, but we now need to fix the design and layout. Currently, the design is not responsive. Additionally, the responsiveness definitions and wrapper definitions are scattered across /docs/_sass/_about.css, _main.css and _blog.html for the wrapping and layout. It would be great if this could be fixed, so that the layout css is in _layout that defines the responsive layout of the wrapping containers and this is also applied to the blog page.
 
 
+---
+
+
+Next, we need to rework and fix the font sizes applied on the webpage, as they are currently all messed up. This should result in a new /docs/_sass/_font.scss file, containing all settings for the font sizes.
+Check the old variables in _main.scss. The issue with them is that they are using rem. The goal is to define variables such as --font-size-body and --font-size-blog-subheading and --font-size-figcaption in em.
+They should then be applied to the corresponding elements. The goal is to define this once, define the default font size on the page, adjust the font size responsiveley.
+Also, the font sizes should be used across element such as .blog-post-title and .project-title -- these are different sizes, but should use the same em font size variable. However, for the project-title the containing element needs to define a fontsize like font-size: 1.25rem to scale the size using a variable --featured-project-scale, as the featured project fonts must be better.
+
+Please first port all font sizes into variables in the project, stating clearly what they are used for, then start unifying them carefully, approximately preserving the current font sizes.
+The blog post font sizes are messed up, you may overwrite them with better values.
 
 
 
+---
+
+
+This is great for having all font sizes in one place, but the amount of different font sizes is really bad. It should also not vary from page to page, it should use the same variables on the about page as it does for the home page. The about page currently looks best and I would like to preserve this. Please execute 2 tasks:
+1. drastically reduce the amount of font size variables, make them independent of the individual pages and make the variables descriptive, using variables for body, heading, subheading, figure-caption, tags, etc. Use these variables across the pages. Use state of the art relative font sizes to match top notch website and blogs.
+2. make sure that on the home page, the featured posts and the blog posts are using the same variables for the heading, subheading, tags etc, but their container uses a different font size, so that the featured posts is naturally bigger.
 
 
 

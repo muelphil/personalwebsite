@@ -1,7 +1,7 @@
 /* Blog Page Component Styles */
 
 .blog-title {
-    font-size: var(--fs-h2-large);
+    font-size: var(--font-size-page-title);
     font-weight: 700;
     color: var(--text-white);
     margin: 0 0 24px 0;
@@ -42,10 +42,6 @@
 }
 
 @media (max-width: 480px) {
-    .blog-title {
-        font-size: var(--fs-h2);
-    }
-    
     .blog-tags-filter {
         gap: 8px;
     }
