@@ -288,3 +288,6 @@ On smaller screens, put then on top of each other.
 I made slight adjustments, dont overwrite. Please also include a "include_description" input for the _includes/blog_post.html component (default: True) and disable it for the posts displayed at the end of post.html. Make sure that they are put next to each other on big screens. Also update the post-outro message to be more professional and engaging.
 
 
+---
+
+Lets look into the project card in home.html. They are responsive and change when below 768px. However, they should already break when lower then 1080px. Please extract the css into a new file _project_card.scss and adjust the responsiveness.

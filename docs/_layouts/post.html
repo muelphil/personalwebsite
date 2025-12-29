@@ -3,63 +3,64 @@ layout: page_wrapper
 ---
 
 <main class="post-main">
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-    {% include post_header.html 
+        {% include post_header.html
         image=page.title-image
         title=page.title
         abstract=page.abstract
         date=page.date
         read_time=page.read_time
         tags=page.tags
-    %}
+        %}
 
-    <div class="post-content e-content" itemprop="articleBody">
-        <!--        <aside>-->
-        <!--            TODO AUTHOR Algorithms to illuminate low light images are necessary to improve-->
-        <!--        </aside>-->
-        {{ content }}
-    </div>
+        <div class="post-content e-content" itemprop="articleBody">
+            <!--        <aside>-->
+            <!--            TODO AUTHOR Algorithms to illuminate low light images are necessary to improve-->
+            <!--        </aside>-->
+            {{ content }}
+        </div>
 
-    {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
-    {%- endif -%}
+        {%- if site.disqus.shortname -%}
+        {%- include disqus_comments.html -%}
+        {%- endif -%}
 
-    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+        <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 
-    <div class="post-separator"></div>
-    <div class="post-outro">Thank you for reading! If you found this helpful, feel free to explore more of my work below.</div>
+    </article>
 
-    <section class="post-navigation">
+</main>
+
+<div class="post-footer main-padding">
+    <section class="post-navigation" style="padding-top: 16px; padding-bottom: 16px; margin:0;">
         <ul class="blog-list">
             {% if page.previous.url %}
-            {% include blog_post.html 
-                image=page.previous.title-image
-                date=page.previous.date
-                read_time=page.previous.read_time
-                title=page.previous.title
-                url=page.previous.url
-                description=page.previous.short-abstract
-                tags=page.previous.tags
-                image_right=false
-                include_description=false
+            {% include blog_post.html
+            image=page.previous.title-image
+            date=page.previous.date
+            read_time=page.previous.read_time
+            title=page.previous.title
+            url=page.previous.url
+            description=page.previous.short-abstract
+            tags=page.previous.tags
+            image_right=false
+            include_description=false
             %}
             {% endif %}
-            
+
             {% if page.next.url %}
-            {% include blog_post.html 
-                image=page.next.title-image
-                date=page.next.date
-                read_time=page.next.read_time
-                title=page.next.title
-                url=page.next.url
-                description=page.next.short-abstract
-                tags=page.next.tags
-                image_right=true
-                include_description=false
+            {% include blog_post.html
+            image=page.next.title-image
+            date=page.next.date
+            read_time=page.next.read_time
+            title=page.next.title
+            url=page.next.url
+            description=page.next.short-abstract
+            tags=page.next.tags
+            image_right=true
+            include_description=false
             %}
             {% endif %}
         </ul>
     </section>
-</article>
-</main>
+</div>
