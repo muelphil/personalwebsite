@@ -226,8 +226,12 @@ This is great for having all font sizes in one place, but the amount of differen
 2. make sure that on the home page, the featured posts and the blog posts are using the same variables for the heading, subheading, tags etc, but their container uses a different font size, so that the featured posts is naturally bigger.
 
 
+---
 
-
-
-
-
+I started making small adjustment, dont overwrite. We now need to make a lot of small adjustment.
+* The code highlighting that was previously implemented does not work anymore, likely because the highlighting css is located in the discontinued _sass/minima folder. Please extract and apply the molokai.scss theme to the code.
+* The code needs to use a fitting mono font, complementing Inter and Space Grotesk, that is clean and readable without being too stylized. Define this as a variable and apply to code.
+$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
+* The posters section in the about page needs to be updated to show additional information. I included new data for the posters in _data/about.yml -- posters should not have 1 link but multiple that are shown underneath with a label each and the posters need to have authors under the table, preferably formatted as "Nakkiran, P., Bradley, A., Goliński, A., Ndiaye, E."
+* The tags should be extracted into an includes component that should be reused. The tags should be clickable to go to /blog/TAG/ to view posts with that tag.
+* The header has a Home Link. Please place it to the very left and hide it conditionally when showing "/" (Home). Highlight the link that is currently active (if any) by highlighting it in the primary color (no underline as when you would hover it)

@@ -37,7 +37,7 @@ layout: page_wrapper
 
     <!-- Experience Section -->
     <section class="about-experience">
-        <h3 class="section-title">{{ site.data.about.experience.title }}</h3>
+        <h3 class="section-title separate">{{ site.data.about.experience.title }}</h3>
         <div class="experience-grid">
             {% for position in site.data.about.experience.positions %}
             <div class="timeline-marker-col">
@@ -64,7 +64,7 @@ layout: page_wrapper
 
     <!-- Posters Section -->
     <section class="about-posters">
-        <h3 class="section-title">{{ site.data.about.posters.title }}</h3>
+        <h3 class="section-title separate">{{ site.data.about.posters.title }}</h3>
         <ul class="blog-list">
             {% for poster in site.data.about.posters.items %}
             {% include poster.html 
@@ -80,7 +80,7 @@ layout: page_wrapper
 
     <!-- Tech & Tools Section -->
     <section class="about-tech">
-        <h3 class="section-title">{{ site.data.about.tech.title }}</h3>
+        <h3 class="section-title separate">{{ site.data.about.tech.title }}</h3>
         <div class="tech-grid">
             {% for tool in site.data.about.tech.tools %}
             <span class="tag tag-large">{{ tool }}</span>

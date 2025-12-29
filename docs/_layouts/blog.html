@@ -2,10 +2,14 @@
 layout: page_wrapper
 ---
 
-<main class="blog-main">
+<main>
     <!-- Tag Filter with Title -->
     <section class="blog-tags-section">
         <!-- {{  page.title | default: "Blog" }} -->
+<!--        <div class="section-header separate">-->
+<!--            <span class="desktop-hidden title">Blog</span>-->
+<!--        </div>-->
+
         <h1 class="blog-title">Blog</h1>
         <div class="blog-tags-filter">
             <a href="{{ '/blog' | relative_url }}" class="tag{% if page.tag == nil %} active{% endif %}">All Posts ({{

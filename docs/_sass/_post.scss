@@ -60,7 +60,7 @@
 
 /* Post meta information */
 .post-meta {
-  font-size: var(--font-size-post-meta);
+  font-size: var(--font-size-body-small);
   color: var(--text-secondary);
   display: flex;
   flex-direction: row;
@@ -69,7 +69,7 @@
 }
 
 .post-localization {
-  font-size: var(--font-size-post-localization);
+  font-size: var(--font-size-body);
   
   a {
     color: var(--text-secondary);
@@ -95,7 +95,7 @@
 /* Post abstract */
 .post-abstract {
   margin-bottom: 0.67em;
-  font-size: var(--font-size-post-abstract);
+  font-size: var(--font-size-post-lead);
   line-height: 1.6;
   color: var(--text-secondary-light);
 }
@@ -112,7 +112,7 @@
   display: inline-block;
   padding: 6px 16px;
   margin: 0;
-  font-size: var(--font-size-post-tag);
+  font-size: var(--font-size-tag);
   font-weight: 500;
   text-transform: capitalize;
   border-radius: 4px;
@@ -144,11 +144,11 @@
   }
   
   h2 {
-    font-size: var(--font-size-post-h2);
+    font-size: var(--font-size-h2);
   }
   
   h3 {
-    font-size: var(--font-size-post-h3);
+    font-size: var(--font-size-h3);
   }
   
   h4 {
@@ -187,7 +187,7 @@
   }
   
   ul, ol {
-    margin-left: 30px;
+    //margin-left: 30px;
     margin-bottom: 16px;
   }
   
@@ -199,7 +199,7 @@
     color: var(--text-secondary);
     border-left: 4px solid var(--primary);
     padding-left: 16px;
-    font-size: var(--font-size-post-blockquote);
+    font-size: var(--font-size-body-large);
     font-style: italic;
     margin: 24px 0;
     
@@ -277,7 +277,7 @@ figure {
   figcaption {
     text-align: center;
     padding: 8px 12.5%;
-    font-size: var(--font-size-post-figcaption);
+    font-size: var(--font-size-caption);
     color: var(--text-secondary);
   }
   
@@ -346,7 +346,7 @@ table {
   margin-bottom: 32px;
   text-align: center;
   color: var(--text-secondary);
-  font-size: var(--font-size-post-outro);
+  font-size: var(--font-size-body);
 }
 
 .post-nav {
@@ -394,7 +394,7 @@ table {
   h4 {
     margin: 8px 0;
     color: var(--text-primary);
-    font-size: var(--font-size-body);
+    font-size: var(--font-size-h4);
   }
 }
 
