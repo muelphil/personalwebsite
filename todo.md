@@ -199,6 +199,12 @@ You may check out the Oskam posts in /docs/_posts/ to identify important _includ
 
 Afterwards, the posts page needs to use page_wrapper instead of base.
 
+---
+
+
+This is okay, but we now need to fix the design and layout. Currently, the design is not responsive. Additionally, the responsiveness definitions and wrapper definitions are scattered across /docs/_sass/_about.css, _main.css and _blog.html for the wrapping and layout. It would be great if this could be fixed, so that the layout css is in _layout that defines the responsive layout of the wrapping containers and this is also applied to the blog page.
+
+
 
 
 

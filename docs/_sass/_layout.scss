@@ -1,0 +1,182 @@
+/* Layout and Responsiveness - Consolidated */
+
+/* Main container base styles */
+main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1600px;
+    min-height: 100vh;
+    padding: 50px 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    overflow: visible;
+    flex: 1;
+    align-items: center;
+}
+
+/* Content width constraints */
+section {
+    width: 100%;
+    max-width: var(--width-normal);
+    padding: 0;
+}
+
+.wide-content {
+    width: var(--width-wide);
+    max-width: var(--width-wide);
+    margin-left: calc((var(--width-normal) - var(--width-wide)) / 2);
+    margin-right: calc((var(--width-normal) - var(--width-wide)) / 2);
+}
+
+/* Responsive breakpoints for main container */
+@media (max-width: 1080px) {
+    main {
+        padding: 50px 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 50px 50px;
+        gap: 80px;
+    }
+    
+    .wide-content {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 50px 25px;
+        gap: 60px;
+    }
+}
+
+/* About page specific layout */
+.about-main {
+    padding: 40px 150px 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.about-sidebar {
+    flex-shrink: 0;
+    width: fit-content;
+    max-width: 250px;
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+}
+
+.about-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+@media (max-width: 1080px) {
+    .about-main {
+        padding: 40px 100px;
+        flex-direction: column;
+    }
+
+    .about-sidebar {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        max-width: initial;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-main {
+        padding: 40px 50px;
+    }
+
+    .about-content {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-main {
+        padding: 40px 25px;
+    }
+
+    .about-content {
+        gap: 40px;
+    }
+}
+
+/* Blog page specific layout */
+.blog-main {
+    padding: 40px 150px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.blog-tags-section,
+.blog-posts-section {
+    width: 100%;
+    max-width: var(--width-normal);
+}
+
+@media (max-width: 1080px) {
+    .blog-main {
+        padding: 40px 100px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-main {
+        padding: 40px 50px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-main {
+        padding: 40px 25px 0;
+    }
+}
+
+/* Post page specific layout */
+.post-main {
+    padding: 50px 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+}
+
+.post-main article.post {
+    width: 100%;
+    max-width: var(--width-normal);
+}
+
+@media (max-width: 1080px) {
+    .post-main {
+        padding: 50px 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .post-main {
+        padding: 50px 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-main {
+        padding: 50px 25px;
+    }
+}

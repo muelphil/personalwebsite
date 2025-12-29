@@ -1,27 +1,4 @@
-/* About Page Specific Styles */
-
-.about-main {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1600px;
-  padding: 40px 150px 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 60px;
-  flex: 1;
-}
-
-/* Sidebar */
-.about-sidebar {
-  flex-shrink: 0;
-  width: fit-content;
-  //min-width: max-content;
-  max-width: 250px;
-  position: sticky;
-  top: 80px;
-  align-self: flex-start;
-}
+/* About Page Component Styles */
 
 .about-sidebar .about-profile {
   width: auto;
@@ -42,7 +19,6 @@
 }
 
 .about-sidebar .profile-role {
-  //white-space: nowrap;
   white-space: pre-wrap;
 }
 
@@ -50,35 +26,7 @@
   white-space: nowrap;
 }
 
-.about-sidebar .hero-socials {
-  /*margin-top: 24px;*/
-  /*padding-top: 24px;*/
-  /*border-top: 1px solid var(--background-lighter);*/
-}
-
-/* Content Area */
-.about-content {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
-
 @media (max-width: 1080px) {
-  .about-main {
-    padding: 40px 100px;
-    flex-direction: column;
-  }
-
-  .about-sidebar {
-    position: static;
-    width: 100%;
-    min-width: 0;
-    max-width: initial;
-    /*padding-top: 40px;*/
-  }
-
   .about-sidebar .profile-header {
     flex-direction: row;
     align-items: center;
@@ -92,25 +40,8 @@
   }
 }
 
-@media (max-width: 768px) {
-  .about-main {
-    padding: 40px 50px;
-  }
-
-  .about-content {
-    gap: 50px;
-  }
-}
-
 @media (max-width: 480px) {
-  .about-main {
-    padding: 40px 25px;
-  }
-
-  /*.about-sidebar {*/
-  /*    padding-top: 50px;*/
-  /*}*/
-  .profile-avatar{
+  .profile-avatar {
     width: 100% !important;
     height: 250px !important;
   }
@@ -119,10 +50,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-  }
-
-  .about-content {
-    gap: 40px;
   }
 }
 

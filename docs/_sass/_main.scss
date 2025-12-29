@@ -212,53 +212,6 @@ body {
     background: var(--background);
 }
 
-main { 
-    margin: 0 auto; 
-    width: 100%; 
-    max-width: 1600px; 
-    min-height: 100vh; 
-    padding: 50px 150px;
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    overflow: visible;
-    flex: 1;
-    align-items: center;
-}
-
-@media (max-width: 1080px) {
-    main {
-        padding: 50px 100px;
-    }
-}
-
-@media (max-width: 768px) {
-    main {
-        padding: 50px 50px;
-        gap: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    main {
-        padding: 50px 25px;
-        gap: 60px;
-    }
-} 
-
-section {
-    width: 100%;
-    max-width: var(--width-normal);
-    padding: 0;
-}
-
-.wide-content {
-    width: var(--width-wide);
-    max-width: var(--width-wide);
-    margin-left: calc((var(--width-normal) - var(--width-wide)) / 2);
-    margin-right: calc((var(--width-normal) - var(--width-wide)) / 2);
-}
-
 /* Hero Section */
 .hero-section {
     padding: 20px 0 0 0;
@@ -446,13 +399,6 @@ section {
     
     .projects-grid {
         gap: 80px;
-    }
-    
-    .wide-content {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
     }
 }
 
