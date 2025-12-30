@@ -315,3 +315,24 @@ Now I would like to adjust the headers layout, keeping the post-header-info and 
 I would like this to be similar to _includes/featured_project_card.html. You may reuse css from there, but create a new css file for the _post_header_title.scss
 On bigger screens (min 1080 px), the items should be put next to each other -- image on the left, text on the right, using the .wide-content approach to exceed the width (use that class).
 On smaller screens, the text should be beneath the image, but moved up with negative margin, so that there is an overlap. The image should have a gradient at the bottom so that the text is still readable. Please consult \docs\_sass\_project_card.scss for how this was implemented for the project cards.
+
+
+---
+
+I would like you to implement 2 more _include components that I may use in my posts:
+* Scientific Reference: This should take a shortcut, title, list of authors (as string), markdown link text, year, optional note and render it like:
+[shortcut] *Author List* (Year) **Title**. optional note, link text rendered from provided markdown
+and should contain an anchor link to the shortcut so that I can include links in my posts to the reference that I will put at the end.
+* A clickable link block, to link to other pages. This should be rendered in 2 columns, left: title image of the link, right: (stacked vertically) author (optional), title, text, link (link icon and link after)
+
+Please implement these 2 includes and show their usage in docs/_drafts/2024-04-12-example3.markdown by including 2 items. Use some random data as defaults. When linking to other pages in the future I will extract the link title image etc myself, use a random link you know of for now.
+
+
+---
+
+The references look great, but the links to website unfortunately did not work well. They are displaying the <a> tag in plain text. Also, they are taking up a little too much space right now. They should not use a larger font size for the subtext than the body. they should be more compact. Can you please fix these issues?
+
+
+
+---
+Please next look into the post header again (docs/_includes/post_header.html). This uses a title image and text, that it arranges based on the responive design. However, some posts dont have a title image. Can you please make sure the posts still work in these cases? When there is no title image, the text should be displayed without putting them left, right or to the top. Just the text (header, subheading etc.)

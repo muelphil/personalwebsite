@@ -16,3 +16,45 @@ whatever blah
 <!--more-->
 
 Test123 :))
+
+## Related Work
+
+Recent advances in low-light image enhancement have shown promising results. The RetinexNet approach [[retinex2018]](#ref-retinex2018) demonstrates how deep learning can effectively decompose images into reflectance and illumination components.
+
+## Link Blocks
+
+Check out these related resources:
+
+{% include link_block.html
+  image="/assets/placeholder.jpeg"
+  author="OpenAI"
+  title="GPT-4 Technical Report"
+  text="A detailed technical report describing the architecture, training methodology, and capabilities of GPT-4, the latest large language model from OpenAI."
+  url="https://arxiv.org/abs/2303.08774"
+%}
+
+{% include link_block.html
+  image="/assets/placeholder.jpeg"
+  title="Understanding Deep Learning"
+  text="An comprehensive introduction to deep learning concepts, covering neural networks, optimization techniques, and modern architectures."
+  url="https://www.deeplearningbook.org/"
+%}
+
+## References
+
+{% include scientific_reference.html
+  shortcut="retinex2018"
+  authors="Wei, C., Wang, W., Yang, W., Liu, J."
+  year="2018"
+  title="Deep Retinex Decomposition for Low-Light Enhancement"
+  link="[arXiv:1808.04560](https://arxiv.org/abs/1808.04560)"
+  note="Published in BMVC 2018"
+%}
+
+{% include scientific_reference.html
+  shortcut="zhang2019"
+  authors="Zhang, Y., Zhang, J., Guo, X."
+  year="2019"
+  title="Kindling the Darkness: A Practical Low-light Image Enhancer"
+  link="[DOI:10.1145/3343031.3350926](https://doi.org/10.1145/3343031.3350926)"
+%}

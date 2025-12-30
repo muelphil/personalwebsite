@@ -3,7 +3,7 @@ Post Header Include
 Displays post header with image and metadata in a stacked layout
 {% endcomment %}
 
-<header class="post-header wide-content">
+<header class="post-header{% if include.image %} wide-content has-image{% endif %}">
     {%- if include.image -%}
     <div class="post-header-image">
         <img src="{{ include.image | relative_url }}" alt="{{ include.title }}"/>

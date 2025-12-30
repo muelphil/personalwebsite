@@ -1,0 +1,21 @@
+{%- comment -%}
+Scientific Reference Include
+Parameters:
+- shortcut: Reference ID/shortcut (e.g., "smith2020")
+- title: Paper/article title
+- authors: Author list as string (e.g., "Smith, J., Doe, A.")
+- link: Markdown link text (e.g., "[DOI](https://doi.org/...)")
+- year: Publication year
+- note: Optional additional note
+{%- endcomment -%}
+
+<div class="scientific-reference" id="ref-{{ include.shortcut }}">
+  <span class="ref-shortcut">[{{ include.shortcut }}]</span>&nbsp;
+  <span class="ref-authors">{{ include.authors }}</span>&nbsp;
+  <span class="ref-year">({{ include.year }})</span>&nbsp;
+  <span class="ref-title">{{ include.title }}</span>.&nbsp;
+  {%- if include.note -%}
+  <span class="ref-note">{{ include.note }}</span>.
+  {%- endif -%}
+  {{ include.link | markdownify | remove: '<p>' | remove: '</p>' | strip }}
+</div>

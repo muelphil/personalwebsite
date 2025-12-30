@@ -22,7 +22,7 @@ Upon utilizing the Oskam, it swiftly became evident that the images appeared exc
 
 I incorporated a 12 LED Ring as a flashlight, but it proved rather inconvenient, often either too bright or insufficiently so. Furthermore, even images taken in regular daylight exhibited low contrast and appeared blurry. Initially, I attempted to address this issue by adjusting the contrast using the PILLOW library, yet this proved ineffective in cases of poor lighting.
 
-Seeking a solution, I came across a paper titled ["Low and non-uniform illumination color image enhancement using weighted guided image filtering" by Mu, Q., Wang, X., Wei, Y. et al. (2021)](https://doi.org/10.1007/s41095-021-0232-x). The outcomes seemed promising, but the algorithm proposed was only available in pseudocode.
+Seeking a solution, I came across a paper by [Mu et al. (2021)](#ref-mu2021). The outcomes seemed promising, but the algorithm proposed was only available in pseudocode.
 
 This post concerns the implementation of the algorithm proposed in the paper using Python.
 
@@ -261,3 +261,16 @@ python illuminate.py <image_path>
 The illuminated image will then be saved in the same location as the original image with the postfix `_illuminated`
 
 If you have issues or feedback, please let me know via the [Github-Repo](https://github.com/muelphil/illumination_using_wgif) :)
+
+
+## References
+
+{% include scientific_reference.html
+shortcut="mu2021"
+authors="Mu, Q., Wang, X., Wei, Y., Li, Z."
+year="2021"
+title="Low and Non-Uniform Illumination Color Image Enhancement Using Weighted Guided Image Filtering"
+link="[DOI:10.1007/s41095-021-0232-x](https://doi.org/10.1007/s41095-021-0232-x)"
+note="Published in Computational Visual Media, Vol. 7, No. 4, pp. 529–546"
+%}
+

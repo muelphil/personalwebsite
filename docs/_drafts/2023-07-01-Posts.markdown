@@ -19,6 +19,8 @@
     - Bluetooth Linux-Kommandos
 - Geogebra Animation? (Signifikanztests)
 
+- Reasoning Models are not as cool as you think
+
 - Lava Lamp Effect
 
 - DB Straßenbahn APP

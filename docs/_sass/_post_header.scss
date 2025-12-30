@@ -15,9 +15,9 @@
   font-size: 1.05rem;
 }
 
-/* Desktop (≥ 1080px): Side by side layout */
+/* Desktop (≥ 1080px): Side by side layout - ONLY when image is present */
 @media (min-width: 1080px) {
-  .post-header {
+  .post-header.has-image {
     position: relative;
     display: grid;
     gap: 40px;
@@ -25,43 +25,43 @@
     align-items: center;
   }
 
-  .post-header-image {
+  .post-header.has-image .post-header-image {
     grid-area: 1 / 1 / -1 / 6;
     position: relative;
     z-index: 1;
     margin-bottom: 0;
   }
 
-  .post-header-info {
+  .post-header.has-image .post-header-info {
     grid-area: 1 / 6 / -1 / -1;
     position: relative;
     z-index: 2;
   }
 }
 
-/* Tablet (768px - 1080px): Stacked layout */
+/* Tablet (768px - 1080px): Stacked layout with overlap - ONLY when image is present */
 @media (max-width: 1080px) {
-  .post-header {
+  .post-header.has-image {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 0;
   }
 
-  .post-header-info {
+  .post-header.has-image .post-header-info {
     position: relative;
     z-index: 2;
     margin-top: -130px;
     padding: 0;
   }
 
-  .post-header-image {
+  .post-header.has-image .post-header-image {
     position: relative;
     width: 100%;
     z-index: 1;
     margin-bottom: 0;
   }
 
-  .post-header-image::after {
+  .post-header.has-image .post-header-image::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -74,29 +74,18 @@
   }
 }
 
-///* Mobile (≤ 768px): Adjusted overlap */
-//@media (max-width: 768px) {
-//  .post-header {
-//    font-size: 1.02rem;
-//  }
-//
-//  .post-header-info {
-//    margin-top: -130px;
-//  }
-//}
-
-/* Small Mobile (≤ 480px): Further adjusted overlap */
+/* Small Mobile (≤ 480px): Further adjusted overlap - ONLY when image is present */
 @media (max-width: 480px) {
-  .post-header {
+  .post-header.has-image {
     font-size: 1rem;
   }
 
-  .post-header-info {
+  .post-header.has-image .post-header-info {
     margin-top: -70px;
     gap: 10px;
   }
 
-  .post-header-image::after {
+  .post-header.has-image .post-header-image::after {
     height: 120px;
   }
 }

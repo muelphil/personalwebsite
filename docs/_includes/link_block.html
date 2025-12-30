@@ -1,0 +1,38 @@
+{%- comment -%}
+Link Block Include
+Parameters:
+- title: Link title (required)
+- url: Target URL (required)
+- image: Link to title image (optional)
+- author: Author name (optional)
+- text: Description text (optional)
+{%- endcomment -%}
+
+<div class="link-block-wrapper">
+  <a href="{{ include.url }}" class="link-block" target="_blank" rel="noopener">
+    <div class="link-block-image">
+      {%- if include.image -%}
+      <img src="{{ include.image | relative_url }}" alt="{{ include.title }}">
+      {%- else -%}
+      <div class="link-block-placeholder"></div>
+      {%- endif -%}
+    </div>
+    <div class="link-block-content">
+      {%- if include.author -%}
+      <div class="link-block-author">{{ include.author }}</div>
+      {%- endif -%}
+      <div class="link-block-title">{{ include.title }}</div>
+      {%- if include.text -%}
+      <div class="link-block-text">{{ include.text }}</div>
+      {%- endif -%}
+      <div class="link-block-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+        <span>{{ include.url | replace: 'http://', '' | replace: 'https://', '' | truncate: 40 }}</span>
+      </div>
+    </div>
+  </a>
+</div>
