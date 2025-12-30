@@ -15,15 +15,18 @@
 - Interaktionskonzept
 - Extremwertprobleme Seminararbeit
 - Oskam snippets
-  - Datum auf Bilder drucken
-  - Bluetooth Linux-Kommandos
+    - Datum auf Bilder drucken
+    - Bluetooth Linux-Kommandos
 - Geogebra Animation? (Signifikanztests)
+
+- Lava Lamp Effect
 
 - DB Straßenbahn APP
 - PayBack Aktivierungs-Extension
 - uni aud übungs pdfs
 
 # Tags
+
 - Mathe
 - Teaching
 - Computer Science
