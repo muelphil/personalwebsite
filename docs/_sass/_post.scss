@@ -41,7 +41,7 @@
 .post-header-info {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 /* Breadcrumb navigation */
@@ -66,17 +66,27 @@
   }
 }
 
-/* Meta line (read time + date) */
+/* Meta line (tags, read time + date) */
 .post-meta-line {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: var(--font-size-body);
+  gap: 12px;
+  font-size: var(--font-size-body-small);
   color: var(--text-secondary);
   font-family: var(--font-label);
+  margin-top: 8px;
 
   .spacer {
     flex-grow: 1;
+  }
+
+  .separator {
+    opacity: 0.5;
+  }
+
+  .post-tags-container {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -85,7 +95,7 @@
   font-size: var(--font-size-post-title);
   letter-spacing: -1px;
   line-height: 1.15;
-  margin: 8px 0 0 0;
+  margin: 16px 0 0 0;
   color: var(--text-white);
   font-weight: 600;
 }
@@ -94,8 +104,12 @@
 .post-subtitle {
   font-size: var(--font-size-post-lead);
   line-height: 1.6;
-  color: var(--text-secondary-light);
+  //color: var(--text-secondary-light);
   margin: 0;
+}
+
+.post-meta-line .tag{
+  font-size: var(--font-size-body-small);
 }
 
 /* Author and tags row */
@@ -104,7 +118,7 @@
   //align-items: flex-start;
   gap: 24px;
   flex-wrap: wrap;
-  margin-top: 8px;
+  margin-top: 12px;
   justify-content: space-between;
   align-items: center;
 }
@@ -113,6 +127,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-top: 24px;
 }
 
 .post-author-link {
@@ -157,11 +172,6 @@
   line-height: 1.2;
 }
 
-.post-tags-container {
-  display: flex;
-  align-items: center;
-}
-
 @media (max-width: 768px) {
   .post-header {
     font-size: 1.02rem; /* Slightly smaller scale on tablets */
@@ -171,8 +181,8 @@
     margin-bottom: 24px;
   }
 
-  .post-author-tags {
-    gap: 16px;
+  .post-meta-line {
+    flex-wrap: wrap;
   }
 }
 

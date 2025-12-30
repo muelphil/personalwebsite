@@ -6,7 +6,7 @@ tags: ["DIY", "Computer Science"]
 categories: jekyll update
 excerpt_separator: <!--more-->
 abstract: "In this post, I go into the journey of constructing my very own thermal printing camera from scratch, drawing inspiration from a dear friend's innovative pursuits. I put together electronic components and write my own software to bring my vision to life. Along the journey, I also play around with changes, tweaking the camera to make it even better and more my own."
-short-abstract: "The Oskam is a fully custom DIY thermal printing camera I designed and build with a lot of additional features built into it."
+short-abstract: "A fully custom DIY thermal printing camera I designed and build with a lot of additional features built into it."
 title-image: '/assets/images/Oskam/title_image.png'
 title-image-caption: 'The Oskam'
 read_time: 8

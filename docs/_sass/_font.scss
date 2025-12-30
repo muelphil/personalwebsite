@@ -1,64 +1,64 @@
 /* Font System - Simplified and Unified */
 
 :root {
-    /* ===================== */
-    /* Base Configuration   */
-    /* ===================== */
-    
-    /* Base font size - 16px default */
-    --base-font-size: 16px;
-    
-    /* ===================== */
-    /* Container Scale Factors */
-    /* ===================== */
-    
-    --scale-featured: 1.15;      /* Featured projects container scale */
-    --scale-default: 1.0;        /* Default container scale */
-    
-    /* ===================== */
-    /* Core Font Sizes (em) */
-    /* All relative, page-agnostic */
-    /* ===================== */
-    
-    /* Body text hierarchy */
-    --font-size-body: 1em;           /* 16px - Standard body text */
-    --font-size-body-small: 0.875em; /* 14px - Secondary text */
-    --font-size-body-large: 1.125em; /* 18px - Emphasized body text */
-    
-    /* Headings hierarchy */
-    --font-size-h1: 2.5em;           /* 40px - Page titles */
-    --font-size-h2: 1.75em;          /* 28px - Major sections */
-    --font-size-h3: 1.375em;         /* 22px - Subsections */
-    --font-size-h4: 1.125em;         /* 18px - Minor headings */
-    --font-size-h5: 1em;             /* 16px - Smallest heading */
-    
-    /* Display sizes - for hero/landing */
-    --font-size-display: 3em;        /* 48px - Hero names, landing headers */
-    
-    /* UI Components */
-    --font-size-label: 0.9375em;     /* 15px - Labels, nav, buttons */
-    --font-size-caption: 0.875em;    /* 14px - Figure captions, image descriptions */
-    --font-size-meta: 0.75em;        /* 12px - Timestamps, bylines, small meta */
-    --font-size-tag: 0.6875em;       /* 11px - Tags, badges */
-    
-    /* Code */
-    --font-size-code: 0.875em;       /* 14px - Code blocks and inline code */
-    
-    /* ===================== */
-    /* Component Sizes      */
-    /* Card/Post previews   */
-    /* ===================== */
-    
-    --font-size-card-title: 1.125em;      /* 18px - Card/preview titles */
-    --font-size-card-description: 0.875em; /* 14px - Card descriptions */
-    
-    /* ===================== */
-    /* Post Content         */
-    /* ===================== */
-    
-    --font-size-post-body: 1.125em;      /* 18px - Post content body */
-    --font-size-post-title: 2.5em;       /* 40px - Post title */
-    --font-size-post-lead: 1.25em;       /* 20px - Post abstract/lead */
+  /* ===================== */
+  /* Base Configuration   */
+  /* ===================== */
+
+  /* Base font size - 16px default */
+  --base-font-size: 16px;
+
+  /* ===================== */
+  /* Container Scale Factors */
+  /* ===================== */
+
+  --scale-featured: 1.15; /* Featured projects container scale */
+  --scale-default: 1.0; /* Default container scale */
+
+  /* ===================== */
+  /* Core Font Sizes (em) */
+  /* All relative, page-agnostic */
+  /* ===================== */
+
+  /* Body text hierarchy */
+  --font-size-body: 1em; /* 16px - Standard body text */
+  --font-size-body-small: 0.875em; /* 14px - Secondary text */
+  --font-size-body-large: 1.125em; /* 18px - Emphasized body text */
+
+  /* Headings hierarchy (rebased) */
+  --font-size-h1: 1.75em; /* 28px */
+  --font-size-h2: 1.5em; /* 24px */
+  --font-size-h3: 1.25em; /* 20px */
+  --font-size-h4: 1.125em; /* 18px */
+  --font-size-h5: 1em; /* 16px */
+
+  /* Display sizes - for hero/landing */
+  --font-size-display: 3em; /* 48px - Hero names, landing headers */
+
+  /* UI Components */
+  --font-size-label: 0.9375em; /* 15px - Labels, nav, buttons */
+  --font-size-caption: 0.875em; /* 14px - Figure captions, image descriptions */
+  --font-size-meta: 0.75em; /* 12px - Timestamps, bylines, small meta */
+  --font-size-tag: 0.6875em; /* 11px - Tags, badges */
+
+  /* Code */
+  --font-size-code: 0.875em; /* 14px - Code blocks and inline code */
+
+  /* ===================== */
+  /* Component Sizes      */
+  /* Card/Post previews   */
+  /* ===================== */
+
+  --font-size-card-title: 1.125em; /* 18px - Card/preview titles */
+  --font-size-card-description: 0.875em; /* 14px - Card descriptions */
+
+  /* ===================== */
+  /* Post Content         */
+  /* ===================== */
+
+  --font-size-post-body: 1.1em; /* 18px - Post content body */
+  --font-size-post-title: 1.7em; /* 40px - Post title */
+  --font-size-post-lead: 1.125em; /* 20px - Post abstract/lead */
 }
 
 /* ===================== */
@@ -66,13 +66,13 @@
 /* ===================== */
 
 html {
-    font-size: var(--base-font-size);
+  font-size: var(--base-font-size);
 }
 
 body {
-    font-family: var(--font-sans);
-    font-size: var(--font-size-body);
-    line-height: 1.6;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
 }
 
 /* ===================== */
@@ -80,33 +80,33 @@ body {
 /* ===================== */
 
 h1 {
-    font-size: var(--font-size-h1);
-    line-height: 1.2;
+  font-size: var(--font-size-h1);
+  line-height: 1.2;
 }
 
 h2 {
-    font-size: var(--font-size-h2);
-    line-height: 1.3;
+  font-size: var(--font-size-h2);
+  line-height: 1.3;
 }
 
 h3 {
-    font-size: var(--font-size-h3);
-    line-height: 1.3;
+  font-size: var(--font-size-h3);
+  line-height: 1.3;
 }
 
 h4 {
-    font-size: var(--font-size-h4);
-    line-height: 1.4;
+  font-size: var(--font-size-h4);
+  line-height: 1.4;
 }
 
 h5 {
-    font-size: var(--font-size-h5);
-    line-height: 1.4;
+  font-size: var(--font-size-h5);
+  line-height: 1.4;
 }
 
 h6 {
-    font-size: var(--font-size-h5);
-    line-height: 1.4;
+  font-size: var(--font-size-h5);
+  line-height: 1.4;
 }
 
 /* ===================== */
@@ -114,15 +114,15 @@ h6 {
 /* ===================== */
 
 @media (max-width: 768px) {
-    :root {
-        --base-font-size: 15px;
-    }
+  :root {
+    --base-font-size: 15px;
+  }
 }
 
 @media (max-width: 480px) {
-    :root {
-        --base-font-size: 14px;
-        --font-size-display: 2.5em;  /* Reduce hero size on mobile */
-    }
+  :root {
+    --base-font-size: 14px;
+    --font-size-display: 2.5em; /* Reduce hero size on mobile */
+  }
 }
 

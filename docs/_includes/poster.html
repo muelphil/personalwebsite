@@ -24,7 +24,26 @@
         {% if include.links %}
         <div class="poster-links">
             {% for link in include.links %}
-            <a href="{{ link.url }}" target="_blank" rel="noopener" class="poster-link">{{ link.label }}</a>
+            {%- assign is_external = false -%}
+            {%- assign is_download = false -%}
+            {%- assign processed_url = link.url -%}
+            
+            {%- if link.url contains "http://" or link.url contains "https://" -%}
+                {%- assign is_external = true -%}
+            {%- elsif link.url contains "/assets/" -%}
+                {%- assign is_download = true -%}
+                {%- assign processed_url = link.url | relative_url -%}
+            {%- else -%}
+                {%- assign processed_url = link.url | relative_url -%}
+            {%- endif -%}
+            
+            {%- if is_external -%}
+                <a href="{{ processed_url }}" target="_blank" rel="noopener" class="poster-link">{{ link.label }}</a>
+            {%- elsif is_download -%}
+                <a href="{{ processed_url }}" download class="poster-link">{{ link.label }}</a>
+            {%- else -%}
+                <a href="{{ processed_url }}" class="poster-link">{{ link.label }}</a>
+            {%- endif -%}
             {% endfor %}
         </div>
         {% endif %}

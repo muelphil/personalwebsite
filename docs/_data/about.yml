@@ -50,9 +50,13 @@ posters:
           lastname: Steinbach
       description: This poster presents a modular benchmarking framework designed to ensure reproducibility and transparency when evaluating probabilistic and resource-intensive AI systems, with a focus on uncertainty estimation for large language models. The framework decouples model execution from evaluation logic, enabling consistent, reusable, and longitudinal benchmarking as models and APIs evolve.
       links:
-        - label: Robis
-          url: https://www.hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=42155
-        - label: Conference Site
+        - label: Download Poster
+          url: /assets/documents/Philip_Mueller_EurIPS_2025_Poster.pdf  # ✅ Will download
+        - label: Abstract
+          url: /documents/eurips_2025_poster
+#        - label: Robis
+#          url: https://www.hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=42155
+        - label: Conference Listing
           url: https://sites.google.com/view/benchmarking-and-evaluating-ai/home/accepted-posters#h.ll9ukx7hiunm
     - venue: HAICON 2025
       date: June 2025
@@ -69,8 +73,12 @@ posters:
           lastname: Steinbach
       description: The poster has been award the 2nd prize for the best poster among a total of 200 posters in an audience vote.
       links:
-        - label: Robis
-          url: https://hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=41395
+        - label: Abstract
+          url: /documents/haicon_2025_poster
+        - label: Award Announcement
+          url: https://www.hzdr.de/db/!News.AllNews?pSelMenu=0&pSelId=1704&pNid=530
+#        - label: Robis Entry
+#          url: https://hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=41395
 
 tech:
   title: Tech & Tools

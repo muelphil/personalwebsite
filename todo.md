@@ -300,3 +300,18 @@ I would next like to implement a feature: Documents.
 I want to use this to store content that are not posts but that I still want to link to from within posts or other points in my page, such as poster or publication abstracts, code snippets, declarations, etc.
 It would be great if this could be implemented so that I have a docs/_documents folder that contains documents as markdown and that get rendered under /docs/document title. Each document should specify a title and optionally a date. They should contain markdown. It should be rendered as markdown, similar to what post.html does, but without everything post specific and without the fancy title etc. -- only the title and the date/time if present.
 Create 2 dummy documents and link to them from the about page -- just put the links somewhere where i can easily delete them after trying.
+
+
+---
+
+I have added links in about.yml to the documents. The issue is that these links must include the prefix necessary for github pages hosting (/personalwebsite) and they also open in a new tab. It would be preferred if:
+* the links open in the same tab
+* I would not have to add /personalwebsite prefix in the about.yml page
+* I could also put download links there, for example personalwebsite\docs\assets\documents\Eurips_Poster_2.pdf to download the poster.
+
+---
+
+Now I would like to adjust the headers layout, keeping the post-header-info and post-header-image elements identical but arranging them next to each other depending on the screen size.
+I would like this to be similar to _includes/featured_project_card.html. You may reuse css from there, but create a new css file for the _post_header_title.scss
+On bigger screens (min 1080 px), the items should be put next to each other -- image on the left, text on the right, using the .wide-content approach to exceed the width (use that class).
+On smaller screens, the text should be beneath the image, but moved up with negative margin, so that there is an overlap. The image should have a gradient at the bottom so that the text is still readable. Please consult \docs\_sass\_project_card.scss for how this was implemented for the project cards.

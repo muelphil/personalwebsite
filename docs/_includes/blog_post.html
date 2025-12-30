@@ -1,9 +1,32 @@
 <li class="blog-post{% if include.image_right %} image-right{% endif %}">
-    {% if include.image %}
     <div class="blog-post-image">
-        <img src="{{ include.image | relative_url }}" alt="{{ include.title }}">
+        {% if include.image %}
+            <img src="{{ include.image | relative_url }}" alt="{{ include.title }}">
+        {% else %}
+            {%- comment -%}
+            Calculate hue rotation from title by summing character positions
+            {%- endcomment -%}
+            {%- assign hash = 0 -%}
+            {%- assign chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 " | split: "" -%}
+            {%- assign title_chars = include.title | split: "" -%}
+            
+            {%- for char in title_chars -%}
+                {%- assign char_value = 0 -%}
+                {%- for c in chars -%}
+                    {%- if c == char -%}
+                        {%- assign char_value = forloop.index -%}
+                        {%- break -%}
+                    {%- endif -%}
+                {%- endfor -%}
+                {%- assign hash = hash | plus: char_value | times: 7 -%}
+            {%- endfor -%}
+            
+            {%- assign hue = hash | modulo: 360 -%}
+            <img src="{{ '/assets/placeholder.jpeg' | relative_url }}" 
+                 alt="{{ include.title }}"
+                 style="-webkit-filter: hue-rotate({{ hue }}deg); filter: hue-rotate({{ hue }}deg);">
+        {% endif %}
     </div>
-    {% endif %}
     <div class="blog-post-content">
         <div class="blog-post-meta">
             {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}

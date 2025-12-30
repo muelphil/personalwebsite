@@ -1,10 +1,10 @@
 ---
-layout: base
-title: Todos
-permalink: /todos
+layout: document
+title: "Personal Website Todos"
 ---
 
 # TODOS
+
 - Code Highlighting
 - Read More (hidden)
 - Scientific references
