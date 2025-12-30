@@ -615,3 +615,11 @@ section {
 .vertical-separator {
   flex: 1 1 auto;
 }
+
+figure video {
+  border-radius: var(--border-radius);
+}
+
+a{
+  overflow-wrap: anywhere;
+}
