@@ -242,4 +242,4 @@ You can find a list of the installed PIP modules with their version [here (`pip 
 
 {% include video.html url="/assets/images/Oskam/frauenkirche_print_0.mp4" description="Printing in progress ... sound on! :)" controls="true" %}
 
-{% include image.html url="/assets/images/Oskam/frauenkirche_print_1.jpeg" description="The Oskam with the printed image of the Dresnder Frauenkirche" wide="false" %}
+{% include image.html url="/assets/images/Oskam/frauenkirche_print_1.jpeg" description="The Oskam with the printed image of the Dresdner Frauenkirche" wide="false" %}
