@@ -6,7 +6,14 @@ Displays post header with image and metadata in a stacked layout
 <header class="post-header{% if include.image %} wide-content has-image{% endif %}">
     {%- if include.image -%}
     <div class="post-header-image">
-        <img src="{{ include.image | relative_url }}" alt="{{ include.title }}"/>
+        <img src="{{ '/assets/content_compressed/' | append: include.image | append: '-960w.avif' | relative_url }}" 
+             srcset="{{ '/assets/content_compressed/' | append: include.image | append: '-640w.avif' | relative_url }} 640w,
+                     {{ '/assets/content_compressed/' | append: include.image | append: '-960w.avif' | relative_url }} 960w,
+                     {{ '/assets/content_compressed/' | append: include.image | append: '-1280w.avif' | relative_url }} 1280w"
+             sizes="(min-width: 1080px) 500px, 100vw"
+             alt="{{ include.title }}"
+             loading="eager"
+             decoding="async"/>
     </div>
     {%- endif -%}
     

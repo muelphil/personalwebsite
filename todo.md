@@ -336,3 +336,76 @@ The references look great, but the links to website unfortunately did not work w
 
 ---
 Please next look into the post header again (docs/_includes/post_header.html). This uses a title image and text, that it arranges based on the responive design. However, some posts dont have a title image. Can you please make sure the posts still work in these cases? When there is no title image, the text should be displayed without putting them left, right or to the top. Just the text (header, subheading etc.)
+
+
+---
+I think you are right. I have reverted the project to the state prior to the jekyll assets implementation.
+I want to instead propose the following approach:
+Please rename assets/images to assets/content -- the content for posts, a nested folder structure containing everything that will be directly shown in posts.
+Write a powershell script that uses compression and resizing of the videos using ffmpeg and images using imagemagick `magick`, and create a folder assets/content_compressed with the compressed images, image sourcesets and videos. Make sure that this script only creates compressed version, if there is not already a compressed version in the output folder, so it doesn't repeat unnecessary work. All _includes and posts need to be scanned for image usage and the used media paths needs to be updated.
+
+For images, use this as reference:
+## PNG → responsive AVIF (CLI)
+
+### 1) Resize + encode (one loop)
+
+`for w in 320 640 960 1280; do
+  magick input.png -resize ${w}x png:- | \
+  avifenc - image-${w}.avif --cq-level=30 --speed=6
+done
+`
+
+### 2) Result
+
+`image-320.avif
+image-640.avif
+image-960.avif
+image-1280.avif
+`
+
+### 3) HTML srcset
+
+`<img
+  src="image-640.avif"
+  srcset="
+    image-320.avif 320w,
+    image-640.avif 640w,
+    image-960.avif 960w,
+    image-1280.avif 1280w"
+  sizes="100vw"
+  alt="">
+`
+
+### Defaults (web)
+
+* `cq-level=28–32`
+* resize first
+* keep original PNG
+* add WebP fallback if needed
+
+For Videos, use:
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -b:v 0 -crf 32 -deadline good -an output.webm.
+
+Please create the powershell script and make sure that all docs/posts and docs/_includes are using the correct compressed_content folder, that is the output folder of the compression.
+
+
+---
+Looking into the Oskam Post, not a single image is showing up correctly. This needs to be fixed. An examples of this:
+
+ZTL-Kamera image:
+What is renders: /assets/content_compressed/Oskam/ZTL_Kamera-640w.avif
+Correct would be: /personalwebsite/assets/content_compressed/Oskam/ZTL_Kamera-960w.avif
+
+It is basically missing the /personalwebsite in front, which I had originally solved using <img src="{{ include.url | relative_url}}"> (see relative_url).
+In the best case I would like to provide the image without the prefix or postfix so instead of /personalwebsite/assets/content_compressed/Oskam/ZTL_Kamera-960w.avif, I would just like to provide "/Oskam/ZTL_Kamera". Can you make this possible and also look into the Oskam post (docs/_posts/2023-07-10-Oskam.markdown) and fix all the image links?
+
+---
+Still not working: When supplying Oskam/ZTL_Kamera, this turns into /personalwebsite/assets/content_compressed/OskamZTL_Kamera-640w.avif -- so the / in the path is missing between Oskam and ZTL_Kamera.
+
+
+---
+
+Great. Some include components are not yet working though. Please look into the following _includes components and fix them with the new image approach:
+* gallery.html
+* featured_project.html / featured_project_card.html
+* 

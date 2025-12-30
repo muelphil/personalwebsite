@@ -36,8 +36,8 @@
                 {% for item in page.carousels[number].images %}
 <!--                <li class="carousel__slide2" style="background-image: url('{{ item.image | relative_url }}');"></li>-->
                 <li class="carousel__slide">
-                    <div class="background_image" data-enlargable="{{ item.image | relative_url }}" style="background-image: url('{{ item.image | relative_url }}');"></div>
-                    <div class="actual_image" data-enlargable="{{ item.image | relative_url }}" style="background-image: url('{{ item.image | relative_url }}');" onclick="window.enlarge(event)"></div>
+                    <div class="background_image" data-enlargable="{{ '/assets/content_compressed/' | append: item.image | append: '-1280w.avif' | relative_url }}" style="background-image: url('{{ '/assets/content_compressed/' | append: item.image | append: '-960w.avif' | relative_url }}');"></div>
+                    <div class="actual_image" data-enlargable="{{ '/assets/content_compressed/' | append: item.image | append: '-1280w.avif' | relative_url }}" style="background-image: url('{{ '/assets/content_compressed/' | append: item.image | append: '-960w.avif' | relative_url }}');" onclick="window.enlarge(event)"></div>
                 </li>
                 {% endfor %}
             </ul>

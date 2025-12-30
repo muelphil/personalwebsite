@@ -10,6 +10,8 @@ cd docs
 bundle exec jekyll serve
 ```
 
+To use images and videos in new posts, put them in /assets/content, run `docs\compress-media.ps1` and then use them in posts with relative path from content folder (will be routed to content_compressed) and without file extension (will be handled automatically)
+
 
 philip-mueller.de
 https://www.godaddy.com/de-de/domainsearch/find?domainToCheck=philipmueller#

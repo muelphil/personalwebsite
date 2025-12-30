@@ -3,7 +3,7 @@ layout: post
 title:  "Smartclip"
 date:   2024-04-17 10:31:42 +0200
 tags: ["computer science"]
-title-image: '/assets/images/Smartclip/title_image.png'
+title-image: 'Smartclip/title_image'
 abstract: "Smartclip, currently in development, resembles Apple's Spotlight feature but offers an array of advanced features. These include extensive customization options, a clipboard manager, translation tools, and much more. Stay tuned for updates!"
 short-abstract: "Smartclip, currently in development, resembles Apple's Spotlight feature but offers an array of advanced features. These include extensive customization options, a clipboard manager, translation tools, and much more. Stay tuned for updates!"
 excerpt_separator: <!--more-->
@@ -36,7 +36,7 @@ In the following there is an overview of the different plugins, their ids and th
 
 ## Start (`start`)
 
-{% include image.html url="/assets/images/Smartclip/Plugin_Start.png" %}
+{% include image.html url="Smartclip/Plugin_Start" %}
 
 The Start Plugin allows users to quickly search for and start installed applications, as well as locate files within predefined, indexed directories. This plugin streamlines
 workflow by providing fast and efficient access to essential programs and documents.
@@ -51,7 +51,7 @@ workflow by providing fast and efficient access to essential programs and docume
 
 ## Clipboard (`clip` - default Plugin!)
 
-{% include image.html url="/assets/images/Smartclip/Plugin_Clip.png" %}
+{% include image.html url="Smartclip/Plugin_Clip" %}
 
 The Clipboard Manager allows users to store and retrieve clipboard entries, enhancing productivity by providing easy access to previously copied items for reuse in text input
 fields.
@@ -74,7 +74,7 @@ fields.
 
 ## Leo Translator (`leo`)
 
-{% include image.html url="/assets/images/Smartclip/Plugin_Leo.png" %}
+{% include image.html url="Smartclip/Plugin_Leo" %}
 
 The Translation Plugin simplifies and accelerates translations with a single shortcut key, allowing users to instantly translate and paste words in various languages. This plugin
 enhances efficiency, making translation effortless and seamless.
@@ -96,7 +96,7 @@ enhances efficiency, making translation effortless and seamless.
 
 ## Emoji Picker (`emoji`)
 
-{% include image.html url="/assets/images/Smartclip/Plugin_Emoji.png" %}
+{% include image.html url="Smartclip/Plugin_Emoji" %}
 
 The Emoji Picker Plugin enables users to effortlessly browse and select emojis, enhancing text input fields with a fun and expressive touch. Seamlessly integrated and easy to use,
 it enriches user interactions within your application.
@@ -111,7 +111,7 @@ it enriches user interactions within your application.
 
 ## Math (`math`)
 
-{% include image.html url="/assets/images/Smartclip/Plugin_Math.png" %}
+{% include image.html url="Smartclip/Plugin_Math" %}
 
 The Math Plugin enables users to convert LaTeX input into SVG, PNG, or Unicode math formulas, providing a versatile tool for pasting beautifully rendered mathematical expressions.
 With support for MathJax and PdfLatex (if installed), this plugin enhances text with precise and visually appealing math content.
@@ -132,7 +132,7 @@ With support for MathJax and PdfLatex (if installed), this plugin enhances text 
 
 ## Remind me (`rm`)
 
-{% include image.html url="/assets/images/Smartclip/Plugin_RemindMe.png" %}
+{% include image.html url="Smartclip/Plugin_RemindMe" %}
 
 The RemindMe Plugin enables users to set reminders effortlessly by typing a date and/or time in natural language followed by a task. This intuitive yet minimalistic plugin
 simplifies task management, ensuring you never miss anything important.
@@ -183,7 +183,7 @@ simplifies task management, ensuring you never miss anything important.
 
 ## Funcs (`funcs`, Work in Progress, Preview)
 
-{% include image.html url="/assets/images/Smartclip/Plugin_Funcs.png" %}
+{% include image.html url="Smartclip/Plugin_Funcs" %}
 
 The Function Plugin offers a glimpse into the main app's capabilities by activating various functions. These functions can modify features such as Clipboard behavior, providing
 users with a preview of the app's full potential.

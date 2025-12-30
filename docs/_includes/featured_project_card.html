@@ -19,7 +19,15 @@
     {% if include.image %}
     <div class="project-image">
         <a href="{{ include.url | relative_url }}" rel="noopener noreferrer">
-            <img src="{{ include.image | relative_url }}" alt="{{ include.title }}">
+            <img src="{{ '/assets/content_compressed/' | append: include.image | append: '-640w.avif' | relative_url }}" 
+                 srcset="{{ '/assets/content_compressed/' | append: include.image | append: '-320w.avif' | relative_url }} 320w,
+                         {{ '/assets/content_compressed/' | append: include.image | append: '-640w.avif' | relative_url }} 640w,
+                         {{ '/assets/content_compressed/' | append: include.image | append: '-960w.avif' | relative_url }} 960w,
+                         {{ '/assets/content_compressed/' | append: include.image | append: '-1280w.avif' | relative_url }} 1280w"
+                 sizes="(min-width: 1080px) 600px, (min-width: 768px) 400px, 100vw"
+                 alt="{{ include.title }}"
+                 loading="lazy"
+                 decoding="async">
         </a>
     </div>
     {% endif %}

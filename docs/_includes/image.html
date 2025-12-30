@@ -1,5 +1,21 @@
-<figure class="image {%- if include.wide -%}{{' wide'}}{%- endif -%}">
-    <img src="{{ include.url | relative_url}}" alt="{{ include.description }}" data-enlargable="{{ include.url | relative_url }}" onclick="window.enlarge(event)">
+{%- comment -%}
+Simple responsive image using AVIF with srcset
+Usage: {% include image.html url="Oskam/photo" description="..." %}
+Input is the base path without extension (e.g., "Oskam/photo" not "/assets/content/Oskam/photo.jpg")
+{%- endcomment -%}
+
+<figure class="image{%- if include.wide %} wide{%- endif -%}">
+    <img src="{{ '/assets/content_compressed/' | append: include.url | append: '-640w.avif' | relative_url }}" 
+         srcset="{{ '/assets/content_compressed/' | append: include.url | append: '-320w.avif' | relative_url }} 320w,
+                 {{ '/assets/content_compressed/' | append: include.url | append: '-640w.avif' | relative_url }} 640w,
+                 {{ '/assets/content_compressed/' | append: include.url | append: '-960w.avif' | relative_url }} 960w,
+                 {{ '/assets/content_compressed/' | append: include.url | append: '-1280w.avif' | relative_url }} 1280w"
+         sizes="{% if include.wide %}(min-width: 1024px) 1200px, {% endif %}(min-width: 768px) 800px, 100vw"
+         alt="{{ include.description }}" 
+         loading="lazy"
+         decoding="async"
+         data-enlargable="{{ '/assets/content_compressed/' | append: include.url | append: '-1280w.avif' | relative_url }}" 
+         onclick="window.enlarge(event)">
     {%- if include.description -%}<figcaption>{{ include.description }}</figcaption>{%- endif -%}
 </figure>
 

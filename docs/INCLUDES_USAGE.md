@@ -62,7 +62,7 @@ Use this to create attractive, clickable cards linking to external resources or 
 ## Further Reading
 
 {% include link_block.html
-  image="/assets/images/my-image.jpg"
+  image="/assets/content_compressed/my-image.jpg"
   author="OpenAI"
   title="GPT-4 Technical Report"
   text="Detailed technical documentation about GPT-4's architecture and capabilities."

@@ -7,22 +7,22 @@ categories: jekyll update
 excerpt_separator: <!--more-->
 abstract: "In this post, I go into the journey of constructing my very own thermal printing camera from scratch, drawing inspiration from a dear friend's innovative pursuits. I put together electronic components and write my own software to bring my vision to life. Along the journey, I also play around with changes, tweaking the camera to make it even better and more my own."
 short-abstract: "A fully custom DIY thermal printing camera I designed and build with a lot of additional features built into it."
-title-image: '/assets/images/Oskam/title_image.png'
+title-image: 'Oskam/title_image'
 title-image-caption: 'The Oskam'
 read_time: 8
 carousels:
   - images:
-      - image: /assets/images/Oskam/concept_1.png
-      - image: /assets/images/Oskam/concept_2.png
-      - image: /assets/images/Oskam/concept_3.png
-      - image: /assets/images/Oskam/concept_4.png
-      - image: /assets/images/Oskam/concept_5.png
-      - image: /assets/images/Oskam/concept_6.png
-      - image: /assets/images/Oskam/concept_7.png
+      - image: Oskam/concept_1
+      - image: Oskam/concept_2
+      - image: Oskam/concept_3
+      - image: Oskam/concept_4
+      - image: Oskam/concept_5
+      - image: Oskam/concept_6
+      - image: Oskam/concept_7
   - images:
-      - image: /assets/images/Oskam/verkabelung_0.jpeg
-      - image: /assets/images/Oskam/verkabelung_1.jpeg
-      - image: /assets/images/Oskam/verkabelung_2.jpeg
+      - image: Oskam/verkabelung_0
+      - image: Oskam/verkabelung_1
+      - image: Oskam/verkabelung_2
 ---
 
 
@@ -30,7 +30,7 @@ If I were ever stranded on a deserted island and had the freedom to bring one pe
 
 In March 2023, he presented his latest invention: a camera with a self-designed and 3D-printed case that featured a thermal printer.
 
-{% include image.html url="/assets/images/Oskam/ZTL_Kamera.jpg" description="Oskar's ZTL camera (ZTL is a nudge to the slips of paper it prints out, which are called &quot;Zettel&quot; in german)" %}
+{% include image.html url="Oskam/ZTL_Kamera" description="Oskar's ZTL camera (ZTL is a nudge to the slips of paper it prints out, which are called &quot;Zettel&quot; in german)" %}
 
 Without a viewfinder, it was always an experience waiting in anticipation for the picture to slowly print out, accompanied by the rattling sound of the thermal printer, giving it the vibe of a Polaroid camera. At the same time, depending on the thermal paper rolls you buy the cost per picture comes down to something between 2 and 5 cents. Ripping the picture off like you would a receipt is also extremely satisfying.
 
@@ -95,11 +95,11 @@ As I was already prepared to go through multiple design iterations, I instead de
 
 The design consisted of 3 different parts:
 
-{% include video.html url="/assets/images/Oskam/Gehaeuse_v2.webm" description="The case, housing standoffs and holes for all the main parts as well as docking points for the other parts of the case" autoplay="true" loop="true" muted="true" %}
+{% include video.html url="Oskam/Gehaeuse_v2" description="The case, housing standoffs and holes for all the main parts as well as docking points for the other parts of the case" autoplay="true" loop="true" muted="true" %}
 
-{% include video.html url="/assets/images/Oskam/Deckel_v2.webm" description="The lid, featuring holes for the display and the button, aswell as the screws for securing it to the case and colored icons for the button" autoplay="true" loop="true" muted="true" %}
+{% include video.html url="Oskam/Deckel_v2" description="The lid, featuring holes for the display and the button, aswell as the screws for securing it to the case and colored icons for the button" autoplay="true" loop="true" muted="true" %}
 
-{% include video.html url="/assets/images/Oskam/Objektiv.webm" description="The objective lens (which is not real but rather for design purposes), housing the camera, as well as a 12 RGB LED ring, that is used as flashlight" autoplay="true" loop="true" muted="true" %}
+{% include video.html url="Oskam/Objektiv" description="The objective lens (which is not real but rather for design purposes), housing the camera, as well as a 12 RGB LED ring, that is used as flashlight" autoplay="true" loop="true" muted="true" %}
 
 In total it took me 3 tries to finally get the case to both fit the parts and to get it down to a handy size. The case (without the objective lens) has the measurements 10.2cm x 9.7cm x 4.9cm (whd). After coloring the buttons with acrylic paint, I used varnish from a spray bottle to seal it against dirt.
 
@@ -148,7 +148,7 @@ class ScreenInterface:
 ```
 In the following picture you can see all the different screens
 
-{% include image.html url="/assets/images/Oskam/screens.png" description="Screens of the Oskam" %}
+{% include image.html url="Oskam/screens" description="Screens of the Oskam" %}
 
 In all of the states this shutter button will take an image. The images are also saved digitally. The camera takes quite some time to boot, which is why I often powered it on and left it, so that I would be able to make snapshots. Unfortunately, this caused the camera to print several all black pictures when I did this during a bike tour at the baltic sea, keeping it in my backpack. To counteract this, I implemented a lock state. Going back from the main menu first powers off the display, pressing back again locks the camera. In this state, the camera can only be turned on again by pressing the enter and the shutter button simultaneously.
 
@@ -161,7 +161,7 @@ The camera also features different modes, that again aren't hardcoded but can be
 - **pixelated**: prints the picture as seen on the OLED screen - heavily pixalated
 - **two face**: take 2 photos, the camera takes the upper half of one photo and the lower half of the other and fuses them together
 
-{% include image.html url="/assets/images/Oskam/modes.png" description="Images produced by the different camera modes" wide="true" %}
+{% include image.html url="Oskam/modes" description="Images produced by the different camera modes" wide="true" %}
 
 ## Camera Settings
 Thought the Camera Preview you can also access the camera settings, most of which are used even when taking images outside of the preview mode. As with the settings these are provided as a JSON object, so that settings are easily extensible.
@@ -179,7 +179,7 @@ Thought the Camera Preview you can also access the camera settings, most of whic
 - **Save taken Pictures**: Whether to save digital copy of the taken picture
 
  
-{% include video.html url="/assets/images/Oskam/timer.mp4" description="A 6 second timer running, using the LED ring as indicator" autoplay="false" loop="false" muted="true" controls="true" narrow="true" %}
+{% include video.html url="Oskam/timer" description="A 6 second timer running, using the LED ring as indicator" autoplay="false" loop="false" muted="true" controls="true" narrow="true" %}
 
 
 
@@ -198,7 +198,7 @@ I implemented the Prompt screen to print out a random prompt out of the selected
 The response to them has been rather mixed. Some people love them, some friendships broke over them. I can say I got to know people on a whole different level and now know a lot of funny and interesting stories and details about them.
 
 
-{% include image.html url="/assets/images/Oskam/prompts.png" description="Some random Prompts" wide="true" %}
+{% include image.html url="Oskam/prompts" description="Some random Prompts" wide="true" %}
 
 ## Settings
 As with the camera settings this screen is produced based on a provided JSON object, allowing for easy extensibility. It features the following settings:
@@ -222,11 +222,11 @@ I also needed to reset my router due to an issue with my provider once, and the 
 
 I tried three different kinds of thermal paper rolls. The best ones so far [are from Amazon](https://www.amazon.de/gp/aw/d/B0C1YZC239?psc=1&ref=ppx_pop_mob_b_asin_title). They feature high quality, have a glossy finish and are more resistant to stain from the sunlight than others that I've used.
 
-You can find a list of the installed PIP modules with their version [here (`pip list`)]({{'/assets/images/Oskam/pip_list.txt' | relative_url }}) 
+You can find a list of the installed PIP modules with their version [here (`pip list`)]({{'Oskam/pip_list.txt' | relative_url }}) 
 
 ## Cable management
 
-{% include image.html url="/assets/images/Oskam/verkabelung_compressed.png" description="Cable Management Plan" wide="true" %}
+{% include image.html url="Oskam/verkabelung_compressed" description="Cable Management Plan" wide="true" %}
 
 ### Notes
 - Please note that the Universal asynchronous receiver-transmitter (UART) protocol requires the RX pin of one device to be connected to the TX cable on the other device and vice versa. As someone who has no clue about the protocols used by the electronic components, it took way too much time to realize this—once again Oskar came to the rescue.
@@ -240,6 +240,6 @@ You can find a list of the installed PIP modules with their version [here (`pip 
 
 ## Result
 
-{% include video.html url="/assets/images/Oskam/frauenkirche_print_0.mp4" description="Printing in progress ... sound on! :)" controls="true" %}
+{% include video.html url="Oskam/frauenkirche_print_0" description="Printing in progress ... sound on! :)" controls="true" %}
 
-{% include image.html url="/assets/images/Oskam/frauenkirche_print_1.jpeg" description="The Oskam with the printed image of the Dresdner Frauenkirche" wide="false" %}
+{% include image.html url="Oskam/frauenkirche_print_1" description="The Oskam with the printed image of the Dresdner Frauenkirche" wide="false" %}

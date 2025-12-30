@@ -1,7 +1,13 @@
 <li class="blog-post{% if include.image_right %} image-right{% endif %}">
     <div class="blog-post-image">
         {% if include.image %}
-            <img src="{{ include.image | relative_url }}" alt="{{ include.title }}">
+            <img src="{{ '/assets/content_compressed/' | append: include.image | append: '-320w.avif' | relative_url }}" 
+                 srcset="{{ '/assets/content_compressed/' | append: include.image | append: '-320w.avif' | relative_url }} 320w,
+                         {{ '/assets/content_compressed/' | append: include.image | append: '-640w.avif' | relative_url }} 640w"
+                 sizes="110px"
+                 alt="{{ include.title }}"
+                 loading="lazy"
+                 decoding="async">
         {% else %}
             {%- comment -%}
             Calculate hue rotation from title by summing character positions
@@ -24,7 +30,9 @@
             {%- assign hue = hash | modulo: 360 -%}
             <img src="{{ '/assets/placeholder.jpeg' | relative_url }}" 
                  alt="{{ include.title }}"
-                 style="-webkit-filter: hue-rotate({{ hue }}deg); filter: hue-rotate({{ hue }}deg);">
+                 loading="lazy"
+                 decoding="async"
+                 style="-webkit-filter: sepia(90%) hue-rotate({{ hue }}deg); filter: sepia(90%) hue-rotate({{ hue }}deg);">
         {% endif %}
     </div>
     <div class="blog-post-content">

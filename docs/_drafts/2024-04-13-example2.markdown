@@ -6,17 +6,17 @@ tags: examples
 excerpt_separator: <!--more-->
 carousels:
   - images:
-      - image: /assets/images/carousel1/550.png
-      - image: /assets/images/carousel1/551.png
-      - image: /assets/images/carousel1/552.png
-      - image: /assets/images/carousel1/553.png
-      - image: /assets/images/carousel1/554.png
+      - image: /assets/content_compressed/carousel1/550.png
+      - image: /assets/content_compressed/carousel1/551.png
+      - image: /assets/content_compressed/carousel1/552.png
+      - image: /assets/content_compressed/carousel1/553.png
+      - image: /assets/content_compressed/carousel1/554.png
   - images:
-      - image: /assets/images/carousel2/4379.png
-      - image: /assets/images/carousel2/4380.png
-      - image: /assets/images/carousel2/4381.png
-      - image: /assets/images/carousel2/4381.png
-      - image: /assets/images/carousel2/4382.png
+      - image: /assets/content_compressed/carousel2/4379.png
+      - image: /assets/content_compressed/carousel2/4380.png
+      - image: /assets/content_compressed/carousel2/4381.png
+      - image: /assets/content_compressed/carousel2/4381.png
+      - image: /assets/content_compressed/carousel2/4382.png
 ---
 
 # Example 2

@@ -15,6 +15,10 @@ main {
   align-items: center;
 }
 
+main.narrow{
+  gap: 25px;
+}
+
 .main-padding {
   width: 100%;
   display: flex;

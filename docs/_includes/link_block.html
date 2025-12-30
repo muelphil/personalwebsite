@@ -12,7 +12,13 @@ Parameters:
   <a href="{{ include.url }}" class="link-block" target="_blank" rel="noopener">
     <div class="link-block-image">
       {%- if include.image -%}
-      <img src="{{ include.image | relative_url }}" alt="{{ include.title }}">
+      <img src="{{ '/assets/content_compressed/' | append: include.image | append: '-320w.avif' | relative_url }}" 
+           srcset="{{ '/assets/content_compressed/' | append: include.image | append: '-320w.avif' | relative_url }} 320w,
+                   {{ '/assets/content_compressed/' | append: include.image | append: '-640w.avif' | relative_url }} 640w"
+           sizes="80px"
+           alt="{{ include.title }}"
+           loading="lazy"
+           decoding="async">
       {%- else -%}
       <div class="link-block-placeholder"></div>
       {%- endif -%}
