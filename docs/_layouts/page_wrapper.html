@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.data.site.profile.name }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.png' | relative_url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@400;500&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <script>
         window.addEventListener('scroll', () => {
@@ -28,7 +30,7 @@
 </body>
 
 <script>
-    window.onload = function(){
+    window.onload = function () {
         console.log('loaded!')
         const imageGalleries = Array.from(document.querySelectorAll('.image-gallery-container'));
         imageGalleries.forEach(gallery => {
