@@ -3,7 +3,7 @@ layout: document
 title: "Uncertainty Estimation of Large Language Model Replies in Natural Sciences"
 ---
 
-# Abstract
+## Abstract
 
 Large language models (LLMs) are increasingly used in many fields such as software develop-
 ment, healthcare, education, and customer service. In the natural sciences, LLMs could help
@@ -37,17 +37,10 @@ question answering. To support reproducible and scalable research, an extensible
 ing framework was reengineered, providing a foundation for future studies in uncertainty
 quantification for LLMs.
 
-# Venue
+## Venue
 
 Presented as a poster at the Helmholtz AI Conference (HAICON 25), hosted by Helmholtz AI in Karlsruhe, Germany, from
 June 3 to June 5, 2025. The poster
 was [awarded 2nd prize for Best Poster in an audience vote](https://www.hzdr.de/db/!News.AllNews?pSelMenu=0&pSelId=1704&pNid=530),
 selected from a total of 200 presented posters.
-
-
-# Venue
-## Venue
-### Venue
-#### Venue
-##### Venue
 
