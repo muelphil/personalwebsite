@@ -1,0 +1,19 @@
+{%- comment -%}
+Simple responsive SVG include
+Usage: {% include svg.html url="icons/logo" description="..." %}
+Input is the base path without extension (e.g., "icons/logo" → icons/logo.svg)
+{%- endcomment -%}
+
+<figure class="image{%- if include.wide %} wide{%- endif -%}">
+    <img src="{{ '/assets/content/' | append: include.url | append: '.svg' | relative_url }}"
+         alt="{{ include.description }}"
+         loading="lazy"
+         decoding="async"
+         {%- if include.enlarge -%}
+         data-enlargable="{{ '/assets/content/' | append: include.url | append: '.svg' | relative_url }}"
+         onclick="window.enlarge(event)"
+         {%- endif -%}>
+    {%- if include.description -%}
+    <figcaption>{{ include.description }}</figcaption>
+    {%- endif -%}
+</figure>
