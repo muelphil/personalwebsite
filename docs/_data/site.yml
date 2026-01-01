@@ -2,7 +2,7 @@
 profile:
   name: Philip Müller
   first_name: Philip
-  avatar: /assets/profile_pic.png
+  avatar: /assets/profile_pic.avif
 
 socials:
   - name: Email
