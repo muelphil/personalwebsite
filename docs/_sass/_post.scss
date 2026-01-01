@@ -175,6 +175,8 @@ figure {
   }
 
   margin: 32px 0 24px 0;
+  display: flex;
+  justify-content: center;
 
   img {
     max-width: 100%;

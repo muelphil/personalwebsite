@@ -26,7 +26,7 @@ Recent advances in low-light image enhancement have shown promising results. The
 Check out these related resources:
 
 {% include link_block.html
-  image="/assets/placeholder.jpeg"
+  image="/assets/placeholder.avif"
   author="OpenAI"
   title="GPT-4 Technical Report"
   text="A detailed technical report describing the architecture, training methodology, and capabilities of GPT-4, the latest large language model from OpenAI."
@@ -34,7 +34,7 @@ Check out these related resources:
 %}
 
 {% include link_block.html
-  image="/assets/placeholder.jpeg"
+  image="/assets/placeholder.avif"
   title="Understanding Deep Learning"
   text="An comprehensive introduction to deep learning concepts, covering neural networks, optimization techniques, and modern architectures."
   url="https://www.deeplearningbook.org/"
