@@ -138,7 +138,7 @@ function Compress-Vid {
         Write-Host "  -> WebM VP9..." -NoNewline
         try {
             # Compress even if already .webm (re-encode with better settings)
-            $null = ffmpeg -i "$SrcFile" -c:v libvpx-vp9 -b:v 0 -crf $VideoQuality -deadline good -an "$out" -y 2>&1
+            $null = ffmpeg -i "$SrcFile" -c:v libvpx-vp9 -b:v 0 -crf $VideoQuality -deadline good "$out" -y 2>&1
             if (Test-Path $out) {
                 $orig = [math]::Round((Get-Item $SrcFile).Length / 1MB, 2)
                 $comp = [math]::Round((Get-Item $out).Length / 1MB, 2)
