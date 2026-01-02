@@ -1,3 +1,9 @@
+---
+layout: document
+title: "Oskam Pip List"
+---
+
+```bash
 Package                          Version
 -------------------------------- ---------
 Adafruit-Blinka                  8.19.0
@@ -52,3 +58,4 @@ urllib3                          1.26.5
 v4l2-python3                     0.3.2
 watchdog                         3.0.0
 wheel                            0.34.2
+```

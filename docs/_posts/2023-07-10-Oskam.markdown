@@ -221,7 +221,7 @@ I also needed to reset my router due to an issue with my provider once, and the 
 
 I tried three different kinds of thermal paper rolls. The best ones so far [are from Amazon](https://www.amazon.de/gp/aw/d/B0C1YZC239?psc=1&ref=ppx_pop_mob_b_asin_title). They feature high quality, have a glossy finish and are more resistant to stain from the sunlight than others that I've used.
 
-You can find a list of the installed PIP modules with their version [here (`pip list`)]({{'Oskam/pip_list.txt' | relative_url }}) 
+You can find a list of the installed PIP modules with their version [here (`pip list`)]({{'documents/Oskam-pip-list' | relative_url }}).
 
 ## Cable management
 
