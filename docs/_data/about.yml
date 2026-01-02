@@ -3,10 +3,10 @@ profile:
   location: Dresden, Germany
 
 bio:
-  - I'm a computer scientist passionate about building thoughtful, well-crafted software at the intersection of web development, machine learning, and data visualization. I enjoy turning complex ideas into clear, usable systems—whether that's an interactive interface, a model that explains itself, or a visualization that makes patterns visible at a glance.
-  - Currently, I work as a researcher in artificial intelligence, focusing on the development and evaluation of intelligent systems. My work combines practical engineering with academic curiosity, exploring how machine learning models can be made more reliable, interpretable, and useful in real-world contexts.
-  - Previously, I studied computer science alongside teaching and education, which shaped how I approach both research and development. I've worked on a range of projects spanning web applications, experimental ML pipelines, and educational tools, always with a strong emphasis on clarity, accessibility, and knowledge sharing.
-  - Outside of work, I'm usually hiking through forests or mountains, building things by hand, experimenting with code and visualizations, or spending time in nature recharging. I'm queer, curious by default, and happiest when learning something new or making something tangible.
+  - "I'm a computer scientist passionate about building thoughtful, well-crafted software at the intersection of web development, machine learning, and data visualization. I enjoy turning complex ideas into clear, usable systems: whether that's an interactive interface, a model that explains itself, or a visualization that makes patterns visible at a glance."
+  - Currently, I research uncertainty quantification in large language models, studying how these models and methods work and benchmarking different approaches. My focus is on understanding, evaluating, and improving the reliability and interpretability of machine learning systems.
+  - Previously, I studied computer science alongside teaching and education, which shaped how I approach both research and development. I've worked on a range of projects spanning web applications, ML pipelines, and educational tools, always with a strong emphasis on clarity, accessibility, and knowledge sharing.
+  - Outside of work, I'm usually hiking through forests or mountains, building things by hand, experimenting with code and visualizations, or writing on poetry. I'm queer, curious by default, and happiest when learning something new or making something tangible.
 
 experience:
   title: Curriculum Vitae
@@ -15,7 +15,7 @@ experience:
       active: true
       title: Researcher (Artificial Intelligence)
       company: Helmholtz-Zentrum Dresden-Rossendorf
-      description: Researching uncertainty quantification in large language models. Organized and taught an LLM workshop at the HZDR HPC Fall School 2025.
+      description: Researching uncertainty quantification in large language models. Prepared and taught an LLM workshop at the HZDR HPC Fall School 2025.
 
     - period: 2021–2025
       active: false

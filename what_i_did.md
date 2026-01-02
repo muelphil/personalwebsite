@@ -16,7 +16,7 @@ To use images and videos in new posts, put them in /assets/content, run `docs\co
 philip-mueller.de
 https://www.godaddy.com/de-de/domainsearch/find?domainToCheck=philipmueller#
 
-
+avifenc "Blueprint_Kopf.png" "Blueprint_Kopf.avif" --min 0 --max 63 -a end-usage=q -a cq-level=30 -a tune=ssim --jobs 4 -s 6
 
 
 "Poppins",Helvetica Neue,Helvetica,Arial,sans-serif

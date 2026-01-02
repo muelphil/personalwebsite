@@ -19,7 +19,7 @@ $AVIFSpeed = 6
 $VideoQuality = 32
 
 # File type definitions
-$ImageExtensions = @('.png', '.jpg', '.jpeg', '.gif', '.bmp')
+$ImageExtensions = @('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.avif', '.webp')
 $VideoExtensions = @('.mp4', '.mov', '.avi', '.webm', '.mkv', '.flv')
 
 # Color output

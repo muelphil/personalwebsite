@@ -71,7 +71,7 @@
         function end() {
             newDiv.remove();
             const body = document.querySelector('body');
-            body.style.overflow = 'initial';
+            // body.style.overflow = 'initial';
             body.removeEventListener('keydown', onEscape);
         }
 
@@ -83,7 +83,7 @@
 
         const body = document.querySelector('body');
         body.addEventListener('keydown', onEscape)
-        body.style.overflow = 'hidden';
+        // body.style.overflow = 'hidden';
         newDiv.onclick = end;
         document.querySelector('body').append(newDiv);
     }
