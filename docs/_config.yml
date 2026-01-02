@@ -19,14 +19,14 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Philip Müller
-email: philip.mueller4@tu-dresden.de
+email: philipmueller.dev@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to the personal website of [Name], a dedicated computer scientist passionate
+  Welcome to the personal website of Philip Müller, a dedicated computer scientist passionate
   about web development and machine learning, committed to imparting knowledge through teaching.
 #  Write an awesome description for your new site here. You can edit this
 #  line in _config.yml. It will appear in your document head meta (for
 #  Google search results) and in your feed.xml site description.
-baseurl: "/personalwebsite" # the subpath of your site, e.g. /blog
+baseurl: "/" # /personalwebsite # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  muelphil
@@ -63,7 +63,7 @@ permalink: /:year/:month/:day/:title.html
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-minima:
+#minima:
   # Minima skin selection.
   # Available skins are:
   # classic	           Default, light color scheme.
@@ -72,12 +72,12 @@ minima:
   # solarized-light	   Light variant of solarized color scheme.
   # solarized-dark	   Dark variant of solarized color scheme.
   # solarized	         Adaptive skin for solarized color scheme skins.
-  skin: classic
+#  skin: classic
   # Generate social links in footer.
-  social_links:
+#  social_links:
 #    - { platform: devto,          user_url: "https://dev.to/jekyll" }
 #    - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
 #    - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
-    - { platform: instagram,      user_url: "https://www.instagram.com/maestromueller" }
-    - { platform: github,         user_url: "https://github.com/muelphil" }
-    - { platform: linkedin,       user_url: "https://www.linkedin.com/" }
+#    - { platform: instagram,      user_url: "https://www.instagram.com/maestromueller" }
+#    - { platform: github,         user_url: "https://github.com/muelphil" }
+#    - { platform: linkedin,       user_url: "https://www.linkedin.com/" }
