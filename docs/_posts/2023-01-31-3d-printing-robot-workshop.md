@@ -2,7 +2,9 @@
 layout: post
 title: "3D Printing as a Didactic Tool – Repairing a Robot in the Classroom"
 abstract: "A one-day workshop that uses 3D modeling and printing to teach problem-solving, abstraction, and core principles of computer science education"
-tags: [ "Computer Science", "3D Printing" ]
+short-abstract: "A one-day workshop that uses 3D modeling and printing to teach problem-solving, abstraction, and core principles of computer science education"
+tags: [ "Computer Science", "3D Printing", "Teaching" ]
+date:   2023-01-31 10:31:42 +0200
 title-image: 'Robot/title_image'
 read_time: 4
 carousels:

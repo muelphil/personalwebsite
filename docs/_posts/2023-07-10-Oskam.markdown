@@ -3,7 +3,6 @@ layout: post
 title: "Oskam"
 date: 2023-07-10 16:31:42 +0200
 tags: [ "DIY", "Computer Science", "Python", "3D Printing" ]
-categories: jekyll update
 excerpt_separator: <!--more-->
 abstract: "In this post, I go into the journey of constructing my very own thermal printing camera from scratch, drawing inspiration from a dear friend's innovative pursuits. I put together electronic components and write my own software to bring my vision to life. Along the journey, I also play around with changes, tweaking the camera to make it even better and more my own."
 short-abstract: "A fully custom DIY thermal printing camera I designed and build with a lot of additional features built into it."
