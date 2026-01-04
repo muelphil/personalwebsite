@@ -4,254 +4,124 @@ title: "Smartclip"
 date: 2024-04-17 10:31:42 +0200
 tags: [ "Computer Science", "Vue.js", "Electron" ]
 title-image: 'Smartclip/title_image'
-abstract: "Smartclip, currently in development, resembles Apple's Spotlight feature but offers an array of advanced features. These include extensive customization options, a clipboard manager, translation tools, and much more. Stay tuned for updates!"
-short-abstract: "Smartclip, currently in development, resembles Apple's Spotlight feature but offers an array of advanced features. These include extensive customization options, a clipboard manager, translation tools, and much more. Stay tuned for updates!"
+abstract: "Streamline your workflow with quick access to clipboard management, translations, emojis, and much more — all through one powerful, extensible launcher."
+short-abstract: "Streamline your workflow with quick access to clipboard management, translations, emojis, and much more — all through one powerful, extensible launcher."
 excerpt_separator: <!--more-->
 ---
 
-Info on Smartclip (Content)
+[//]: # (Info on Smartclip &#40;Content&#41;)
 
-- [Github Releases Page](https://github.com/muelphil/smartclip?tab=readme-ov-file)
-- [Color Scheme Generator](https://muelphil.github.io/smartclip-color-scheme-generator/)
-- 
-# Installation
+[//]: # ()
 
-Smartclip is currently in closed beta. If you want to test the application, e-mail me!
+[//]: # (- [Github Releases Page]&#40;https://github.com/muelphil/smartclip?tab=readme-ov-file&#41;)
 
-# Directories
+[//]: # (- [Color Scheme Generator]&#40;https://muelphil.github.io/smartclip-color-scheme-generator/&#41;)
 
-Smartclip will create a `.smartclip` directory in your home directory on installation. This is used for example to store the settings in the `settings.json` file. You can
-manipulate hidden settings (settings that are read only in the application) by modifying `settings.json` while Smartclip is not running (Close it first using rightclick on the tray
-icon => "close")
+[//]: # (-)
 
-# Plugins
+Smartclip is a versatile productivity tool designed to streamline workflows by offering quick access to various
+utilities through a user-friendly interface. Similar to popular application launchers like Apple's Spotlight, Cerebro,
+and Albert, Smartclip goes beyond basic search functions by integrating a range of specialized plugins. These plugins
+empower users to efficiently manage clipboard content, handle mathematical expressions, launch applications, translate
+text, set reminders, and much more — all with minimal effort.
 
-The core of Smartclip is the Prompt line. Smartclip furthermore consists of multiple plugins. One of these Plugins (by default the Clipboard) is the basic Plugin, that will show up
-whenever you open Smartclip using the hotkey (by default `ctrl+shift+V`). You can open the other plugins by typing the id of Plugin (for example `start` for the Start Plugin)
-followed by a Space. This will open the Plugin. To get back, simply press `backspace`.
+At its core, Smartclip is an extensible launcher that consists of a prompt or search input at the top and a plugin view
+at the bottom, occupied by the currently activated plugin. You can navigate between plugins by typing their ID followed
+by a space, or use dedicated keyboard shortcuts for instant access. Each plugin is carefully crafted to enhance
+productivity, making Smartclip a powerful companion for both everyday tasks and more complex workflows.
 
-The Settings can be opened the same way: type `settings` followed by a Space, or alternatively press the little wheel icon on the right side of the prompt line.
+Currently in beta (Version 0.9.4), Smartclip is available for Windows and Linux, with each plugin offering unique
+features to boost your productivity.
 
-In the following there is an overview of the different plugins, their ids and their functionality.
+## The Plugins
 
-## Start (`start`)
+### Clipboard Manager (`clip`)
 
-{% include image.html url="Smartclip/Plugin_Start" %}
+{% include image.html url="Smartclip/plugin_clip_colored" description="The Clipboard Plugin" max_width="600px" %}
 
-The Start Plugin allows users to quickly search for and start installed applications, as well as locate files within predefined, indexed directories. This plugin streamlines
-workflow by providing fast and efficient access to essential programs and documents.
+The Clipboard Manager is your productivity powerhouse for managing copied content. It automatically detects different
+types of text (including URLs, email addresses, math expressions, code, and images) and stores them for easy reuse.
+Simply select an entry and press Enter to paste it wherever you need.
 
-- search local applications
-    - smartclip will take longer on first start for searching for all applications and caching the icons
-    - icons are currently buggy (work in progress)
-- special actions
-    - shutdown, sleep, restart, hibernate
-- set directories to index in the settings to index directories and search for files in these directories
-    - there is a max depth and a max amount of files currently hardcoded (work in progress)
+What makes this plugin exceptional is its intelligent context-aware actions. URL entries can be pasted as scientific
+references or BibTeX citations, email entries open your mail client directly, and math expressions can be converted to
+Unicode. You can favorite important entries to keep them even after system restarts, and use Alt + number keys (1-9) to
+instantly paste specific entries.
 
-## Clipboard (`clip` - default Plugin!)
+**Quick Access:** Press `Super` + `V` to open the Clipboard Manager instantly.
 
-{% include image.html url="Smartclip/Plugin_Clip" %}
+### Application Launcher (`start`)
 
-The Clipboard Manager allows users to store and retrieve clipboard entries, enhancing productivity by providing easy access to previously copied items for reuse in text input
-fields.
+{% include image.html url="Smartclip/plugin_start_colored" description="The Application Launcher Plugin" max_width="
+600px" %}
 
-- stores text copied to the clipboard
-- multiple types of clipboard entries (detected by parsing, clipboard storage or in case of math through generation by smartclip)
-    - plain
-    - math
-    - url
-    - file
-        - folder, file, image file
-    - email
-    - code
-- prepend special keywords for the entry types (file, url, math, image, mail, code) to your query to only search for entries of that specific type
-    - for example `url youtube` - only url entries that include youtube
-- actions based on the type of clipboard entry, use context menu by clicking the 3 dots or by pressing `shift+enter` on the selected entry
-    - for example email entries allow for the action "send email to..." opening your default mail application
-- use `alt+1-9` to paste an entry by position
-- favor entries, so that they get stored for future sessions
+The Application Launcher provides lightning-fast access to your installed applications and indexed files. No more
+clicking through menus or searching through folders, just type and launch. The plugin indexes your applications on first
+startup and maintains a searchable database for instant retrieval.
 
-## Leo Translator (`leo`)
+Beyond launching apps, you can also search for files within predefined directories that you configure in the settings.
+The plugin even includes quick actions for system operations like shutting down your computer. It's the ultimate tool
+for eliminating friction from your daily workflow.
 
-{% include image.html url="Smartclip/Plugin_Leo" %}
+### Translator (`tl`)
 
-The Translation Plugin simplifies and accelerates translations with a single shortcut key, allowing users to instantly translate and paste words in various languages. This plugin
-enhances efficiency, making translation effortless and seamless.
+{% include image.html url="Smartclip/plugin_translate_colored" description="The Translation Plugin" max_width="600px" %}
 
-- uses Leo in background for searching words
-- displays results sorted by categories (nouns, verbs, object)
-    - use `ctrl+down/up` to jump between categories
-- paste words instantly by pressing enter on a selected word
-- "did you mean..." for when typos happen
-- use `ctrl+shift+L` while highlighting a word in another application to automatically copy the word to Smartclip and search for it, press enter to replace the highlighted word
-  with the result
-    - try it out:
-      <textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
-      Haus
-      Bank
-      Wörter
-      schnell
-      </textarea>
+The Translation Plugin makes language translation effortless with instant, keyboard-driven access. Simply press `Ctrl` +
+`Shift` + `L` while text is selected, and Smartclip will copy and translate it automatically. Results are organized by
+categories (nouns, verbs, adjectives) making it easy to find the right translation in context.
 
-## Emoji Picker (`emoji`)
+Jump between categories with `Ctrl` + `Down/Up`, and paste translations instantly by pressing Enter. The plugin even
+includes "Did you mean..." suggestions for typos, and allows you to select both origin and target languages. It's
+perfect for multilingual workflows, research, or learning new languages on the fly.
 
-{% include image.html url="Smartclip/Plugin_Emoji" %}
+**Quick Access:** Press `Ctrl` + `Shift` + `L` to open the Translator instantly.
 
-The Emoji Picker Plugin enables users to effortlessly browse and select emojis, enhancing text input fields with a fun and expressive touch. Seamlessly integrated and easy to use,
-it enriches user interactions within your application.
+### Emoji Picker (`emoji`)
 
-- use arrow keys to navigate
-- use mouse click or enter to paste selected emoji
-- use alt + enter or alt + mouse click to show alternate versions (emojis with alternate versions have a grey border around them)
-- use shift + enter or shift + mouseclick to store multiple emojis, press delete to remove one emoji from the stack, press enter to paste all the stored emojis
-- search using german or english. The search function uses the suggested words from Whatsapp [that you can find here](https://web.whatsapp.com/emoji_suggestions/en.json)
-    - for german + english I simply took both, pasted them into the chrome console as JSON objects and used {...en, ...de} to merge them, saving the result to a new file
-- Use the skintone and gender radio buttons to select the corresponding alternate of all emojis that have alternates
+{% include image.html url="Smartclip/plugin_emoji_colored" description="The Emoji Picker Plugin" max_width="600px"  %}
 
-## Math (`math`)
+Add expression and personality to your text with the Emoji Picker. Browse and search through a comprehensive emoji
+library using either English or German keywords (powered by WhatsApp's emoji suggestions). Navigation is smooth: use
+arrow keys, mouse clicks, or simply press Enter to paste your selected emoji.
 
-{% include image.html url="Smartclip/Plugin_Math" %}
+The plugin supports advanced features like alternate emoji versions (accessible with `Alt` + `Enter`), including
+different skin tones and genders. You can even stack multiple emojis using `Shift` + `Enter` and paste them all at once.
+It's a fun, efficient way to enhance your communication.
 
-The Math Plugin enables users to convert LaTeX input into SVG, PNG, or Unicode math formulas, providing a versatile tool for pasting beautifully rendered mathematical expressions.
-With support for MathJax and PdfLatex (if installed), this plugin enhances text with precise and visually appealing math content.
+**Quick Access:** Press `Super` + `.` to open the Emoji Picker instantly.
 
-- provide a query in a math markup language and press enter to paste the math in the selected format
-- input methods
-    - latex: `f:\mathbb{R}\mapsto\mathbb{R}`
-    - asciimath: `f: RR |-> RR`
-        - for unicode I use a custom translation from latex to ascii that is based on [this specification](https://asciimath.org/)
-- parsing methods
-    - pdflatex - uses local pdflatex.exe - please make sure it is present!
-    - [MathJax](https://www.mathjax.org/)
-- output methods
-    - SVG
-    - PNG
-    - Unicode
-- options for selecting the color, the size, the resolution (how many pixels are generated per paste height/width in pixel) and whether to use displaystyle
+### Reminder (`rm`)
 
-## Remind me (`rm`)
+{% include image.html url="Smartclip/plugin_rm_colored" description="The Reminder Plugin" max_width="600px" %}
 
-{% include image.html url="Smartclip/Plugin_RemindMe" %}
+Never miss a task again with the RemindMe Plugin. Set reminders using natural language: simply type a date and/or time
+followed by your task. The plugin understands phrases like "in 10 mins," "tomorrow at 8pm," "next monday," or even "
+dinner time" and creates reminders accordingly.
 
-The RemindMe Plugin enables users to set reminders effortlessly by typing a date and/or time in natural language followed by a task. This intuitive yet minimalistic plugin
-simplifies task management, ensuring you never miss anything important.
+When reminders trigger, you can snooze them for a custom duration or until the next app startup. You can also integrate
+reminders with external calendars (iCalendar or Google Calendar) by pressing `Shift` + `Enter` when creating a reminder.
+It's an intuitive, minimalistic way to stay organized and on top of your to-do list.
 
-- use query to generate Reminders, that consist of a time and a task
-- use the word "to" to explicitly separate time and task
-- time detects any combination of the following:
-    - keyword `in`
-        - `in 10 mins and 30 seconds`
-        - `in an hour`
-        - `in 4d 30m 20s`
-    - keyword `at`
-        - `at 20`
-        - `at 20:30`
-        - `at 8:30 pm`
-    - time
-        - `20:00`
-        - `8pm`
-        - `8:30pm`
-        - does not detect just `20`, use `at 20` instead
-    - keyword `next`
-        - `next month` (first day of next month)
-        - `next week` (next monday)
-    - weekdays
-        - `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`,
-        - sets date to the next occurence of that weekday in the future
-    - tomorrow
-        - `tomo`
-        - `tomorrow`
-    - special times (only when time is not provided in another way)
-        - `morning`: 8:00
-        - `lunch`: 12:00
-        - `noon`: 12:00
-        - `afternoon`: 14:00
-        - `evening`: 17:00
-        - `dinner`: 18:00
-        - `night`: 20:00
-    - dates
-        - `01.01.1970`
-        - `15.4.`
-        - `15.4`
-        - `15.4.25`
-        - `15.4.2025`
-        - `15-4-25`
-        - `15/4/25`
-        - currently not detected: `1 September 22`, `31 Dec 2023`, `2024/12/29`
-- task is anything after the keyword `to`, anything left of the time specification (query from start until first occurence of `to`) after parsing will be prepended to the task
+### Math Expression (`math`)
 
-## Funcs (`funcs`, Work in Progress, Preview)
+{% include image.html url="Smartclip/plugin_math_colored" description="The Math Expression Plugin" max_width="600px" %}
 
-{% include image.html url="Smartclip/Plugin_Funcs" %}
+The Math Expression Plugin is perfect for academics, engineers, and anyone working with mathematical notation. Quickly
+create and paste math expressions as PNG, SVG, or plain Unicode. Whether you're preparing slides, writing emails, or
+documenting equations, this plugin has you covered.
 
-The Function Plugin offers a glimpse into the main app's capabilities by activating various functions. These functions can modify features such as Clipboard behavior, providing
-users with a preview of the app's full potential.
+It supports both LaTeX Math and AsciiMath input formats, with processing options via MathJax or PdfLaTeX (if installed).
+You can customize font size, resolution, paste color, and display style. AsciiMath makes it particularly easy to write
+complex expressions without deep LaTeX knowledge: just use intuitive shortcuts like `f(x)=x^2, f: RR |-> RR` instead of
+verbose LaTeX syntax.
 
-### Formatting
+## Get Started Today
 
-- format languages by positioning cursor in textfield with code to be formatted
-- alternatively: only select the part that should be formatted
-- open the functions plugin (`funcs`) and select `formatJs`
-- currently supports languages
-    - xml, rust, javascript, html, typescript, css, json, yaml(?)
-    - actually: JSON, css
+Smartclip is currently in beta and available for free. Download the latest version from
+the [official website](https://muelphil.github.io/smartclip/) or
+the [GitHub releases page](https://github.com/muelphil/smartclip/releases). With its powerful plugin ecosystem and
+intuitive interface, Smartclip transforms how you interact with your computer — making every task faster, smoother, and
+more enjoyable.
 
-Try it out:
-
-#### Java
-
-<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
-public class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }
-</textarea>
-
-#### Rust
-
-<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
-fn main() { println!("Hello, World!"); }
-</textarea>
-
-#### XML
-
-<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
-<note><to>Tove</to><from>Jani</from><heading>Reminder</heading><body>Don't forget me this weekend!</body></note>
-</textarea>
-
-#### YAML
-
-<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
-name: John Doe age: 30 address: street: 123 Main St city: Anytown state: CA
-</textarea>
-
-#### JSON
-
-<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
-{"name": "John Doe","age": 30,"address": {"street": "123 Main St","city": "Anytown","state": "CA"}}
-</textarea>
-
-#### TypeScript
-
-<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
-function greet(name: string): void { console.log(`Hello, ${name}!`); } greet('World');
-</textarea>
-
-#### CSS
-
-<textarea style="width: 100%; min-height:200px;" rows="6" cols="50" style="display:block">
-body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 0; } h1 { color: #333; }
-</textarea>
-
-## Work in Progress
-
-### Text Transform
-
-# Work in Progess
-
-- build your own plugins
-- create your own themes
-
-# Open Questions:
-
-- should reminders generally be removed, even if they are snoozed?
-- does the `ctrl+shift+L` shortcut work?
-
+Ready to boost your productivity? Give Smartclip a try and experience the difference.
