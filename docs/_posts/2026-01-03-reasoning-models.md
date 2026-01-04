@@ -1,27 +1,27 @@
 ---
 layout: post
-title: "Deconstructing the Hype: Why Reasoning Models Are Less Magic Than They Seem"
+title: "The Hype around the \"Hmmm\": Why Reasoning Models Are Less Magic Than They Seem"
 date: 2026-01-03 00:00:00 +0200
 title-image: 'Reasoning_Models/title_image'
 tags: [ "LLMs" ]
 read_time: 7
-abstract: "Reasoning models promise AI that \"thinks\", but the reality is less magical. In this post I explore how inference-time scaling works, why internal monologues are often just learned mimicry, and the hidden costs of letting models overthink."
-short-abstract: "Reasoning models promise AI that \"thinks\", but the reality is less magical. In this post I explore how inference-time scaling works, why internal monologues are often just learned mimicry, and the hidden costs of letting models overthink."
+abstract: "Reasoning models promise AI that \"thinks\", but the reality is less magical. In this post I explore how inference-time scaling works, why internal monologues are often just learned mimicry, and the hidden costs of letting models (over)think."
+short-abstract: "Reasoning models promise AI that \"thinks\", but the reality is less magical and very expensive at the same time."
 ---
 
 
-If you’ve been using LLMs, you’ve probably noticed all the buzz around “reasoning models.” These are the models that "
+If you’ve been using LLMs, you’ve probably noticed all the buzz around reasoning models. These are the models that "
 think" before they speak, or at least give the impression of it. But how did we get here, and why the hype?
 
 ## Historical Background
 
-Long before “reasoning models” became a product category, we already had Chain-of-Thought prompting: the simple but
-powerful trick of asking models to “think step by step” ([2201.11903](#2201.11903)). It worked surprisingly well,
+Long before reasoning models became a product category, we already had Chain-of-Thought prompting: the simple but
+powerful trick of asking models to “think step by step” ([Wei et al., 2023](#ref-wei2023)). It worked surprisingly well,
 especially for math, logic puzzles, and multi-step problems. At the time, this felt less like a new capability and more
 like learning how to talk to the model in a way that exposed what it already knew.
 
 With the release of models like DeepSeek-R1 in January
-2025 ([https://arxiv.org/abs/2501.12948](https://arxiv.org/abs/2501.12948)), reasoning stopped being a prompting hack
+2025 ([Deepseek-AI, 2025](#ref-deepseek2025)), reasoning stopped being a prompting hack
 and became a first-class feature. Suddenly, benchmarks jumped, particularly in math proofs, program synthesis,
 adversarial reasoning, and uncertainty-heavy domains. The narrative was clear: if you let the model think longer,
 performance improves. This idea spread fast, both in research and in marketing, because the gains were real and
@@ -42,7 +42,7 @@ demystify them and explain why they might be less magical (and less universally 
 
 ## What is reasoning?
 
-At a high level, “reasoning” in modern LLMs is best understood as a shift in where computation happens. In Traditional
+At a high level, “reasoning” in modern LLMs is best understood as a shift in where computation happens. In traditional
 models, providers tried to boost performance by scaling training compute, data or parameters. Once deployed, inference
 is relatively cheap and fast. Reasoning models, in contrast, deliberately spend more compute at inference time. They
 generate longer intermediate sequences, explore alternatives, and delay committing to an answer. This is often called
@@ -56,7 +56,8 @@ internal understanding. The model is still a next-token predictor, just one that
 produce intermediate text before producing a final answer.
 
 If you check out reasoning traces, what you mostly see is not formal logic but reflective language. Phrases like “Hmm”,
-“Maybe”, “But what if…”, or “Let’s consider another case” appear frequently. These patterns are not accidental. During
+“But what if…”, “Let’s consider another case” or "Let's double check that" appear frequently. These patterns are not
+accidental. During
 training, models see these patterns in contexts of deliberation and problem solving, using exactly this kind of
 epistemic and self-reflective language. In effect, it learns to guide itself through the output space by externalizing
 uncertainty, postponing decisions, and trying multiple thought paths in sequence.
@@ -74,7 +75,8 @@ an answer, and how that text is structured, not the fundamental nature of the mo
 
 ## How Reasoning Models are trained
 
-Reasoning models are trained to produce a specific response structure: first, an internal reasoning trace enclosed by
+Reasoning models are trained to produce a specific response structure: first, an internal reasoning trace often enclosed
+by
 special control tokens (e.g., `<think>…</think>`), followed by a final answer presented without uncertainty or
 intermediate steps, based on the results of the reasoning process.
 
@@ -83,21 +85,25 @@ training and easy to hide or summarize at inference time.
 
 {% include posts/reasoning-models/gpt-oss-2+2-conversation.html %}
 
-Importantly, most reasoning models are not architecturally different from standard instruction-tuned LLMs. They use the
-same transformer backbone and the same next-token prediction objective. What changes is how they are fine-tuned to use
-language during inference.
+Importantly, most reasoning models are not architecturally different from standard instruction-tuned LLMs. They are
+typically further fine-tuned variants built on the same transformer backbone and trained with the same next-token
+prediction objective. What changes is not the architecture, but how the model is fine-tuned to use language during
+inference.
 
-Training usually happens in two stages. First, supervised fine-tuning (SFT) exposes the model to the desired structure
-enforced by the control tokens, along with reasoning traces that use reflective language. The training data may come
-from examples of step-by-step solutions included in some datasets (e.g., TODO). These solutions exhibit the reflective
-patterns we associate with “thinking”: decomposing problems, revisiting earlier steps, and expressing uncertainty. The
-model learns not just to give correct answers, but to follow a particular linguistic trajectory along the way.
+Supervised fine-tuning (SFT) is the central mechanism by which reasoning models acquire their characteristic behavior.
+During SFT, the model is exposed to examples that enforce a desired output structure—often using control tokens—along
+with reasoning traces written in reflective language. These traces exhibit the patterns commonly associated with
+“thinking,” such as decomposing problems, revisiting earlier steps, and expressing intermediate uncertainty. Through
+this process, the model learns not only to produce correct answers, but to follow a specific linguistic trajectory while
+doing so ([Wei et al., 2023](#ref-wei2023); [Nye et al., 2021](#ref-nye2021)).
 
-Second, reinforcement learning from verifiable rewards (RLVR) reinforces reasoning behaviors that lead to correct
-outcomes. While SFT trains on explicit examples and reinforcement learning from human feedback (RLHF) trains on human
-preferences, RLVR ties rewards to objectively verifiable success. This might include correct final answers, passing
-tests, or valid proofs. In this step, only reasoning traces that improve accuracy are rewarded, encouraging behaviors
-like exploring multiple approaches or double-checking results before answering.
+In some training pipelines, SFT may be followed by an additional reinforcement learning phase based on verifiable
+rewards (RLVR). Unlike reinforcement learning from human feedback (RLHF), which optimizes for human preference
+judgments, RLVR ties rewards to objectively checkable outcomes such as correct final answers, passing test cases, or
+valid proofs ([Cobbe et al., 2021](#ref-cobbe2021); [Lightman et al., 2023](#ref-lightman2023)). When applied, this step
+reinforces reasoning behaviors that
+reliably lead to correct outcomes, implicitly favoring strategies like exploring multiple solution paths or
+double-checking results before committing to an answer.
 
 The result is a model that uses language patterns that encourage it to think longer and more carefully. Nothing
 fundamental has changed internally: reasoning is a learned behavior, acquired through fine-tuning and reinforcement,
@@ -106,7 +112,7 @@ mechanism.
 
 Think of it like a preschooler capable of simple addition: 3+3=6, 7+1=8, but sometimes gets something wrong: 4+5=8.
 Encouraging the preschooler to count on their fingers before answering will improve accuracy.
-This doesn’t mean the child suddenly understands arithmetic at a deeper level; they just take more careful steps to
+This doesn’t mean the kid suddenly understands arithmetic at a deeper level; they just take more careful steps to
 reach the answer, which will significantly increase answer time.
 
 ## Pitfalls of Reasoning Models
@@ -131,10 +137,7 @@ confusion, looping reasoning traces, or outright failure to converge on an answe
 Longer reasoning also amplifies exposure bias. During training, each reasoning step is conditioned on a clean,
 human-written or curated prefix. During inference, the model conditions on its own generated thoughts. A small early
 mistake can propagate through the entire chain of thought, becoming increasingly entrenched as the model elaborates on
-it. Ironically, the very mechanism intended to improve reliability can reduce robustness: instead of correcting itself,
-the model confidently builds a detailed justification around a flawed premise.
-
-[//]: # (As reasoning traces grow longer, these risks increase. Additionally, Hallucinations become more likely.)
+it.
 
 There currently are also practical limitations in state-of-the-art inference frameworks. Reasoning cannot be limited to
 a given amount of tokens. If generation is cut off due to token limits or max-length constraints, you may end up with
@@ -142,17 +145,66 @@ half a thought and no final answer. This also effects structured decoding, which
 outputs that could reliably be parsed, for example by enforcing coherence of the final model output to json schemes.
 
 Of course, providers are aware of these issues and work on improving on them. For example, from what I have seen, the
-`gpt-oss` model family kept reasoning traces relatively short on trivial tasks. While I am a huge fan of Mistral and
+`gpt-oss` model family was able to keep reasoning traces relatively short on trivial tasks. While I am a huge fan of Mistral and
 their Ministral models, their reasoning models are the opposite extreme: in my benchmarks they have been severally
-inconsistent in respecting control tokens and concluding reasoning, often engaging in repeating reasoning loops, often
-resulting in infinite generations. This makes them unreliable in systems that depend on predictable structure, and
+inconsistent in respecting control tokens and concluding reasoning, often engaging in repeating reasoning loops, sometimes
+resulting in infinite generations. They have also failed to solve tasks that their instruction tuned counterparts consistently were able to solve, due to being overcritical.
+
+{% include posts/reasoning-models/ministral-conversation.html %}
+
+This makes them unreliable in systems that depend on predictable structure, and
 highlights that reasoning behavior is still a fragile, learned convention rather than a robust capability.
 
 Finally, inference-time scaling shows diminishing returns: beyond a point, “thinking longer” mostly adds noise and
 instability rather than accuracy. Reasoning models are powerful tools, but they are not free, and they are not
 universally better. Like most things in machine learning, they work best when applied deliberately, with a clear
-understanding of both what they add — and what they quietly take away.
+understanding of both what they add — and what they take away.
 
 <style>
 {% include posts/reasoning-models/conversation.css %}
 </style>
+
+## References
+
+{% include scientific_reference.html
+shortcut="deepseek2025"
+authors="DeepSeek-AI"
+year="2025"
+title="DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+link="[arxiv:2501.12948](https://arxiv.org/abs/2501.12948)"
+%}
+
+{% include scientific_reference.html
+shortcut="wei2023"
+authors="Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q., Zhou, D."
+year="2023"
+title="Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"
+link="[arXiv:2201.11903](https://arxiv.org/abs/2201.11903)"
+%}
+
+{% include scientific_reference.html
+shortcut="cobbe2021"
+authors="Cobbe, K., Kosaraju, V., Bavarian, M., Chen, M., Jun, H., Kaiser, L., Plappert, M., Tworek, J., Hilton, J.,
+Nakano, R., Hesse, C., Schulman, J."
+year="2021"
+title="Training Verifiers to Solve Math Word Problems"
+link="[arXiv:2110.14168](https://arxiv.org/abs/2110.14168)"
+%}
+
+{% include scientific_reference.html
+shortcut="lightman2023"
+authors="Lightman, H., Kosaraju, V., Burda, Y., Edwards, H., Baker, B., Lee, T., Leike, J., Schulman, J., Sutskever, I.,
+Cobbe, K."
+year="2023"
+title="Let's Verify Step by Step"
+link="[arXiv:2305.20050](https://arxiv.org/abs/2305.20050)"
+%}
+
+{% include scientific_reference.html
+shortcut="nye2021"
+authors="Nye, M., Andreassen, A. J., Gur-Ari, G., Michalewski, H., Austin, J., Bieber, D., Dohan, D., Lewkowycz, A.,
+Bosma, M., Luan, D., Sutton, C., Odena, A."
+year="2021"
+title="Show Your Work: Scratchpads for Intermediate Computation with Language Models"
+link="[arXiv:2112.00114](https://arxiv.org/abs/2112.00114)"
+%}

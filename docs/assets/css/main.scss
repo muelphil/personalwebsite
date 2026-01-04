@@ -1,4 +1,5 @@
 ---
+
 # Main stylesheet for about page
 ---
 
@@ -8,9 +9,10 @@
 @import "project_card";
 @import "post_header";
 @import "document";
-@import "includes";
 @import "about";
 @import "blog";
 @import "post";
 @import "syntax";
 @import "work_in_progress";
+@import "link_preview";
+@import "scientific_reference";

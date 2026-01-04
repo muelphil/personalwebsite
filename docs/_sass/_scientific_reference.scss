@@ -1,0 +1,51 @@
+/* Scientific Reference Component */
+.scientific-reference {
+  margin: 0 0 16px 0;
+  padding: 12px 16px;
+  background-color: var(--background-light);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-body-small);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  scroll-margin-top: 100px; /* For anchor link scroll offset */
+
+  &:target {
+    background-color: var(--background-lighter);
+  }
+}
+
+.ref-shortcut {
+  color: var(--primary);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  margin-right: 8px;
+}
+
+.ref-authors {
+  font-style: italic;
+  color: var(--text-secondary-light);
+}
+
+.ref-year {
+  color: var(--text-secondary-light);
+  margin: 0 8px 0 4px;
+}
+
+.ref-title {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ref-note {
+  color: var(--text-secondary);
+}
+
+.scientific-reference a {
+  color: var(--primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
