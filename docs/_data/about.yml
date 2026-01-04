@@ -51,7 +51,7 @@ posters:
       description: This poster presents a modular benchmarking framework designed to ensure reproducibility and transparency when evaluating probabilistic and resource-intensive AI systems, with a focus on uncertainty estimation for large language models. The framework decouples model execution from evaluation logic, enabling consistent, reusable, and longitudinal benchmarking as models and APIs evolve.
       links:
         - label: Download Poster
-          url: /assets/documents/Philip_Mueller_EurIPS_2025_Poster.pdf  # ✅ Will download
+          url: /assets/documents/Philip_Mueller_EurIPS_2025_Poster.pdf
         - label: Abstract
           url: /documents/eurips_2025_poster
 #        - label: Robis
@@ -71,7 +71,7 @@ posters:
           lastname: Färber
         - firstname: Peter
           lastname: Steinbach
-      description: The poster has been award the 2nd prize for the best poster among a total of 200 posters in an audience vote.
+      description: This poster presents a qualitative and quantitative evaluation of uncertainty metrics for large language models in scientific question answering. It assesses a range of theoretical approaches and benchmarks a subset of metrics for reliability, highlighting the strengths and limitations of token-level, verbalized, and consistency-based measures. The poster was awarded second prize for Best Poster in an audience vote among 200 entries.
       links:
         - label: Abstract
           url: /documents/haicon_2025_poster
