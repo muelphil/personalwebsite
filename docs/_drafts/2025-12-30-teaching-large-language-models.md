@@ -9,6 +9,24 @@ title: "Educational Resources for Teaching Large Language Models"
 - https://bbycroft.net/llm (generally has nice visualizations, see https://samwho.dev/)
 - 3B1B Series
 - https://www.bpe-visualizer.com/ Byte Pair Encoding Visualizer
+- Visual Transformer Jamar
+  - https://comet.com/site/blog/explainable-ai-for-transformers/?utm_source=chatgpt.com -- this seems to be the project he uses or created himself
+
+
+3. BertViz — Attention Mechanism Explorer
+
+What it teaches: Multi-head attention patterns and how attention distributes across tokens and layers.
+Pedagogical strengths:
+
+Visualizes attention weights at model, head, and neuron levels.
+
+Useful for interpretability and understanding why the model attends to certain tokens.
+Visual/interactive: Yes — interactive attention heatmaps and head-level views.
+📌 Note: Primarily a tool (Python), often shown via notebooks or with Comet integration.
+🔗 See usage guide: BertViz attention visualizations discussed in tutorials
+
+
+4. Illustrated Transformer
 
 ## Embeddings
 

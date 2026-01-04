@@ -6,7 +6,7 @@ tags: ["Computer Science"]
 abstract: "For the Oskam, which includes a Raspberry Pi Zero W, I wanted to be able to send pictures to it for printing, receive pictures from it, and send text commands to it using Bluetooth. To accomplish this, I needed to set up and implement Bluetooth communication features. This turned out to be quite complicated due to the numerous options and outdated resources available. In this post, I will walk you through the steps I took to get it running."
 short-abstract: 'How to configure Bluetooth on Raspberry Pi Zero W for exchanging files and data with other devices'
 title-image: 'Bluetooth/title-image'
-read_time: 7
+read_time: 4
 ---
 
 The code was used to configure and utilize Bluetooth on the Oskam. To optimize boot time, I followed suggestions from [a post on Raspberry Pi Geek](https://www.raspberry-pi-geek.de/ausgaben/rpg/2020/06/die-boot-zeit-von-raspbian-optimieren/), which disables Bluetooth on startup. As a result, some of the service files might be in different locations for you, or you might not need to manually start Bluetooth as I did. Please note that I am writing this several months after implementing it, so some details might be missing. Feel free to reach out to me if you encounter any issues.

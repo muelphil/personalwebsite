@@ -1,0 +1,126 @@
+.reasoning-conversation {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+    max-height: 75vh;
+}
+
+.conversation-bubble {
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+    min-height: 0;
+}
+
+.conversation-bubble.user {
+    align-self: flex-end;
+    align-items: flex-end;
+    flex-shrink: 0;
+}
+
+.conversation-bubble.assistant {
+    align-self: flex-start;
+    align-items: flex-start;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.bubble-label {
+    font-family: var(--font-label);
+    font-size: var(--font-size-meta);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.reasoning-label {
+    text-align: right;
+    float: right;
+    color: var(--text-tertiary);
+}
+
+.bubble-content {
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    min-height: 0;
+}
+
+.conversation-bubble.assistant .bubble-content {
+    background-color: var(--background-light);
+}
+
+.conversation-bubble.user .bubble-content {
+    background-color: var(--background-lighter);
+    color: var(--text-primary);
+    flex-shrink: 0;
+}
+
+.conversation-bubble.assistant .bubble-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    min-height: 0;
+    flex: 1 1 auto;
+}
+
+.reasoning-wrapper {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-tertiary) var(--background-light);
+    min-height: 0;
+    max-height: 30vh;
+}
+
+.reasoning-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.reasoning-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--text-tertiary);
+    border-radius: 4px;
+}
+
+.reasoning-wrapper::-webkit-scrollbar-track {
+    background: var(--background-light);
+}
+
+.reasoning-section {
+    padding: 12px 16px;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.reasoning-section .think-tag {
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-code);
+}
+
+.final-answer-section {
+    background-color: var(--background-lighter);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .conversation-bubble {
+        max-width: 95%;
+    }
+
+    .reasoning-conversation {
+        padding: 12px;
+        gap: 16px;
+    }
+}

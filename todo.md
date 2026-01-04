@@ -408,4 +408,25 @@ Still not working: When supplying Oskam/ZTL_Kamera, this turns into /personalweb
 Great. Some include components are not yet working though. Please look into the following _includes components and fix them with the new image approach:
 * gallery.html
 * featured_project.html / featured_project_card.html
-* 
+
+---
+
+You are in a Repository of a personal website hosted on Github Pages using Jekyll. You will find the main dirs in the directory docs:
+* _posts: the posts as markdown files
+* _drafts: the drafts that get moved to _posts when completed
+* _includes: important html definitions that can be included by layouts and posts
+* _layouts: The layouts for the different pages
+* assets: The assets (images, videos, documents, icons) for the page
+* _sass: the themes and styles of the pages, imported by assets/css/main.scss
+
+I am currently writing on my new post: _drafts/2025-12-31-reasoning-models.md. I want to include some reasoning model conversations to showcase reasoning model behaviour. For this I need custom html and styling for the conversation bubbles.
+I have created _inludes/posts/reasoning-models/ with a styling file for the new css (conversation.css), a target html file for a conversation qwen-2+2-conversation.html and a markdown file, holding the conversation that you are supposed to integrate into the html file: qwen-2+2-conversation.md.
+The goal is for the html to integrate with the rest of the pages styling. It should use conversation bubbles (justified right for user prompt, justified left for the assistant response). The user prompt should read uppercased "user prompt" in label font above the input text. For the assistant response, I need it to be in 2 sections: "reasoning trace" and "final answer". They should be in one rounded conversation bubble, with a secondary background color and the final answer should be in a conversation bubble within this conversation bubble, no margins, with primary background color. The reasoning trace should use secondary font color, with the think token control tags using tertiary color instead. The final answer should use normal text color. To keep things readable, the total conversation should not exceed 75vh. The conversation should be wrapped in a figure with a figcaption, as already styled in the main style of the page.
+
+Please create the style that integrates with the rest of the styles on my website and put the conversation in qwen-2+2-conversation. Then, include this style at the very and of my markdown blog post.
+
+
+---
+This needs adjustment, as it is not how I wanted it. The conversation should not have a background color. Only the conversation bubbles should have a background color.
+The scrolling should be within the conversation bubbles, so that all conversations are fully visible, but the conversation scrolls, if it is too long. If possible, that should only affect the reasoning trace, as this is longest. The user prompt and final assistant answer need to be always visible. This will likely require a wrapper div around the reasoning trace.
+The user prompt and the final assistant answer need to have the same or similar background color. The reasoning trace needs a darker brackground color than the final assistant answer.

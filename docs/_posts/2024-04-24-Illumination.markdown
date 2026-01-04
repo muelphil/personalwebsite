@@ -7,7 +7,7 @@ abstract: 'Algorithms to illuminate low light images are necessary to improve th
 short-abstract: 'Implementation of an Image Illumination algorithm for images in extreme low light conditions'
 title-image: 'Illumination/Illumination-title-image'
 title-image-caption: 'Example of illumination of a low light image'
-read_time: 6
+read_time: 4
 excerpt_separator: <!--more-->
 carousels:
   - images:
