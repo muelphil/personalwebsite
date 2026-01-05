@@ -10,8 +10,8 @@ short-abstract: "Reasoning models promise AI that \"thinks\", but the reality is
 ---
 
 
-If you’ve been using LLMs, you’ve probably noticed all the buzz around reasoning models. These are the models that "
-think" before they speak, or at least give the impression of it. But how did we get here, and why the hype?
+If you’ve been using LLMs, you’ve probably noticed all the buzz around reasoning models. These are the models that
+"think" before they speak, or at least give the impression of it. But how did we get here, and why the hype?
 
 ## Historical Background
 
