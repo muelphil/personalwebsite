@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Reasoning Model Post Bullet Points"
+---
+
+# Reasoning Model Post Bullet Points
 # “reasoning” aka inference-scaling aka Reinforcement Learning from Verifiable Rewards (RLVR)
 
 ## Historical Background

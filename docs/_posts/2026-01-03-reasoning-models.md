@@ -4,7 +4,7 @@ title: "The Hype around the \"Hmmm\": Why Reasoning Models Are Less Magic Than T
 date: 2026-01-03 00:00:00 +0200
 title-image: 'Reasoning_Models/title_image'
 tags: [ "LLMs" ]
-read_time: 7
+read_time: 9
 abstract: "Reasoning models promise AI that \"thinks\", but the reality is less magical. In this post I explore how inference-time scaling works, why internal monologues are often just learned mimicry, and the hidden costs of letting models (over)think."
 short-abstract: "Reasoning models promise AI that \"thinks\", but the reality is less magical and very expensive at the same time."
 ---
@@ -91,7 +91,7 @@ prediction objective. What changes is not the architecture, but how the model is
 inference.
 
 Supervised fine-tuning (SFT) is the central mechanism by which reasoning models acquire their characteristic behavior.
-During SFT, the model is exposed to examples that enforce a desired output structure—often using control tokens—along
+During SFT, the model is exposed to examples that enforce a desired output structure (often using control tokens) along
 with reasoning traces written in reflective language. These traces exhibit the patterns commonly associated with
 “thinking,” such as decomposing problems, revisiting earlier steps, and expressing intermediate uncertainty. Through
 this process, the model learns not only to produce correct answers, but to follow a specific linguistic trajectory while
@@ -123,8 +123,8 @@ benchmark gains.
 The most obvious cost is token inflation. Reasoning models generate significantly more text per answer, which directly
 increases latency and inference cost. This is often acceptable for hard problems, but wasteful for simple ones. Using
 reasoning models to solve trivial tasks is slower, more expensive, and rarely beneficial.
-This obviously depends on the model and is much approved on in some models, such as the `gpt-oss` family. An extreme
-case can be seen below.
+This obviously depends on the model and is much approved on in some models, such as the *gpt-oss* family, which yielded
+short reasoning traces for trivial answers in my benchmarking. The opposite extreme can be seen below.
 
 {% include posts/reasoning-models/qwen-2+2-conversation.html %}
 
@@ -143,12 +143,17 @@ There currently are also practical limitations in state-of-the-art inference fra
 a given amount of tokens. If generation is cut off due to token limits or max-length constraints, you may end up with
 half a thought and no final answer. This also effects structured decoding, which was previously introduced to gain model
 outputs that could reliably be parsed, for example by enforcing coherence of the final model output to json schemes.
+This reliability is compromised in reasoning models due to unpredictable length of reasoning traces, which can interrupt
+or truncate outputs.
 
 Of course, providers are aware of these issues and work on improving on them. For example, from what I have seen, the
-`gpt-oss` model family was able to keep reasoning traces relatively short on trivial tasks. While I am a huge fan of Mistral and
+*gpt-oss* model family was able to keep reasoning traces relatively short on trivial tasks. While I am a huge fan of
+Mistral and
 their Ministral models, their reasoning models are the opposite extreme: in my benchmarks they have been severally
-inconsistent in respecting control tokens and concluding reasoning, often engaging in repeating reasoning loops, sometimes
-resulting in infinite generations. They have also failed to solve tasks that their instruction tuned counterparts consistently were able to solve, due to being overcritical.
+inconsistent in respecting control tokens and concluding reasoning, often engaging in repeating reasoning loops,
+sometimes
+resulting in infinite generations. They have also failed to solve tasks that their instruction tuned counterparts
+consistently were able to solve, due to being overcritical.
 
 {% include posts/reasoning-models/ministral-conversation.html %}
 
