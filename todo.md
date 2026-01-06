@@ -430,3 +430,32 @@ Please create the style that integrates with the rest of the styles on my websit
 This needs adjustment, as it is not how I wanted it. The conversation should not have a background color. Only the conversation bubbles should have a background color.
 The scrolling should be within the conversation bubbles, so that all conversations are fully visible, but the conversation scrolls, if it is too long. If possible, that should only affect the reasoning trace, as this is longest. The user prompt and final assistant answer need to be always visible. This will likely require a wrapper div around the reasoning trace.
 The user prompt and the final assistant answer need to have the same or similar background color. The reasoning trace needs a darker brackground color than the final assistant answer.
+
+---
+
+* Use https://lucide.dev/icons/?search=github
+* front page swirl of colors
+* Mono Font: Space Mono
+* Space Grotesk -> Expletus Sans
+* Albert Sans
+<link href="https://fonts.googleapis.com/css?family=Albert Sans" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Expletus Sans" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Space Mono" rel="stylesheet" type="text/css">
+
+<style>
+* {
+ font-family: 'Space Mono', sans-serif;
+}
+</style>
+<style>
+* {
+ font-family: 'Expletus Sans', sans-serif;
+}
+</style>
+<style>
+* {
+ font-family: 'Albert Sans', sans-serif;
+}
+</style>
+
+* lava lamp effect in about me

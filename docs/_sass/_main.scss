@@ -24,9 +24,13 @@
   --tag-background: rgba(142, 134, 179, 0.06);
 
   /* Font Variables */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  //--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  //--font-label: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  //--font-mono: 'Menlo', 'Inconsolata', 'Consolas', 'Roboto Mono', 'Ubuntu Mono', 'Liberation Mono', 'Courier New', monospace;
+
+  --font-sans: 'Albert Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --font-label: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  --font-mono: 'Menlo', 'Inconsolata', 'Consolas', 'Roboto Mono', 'Ubuntu Mono', 'Liberation Mono', 'Courier New', monospace;
+  --font-mono: 'Space Mono', 'Inconsolata', 'Consolas', 'Roboto Mono', 'Ubuntu Mono', 'Liberation Mono', 'Courier New', monospace;
 
   /* Width Variables */
   --width-normal: 700px;
@@ -79,13 +83,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(10px);
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
 
 .site-header.scrolled {
   background-color: var(--background-overlay);
+  backdrop-filter: blur(10px);
 }
 
 .site-nav {
@@ -189,7 +193,14 @@ body {
   transform: translateY(-50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle at center, var(--primary-glow-strong) 0%, var(--primary-glow-medium) 30%, var(--primary-glow-weak) 50%, transparent 70%);
+  //background: radial-gradient(circle at center, var(--primary-glow-strong) 0%, var(--primary-glow-medium) 30%, var(--primary-glow-weak) 50%, transparent 70%);
+  background: radial-gradient(
+                  circle at center,
+                  rgba(124, 215, 255, 0.2) 0%,
+                  rgba(150, 128, 240, 0.11) 30%,
+                  rgba(99, 70, 216, 0.05) 50%,
+                  transparent 70%
+  );
   z-index: -1;
   pointer-events: none;
 }
@@ -228,13 +239,17 @@ body {
   margin-top: 34px;
 }
 
-.hero-socials::before,
-.hero-socials::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background-color: var(--text-tertiary);
+.hero-section .hero-socials{
+  margin-left: -12px;
+  margin-top: 24px;
 }
+//.hero-socials::before,
+//.hero-socials::after {
+//  content: "";
+//  flex: 1;
+//  height: 1px;
+//  background-color: var(--text-tertiary);
+//}
 
 .hero-socials-icons {
   display: flex;
@@ -620,7 +635,7 @@ figure video {
   border-radius: var(--border-radius);
 }
 
-a{
+a {
   overflow-wrap: anywhere;
 }
 
