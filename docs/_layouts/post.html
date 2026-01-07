@@ -6,7 +6,7 @@ layout: page_wrapper
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
         {% include post_header.html
-        image=page.title-image
+        image=page.title_image
         title=page.title
         abstract=page.abstract
         date=page.date
@@ -36,12 +36,12 @@ layout: page_wrapper
         <ul class="blog-list">
             {% if page.previous.url %}
             {% include blog_post.html
-            image=page.previous.title-image
+            image=page.previous.title_image
             date=page.previous.date
             read_time=page.previous.read_time
             title=page.previous.title
             url=page.previous.url
-            description=page.previous.short-abstract
+            description=page.previous.short_abstract
             tags=page.previous.tags
             image_right=false
             include_description=false
@@ -52,12 +52,12 @@ layout: page_wrapper
 
             {% if page.next.url %}
             {% include blog_post.html
-            image=page.next.title-image
+            image=page.next.title_image
             date=page.next.date
             read_time=page.next.read_time
             title=page.next.title
             url=page.next.url
-            description=page.next.short-abstract
+            description=page.next.short_abstract
             tags=page.next.tags
             image_right=true
             include_description=false

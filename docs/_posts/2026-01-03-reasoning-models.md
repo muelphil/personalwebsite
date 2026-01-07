@@ -2,11 +2,11 @@
 layout: post
 title: "The Hype around the \"Hmmm\": Why Reasoning Models Are Less Magic Than They Seem"
 date: 2026-01-03 00:00:00 +0200
-title-image: 'Reasoning_Models/title_image'
+title_image: 'Reasoning_Models/title_image'
 tags: [ "LLMs" ]
 read_time: 9
 abstract: "Reasoning models promise AI that \"thinks\", but the reality is less magical. In this post I explore how inference-time scaling works, why internal monologues are often just learned mimicry, and the hidden costs of letting models (over)think."
-short-abstract: "Reasoning models promise AI that \"thinks\", but the reality is less magical and very expensive at the same time."
+short_abstract: "Reasoning models promise AI that \"thinks\", but the reality is less magical and very expensive at the same time."
 ---
 
 

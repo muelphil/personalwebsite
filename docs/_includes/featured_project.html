@@ -1,15 +1,15 @@
 <header class="featured-project{% if include.image-left %} image-left{% endif %}">
-    {%- if include.post.title-image -%}
+    {%- if include.post.title_image -%}
     <div class="post-header-title-image">
-        {% include image.html url=include.post.title-image description=include.post.title-image-caption %}
+        {% include image.html url=include.post.title_image description=include.post.title_image_caption %}
     </div>
     {%- endif -%}
     <div class="post-header-info">
         <h2 class="post-title p-name" itemprop="name headline">{{ include.post.title | escape }}</h2>
 
-        {%- if include.post.short-abstract -%}
+        {%- if include.post.short_abstract -%}
         <div class="post-abstract">
-            {{ include.post.short-abstract }}
+            {{ include.post.short_abstract }}
         </div>
         {%- endif -%}
 

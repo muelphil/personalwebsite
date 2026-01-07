@@ -37,12 +37,12 @@ layout: page_wrapper
 
             {% for post in filtered_posts %}
             {% include blog_post.html
-            image=post.title-image
+            image=post.title_image
             date=post.date
             read_time=post.read_time
             title=post.title
             url=post.url
-            description=post.short-abstract
+            description=post.short_abstract
             tags=post.tags
             %}
             {% endfor %}

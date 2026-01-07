@@ -5,8 +5,7 @@ categories: jekyll
 tags: examples
 excerpt_separator: <!--more-->
 abstract: 'Algorithms to illuminate low light images are necessary to improve the visibility and quality of images captured in low light conditions, where details may be obscured by darkness or noise. By applying sophisticated algorithms, these techniques help reveal important features and information crucial for various applications such as surveillance, photography, and medical imaging.'
-title-image: 'Illumination/Illumination-title-image'
-title-image-caption: 'Example of illumination of a low light image'
+title_image: 'Illumination/title_image'
 ---
 
 # Example 3

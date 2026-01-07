@@ -3,9 +3,9 @@ layout: post
 title: "Smartclip"
 date: 2024-04-17 10:31:42 +0200
 tags: [ "Computer Science", "Vue.js", "Electron" ]
-title-image: 'Smartclip/title_image'
+title_image: 'Smartclip/title_image'
 abstract: "Streamline your workflow with quick access to clipboard management, translations, emojis, and much more — all through one powerful, extensible launcher."
-short-abstract: "Streamline your workflow with quick access to clipboard management, translations, emojis, and much more — all through one powerful, extensible launcher."
+short_abstract: "Streamline your workflow with quick access to clipboard management, translations, emojis, and much more — all through one powerful, extensible launcher."
 excerpt_separator: <!--more-->
 ---
 

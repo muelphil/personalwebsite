@@ -33,7 +33,7 @@ cd docs
 
 # 3. Reference in your post (use original path!)
 # Front matter or content:
-# title-image: '/assets/content/MyProject/photo.png'
+# title_image: '/assets/content/MyProject/photo.png'
 # {% include image.html url="/assets/content/MyProject/photo.png" description="..." %}
 
 # 4. Build and preview

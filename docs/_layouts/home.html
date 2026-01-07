@@ -49,9 +49,9 @@ layout: page_wrapper
                     {% include featured_project_card.html 
                         url=post.url 
                         title=post.title 
-                        description=post.short-abstract 
+                        description=post.short_abstract
                         tags=post.tags 
-                        image=post.title-image
+                        image=post.title_image
                         align_right=align_right
                     %}
                     
@@ -91,12 +91,12 @@ layout: page_wrapper
             
             {%- for post in recent_posts limit: site.data.home.recent_writing.max_posts -%}
                 {% include blog_post.html 
-                    image=post.title-image
+                    image=post.title_image
                     date=post.date
                     read_time=post.read_time
                     title=post.title
                     url=post.url
-                    description=post.short-abstract
+                    description=post.short_abstract
                     tags=post.tags
                 %}
             {%- endfor -%}

@@ -1,24 +1,24 @@
 ---
 layout: post
-title:  "Image Illumination using WGIF"
-date:   2024-04-24 10:31:42 +0200
-tags: ["Computer Science"]
+title: "Image Illumination using WGIF"
+date: 2024-04-24 10:31:42 +0200
+tags: [ "Computer Science" ]
 abstract: 'Algorithms to illuminate low light images are necessary to improve the visibility and quality of images captured in low light conditions, where details may be obscured by darkness or noise. By applying sophisticated algorithms, these techniques help reveal important features and information crucial for various applications such as surveillance, photography, and medical imaging.'
-short-abstract: 'Implementation of an Image Illumination algorithm for images in extreme low light conditions'
-title-image: 'Illumination/Illumination-title-image'
-title-image-caption: 'Example of illumination of a low light image'
+short_abstract: 'Implementation of an Image Illumination algorithm for images in extreme low light conditions'
+title_image: 'Illumination/title_image'
+title_image_caption: 'Example of illumination of a low light image'
 read_time: 4
 excerpt_separator: <!--more-->
 carousels:
   - images:
-      - image: Illumination/Illumination-Oskam-result-good_0
-      - image: Illumination/Illumination-Oskam-result-good_1
-      - image: Illumination/Illumination-Oskam-result-good_2
-      - image: Illumination/Illumination-Oskam-result-good_3
+      - image: Illumination/Oskam-result-good_0
+      - image: Illumination/Oskam-result-good_1
+      - image: Illumination/Oskam-result-good_2
+      - image: Illumination/Oskam-result-good_3
 ---
 Upon utilizing the Oskam, it swiftly became evident that the images appeared excessively dark and scarcely legible under low-light conditions.
 
-{% include image.html url="Illumination/Illumination-bad-Oskam-results" description="Initial output of the Oskam without image preprocessing" %}
+{% include image.html url="Illumination/bad-Oskam-results" description="Initial output of the Oskam without image preprocessing" %}
 
 I incorporated a 12 LED Ring as a flashlight, but it proved rather inconvenient, often either too bright or insufficiently so. Furthermore, even images taken in regular daylight exhibited low contrast and appeared blurry. Initially, I attempted to address this issue by adjusting the contrast using the PILLOW library, yet this proved ineffective in cases of poor lighting.
 
@@ -173,7 +173,7 @@ In search of methods to showcase the outcomes of implementing this solution impl
 
 I ultimately opted for the DARK FACE dataset. Below, you'll find some results depicting image illumination. The first row displays the original image, the second row exhibits the illuminated grayscale image, the third row uses linear scaling for color restoration and the final row showcases the color restoration achieved using HSL manipulation.
 
-{% include image.html url="Illumination/Illumination-result" description="Illuminated images from the DARK FACE dataset, by row: (1) original images, (2) greyscale illumination (3) linear color restoration (4) hsl color restoration" wide="true" %}
+{% include image.html url="Illumination/result" description="Illuminated images from the DARK FACE dataset, by row: (1) original images, (2) greyscale illumination (3) linear color restoration (4) hsl color restoration" wide="true" %}
 
 As evident from the results, the solution proposed by Mu, Q., Wang, X., Wei, Y. et al. yields remarkable outcomes.
 
