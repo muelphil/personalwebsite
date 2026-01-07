@@ -243,13 +243,19 @@ body {
   margin-left: -12px;
   margin-top: 24px;
 }
-//.hero-socials::before,
-//.hero-socials::after {
-//  content: "";
-//  flex: 1;
-//  height: 1px;
-//  background-color: var(--text-tertiary);
-//}
+
+@media (max-width: 768px) {
+  .hero-socials::before,
+  .hero-socials::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--text-tertiary);
+  }
+}
+
+
+
 
 .hero-socials-icons {
   display: flex;
