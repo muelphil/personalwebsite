@@ -239,9 +239,14 @@ body {
   margin-top: 34px;
 }
 
-.hero-socials{
-  margin-left: -12px;
+.hero-socials {
   margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .hero-socials {
+    margin-left: -12px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -253,8 +258,6 @@ body {
     background-color: var(--text-tertiary);
   }
 }
-
-
 
 
 .hero-socials-icons {
