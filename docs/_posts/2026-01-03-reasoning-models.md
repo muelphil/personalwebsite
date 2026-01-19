@@ -92,7 +92,7 @@ inference.
 
 Supervised fine-tuning (SFT) is the central mechanism by which reasoning models acquire their characteristic behavior.
 During SFT, the model is exposed to examples that enforce a desired output structure (often using control tokens) along
-with reasoning traces written in reflective language. These traces exhibit the patterns commonly associated with
+with reasoning traces written in reflective language (i.e. [OpenThoughts3](https://huggingface.co/datasets/open-thoughts/OpenThoughts3-1.2M) dataset). These traces exhibit the patterns commonly associated with
 “thinking,” such as decomposing problems, revisiting earlier steps, and expressing intermediate uncertainty. Through
 this process, the model learns not only to produce correct answers, but to follow a specific linguistic trajectory while
 doing so ([Wei et al., 2023](#ref-wei2023); [Nye et al., 2021](#ref-nye2021)).
