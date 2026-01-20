@@ -71,7 +71,7 @@ posters:
           lastname: Färber
         - firstname: Peter
           lastname: Steinbach
-      description: This poster presents a qualitative and quantitative evaluation of uncertainty metrics for large language models in scientific question answering. It assesses a range of theoretical approaches and benchmarks a subset of metrics for reliability, highlighting the strengths and limitations of token-level, verbalized, and consistency-based measures. The poster was awarded second prize for Best Poster in an audience vote among 200 entries.
+      description: This poster presents a qualitative and quantitative evaluation of uncertainty metrics for large language models in scientific question answering. It assesses a range of theoretical approaches and benchmarks a subset of metrics for reliability, highlighting the strengths and limitations of token-level, verbalized, and consistency-based measures. The poster was awarded second place for Best Poster in an audience vote among 200 entries.
       links:
         - label: Download Poster
           url: /assets/documents/Poster_HAICON_2025_LLM_Uncertainty_Quantification.pdf
