@@ -1,0 +1,550 @@
+/* CV Print Mode Styles */
+
+/* Override CSS variables for print-friendly styling */
+.cv-print-mode {
+  /* Color Variables - Print Mode */
+  --shadow: rgba(0, 0, 0, 0.1);
+
+  --background-dark: #ffffff;
+  --background-darker: #ffffff;
+  --background-overlay: #ffffff;
+  --background: #ffffff;
+  --background-gradient-fade: #ffffff;
+  --background-light: #f5f5f5;
+  --background-lighter: #e0e0e0;
+
+  --text-tertiary: #666666;
+  --text-secondary: #333333;
+  --text-secondary-light: #000000;
+  --text-primary: #000000;
+  --text-white: #000000;
+
+  --primary: #000000;
+  --primary-glow-strong: rgba(0, 0, 0, 0.05);
+  --primary-glow-medium: rgba(0, 0, 0, 0.03);
+  --primary-glow-weak: rgba(0, 0, 0, 0.01);
+
+  --tag-background: #f0f0f0;
+
+  /* Print-friendly font sizes (in pt for print) */
+  --cv-font-size-name: 24pt;
+  --cv-font-size-role: 12pt;
+  --cv-font-size-section-title: 14pt;
+  --cv-font-size-body: 10pt;
+  --cv-font-size-small: 9pt;
+  --cv-font-size-contact: 9pt;
+}
+
+/* CV Name Section */
+.cv-name-section {
+  margin-bottom: 12px !important;
+  page-break-after: avoid;
+}
+
+.cv-name {
+  font-size: var(--cv-font-size-name);
+  font-weight: 700;
+  color: var(--text-white);
+  margin: 0 !important;
+  line-height: 1.2;
+}
+
+.cv-role {
+  font-size: var(--cv-font-size-role);
+  color: var(--text-secondary);
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* CV Profile Section */
+.cv-profile .profile-header {
+  margin-bottom: 20px;
+}
+
+.cv-profile .profile-avatar {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+  //border-radius: var(--border-radius);
+  overflow: hidden;
+  //border: 1px solid #e0e0e0;
+}
+
+.cv-profile .profile-avatar img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* CV Contact Section */
+.cv-contact-section {
+  margin-top: 24px;
+  padding-bottom: 24px;
+  //border-bottom: 1px solid #e0e0e0;
+}
+
+.cv-contact-title {
+  font-size: var(--cv-font-size-section-title);
+  font-weight: 600;
+  color: var(--text-white);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-label);
+}
+
+.cv-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cv-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--cv-font-size-contact);
+  line-height: 1.4;
+}
+
+.cv-contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+}
+
+.cv-contact-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+.cv-contact-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  word-break: break-word;
+  transition: var(--transition);
+}
+
+.cv-contact-link:hover {
+  color: var(--text-secondary);
+  text-decoration: underline;
+}
+
+.cv-contact-text {
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+/* CV Sidebar Sections (Languages, Hobbies) */
+.cv-sidebar-section {
+  margin-top: 24px;
+}
+
+.cv-sidebar-title {
+  font-size: var(--cv-font-size-section-title);
+  font-weight: 600;
+  color: var(--text-white);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-label);
+}
+
+.cv-sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cv-sidebar-item {
+  font-size: var(--cv-font-size-contact);
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cv-sidebar-item strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.cv-sidebar-detail {
+  color: var(--text-secondary);
+  font-size: var(--cv-font-size-small);
+}
+
+.cv-hobbies-list {
+  gap: 6px;
+}
+
+.cv-hobby-item {
+  font-size: var(--cv-font-size-contact);
+  color: var(--text-primary);
+  line-height: 1.4;
+  padding-left: 12px;
+  position: relative;
+}
+
+.cv-hobby-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--text-secondary);
+}
+
+/* CV specific layout adjustments */
+.cv-main-layout {
+  padding: 0 !important;
+  max-width: 100% !important;
+  gap: 0 !important;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 100vh;
+  margin: 0 !important;
+}
+
+.cv-main-layout .about-sidebar {
+  flex: 0 0 250px;
+  width: 250px;
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  position: static;
+  align-self: stretch;
+  min-height: 100%;
+}
+
+.cv-main-layout .about-content {
+  flex: 1;
+  padding: 40px 40px;
+  background-color: #ffffff;
+  align-self: stretch;
+}
+
+/* Drastically reduce vertical spacing in content area */
+.cv-print-mode .about-content {
+  gap: 20px !important;
+}
+
+.cv-print-mode .about-content section {
+  margin-bottom: 0 !important;
+}
+
+/* Reduce section title spacing */
+.cv-print-mode .section-title {
+  font-size: var(--cv-font-size-section-title);
+  margin-top: 4px !important;
+  margin-bottom: 12px !important;
+  //padding-bottom: 6px !important;
+
+  padding-bottom: 0 !important;
+  //padding-left: 4px;
+  background-color: #f5f5f5;
+
+  margin-left:-40px;
+  padding-left:40px;
+  padding-top: 2px;
+}
+
+/* Reduce timeline spacing */
+.cv-print-mode .timeline-content {
+  padding-bottom: 16px !important;
+}
+
+.cv-print-mode .timeline-date {
+  font-size: var(--cv-font-size-small);
+  margin-bottom: 2px !important;
+}
+
+.cv-print-mode .timeline-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.cv-print-mode .timeline-content h4 {
+  font-size: var(--cv-font-size-body);
+  font-weight: 600;
+  margin: 0 0 2px 0 !important;
+}
+
+.cv-final-grade {
+  font-size: var(--cv-font-size-small);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cv-thesis-grade {
+  font-size: var(--cv-font-size-small);
+  color: var(--text-tertiary);
+}
+
+.cv-print-mode .timeline-company {
+  font-size: var(--cv-font-size-small);
+  margin: 0 0 6px 0 !important;
+}
+
+.cv-print-mode .timeline-description {
+  font-size: var(--cv-font-size-small);
+  margin: 0 !important;
+}
+
+.cv-print-mode .timeline-achievements {
+  margin: 0 !important;
+  gap: 4px !important;
+}
+
+.cv-print-mode .timeline-achievements li {
+  font-size: var(--cv-font-size-small);
+  border-left-color: #e0e0e0;
+}
+
+.cv-print-mode .blog-post-meta {
+  font-size: var(--cv-font-size-small);
+  margin-bottom: 4px !important;
+}
+
+.cv-print-mode .blog-post-title {
+  font-size: var(--cv-font-size-body);
+  margin: 0 0 4px 0 !important;
+}
+
+.cv-print-mode .blog-post-description {
+  font-size: var(--cv-font-size-small);
+  margin: 0 0 6px 0 !important;
+}
+
+.cv-print-mode .tag {
+  font-size: var(--cv-font-size-small);
+  padding: 4px 8px;
+}
+
+.cv-print-mode .poster-authors {
+  font-size: var(--cv-font-size-small);
+  margin: 2px 0 6px !important;
+}
+
+.cv-print-mode .poster-link {
+  font-size: var(--cv-font-size-small);
+  padding: 4px 10px !important;
+}
+
+.cv-print-mode .poster-links {
+  margin-top: 6px !important;
+  gap: 8px !important;
+}
+
+.cv-print-mode .blog-post {
+  margin-bottom: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.cv-print-mode .blog-post:last-child,
+.cv-print-mode .blog-post.poster-item:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Tech section spacing */
+.cv-print-mode .tech-grid {
+  gap: 8px !important;
+}
+
+/* Awards section - compact list layout */
+.cv-awards-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cv-award-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cv-award-title {
+  font-size: var(--cv-font-size-body);
+  font-weight: 700;
+  color: var(--text-white);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cv-award-description {
+  font-size: var(--cv-font-size-small);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+  padding-left: 0;
+}
+
+/* Remove sticky positioning for print */
+.cv-print-mode .about-sidebar {
+  position: static !important;
+}
+
+/* Adjust spacing for print */
+.cv-print-mode .about-content {
+  gap: 20px !important;
+}
+
+.cv-print-mode section {
+  page-break-inside: avoid;
+}
+
+/* Ensure borders are visible */
+.cv-print-mode .section-title.separate {
+  border-bottom-color: #e0e0e0;
+}
+
+.cv-print-mode .timeline-line {
+  background-color: #e0e0e0;
+}
+
+.cv-print-mode .timeline-achievements li {
+  border-left-color: #e0e0e0;
+}
+
+/* Ensure links are visible but not interactive-looking */
+.cv-print-mode a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Tag styling for print */
+.cv-print-mode .tag {
+  border-color: #666666;
+  background-color: #f0f0f0;
+  color: #333333;
+}
+
+/* Timeline dot styling */
+.cv-print-mode .timeline-dot {
+  border-color: #666666;
+  background-color: #ffffff;
+}
+
+.cv-print-mode .timeline-dot.active {
+  background-color: #000000;
+  border-color: #000000;
+  box-shadow: none;
+}
+
+/* Remove hover effects for print */
+.cv-print-mode a:hover,
+.cv-print-mode .tag:hover {
+  transform: none;
+}
+
+/* Poster links styling for print */
+.cv-print-mode .poster-link {
+  color: #000000;
+  border-color: #666666;
+  background-color: transparent;
+}
+
+.cv-print-mode .poster-link:hover {
+  background-color: inherit;
+}
+
+/* @media print specific rules */
+@media print {
+  .cv-print-mode {
+    background: white !important;
+  }
+  
+  .cv-main-layout {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+  }
+
+  .cv-main-layout .about-sidebar {
+    page-break-after: auto;
+  }
+
+  .cv-main-layout .about-content section {
+    page-break-inside: auto !important;
+  }
+  
+  .timeline-content {
+    page-break-inside: avoid !important;
+    page-break-after: auto;
+  }
+
+  .cv-award-item {
+    page-break-inside: avoid !important;
+    page-break-after: auto;
+  }
+
+  .blog-post {
+    page-break-inside: avoid !important;
+    page-break-after: auto;
+  }
+
+  .section-title {
+    page-break-after: avoid !important;
+  }
+
+  .experience-grid {
+    page-break-inside: auto !important;
+  }
+
+  .cv-contact-link[href]:after {
+    content: "";
+  }
+  
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666666;
+  }
+  
+  .cv-contact-link[href]:after,
+  .poster-link[href]:after {
+    content: "";
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+.cv-print-mode{
+  .profile-avatar{
+    border-radius: 0 !important;
+  }
+}
+
+/* Override for CV print mode */
+.cv-print-mode {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.cv-print-mode .cv-main-layout {
+  flex: 1;
+  display: flex;
+}

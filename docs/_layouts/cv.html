@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.data.site.profile.name }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.png' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@400;500&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Albert Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Space Mono" rel="stylesheet" type="text/css">
+
+    {% assign meta_title = page.title | default: site.title %}
+    {% assign meta_description = page.short_abstract | default: page.abstract | default: site.description %}
+    {% if page.title_image %}
+        {% assign meta_image = page.title_image | prepend: '/assets/content_compressed/' | append: '-1280w.avif' %}
+    {% else %}
+        {% assign meta_image = site.default_image %}
+    {% endif %}
+
+    <meta name="description" content="{{ meta_description | escape }}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ meta_title | escape }}">
+    <meta property="og:description" content="{{ meta_description | escape }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}{{ meta_image }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ meta_title | escape }}">
+    <meta name="twitter:description" content="{{ meta_description | escape }}">
+    <meta name="twitter:image" content="{{ site.url }}{{ meta_image }}">
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body class="cv-print-mode">
+
+<main class="about-main cv-main-layout">
+    <aside class="about-sidebar">
+        <section class="about-profile cv-profile">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="{{ '/assets/profile_pic_professional.jpeg' | relative_url }}" alt="{{ site.data.site.profile.name }}">
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="cv-contact-section">
+                <h3 class="cv-contact-title">Contact</h3>
+                <ul class="cv-contact-list">
+                    {% for contact in site.data.about.contact %}
+                    <li class="cv-contact-item">
+                        <span class="cv-contact-icon">
+                            {% if contact.icon == 'mail' %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                            {% elsif contact.icon == 'phone' %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            {% elsif contact.icon == 'map-pin' %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            {% elsif contact.icon == 'linkedin' %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect width="4" height="12" x="2" y="9"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                            {% elsif contact.icon == 'globe' %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                                <path d="M2 12h20"/>
+                            </svg>
+                            {% elsif contact.icon == 'fingerprint' %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4"/>
+                                <path d="M5 19.5C5.5 18 6 15 6 12c0-.7.12-1.37.34-2"/>
+                                <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/>
+                                <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/>
+                                <path d="M8.65 22c.21-.66.45-1.32.57-2"/>
+                                <path d="M14 13.12c0 2.38 0 6.38-1 8.88"/>
+                                <path d="M2 16h.01"/>
+                                <path d="M21.8 16c.2-2 .131-5.354 0-6"/>
+                                <path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2"/>
+                            </svg>
+                            {% endif %}
+                        </span>
+                        {% if contact.url %}
+                        <a href="{{ contact.url }}" class="cv-contact-link">{{ contact.label }}</a>
+                        {% else %}
+                        <span class="cv-contact-text">{{ contact.label }}</span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Languages Section -->
+            <div class="cv-sidebar-section">
+                <h3 class="cv-sidebar-title">{{ site.data.about.languages.title }}</h3>
+                <ul class="cv-sidebar-list">
+                    {% for lang in site.data.about.languages.items %}
+                    <li class="cv-sidebar-item">
+                        <strong>{{ lang.language }}</strong>
+                        <span class="cv-sidebar-detail">{{ lang.proficiency }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Hobbies Section -->
+            <div class="cv-sidebar-section">
+                <h3 class="cv-sidebar-title">{{ site.data.about.hobbies.title }}</h3>
+                <ul class="cv-sidebar-list cv-hobbies-list">
+                    {% for hobby in site.data.about.hobbies.items %}
+                    <li class="cv-hobby-item">{{ hobby }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </aside>
+
+    <div class="about-content">
+        <!-- Name at the top -->
+        <section class="cv-name-section">
+            <h1 class="cv-name">{{ site.data.site.profile.name }}</h1>
+            <!-- Role hidden in CV, kept for about page -->
+        </section>
+
+        <!-- Experience Section -->
+        <section class="about-experience">
+            <h3 class="section-title separate">{{ site.data.about.experience.title }}</h3>
+            <div class="experience-grid">
+                {% for position in site.data.about.experience.positions %}
+                <div class="timeline-marker-col">
+                    <div class="timeline-dot{% if position.active %} active{% endif %}"></div>
+                    <div class="timeline-line{% if position.last %} fade{% endif %}"></div>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-date{% if position.active %} active{% endif %}">{{ position.period }}</span>
+                    <div class="timeline-title-row">
+                        <h4>{{ position.title }}</h4>
+                        {% if position.final_grade %}
+                        <span class="cv-final-grade">Final Grade {{ position.final_grade }}</span>
+                        {% endif %}
+                    </div>
+                    <p class="timeline-company">{{ position.company }}</p>
+                    {% if position.achievements %}
+                    <ul class="timeline-achievements">
+                        {% for achievement in position.achievements %}
+                        <li>{{ achievement }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% elsif position.description %}
+                    <p class="timeline-description">{{ position.description }}{% if position.thesis_grade %} <span class="cv-thesis-grade">(Thesis Grade {{ position.thesis_grade }})</span>{% endif %}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Teaching Section -->
+        <section class="cv-teaching-section">
+            <h3 class="section-title separate">{{ site.data.about.teaching.title }}</h3>
+            <div class="experience-grid">
+                {% for position in site.data.about.teaching.positions %}
+                <div class="timeline-marker-col">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line{% if position.last %} fade{% endif %}"></div>
+                </div>
+                <div class="timeline-content">
+                    <span class="timeline-date">{{ position.period }}</span>
+                    <h4>{{ position.title }}</h4>
+                    <p class="timeline-company">{{ position.organization }}</p>
+                    <p class="timeline-description">{{ position.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="cv-awards-section">
+            <h3 class="section-title separate">{{ site.data.about.awards.title }}</h3>
+            <ul class="cv-awards-list">
+                {% for award in site.data.about.awards.items %}
+                <li class="cv-award-item">
+                    <p class="cv-award-title">
+                        {% if award.organization and award.period %}
+                        {{ award.title }} ({{ award.organization }}, {{ award.period }})
+                        {% elsif award.organization %}
+                        {{ award.title }} ({{ award.organization }})
+                        {% else %}
+                        {{ award.title }}
+                        {% endif %}
+                    </p>
+                    {% if award.description %}
+                    <p class="cv-award-description">{{ award.description }}</p>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Posters Section -->
+        <section class="about-posters">
+            <h3 class="section-title separate">{{ site.data.about.posters.title }}</h3>
+            <ul class="blog-list separate">
+                {% for poster in site.data.about.posters.items %}
+                {% include poster.html 
+                    conference=poster.venue
+                    date=poster.date
+                    title=poster.title
+                    url=poster.url
+                    description=poster.description
+                    links=poster.links
+                    authors=poster.authors
+                %}
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Tech & Tools Section -->
+        <section class="about-tech">
+            <h3 class="section-title separate">{{ site.data.about.tech.title }}</h3>
+            <div class="tech-grid">
+                {% for tool in site.data.about.tech.tools %}
+                <span class="tag tag-large">{{ tool }}</span>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</main>
+
+</body>
+</html>
