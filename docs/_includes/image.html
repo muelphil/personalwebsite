@@ -3,10 +3,25 @@ Simple responsive image using AVIF with srcset
 Usage:
 {% include image.html url="Oskam/photo" description="..." %}
 {% include image.html url="Oskam/photo" description="..." max_width="600px" %}
-Input is the base path without extension (e.g., "Oskam/photo")
+{% include image.html url="https://example.com/image.jpg" description="..." %}
+Input is either a base path without extension (e.g., "Oskam/photo") or a full web URL
 {%- endcomment -%}
 
+{%- assign is_external = false -%}
+{%- if include.url contains "http://" or include.url contains "https://" -%}
+    {%- assign is_external = true -%}
+{%- endif -%}
+
 <figure class="image{%- if include.wide %} wide{%- endif -%}">
+    {%- if is_external -%}
+    <img
+            src="{{ include.url }}"
+            alt="{{ include.description }}"
+            loading="lazy"
+            decoding="async"
+            {%- if include.max_width %} style="max-width: {{ include.max_width }};"{%- endif -%}
+    >
+    {%- else -%}
     <img
             src="{{ '/assets/content_compressed/' | append: include.url | append: '-640w.avif' | relative_url }}"
             srcset="{{ '/assets/content_compressed/' | append: include.url | append: '-320w.avif' | relative_url }} 320w,
@@ -21,6 +36,7 @@ Input is the base path without extension (e.g., "Oskam/photo")
             onclick="window.enlarge(event)"
             {%- if include.max_width %} style="max-width: {{ include.max_width }};"{%- endif -%}
     >
+    {%- endif -%}
     {%- if include.description -%}
     <figcaption>{{ include.description }}</figcaption>
     {%- endif -%}
