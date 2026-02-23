@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Educational Resources for Teaching Large Language Models"
+title: "Teaching Large Language Models: A Curated List of Educational Resources"
 date: 2026-02-22 10:00:00 +0200
 title_image: 'LLM_Teaching_Material/title_image_edu_res'
 tags: [ "Computer Science", "Large Language Models", "Teaching" ]
