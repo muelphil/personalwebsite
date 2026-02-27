@@ -22,8 +22,8 @@ Visualization of tokens: please use the css provided in /docs/_includes/posts/to
 
 <figure>
 {% include posts/tokenization/autoregressive-llm.html
-   start_tokens="Paris| is| the"
-   inferred_tokens=" city| of| light|."
+   start_tokens="Paris; is; the"
+   inferred_tokens=" city; of; light;.;<|endoftext|>"
    speed="1" %}
 <figcaption>Autoregressive inference: the LLM consumes all preceding tokens and generates one new token at a time. Each generated token is appended to the context before the next inference step.</figcaption>
 </figure>
@@ -37,7 +37,7 @@ Visualization of tokens: please use the css provided in /docs/_includes/posts/to
 {% include posts/tokenization/character-tokenization.html
    text="The quick brown fox jumps over the lazy dog"
    speed="1" %}
-<figcaption>Character-level tokenization: each character becomes its own token. While maximally flexible, this results in very long sequences — every word costs as many tokens as it has characters.</figcaption>
+<figcaption>Character-level tokenization: each character becomes its own token. While maximally flexible, this results in very long sequences — here, 44 characters produce 44 tokens.</figcaption>
 </figure>
 
 ## Illustration of all possible tokens resulting from character combinations
@@ -72,7 +72,7 @@ Visualization of tokens: please use the css provided in /docs/_includes/posts/to
 
 Thats good, but we need to make some adjustments:
 * posts/tokenization/autoregressive-llm.html
-    * this is not working as expected. Please rework the animation. It should be similar to the current implementation, with the change of layout: instead of having 3 sections (input tokens, LLM block, output tokens), make it one container that may take up several lines. Blend in the currently not yet inferred tokens from the beginning, but set their opacity to 0. Put the LLM block at the end of the current token state, and play the animation as before. Key change is that the layout is flat and the tokens, the LLM block and the to be inferred tokens should all be at the same level.
+    * this is not working as expected. Please rework the animation. It should be similar to the current implementation, with the change of layout: instead of having 3 sections (input tokens, LLM block, output tokens), make it one container that may take up several lines. Blend in the currently not yet inferred tokens from the beginning, but set their opacity to 0. Put the LLM block at the end of the current token state, and play the animation as before. Key change is that the layout is flat and the tokens, the LLM block and the to be inferred tokens should all be at the same level. This should make it look like the LLM block is always moving to the end of the sequence, absorbing the context to generate the new token, then moving the new token to the context.
 * posts/tokenization/character-tokenization.html
     * I have changed my mind. Demote this from an animation to an illustration, showing the final token state.
 

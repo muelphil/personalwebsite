@@ -1,6 +1,6 @@
 /* Molokai Syntax Highlighting Theme */
 
-.highlight {
+.highlight:has(> pre) {
     color: #f8f8f2;
     background-color: #1b1d1e;
     border-radius: var(--border-radius);
@@ -9,16 +9,16 @@
 }
 
 @media (min-width: 1080px) {
-  .highlight{
+  .highlight:has(> pre){
     padding: 8px;
   }
 }
 
-.highlight table td { 
+.highlight:has(> pre) table td {
     padding: 5px; 
 }
 
-.highlight table pre { 
+.highlight:has(> pre) table pre {
     margin: 0; 
 }
 
@@ -243,12 +243,12 @@
 }
 
 
-.highlight, .highlight pre, .highlight table {
+.highlight:has(> pre), .highlight pre, .highlight table {
   background: #232136 !important;
   color: #e0def4 !important;
 }
 
-.highlight .hll {
+.highlight:has(> pre) .hll {
   background-color: #817c9c26 !important;
 }
 

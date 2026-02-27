@@ -1,0 +1,53 @@
+<style>
+{% include posts/tokenization/tokenization.css %}
+
+.vocab-spaces-container {
+    padding: 24px 16px;
+    box-sizing: border-box;
+}
+</style>
+
+<div class="vocab-spaces-container vocab-spaces-uninit"
+     data-tokens="{{ include.tokens | default: 'A| man| walked| past| a| snow|man' }}"
+     data-highlight="{{ include.highlight | default: 'man| man' }}">
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var uninits = document.querySelectorAll('.vocab-spaces-uninit');
+  var container = uninits[uninits.length - 1];
+  container.classList.remove('vocab-spaces-uninit');
+
+  var tokens    = container.dataset.tokens.split('|');
+  var highlight = container.dataset.highlight.split('|');
+
+  function tokenId(s) {
+    if (s.length === 1) return s.charCodeAt(0);
+    var h = 5381;
+    for (var i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) & 0x7FFF;
+    return (Math.abs(h) % 49488) + 512;
+  }
+
+  var tc = document.createElement('div');
+  tc.className = 'token-container';
+  tc.style.justifyContent = 'center';
+
+  tokens.forEach(function (tok) {
+    var isHighlight = highlight.indexOf(tok) !== -1;
+    var w = document.createElement('div');
+    w.className = 'token-wrapper';
+    var t = document.createElement('span');
+    t.className = 'token' + (isHighlight ? ' highlight' : '');
+    t.appendChild(document.createTextNode(tok));
+    var id = document.createElement('span');
+    id.className = 'token-id';
+    id.textContent = tokenId(tok);
+    t.appendChild(id);
+    w.appendChild(t);
+    tc.appendChild(w);
+  });
+  container.appendChild(tc);
+}());
+</script>

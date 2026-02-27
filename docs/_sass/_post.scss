@@ -153,14 +153,10 @@ pre {
   }
 }
 
-.highlight {
-  border-radius: 4px;
-  margin-bottom: 16px;
 
-  pre {
-    margin: 0;
-    background-color: transparent;
-  }
+pre.highlight {
+  margin: 0;
+  background-color: transparent;
 }
 
 :not(pre) > code {

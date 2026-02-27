@@ -1,0 +1,42 @@
+<style>
+{% include posts/tokenization/tokenization.css %}
+
+.char-tokenization-scene {
+    padding: 28px 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+
+<div class="char-split-uninit"
+     data-text="{{ include.text | default: 'The quick brown fox jumps over the lazy dog' }}">
+  <div class="char-tokenization-scene">
+    <div class="token-container char-tokens"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var uninits = document.querySelectorAll('.char-split-uninit');
+  var container = uninits[uninits.length - 1];
+  container.classList.remove('char-split-uninit');
+  var text      = container.dataset.text;
+  var tokenArea = container.querySelector('.char-tokens');
+  Array.from(text).forEach(function (ch) {
+    var w = document.createElement('div');
+    w.className = 'token-wrapper';
+    var t = document.createElement('span');
+    t.className = 'token';
+    t.appendChild(document.createTextNode(ch));
+    var id = document.createElement('span');
+    id.className = 'token-id';
+    id.textContent = ch.charCodeAt(0);
+    t.appendChild(id);
+    w.appendChild(t);
+    tokenArea.appendChild(w);
+  });
+}());
+</script>

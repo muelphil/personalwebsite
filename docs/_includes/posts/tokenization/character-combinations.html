@@ -1,0 +1,113 @@
+<style>
+{% include posts/tokenization/tokenization.css %}
+
+.char-combos-container {
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    align-self: normal;
+    gap: 8px;
+}
+.char-combos-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    align-items: center;
+}
+/* Row label */
+.combos-label {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.65rem;
+    color: var(--text-secondary, #8e86b3);
+    white-space: nowrap;
+    margin-right: 8px;
+    flex-shrink: 0;
+    width: 3.5rem;
+    text-align: right;
+}
+/* Clip tokens at container width with a fade-out on the right */
+.char-combos-row-wrap {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    min-width: 0;
+}
+.char-combos-row-wrap::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 48px;
+    background: linear-gradient(to right, transparent, var(--background, #181422));
+    pointer-events: none;
+}
+</style>
+
+<div class="char-combos-container char-combos-uninit"
+     data-alphabet="{{ include.alphabet | default: 'abcdefghijklmnopqrstuvwxyz' }}"
+     data-rows="{{ include.rows | default: '4' }}">
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var uninits = document.querySelectorAll('.char-combos-uninit');
+  var container = uninits[uninits.length - 1];
+  container.classList.remove('char-combos-uninit');
+
+  var alphabet = container.dataset.alphabet;
+  var rowCount = parseInt(container.dataset.rows, 10) || 4;
+  var chars    = alphabet.split('');
+
+  /* Generate combinations of given length from alphabet */
+  function* combos(length) {
+    if (length === 1) { for (var c of chars) yield c; return; }
+    for (var c of chars) {
+      for (var sub of combos(length - 1)) {
+        yield c + sub;
+      }
+    }
+  }
+
+  function makeToken(text) {
+    var w = document.createElement('div');
+    w.className = 'token-wrapper';
+    var t = document.createElement('span');
+    t.className = 'token small';
+    t.textContent = text;
+    w.appendChild(t);
+    return w;
+  }
+
+  /* Build rows lazily — stop generating once they overflow */
+  for (var len = 1; len <= rowCount; len++) {
+    var row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;';
+
+    var label = document.createElement('span');
+    label.className = 'combos-label';
+    label.textContent = 'len ' + len;
+
+    var tokensDiv = document.createElement('div');
+    tokensDiv.className = 'char-combos-row-wrap';
+
+    var innerRow = document.createElement('div');
+    innerRow.className = 'char-combos-row';
+    tokensDiv.appendChild(innerRow);
+
+    row.appendChild(label);
+    row.appendChild(tokensDiv);
+    container.appendChild(row);
+
+    /* Insert tokens, cap at 120 for performance */
+    var gen = combos(len);
+    var count = 0;
+    for (var item of gen) {
+      innerRow.appendChild(makeToken(item));
+      if (++count >= 120) break;
+    }
+  }
+}());
+</script>

@@ -1,0 +1,262 @@
+<style>
+{% include posts/tokenization/tokenization.css %}
+
+.llm-scene {
+    padding: 36px 20px;
+    min-height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+.llm-future-token {
+    opacity: 0;
+}
+.llm-clone-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+    overflow: hidden;
+}
+</style>
+
+<div class="anim-container llm-anim-uninit"
+     data-start-tokens="{{ include.start_tokens | default: 'Paris; is; the' }}"
+     data-inferred-tokens="{{ include.inferred_tokens | default: ' city; of; light;.' }}"
+     data-speed="{{ include.speed | default: '1' }}">
+
+  <div class="llm-scene"></div>
+  <div class="llm-clone-layer"></div>
+
+  <div class="anim-overlay">
+    <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Play">
+      <circle cx="28" cy="28" r="27" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" fill="rgba(255,255,255,0.07)"/>
+      <polygon points="22,17 42,28 22,39" fill="rgba(255,255,255,0.88)"/>
+    </svg>
+  </div>
+
+  <div class="anim-reload hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var state      = 'idle';
+  var generation = 0;
+  var speed;
+
+  function tokenId(s) {
+    if (s.length === 1) return s.charCodeAt(0);
+    var h = 5381;
+    for (var i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) & 0x7FFF;
+    return (Math.abs(h) % 49488) + 512;
+  }
+
+  function makeTokenEl(text) {
+    var w = document.createElement('div');
+    w.className = 'token-wrapper';
+    var t = document.createElement('span');
+    t.className = 'token';
+    t.appendChild(document.createTextNode(text));
+    var id = document.createElement('span');
+    id.className = 'token-id';
+    id.textContent = tokenId(text);
+    t.appendChild(id);
+    w.appendChild(t);
+    return w;
+  }
+
+  function makeLLMEl() {
+    var el = document.createElement('div');
+    el.className = 'llm-block';
+    el.textContent = 'LLM';
+    return el;
+  }
+
+  /* ── init ──────────────────────────────────────────────────────────────────── */
+  var uninits = document.querySelectorAll('.llm-anim-uninit');
+  var container = uninits[uninits.length - 1];
+  container.classList.remove('llm-anim-uninit');
+
+  var startTokens    = container.dataset.startTokens.split(';');
+  var inferredTokens = container.dataset.inferredTokens.split(';');
+  speed = parseFloat(container.dataset.speed) || 1;
+
+  var scene      = container.querySelector('.llm-scene');
+  var cloneLayer = container.querySelector('.llm-clone-layer');
+  var overlay    = container.querySelector('.anim-overlay');
+  var reloadBtn  = container.querySelector('.anim-reload');
+
+  var llmEl;
+  var futureEls = [];
+
+  function buildScene() {
+    scene.innerHTML = '';
+    futureEls = [];
+    startTokens.forEach(function (t) { scene.appendChild(makeTokenEl(t)); });
+    llmEl = makeLLMEl();
+    scene.appendChild(llmEl);
+    inferredTokens.forEach(function (t) {
+      var w = makeTokenEl(t);
+      w.classList.add('llm-future-token');
+      futureEls.push(w);
+      scene.appendChild(w);
+    });
+  }
+  buildScene();
+
+  /* ── pause / resume / cancel ─────────────────────────────────────────────── */
+  function pauseAll() {
+    state = 'paused';
+    overlay.style.display = '';
+    container.querySelectorAll('*').forEach(function (el) {
+      el.getAnimations().forEach(function (a) { a.pause(); });
+    });
+  }
+
+  function resumeAll() {
+    state = 'playing';
+    overlay.style.display = 'none';
+    container.querySelectorAll('*').forEach(function (el) {
+      el.getAnimations().forEach(function (a) { a.play(); });
+    });
+  }
+
+  function cancelAll() {
+    generation++;
+    cloneLayer.innerHTML = '';
+    container.querySelectorAll('*').forEach(function (el) {
+      el.getAnimations().forEach(function (a) { a.cancel(); });
+    });
+  }
+
+  /* ── WAAPI helpers ───────────────────────────────────────────────────────── */
+  function waapiG(gen, el, kf, opts) {
+    if (generation !== gen) return Promise.resolve();
+    return new Promise(function (res) {
+      var a = el.animate(kf, Object.assign({ fill: 'forwards' }, opts));
+      if (state === 'paused') a.pause();
+      a.onfinish = res;
+    });
+  }
+
+  function wait(ms) {
+    return new Promise(function (res) { setTimeout(res, ms / speed); });
+  }
+
+  /* ── single inference step ───────────────────────────────────────────────── */
+  async function inferOneToken(gen, stepIndex) {
+    if (generation !== gen) return;
+    var D = function (ms) { return Math.round(ms / speed); };
+    var cRect = container.getBoundingClientRect();
+    var llmR  = llmEl.getBoundingClientRect();
+    var llmCX = llmR.left - cRect.left + llmR.width  / 2;
+    var llmCY = llmR.top  - cRect.top  + llmR.height / 2;
+
+    /* 1 — context tokens fly into LLM */
+    var ctxEls = [];
+    var cur = scene.firstChild;
+    while (cur && cur !== llmEl) { if (cur.nodeType === 1) ctxEls.push(cur); cur = cur.nextSibling; }
+
+    var flyIns = ctxEls.map(function (el, i) {
+      var r  = el.getBoundingClientRect();
+      var ex = r.left - cRect.left, ey = r.top - cRect.top;
+      var tx = llmCX - ex - r.width / 2, ty = llmCY - ey - r.height / 2;
+      var clone = el.cloneNode(true);
+      Object.assign(clone.style, { position:'absolute', left:ex+'px', top:ey+'px', margin:'0', pointerEvents:'none', width:r.width+'px' });
+      cloneLayer.appendChild(clone);
+      return waapiG(gen, clone, [
+        { transform:'translate(0,0) scale(1)', opacity:1 },
+        { transform:'translate('+tx+'px,'+ty+'px) scale(0.08)', opacity:0 }
+      ], { duration:D(360), delay:i*D(40), easing:'ease-in' }).then(function () { clone.remove(); });
+    });
+    await Promise.all(flyIns);
+    if (generation !== gen) return;
+
+    /* 2 — LLM pulse */
+    llmEl.getAnimations().forEach(function (a) { a.cancel(); });
+    await waapiG(gen, llmEl, [
+      { transform:'scale(1)',    boxShadow:'0 0 22px rgba(155,132,247,0.15)' },
+      { transform:'scale(0.85)', boxShadow:'0 0 8px rgba(155,132,247,0.08)'  },
+      { transform:'scale(1.08)', boxShadow:'0 0 38px rgba(155,132,247,0.45)' },
+      { transform:'scale(1)',    boxShadow:'0 0 22px rgba(155,132,247,0.15)' }
+    ], { duration:D(460), easing:'cubic-bezier(0.4,0,0.2,1)', fill:'none' });
+    if (generation !== gen) return;
+
+    /* 3 — next future token fades in */
+    var futureEl = futureEls[stepIndex];
+    await waapiG(gen, futureEl, [{ opacity:0 }, { opacity:1 }], { duration:D(300) });
+    futureEl.getAnimations().forEach(function (a) { a.cancel(); });
+    futureEl.classList.remove('llm-future-token');
+    if (generation !== gen) return;
+
+    await wait(220);
+    if (generation !== gen) return;
+
+    /* 4 — LLM slides right via FLIP */
+    llmEl.getAnimations().forEach(function (a) { a.cancel(); });
+    var firstRect = llmEl.getBoundingClientRect();
+    scene.insertBefore(llmEl, futureEl.nextSibling || null);
+    var lastRect = llmEl.getBoundingClientRect();
+    var dx = firstRect.left - lastRect.left;
+    var dy = firstRect.top  - lastRect.top;
+    if (dx !== 0 || dy !== 0) {
+      await waapiG(gen, llmEl, [
+        { transform:'translate('+dx+'px,'+dy+'px)' },
+        { transform:'translate(0,0)' }
+      ], { duration:D(380), easing:'cubic-bezier(0.4,0,0.2,1)', fill:'none' });
+    }
+    if (generation !== gen) return;
+
+    await wait(160);
+  }
+
+  /* ── full animation loop ─────────────────────────────────────────────────── */
+  async function runAnimation(gen) {
+    state = 'playing';
+    for (var i = 0; i < inferredTokens.length; i++) {
+      if (generation !== gen) return;
+      await inferOneToken(gen, i);
+    }
+    if (generation === gen) {
+      llmEl.remove();
+      state = 'done';
+      reloadBtn.classList.remove('hidden');
+    }
+  }
+
+  function startAnim() {
+    cancelAll();
+    state = 'idle';
+    buildScene();
+    reloadBtn.classList.add('hidden');
+    var gen = generation;
+    requestAnimationFrame(function () { runAnimation(gen); });
+  }
+
+  /* ── events ──────────────────────────────────────────────────────────────── */
+  overlay.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (state === 'paused') resumeAll();
+    else { overlay.style.display = 'none'; startAnim(); }
+  });
+
+  reloadBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    startAnim();
+  });
+
+  container.addEventListener('click', function () {
+    if      (state === 'playing') pauseAll();
+    else if (state === 'paused')  resumeAll();
+    else if (state === 'done')    startAnim();
+  });
+}());
+</script>
