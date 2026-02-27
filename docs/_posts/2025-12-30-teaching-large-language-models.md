@@ -278,6 +278,9 @@ but where I did not yet have the time to evaluate them regarding their usability
 
 * [VisBERT: Hidden-State Visualizations for Transformers](https://visbert.demo.datexis.com/) introduced
   by [van Aken et al. (2020)](#ref-vanAken2020)
+* [Mixture of Experts (MoE), Visually Explained](https://www.youtube.com/watch?v=0QQlYR1r6pQ) by Jia-Bin Huang found via [LinkedIn](https://www.linkedin.com/posts/zainhas_this-is-probably-the-best-visual-explainer-activity-7427269646610874369-p1Hj)
+* [microgpt](https://karpathy.github.io/2026/02/12/microgpt/) by [Andrej Karpathy](https://karpathy.github.io/) is a 200 lines of pure, dependency-free Python implementation to train and inference GPT. The screenshot of the 200 lines really emphasize how simple and elegant transformers are at their core. This post has inspired several derivative attempts of making it even short, i.e. [in 88 loc](https://gist.github.com/LALITH0110/9dc0a19de3de41118448a88f1acb5016) by Lalith Kothuru
+
 
 ## References
 
