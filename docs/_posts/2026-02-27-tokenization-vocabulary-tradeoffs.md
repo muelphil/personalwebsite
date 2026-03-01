@@ -14,8 +14,9 @@ This post covers the very first step in the processing chain of an LLM: tokeniza
 
 ## What Are Transformers, Really?
 
-Transformers are named for their ability to transform one type of data into another. While originally designed to
-translate text in one language into another, they were quickly adapted to solve all kinds of transformations: text to
+Transformers are named for the architecture’s mechanism of transforming sequence representations via self-attention and
+feed-forward layers, replacing recurrence and convolution. While originally designed to translate text in one language
+into another, they were quickly adapted to solve all kinds of transformations: text to
 image, image to text, speech to text. What makes this architecture so general is how it splits up input data into
 processable chunks that can carry semantic meaning. Depending on the use case, these chunks might be pixel patches,
 segments of a sound wave, or -- in the case of text -- words, subwords, or even single characters.
