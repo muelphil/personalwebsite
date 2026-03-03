@@ -124,116 +124,21 @@ date:   2026-02-27 10:31:42 +0200
 * as a result, they are directly included in the tokens
 * to enforce subwords as tokens, merging restrictions in LLM focused implementations prohibit merging tokens to the right on tokens that start with a space token.
 
-## How are vocabularies built
-
-Following the previous post, that discussed advantages and restrictions of different vocabulary sizes and shapes, we will now look into one of the most popular algorithms modern tokenizers are based on.
-among the several different approaches that exist (WordPiece, Unigram LM (Sentencepiece)), the one that put through
-are algorithms that are based on [Byte-Pair Encoding](https://en.wikipedia.org/wiki/Byte-pair_encoding)
-This will cover how tokenizers based on BPE are trained on the training corpus and how they will eventually after training tokenize unseen text.
-
-To enhance learning, I have built an interactive demo of the training process. By default, it shows the version of the algorithm adjusted to be more representative of how the algorithm is now implemented for LLM tokenizers as opposed to the original one, but you can still apply original restrictions in the settings.
-
-{% include link_block.html
-image="tokenization/bpe-visualizer"
-title="Byte Pair Encoding Visualizer - Interactive Algorithm Demo"
-text="Step-by-step visualization of the Byte Pair Encoding (BPE) algorithm used for compressing data and building vocabularies for LLMs."
-url="https://philipmueller.dev/bpe-visualization/
-"
-%}
-
-### Byte-Pair Encoding (BPE, also Compression BPE)
-
-* In practice most-used for tokenizers (2024–2025)
-* This algorithm was first described in 1994 by Philip Gage, for compressing strings of characters by creating and using a translation table for frequently reoccurring combinations.
-* goal: optimize byte-level storage size of text (compression)
-* initially, Unicode normalization + chars (as opposed to byte level BPE introduced later)
-* the algorithm compresses the text by grouping recurring character combinations iteratively into tokens, building a
-  vocabulary
-* the iterative grouping would continue until no tuple of tokens could be seen more than once in the text (break condition: “no frequent pair left”)
-* then, instead of sending a long text character by character, you would send the vocabulary once and then send the
-  token ids, that the other side could rebuild using the vocabulary
-
-### Byte-Pair Encoding adjusted for Tokenization for LLMs
-
-* LLMs have a similar objective of building a vocabulary
-* new goal: optimizes model efficiency and statistical coverage
-* While the algorithm is very similar, small adjustments have been made to accommodate the new goal and other LLM
-  specifics
-    * different goal -- therefore different break condition
-    * (Break condition, join restrictions (there are no tokens that go like `_test_` -- tokens may
-      only start with _, not end with _ ))
-    * Byte-level BPE (introduced by GPT-2 (2019))
-        * start of with all byte combinations.
-        * Universal Coverage: even text that is not part of the data which is used to build the vocabulary can always be
-          split into tokens
-* while the goal is different, this still results in the compression aspect of the original BPE:
-    * Frequency-Aware Compression: Common words get single tokens, while rare words get multiple tokens, but are still
-      representable
-* finally, extra control tokens may be added after training completed, which are used for signaling end of text, start or end of system/ user/ assistant messages or tool calls, among other use cases, depending on the model
-
-### How do tokenizers split text up after training
-
-The result of training step using the BPE algorithm is a list of merges of tokens, which result in a vocabulary. To tokenize a string, the tokenizer:
-
-* Splits into base units (often bytes or characters)
-* Applies merges greedily in **learned** order
-* Stops when no more merges apply
-
-unhappiness -> un h appiness
-via merges:
-i n 1
-u n 2
-es s 12
-a p 22
-ap p 23
-app in 24
-appin ess 25
 
 
-### Alternative Approaches:
-
-* WordPiece (2016) by Google
-  * also a merge-based subword tokenizers, but merges the pair that maximizes likelihood, instead of the most frequent pair
-  * tends to produce more linguistically meaningful merges.
-  * WordPiece chooses merges that improve corpus likelihood, and that objective is conceptually aligned with how masked language models like BERT are trained.
-  * used by BERT
-* Unigram Language Model (2018)
-  * different idea than bpe: start with a huge vocabulary and prune it down
-  * unique property: probabilistic tokenization: The same word can be tokenized multiple ways, each with a probability
-* BPE prevailed due to its simplicity in implementation and scalablility (easier to parallelize, faster for very large corpora) in practice, while differences in quality are small at scale compared to other methods.
-
-### White Space Replacement Characters
-
-* when you check out the actual vocabularies or work with tokens, you will stumble across weird characters that take
-  place of whitespace characters such as spaces and newlines: `▁`, `Ġ` and `Ċ`
-* this section explains why these occur
-
-#### Replacement of Spaces
-
-* this is for historical reasons
-* Sennrich et al. proposed repurposing the BPE compression algorithm as a tokenization algorithm
-* the bpe iteratively performs token merges (two tokens are merged together to form a new token)
-* the algorithm stored these merges on disk, one merge per line with the two tokens that were merged separated by a space
-* Spaces and newlines in tokens would obviously break this, so whitespace needed to be encoded
-
-#### Why these characters specifically (see [ai.stackexchange](https://ai.stackexchange.com/questions/45054/why-do-llm-tokenizers-use-a-special-symbol-for-space-such-as-%C4%A0-in-bpe-or-in-sp))
-
-* e tokens by replacing spaces with `▁` and `Ġ`
-* TODO 
-
-# References
-
-* Sennrich, R., Haddow, B., & Birch, A. (2015) Neural Machine Translation of Rare Words with Subword Units. arXiv:
-  1508.07909
-    * apparently the paper that popularised subword tokenisers for NLP
-    * proposed repurposing the BPE compression algorithm as a tokenisation algorithm
-*
-
-## Extra: While all tokens can be represented via Byte-Level BPE, this does not mean the model might not generate invalid Unicode
-* Extra: decoding may fail (see emoji combinations) -- just cause everything can be encoded, does not mean everything
-  can be decoded valid in the utf-8 standard
 
 
+
+
+
+
+
+
+
+
+
+
+## Practical Relevance of Tokenization
 ## Why tokenization matters in prompting and understanding what models do
 
 * vocabulary
@@ -245,8 +150,10 @@ appin ess 25
 * different tokenizers for different models -- do tokenizers for coding models tokenize differently?
 * Pitfalls of rare words and tokenization in e.g. medical fields
 * https://www.louisbouchard.ai/prompting-llms/
-* marry poppins comes around and Supercalifragilisticexpialidocious'es this idea
 * effect of typos
+### Extra: While all tokens can be represented via Byte-Level BPE, this does not mean the model might not generate invalid Unicode
+* Extra: decoding may fail (see emoji combinations) -- just cause everything can be encoded, does not mean everything
+  can be decoded valid in the utf-8 standard
 
 
 
@@ -256,8 +163,17 @@ appin ess 25
 
 
 
+#### Why `▁` represents a space in Sentencepiece
 
 
+
+
+
+
+#### Why these characters specifically (see )
+
+* TODO: reasoning for why `▁` and `Ġ` appear instead of spaces
+* TODO
 
 
 
@@ -307,4 +223,50 @@ appin ess 25
 
 
 
+---
+
+Perfect — I understand now. You want **bullet points that read like a mini blog**, explaining ideas step by step, with a slightly conversational/educational tone, while keeping the structure we agreed on:
+
+Here’s a polished draft:
+
+---
+
+### Adaptation of Byte-Pair Encoding for Tokenization in LLMs
+
+* BPE was originally designed for compressing text, but in LLMs, the **goal shifts**: we want a fixed-size vocabulary that efficiently represents the language, while still being able to handle any input text.
+* The algorithm is largely the same, but some **key adjustments** make it work well for tokenization:
+
+    * **Stop condition:** Instead of merging until no pair occurs more than once, training stops once the **vocabulary reaches a target size**. This ensures the model has a manageable number of tokens.
+    * **Base units:** Tokenizers can start from either **bytes or characters**, rather than just characters, depending on the variant.
+    * **Whitespace and control symbols:** Spaces, newlines, and other non-printable symbols need special handling so that merges remain unambiguous.
+    * **Special tokens:** End-of-text, user/system markers, and other control tokens are added **after training**, separate from the learned merge list.
+* Despite these changes, the **core BPE principles** remain:
+
+    * Iteratively merge frequent adjacent units to build subwords.
+    * Apply merges greedily during tokenization.
+    * Frequency-aware representation: common sequences tend to become single tokens, rare sequences are split into smaller subwords.
+* These adjustments allow BPE to efficiently tokenize massive corpora while still retaining the compression-inspired behavior that made the original algorithm so effective.
+
+---
+
+#### Byte-Level Byte-Pair Encoding (GPT-2)
+
+* Introduced by Alec Radford et al. (2019) for **GPT-2**, byte-level BPE adapts the algorithm to work with **any UTF-8 text**, ensuring universal coverage.
+* **Base alphabet:** 256 possible byte values; all input text is converted to bytes before tokenization.
+* **Advantages:**
+    * Any text, including emojis, foreign scripts, or unseen characters, can always be tokenized.
+    * Vocabulary size can remain relatively small because bytes are the atomic units.
+* GPT-style byte-level BPE remains simple, efficient, and fully compatible with the LLM’s frequency-aware subword representation.
+
+---
+
+#### SentencePiece BPE (Meta, Mistral, Qwen)
+* SentencePiece is a language-independent tokenization framework developed at Google in 2018
+* Implements both **Unigram LM** and **BPE** under one unified training pipeline
+* SentencePiece BPE is used in models like Meta **LLaMA**, Mistral, and Alibaba **Qwen**, and starts from **Unicode characters** instead of bytes.
+* **Base alphabet:** Unicode characters, which keeps the vocabulary **human-readable** and easy to inspect.
+* **Whitespace handling:** Spaces are typically represented by a dedicated symbol (e.g., `_`) instead of a byte-mapped prefix.
+* **Vocabulary size:** Generally larger than byte-level BPE for equivalent coverage because characters cover fewer sequences than bytes.
+* **Coverage:** Most text can be tokenized, but rare or unseen characters may require a fallback token (e.g., `<unk>`), unlike byte-level BPE which guarantees coverage.
+* SentencePiece BPE trades off **absolute universality** for readability and slightly more natural alignment with words in human languages.
 
