@@ -12,6 +12,12 @@ Input is either a base path without extension (e.g., "Oskam/photo") or a full we
     {%- assign is_external = true -%}
 {%- endif -%}
 
+{%- assign url_parts = include.url | split: "." -%}
+{%- assign has_extension = false -%}
+{%- if url_parts.size > 1 and is_external == false -%}
+    {%- assign has_extension = true -%}
+{%- endif -%}
+
 <figure class="image{%- if include.wide %} wide{%- endif -%}">
     {%- if is_external -%}
     <img
@@ -19,6 +25,16 @@ Input is either a base path without extension (e.g., "Oskam/photo") or a full we
             alt="{{ include.description }}"
             loading="lazy"
             decoding="async"
+            {%- if include.max_width %} style="max-width: {{ include.max_width }};"{%- endif -%}
+    >
+    {%- elsif has_extension -%}
+    <img
+            src="{{ '/assets/content/' | append: include.url | relative_url }}"
+            alt="{{ include.description }}"
+            loading="lazy"
+            decoding="async"
+            data-enlargable="{{ '/assets/content/' | append: include.url | relative_url }}"
+            onclick="window.enlarge(event)"
             {%- if include.max_width %} style="max-width: {{ include.max_width }};"{%- endif -%}
     >
     {%- else -%}
@@ -38,6 +54,6 @@ Input is either a base path without extension (e.g., "Oskam/photo") or a full we
     >
     {%- endif -%}
     {%- if include.description -%}
-    <figcaption>{{ include.description }}</figcaption>
+    <figcaption>{{ include.description | markdownify | remove: '<p>' | remove: '</p>' }}</figcaption>
     {%- endif -%}
 </figure>
