@@ -36,8 +36,14 @@ bio:
 experience:
   title: Curriculum Vitae
   positions:
-    - period: 2024–Present
+    - period: Sep 2026
       active: true
+      title: PhD Student
+      company: CopeNLU, Department of Computer Science, University of Copenhagen
+      description: "Researching human-centered explainable Retrieval-Augmented Generation (RAG) systems within an interdisciplinary project funded by the Independent Research Foundation Denmark. Investigating explanation steering techniques to align LLM-generated explanations with user needs, while collaborating with researchers in natural language processing, human-computer interaction, and information retrieval."
+
+    - period: 2024–2026
+      active: false
       title: Researcher (Artificial Intelligence)
       company: Helmholtz-Zentrum Dresden-Rossendorf
       description: "Conducted research on uncertainty quantification in large language models, including an extensive literature review and a systematic comparison of multiple approaches. I evaluated methods across a wide range of models with different architectures, providers, sizes, and variants (base, instruct, and reasoning). I gained hands-on experience with vLLM and developed a framework for large-scale LLM benchmarking with a strong focus on efficiency, modularity, and reproducibility. I presented my work in the form of two posters at two international conferences and submitted a research paper to ICML. In addition, I shared my expertise by preparing and teaching a one-day workshop on large language models, covering their architecture, prompting techniques, and programmatic use for classification tasks in research at the HZDR HPC Fall School 2025."
@@ -81,9 +87,9 @@ posters:
       description: This poster presents a modular benchmarking framework designed to ensure reproducibility and transparency when evaluating probabilistic and resource-intensive AI systems, with a focus on uncertainty estimation for large language models. The framework decouples model execution from evaluation logic, enabling consistent, reusable, and longitudinal benchmarking as models and APIs evolve.
       links:
         - label: Download Poster
-          url: /assets/documents/Poster_EurIPS_2025_Reproducibility_Framework.pdf
+          url: https://philipmueller.dev/assets/documents/Poster_EurIPS_2025_Reproducibility_Framework.pdf
         - label: Abstract
-          url: /documents/eurips_2025_poster
+          url: https://philipmueller.dev/documents/eurips_2025_poster
         #        - label: Robis
         #          url: https://www.hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=42155
         - label: Conference Listing
@@ -104,9 +110,9 @@ posters:
       description: This poster presents a qualitative and quantitative evaluation of uncertainty metrics for large language models in scientific question answering. It assesses a range of theoretical approaches and benchmarks a subset of metrics for reliability, highlighting the strengths and limitations of token-level, verbalized, and consistency-based measures. The poster was awarded second place for Best Poster in an audience vote among 200 entries.
       links:
         - label: Download Poster
-          url: /assets/documents/Poster_HAICON_2025_LLM_Uncertainty_Quantification.pdf
+          url: https://philipmueller.dev/assets/documents/Poster_HAICON_2025_LLM_Uncertainty_Quantification.pdf
         - label: Abstract
-          url: /documents/haicon_2025_poster
+          url: https://philipmueller.dev/documents/haicon_2025_poster
         - label: Award Announcement
           url: https://www.hzdr.de/db/!News.AllNews?pSelMenu=0&pSelId=1704&pNid=530
 #        - label: Robis Entry
