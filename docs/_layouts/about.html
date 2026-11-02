@@ -62,6 +62,25 @@ layout: page_wrapper
         </div>
     </section>
 
+    <!-- Publications Section -->
+    <section class="about-publications">
+        <h3 class="section-title separate">{{ site.data.about.publications.title }}</h3>
+        <ul class="blog-list separate">
+            {% for publication in site.data.about.publications.items %}
+            {% include poster.html
+                conference=publication.venue
+                date=publication.date
+                title=publication.title
+                url=publication.url
+                description=publication.description
+                links=publication.links
+                authors=publication.authors
+                citation=publication.citation
+            %}
+            {% endfor %}
+        </ul>
+    </section>
+
     <!-- Posters Section -->
     <section class="about-posters">
         <h3 class="section-title separate">{{ site.data.about.posters.title }}</h3>

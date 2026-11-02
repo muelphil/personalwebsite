@@ -1,6 +1,6 @@
 profile:
   role: Computer Scientist, Researcher & Educator
-  location: Dresden, Germany
+  location: Copenhagen, Denmark
 
 contact:
   - type: email
@@ -29,14 +29,14 @@ contact:
 
 bio:
   - "I'm a computer scientist passionate about building thoughtful, well-crafted software at the intersection of web development, machine learning, and data visualization. I enjoy turning complex ideas into clear, usable systems: whether that's an interactive interface, a model that explains itself, or a visualization that makes patterns visible at a glance."
-  - Currently, I research uncertainty quantification in large language models, studying how these models and methods work while benchmarking different approaches. My focus is on understanding, evaluating, and improving the reliability and interpretability of machine learning systems.
+  - I am currently a PhD student at the University of Copenhagen, researching human-centered explainable Retrieval-Augmented Generation (RAG) systems. My work investigates how explanation steering can align LLM-generated explanations with users' needs, at the intersection of natural language processing, human-computer interaction, and information retrieval.
   - Previously, I studied computer science alongside teaching and education, which shaped how I approach both research and development. I've worked on a range of projects spanning web applications, ML pipelines, and educational tools, always with a strong emphasis on clarity, accessibility, and knowledge sharing.
   - Outside of work, I’m usually hiking through forests or mountains, building things by hand, experimenting with code and visualizations, or writing poetry. I'm queer, naturally curious, and happiest when learning something new or creating something tangible.
 
 experience:
   title: Curriculum Vitae
   positions:
-    - period: Sep 2026
+    - period: Sep 2026-Present
       active: true
       title: PhD Student
       company: CopeNLU, Department of Computer Science, University of Copenhagen
@@ -72,10 +72,85 @@ experience:
       final_grade: "1.2"
       thesis_grade: "1.0"
 
+publications:
+  title: Publications
+  items:
+    - venue: UncertaiNLP Workshop at EMNLP 2026
+      date: October 2026
+      title: "Semantic Calibration Prevails Where Token Confidence Fails: Benchmarking Long-Form Scientific QA"
+      authors:
+        - firstname: Philip
+          lastname: Müller
+        - firstname: Nicholas
+          lastname: Popovič
+        - firstname: Michael
+          lastname: Färber
+        - firstname: Peter
+          lastname: Steinbach
+      description: This work introduces a large-scale benchmark for uncertainty calibration in long-form scientific QA, evaluating four methods across 685,000 responses, 20 LLMs, and seven datasets. It finds that token-level and verbalized uncertainty signals fail systematically, while semantic consistency of final answers remains well calibrated in multi-step reasoning settings.
+      links:
+        - label: Paper
+          url: https://aclanthology.org/2026.uncertainlp-main.11/
+        - label: View Poster
+          url: /assets/documents/Poster_UncertaiNLP_2026_Semantic_Calibration.pdf
+        - label: Associated Repository
+          url: https://github.com/muelphil/llm-uncertainty-bench
+      citation: |
+        @inproceedings{muller-etal-2026-semantic,
+          title = {Semantic Calibration Prevails Where Token Confidence Fails: Benchmarking Long-Form Scientific {QA}},
+          author = {M{\"u}ller, Philip and Popovi{\v{c}}, Nicholas and F{\"a}rber, Michael and Steinbach, Peter},
+          booktitle = {Proceedings of the Third Workshop on Uncertainty-Aware NLP},
+          month = oct,
+          year = {2026},
+          address = {Budapest, Hungary},
+          publisher = {Association for Computational Linguistics},
+          pages = {162--200},
+          doi = {10.18653/2026.uncertainlp-main.11},
+          url = {https://aclanthology.org/2026.uncertainlp-main.11/}
+        }
+
+    - venue: VISxAI Workshop at IEEE VIS 2026
+      date: 2026
+      title: "Byte-Pair Encoding Explainer: An Interactive Visualization for Understanding Subword Tokenization"
+      authors:
+        - firstname: Philip
+          lastname: Müller
+        - firstname: Peter
+          lastname: Steinbach
+      description: An interactive, browser-based visualization that teaches byte-pair encoding step by step, from vocabulary training to tokenizing new text.
+      links:
+        - label: Open Explainer
+          url: https://philipmueller.dev/bpe-explainer/
+        - label: Abstract
+          url: /documents/bpe_explainer_visxai_2026
+        - label: Conference Listing
+          url: https://ieeevis.org/year/2026/program/content/c86ca868-547d-469d-bd6f-ece2542a6a28/
+        - label: LinkedIn
+          url: https://www.linkedin.com/feed/update/urn:li:activity:7516064175488671744/
+
+    - venue: VISxAI Workshop at IEEE VIS 2026
+      date: 2026
+      title: "Superposition Explainer: Visualizing Feature Overcompression Through Guided Experimentation"
+      authors:
+        - firstname: Philip
+          lastname: Müller
+        - firstname: Peter
+          lastname: Steinbach
+      description: An interactive, browser-based tool for learning feature superposition through guided experiments with a live autoencoder model.
+      links:
+        - label: Open Explainer
+          url: https://philipmueller.dev/superposition-explainer/
+        - label: Abstract
+          url: /documents/superposition_explainer_visxai_2026
+        - label: Conference Listing
+          url: https://ieeevis.org/year/2026/program/content/3e3f079d-267e-44a9-ba13-09eb33a68a81/
+        - label: LinkedIn
+          url: https://www.linkedin.com/feed/update/urn:li:activity:7518600788911513600/
+
 posters:
   title: Posters
   items:
-    - venue: EurIPS 2025
+    - venue: Science of Benchmarking and Evaluating AI Workshop at EurIPS 2025
       date: December 2025
       title: "Reproducibility by Design: A Modular Framework for Benchmarking Evolving Probabilistic AI Systems"
       url: https://www.hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=42155
@@ -86,7 +161,7 @@ posters:
           lastname: Steinbach
       description: This poster presents a modular benchmarking framework designed to ensure reproducibility and transparency when evaluating probabilistic and resource-intensive AI systems, with a focus on uncertainty estimation for large language models. The framework decouples model execution from evaluation logic, enabling consistent, reusable, and longitudinal benchmarking as models and APIs evolve.
       links:
-        - label: Download Poster
+        - label: View Poster
           url: https://philipmueller.dev/assets/documents/Poster_EurIPS_2025_Reproducibility_Framework.pdf
         - label: Abstract
           url: https://philipmueller.dev/documents/eurips_2025_poster
@@ -94,7 +169,9 @@ posters:
         #          url: https://www.hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=42155
         - label: Conference Listing
           url: https://sites.google.com/view/benchmarking-and-evaluating-ai/home/accepted-posters#h.ll9ukx7hiunm
-    - venue: HAICON 2025
+        - label: Workshop Website
+          url: https://sites.google.com/view/benchmarking-and-evaluating-ai/home
+    - venue: Helmholtz AI Conference (HAICON 2025)
       date: June 2025
       title: Uncertainty Estimation of Large Language Model Replies in Natural Sciences
       url: https://hzdr.de/db/!Publications?pNid=head&pSelMenu=0&pSelTitle=41395
@@ -109,7 +186,7 @@ posters:
           lastname: Steinbach
       description: This poster presents a qualitative and quantitative evaluation of uncertainty metrics for large language models in scientific question answering. It assesses a range of theoretical approaches and benchmarks a subset of metrics for reliability, highlighting the strengths and limitations of token-level, verbalized, and consistency-based measures. The poster was awarded second place for Best Poster in an audience vote among 200 entries.
       links:
-        - label: Download Poster
+        - label: View Poster
           url: https://philipmueller.dev/assets/documents/Poster_HAICON_2025_LLM_Uncertainty_Quantification.pdf
         - label: Abstract
           url: https://philipmueller.dev/documents/haicon_2025_poster
